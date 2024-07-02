@@ -1,0 +1,198 @@
+/* Override file app.css e bootstrap */
+:root {
+	/*
+	--color-sidebar: #333846;
+	--color-sidebar-light: #464A57;
+	--color-sidebar-ultra-light: #464a57cc;
+	--color-light-blu:#ACCDF8;
+	*/
+	--bs-light-rgb: 248,249,250;
+	--bs-tertiary-bg: #f8f9fa;
+	--bs-secondary-rgb: 108,117,125;
+	--c--primary--light: #EAF3FD;
+}
+
+
+
+/* Badge di dimensione fissa */
+.badge-sm{
+	min-width: 60px;
+	font-size:1.3rem;	
+}
+
+/* Badge per le risorse nel planner ( da eliminare quando vecchio planner sostituito )*/
+.badge-risorsa {
+	font-size: 1.2rem;
+	font-weight: 600;
+	padding: 5px 9px;
+	border-radius: 4px;
+	line-height: 1;
+	text-align: center;
+	min-width:50px;
+	border: 1px rgba(var(--bs-secondary-rgb),1) solid;
+	background-color: rgba(var(--bs-light-rgb),1)!important;
+    color: rgba(var(--bs-secondary-rgb),1)!important;
+}
+
+/* Badge circolare */
+.badge-circle {
+	text-align: center;
+	float: left;
+	margin-right: 12px;
+	color: white;
+	width: 24px;
+	height: 24px;
+	font-size: 19.5px;
+	border-radius: 18px;
+	margin-top: 2px;
+}
+
+/* Bordi rotondeggianti*/
+.radius{
+	border-radius: 8px;
+}
+
+.radius-top{
+	border-radius: 8px 8px 0px 0px;
+}
+
+.radius-bottom{
+	border-radius: 0px 0px 8px 8px;
+}
+
+/* Toast */
+.toast-header{
+	font-size:1.2rem!important;
+}
+
+.toast-body{
+	font-size:1.5rem!important;
+}
+
+
+.table-hover-custom > tbody > tr:hover {
+    background-color: var(--c--primary--light);
+}
+	
+.tpl--content {
+	overflow-x: hidden;
+}
+
+
+@media (max-width: 576px) { 
+	.tpl--content--inner{
+		margin-top: 5rem;
+		padding:0rem 1rem;
+	}
+
+}
+
+/* Media Query per Telefoni */
+@media (max-width: 767.98px) { 
+	h1{
+		margin-top:40px;
+	}
+}
+/* END Media Query per Telefoni */
+
+/* Media Query per Tablet */
+@media (min-width: 576px) and (max-width:1023px) { 
+	.user-button{
+		margin-bottom: 90px!important;
+	}
+}
+/* END Media Query per Tablet */
+
+/* Media Query per Stampa CTRL + P */
+@media print {
+	
+	body{
+		font-size: 12px!important;
+		width: 100%!important;
+	}
+	
+	/* Nasconde la sidebar durante la stampa */
+	div .tpl--sidenav{
+        display: none; 
+    }
+	
+	/* Riprend elo spazio precedentemente eliminato dalla sidebar */
+	.tpl--content--inner{
+		width: 100%!important;
+	}
+	
+	.dx-datagrid-summary-item{
+		font-size: 12px!important;
+	}
+	
+	.dx-datagrid-table td{
+		font-size: 12px!important;
+	}
+	
+	/* Colonne per la stampa */
+	.col-print-auto {
+		flex: 0 0 auto;
+		width: auto!important
+	}
+
+	.col-print-1 {
+		flex: 0 0 auto;
+		width: 8.33333333%!important
+	}
+
+	.col-print-2 {
+		flex: 0 0 auto;
+		width: 16.66666667%!important
+	}
+
+	.col-print-3 {
+		flex: 0 0 auto;
+		width: 25%!important
+	}
+
+	.col-print-4 {
+		flex: 0 0 auto;
+		width: 33.33333333%!important
+	}
+
+	.col-print-5 {
+		flex: 0 0 auto;
+		width: 41.66666667%!important
+	}
+
+	.col-print-6 {
+		flex: 0 0 auto;
+		width: 50%!important
+	}
+
+	.col-print-7 {
+		flex: 0 0 auto;
+		width: 58.33333333%!important
+	}
+
+	.col-print-8 {
+		flex: 0 0 auto;
+		width: 66.66666667%!important
+	}
+
+	.col-print-9 {
+		flex: 0 0 auto;
+		width: 75%!important
+	}
+
+	.col-print-10 {
+		flex: 0 0 auto;
+		width: 83.33333333%!important
+	}
+
+	.col-print-11 {
+		flex: 0 0 auto;
+		width: 91.66666667%!important
+	}
+
+	.col-print-12 {
+		flex: 0 0 auto;
+		width: 100%!important
+	}
+   
+}
