@@ -432,7 +432,7 @@
                                                                         <?php if ($row['image_path']) { ?>
                                                                             <img src="../image/player/<?php echo $row['image_path'];?>" class="rounded-circle " alt="<?php echo $row['cognome'].' '.$row['nome'];?>" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>" width="30" height="30"/>
                                                                         <?php } else { ?>
-                                                                            <img src="../image/default_user.jpg" class="rounded-circle" alt="Immagine di default" data-player-name="<?php echo $row['player_name'];?>" width="30" height="30" />
+                                                                            <img src="../image/default_user.jpg" class="rounded-circle" alt="Immagine di default" data-player-name="<?php echo $row['cognome'] .' ' .$row['nome'];?>" width="30" height="30" />
                                                                         <?php } ?>
                                                                     </td>
                                                                     <!-- Nome e cognome -->
@@ -532,7 +532,7 @@
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form id="insertForm" method="post" action="../comunicazioni_telegram.php">
+                                                        <form id="insertForm" method="post" action="comunicazioni_telegram.php">
                                                             <div class="row">
                                                                 <!-- Nome -->
                                                                 <div class="col-12 mb-3">

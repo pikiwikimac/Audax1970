@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once('../config/db.php');
 
 // Controlla se l'utente è loggato, altrimenti reindirizza alla pagina di login
@@ -16,6 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Array contenente gli ID dei giocatori convocati
     $convocati = $_POST['presenza'];
 
+    $societa_id=$_SESSION['id_societa_riferimento'];
+    
     // Verifica se almeno un giocatore è stato selezionato
     if (!empty($convocati)) {
         // Cancella le convocazioni precedenti per la stessa partita
@@ -23,11 +25,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($con->query($delete_query) === TRUE) {
             // Prepara la query per inserire i nuovi giocatori convocati
-            $insert_query = "INSERT INTO convocazioni (id_partita, id_giocatore) VALUES ";
+            $insert_query = "INSERT INTO convocazioni (id_partita, id_giocatore,id_societa) VALUES ";
             $values = array();
 
             foreach ($convocati as $giocatore_id) {
-                $values[] = "($id_partita, $giocatore_id)";
+                $values[] = "($id_partita, $giocatore_id, $societa_id)";
             }
 
             $insert_query .= implode(", ", $values);

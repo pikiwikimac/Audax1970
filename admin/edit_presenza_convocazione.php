@@ -467,7 +467,7 @@
           var orario_convocazione = document.getElementById('orario_convocazione').value;
           
           // Reindirizza all'URL di Telegram con i valori come parametri GET
-          window.location.href = "../convocazioni_telegram.php?id=" + id + "&luogo_convocazione=" + luogo_convocazione + "&orario_convocazione=" + orario_convocazione;
+          window.location.href = "convocazioni_telegram.php?id=" + id + "&luogo_convocazione=" + luogo_convocazione + "&orario_convocazione=" + orario_convocazione;
       }
     </script>
 
