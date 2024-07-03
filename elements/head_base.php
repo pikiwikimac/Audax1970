@@ -10,9 +10,9 @@
     <meta name="google-site-verification" content="+nxGUDJ4QpAZ5l9Bsjdi102tLVC21AIh5d1Nl23908vVuFHs34=">
     <meta name="robots" content="nofollow">
     
-    <meta property="og:title" content="Nome della squadra di futsal - Campionato Serie D Marchigiano">
-    <meta property="og:description" content="Squadra di futsal che nasce quest’anno e affronterà il campionato di serie D marchigiano.">
-    <meta property="og:image" content="../image/logo.jpg">
+    <meta property="og:title" content="Audax 1970 - Campionato Serie A2">
+    <meta property="og:description" content="Campioni Serie B 2023/2024">
+    <meta property="og:image" content="../image/loghi/audax.jpeg">
 
     
     <!-- Bootstrap -->
@@ -45,3 +45,5 @@
     <link rel="icon" type="image/png" sizes="192x192" href="image/loghi/audax.jpeg">
 
 </head>
+
+

@@ -215,17 +215,20 @@
     <div class="" >
       <!-- Articoli  -->
       <div class="container my-5">
-        <div class="row g-5">
         
-          <div class="col-12">
-            <span class="fs-2 fw-bold" id="font_diverso">Articoli</span>
-          </div>
-          
+        <span class="fs-2 fw-bold" id="font_diverso">Articoli</span>
+        <hr/>
+
+        <div class="row g-5">
           <?php while ($articolo = mysqli_fetch_assoc($articoli)) { ?>
-            <div class="col-6 col-lg-3">
+            <div class="col-12 col-lg-3">
               <a href="articolo.php?id=<?php echo $articolo['id'] ?>" class="text-decoration-none">
                 <div class="card h-100">
-                  <img src="image/articoli/<?php echo $articolo['immagine_url'] ?>" class="card-img-top" alt="..." style="max-height:250px">
+                  <?php if($articolo['immagine_url']){ ?>
+                    <img src="image/articoli/<?php echo $articolo['immagine_url'] ?>" class="card-img-top" alt="..." style="max-height:250px">
+                  <?php }else{ ?>
+                    <img src="image/lnd_a2.png" class="card-img-top" alt="..." style="max-height:250px">
+                  <?php } ?>
                   <div class="card-body">
                     <?php if($articolo['id_stagione'] !== null || $articolo['id_stagione'] !== 999){ ?>
                     <div class="card-img-overlay">
@@ -265,8 +268,8 @@
         </div>
       </div>
 
-      <!-- Descrizione  -->
-      <div class="container my-5">
+      <!-- Prossima partita & Ultima partita  -->
+      <div class="container my-5 d-none">
         <div class="row row-cols-1 row-cols-lg-2 g-4">
 
           <!-- Card: Ultimo match -->
@@ -486,8 +489,8 @@
           <!-- END Card: Prossimo match -->
         </div>
       </div>
-      
-      <div class="container my-5">
+      <!-- Giocatori & Classifica -->
+      <div class="container my-5 d-none">
         <div class="row gy-3">
           <!-- Tabella rosa -->
           <div class="col-12 col-lg-6 table-responsive">

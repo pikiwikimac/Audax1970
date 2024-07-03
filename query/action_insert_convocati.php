@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 require_once('../config/db.php');
 
 // Controlla se l'utente è loggato, altrimenti reindirizza alla pagina di login

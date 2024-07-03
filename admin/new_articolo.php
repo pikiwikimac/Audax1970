@@ -77,14 +77,13 @@
                                   <!-- Squadra -->
                                   <div class="col-12 col-sm-6 col-lg-2">
                                     <label for="autore" class="form-label">Autore</label>
-                                    <input type="text" class="form-control" id="autore" name="autore"></input>
+                                    <input type="text" class="form-control" id="autore" name="autore" value="Redazione"></input>
                                   </div>
                                   <!-- Stagione -->
                                   <div class="col-6 col-sm-6 col-lg-2">
                                     <label for="id_stagione" class="form-label">Competizione</label>
                                     <select class="form-select" id="id_stagione" name="id_stagione">
                                       <!-- Opzioni per la squadra ospite -->
-                                      <option value="999">-</option>
                                       <?php
                                         $sql = "SELECT * FROM `stagioni` ORDER BY id_stagione desc";
                                         $stagioni = mysqli_query($con, $sql);

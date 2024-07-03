@@ -99,10 +99,10 @@ $pdf = new FPDF();
 $pdf->AddPage();
 
 // Aggiungi logo in alto a sinistra
-$pdf->Image('../image/logo.jpg', 10, 10, 30);
+$pdf->Image('../image/loghi/audax.jpeg', 10, 10, 30);
 
 // Aggiungi logo in alto a destra
-$pdf->Image('../image/lnd.png', $pdf->GetPageWidth()-40, 10, 30);
+$pdf->Image('../image/lnd_a2.png', $pdf->GetPageWidth()-40, 10, 30);
 
 // Intestazione Società
 $pdf->SetFont('Helvetica', 'B', 16);
@@ -115,7 +115,7 @@ $pdf->Cell(0, 8, $valmisa['sede']. ' - ' .$valmisa['citta'] , 0, 1,'C');
 
 // Campionato
 $pdf->SetFont('Helvetica', 'B', 10);
-$pdf->Cell(0, 8, 'Campionato Serie D - Girona A 2023/2024 ' , 0, 1,'C');
+$pdf->Cell(0, 8, 'Campionato Serie A2 - Girona A 2024/2025 ' , 0, 1,'C');
 $pdf->Ln(5);
 $pdf->Cell(0, 8, $squadra_casa.' - '.$squadra_ospite , 0, 1,'C');
 $pdf->Ln(0);

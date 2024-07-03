@@ -90,7 +90,7 @@
 							</li>
 							<?php if($_SESSION['superuser'] === 1 ){?>
 							<li class="sub-menu-voice">
-								<a href="materiali.php">Gestione materiali</a>
+								<a href="materiali.php?id_societa=<?php echo $id_societa ?>">Gestione materiali</a>
 							</li>
 							<?php } ?>
 							
@@ -144,11 +144,11 @@
 							
 							
 							<li class="sub-menu-voice">
-								<a href="classifica_admin.php">Classifica</a>
+								<a href="classifica_admin.php?id_societa=<?php echo $id_societa ?>">Classifica</a>
 							</li>
 							
 							<li class="sub-menu-voice">
-								<a href="classifica_marcatori.php">Marcatori</a>
+								<a href="classifica_marcatori.php?id_societa=<?php echo $id_societa ?>">Marcatori</a>
 							</li>
 						</ul>
 					</div>
@@ -172,7 +172,7 @@
 							
 							
 							<li class="sub-menu-voice">
-								<a href="allenamenti_admin.php">Gestione allenamenti</a>
+								<a href="allenamenti_admin.php?id_societa=<?php echo $id_societa ?>">Gestione allenamenti</a>
 							</li>
 							
 						</ul>

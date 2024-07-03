@@ -25,16 +25,9 @@
       JOIN partite p
       ON a.id_partita = p.id
       WHERE a.id_giocatore = g.id
-      AND p.id_stagione IN ('$stagione','$coppa_marche')
+      AND p.id_stagione IN ('$stagione')
     ), 0) AS numero_ammonizioni,
-    COALESCE((
-      SELECT COUNT(*)
-      FROM ammoniti a
-      JOIN partite p
-      ON a.id_partita = p.id
-      WHERE a.id_giocatore = g.id
-      AND p.id_stagione IN ('$coppa_marche')
-    ), 0) AS numero_ammonizioni_coppa,
+
     COALESCE((
       SELECT COUNT(*)
       FROM ammoniti a
@@ -49,16 +42,9 @@
       JOIN partite p
       ON r.id_partita = p.id
       WHERE r.id_giocatore = g.id
-      AND p.id_stagione IN ('$stagione','$coppa_marche')
+      AND p.id_stagione IN ('$stagione')
     ), 0) AS numero_espulsioni,
-    COALESCE((
-      SELECT COUNT(*)
-      FROM rossi r
-      JOIN partite p
-      ON r.id_partita = p.id
-      WHERE r.id_giocatore = g.id
-      AND p.id_stagione IN ('$coppa_marche')
-    ), 0) AS numero_espulsioni_coppa,
+
     COALESCE((
       SELECT COUNT(*)
       FROM rossi r
@@ -73,16 +59,9 @@
       JOIN partite p
       ON m.id_partita = p.id
       WHERE m.id_giocatore = g.id
-      AND p.id_stagione IN ('$stagione', '$coppa_marche')
+      AND p.id_stagione IN ('$stagione')
     ), 0) AS numero_gol,
-    COALESCE((
-      SELECT COUNT(*)
-      FROM marcatori m
-      JOIN partite p
-      ON m.id_partita = p.id
-      WHERE m.id_giocatore = g.id
-      AND p.id_stagione = '$coppa_marche'
-    ), 0) AS numero_gol_coppa,
+    
     COALESCE((
       SELECT COUNT(*)
       FROM marcatori m
@@ -101,15 +80,9 @@
       FROM convocazioni c
       INNER JOIN partite p ON p.id = c.id_partita
       WHERE c.id_giocatore = g.id
-      AND p.id_stagione IN ('$stagione','$coppa_marche')
+      AND p.id_stagione IN ('$stagione')
     ), 0) AS convocazioni,
-    COALESCE((
-      SELECT COUNT(*)
-      FROM convocazioni c
-      INNER JOIN partite p ON p.id = c.id_partita
-      WHERE c.id_giocatore = g.id
-      AND p.id_stagione IN ('$coppa_marche')
-    ), 0) AS convocazioni_coppa,
+    
     COALESCE((
       SELECT COUNT(*)
       FROM convocazioni c
@@ -126,7 +99,6 @@
   
   $giocatori = mysqli_query($con, $query);
   
-
   
 
   #Query che conta tutti i giocatori
@@ -235,7 +207,7 @@
                           <?php } ?>    
                         </div>
                         <div class="col-12 table-responsive">
-                          <table class="table table-sm table-hover table-striped table-rounded sortable" id="tabella-giocatori">
+                          <table class="table table-sm table-hover table-striped table-rounded sortable mt-3" id="tabella-giocatori">
 
                             <caption><?php echo $numero_giocatori['numero_giocatori'] ?> giocatori totali</caption>
 
@@ -272,7 +244,7 @@
                                   <?php if ($row['image_path']) { ?>
                                     <img src="../image/player/<?php echo $row['image_path'];?>" class="rounded-circle image-clickable" alt="<?php echo $row['cognome'].' '.$row['nome'];?>" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>" width="30" height="30"/>
                                   <?php } else { ?>
-                                    <img src="../image/player/user.jpg" class="rounded-circle" alt="Immagine di default" data-player-name="<?php echo $row['player_name'];?>" width="30" height="30" />
+                                    <img src="../image/default_user.jpg" class="rounded-circle" alt="Immagine di default" data-player-name="<?php echo $row['player_name'];?>" width="30" height="30" />
                                   <?php } ?>
                                 </td>
 
@@ -351,7 +323,11 @@
                                 
                                 <!-- Allenamenti -->
                                 <td class="text-center">
-                                  <?php echo number_format($row['numero_allenamenti'] / $tot_allenamenti_svolti['tot_allenamenti'] * 100, 0) ?> %
+                                  <?php if($row['convocazioni']==='0'){
+                                    echo '-';
+                                  }else{
+                                    echo number_format($row['numero_allenamenti'] / $tot_allenamenti_svolti['tot_allenamenti'] * 100, 0) .' %'; 
+                                  } ?> 
                                 </td>
                                 
                                 <!-- Convocazioni -->

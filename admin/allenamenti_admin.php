@@ -17,6 +17,8 @@
   $allenamentiProssimi = mysqli_query($con,$query);
   $allenamentiSvolti = mysqli_query($con,$query2);
 
+  $id_societa=$_REQUEST['$id_societa'];
+
 ?>
 
 
@@ -460,6 +462,7 @@
                   <textarea  class="form-control" id="note" name="note" rows="3"></textarea>
                 </div>
               </div>
+              <input type="hidden" value="<?php echo $id_societa ?>" name="id_societa" id="id_societa"/>
               <!-- Aggiungi altri campi per l'inserimento se necessario -->
             </form>
           </div>

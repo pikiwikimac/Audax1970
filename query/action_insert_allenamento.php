@@ -8,13 +8,13 @@ $url_provenienza = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 
 // Verifichiamo che i dati siano stati inviati tramite il metodo POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Utilizziamo le istruzioni preparate per evitare SQL injection
-    $sql = "INSERT INTO allenamenti (data, luogo, note, stato, tipologia, orario) VALUES (?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO allenamenti (data, luogo, note, stato, tipologia, orario,id_societa) VALUES (?, ?, ?, ?, ?, ?,?)";
     $stmt = mysqli_prepare($con, $sql);
 
     // Verifichiamo se la preparazione dello statement è avvenuta con successo
     if ($stmt) {
         // Associamo i parametri con i tipi corrispondenti
-        mysqli_stmt_bind_param($stmt, "ssssss", $data, $luogo, $note, $stato, $tipologia, $orario);
+        mysqli_stmt_bind_param($stmt, "ssssssi", $data, $luogo, $note, $stato, $tipologia, $orario,$id_societa);
 
         // Definiamo i valori dei parametri dalle variabili $_POST
         $data = $_POST['data'];
@@ -23,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stato = $_POST['stato'];
         $orario = $_POST['orario'];
         $tipologia = $_POST['tipologia'];
+        $id_societa = $_POST['id_societa'];
 
         // Eseguiamo lo statement
         if (mysqli_stmt_execute($stmt)) {

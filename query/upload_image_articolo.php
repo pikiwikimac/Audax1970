@@ -10,10 +10,8 @@ require_once('../config/db.php');
 
 $id = $_POST['id'];
 
-
-
 // Verifica se è stato inviato un file
-if (isset($_FILES['playerImage'])) {
+if (isset($_FILES['playerImage']) && $_FILES['playerImage']['error'] == UPLOAD_ERR_OK) {
     $file_name = $_FILES['playerImage']['name'];
     $file_size = $_FILES['playerImage']['size'];
     $file_tmp = $_FILES['playerImage']['tmp_name'];
@@ -29,13 +27,18 @@ if (isset($_FILES['playerImage'])) {
         if ($file_size <= $max_size) {
             $target_dir = "../image/articoli/";
             $target_file = $target_dir . $id . "." . $file_ext;
-            
+
+            // Elimina il file esistente se presente
+            if (file_exists($target_file)) {
+                unlink($target_file);
+            }
+
             // Sposta il file dalla cartella temporanea alla cartella target
             if (move_uploaded_file($file_tmp, $target_file)) {
                 // Aggiorna il percorso dell'immagine nel database
                 $update_query = "UPDATE articoli SET immagine_url = '$id.$file_ext' WHERE id = '$id'";
                 mysqli_query($con, $update_query);
-                header("Location: ../admin/edit_articolo.php?id=$id");
+                header("Location: ../admin/edit_articolo.php?id=$id&v=" . time());
                 exit;
             } else {
                 echo "Errore durante il caricamento del file.";
@@ -47,6 +50,6 @@ if (isset($_FILES['playerImage'])) {
         echo "Sono consentiti solo file di tipo JPG, JPEG, PNG e GIF.";
     }
 } else {
-    echo "Nessun file inviato.";
+    echo "Nessun file inviato o errore nel caricamento del file.";
 }
 ?>

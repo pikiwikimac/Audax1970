@@ -429,7 +429,11 @@
                                                                 <tr onclick="window.location='player.php?id=<?php echo $row['id']; ?>';" style="cursor:pointer" class="align-middle">
                                                                     <!-- Immagine -->
                                                                     <td>
-                                                                        <img src="../image/player/<?php echo $row['image_path']; ?>" class="rounded-circle " alt="..." width="20" height="20"/>
+                                                                        <?php if ($row['image_path']) { ?>
+                                                                            <img src="../image/player/<?php echo $row['image_path'];?>" class="rounded-circle " alt="<?php echo $row['cognome'].' '.$row['nome'];?>" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>" width="30" height="30"/>
+                                                                        <?php } else { ?>
+                                                                            <img src="../image/default_user.jpg" class="rounded-circle" alt="Immagine di default" data-player-name="<?php echo $row['player_name'];?>" width="30" height="30" />
+                                                                        <?php } ?>
                                                                     </td>
                                                                     <!-- Nome e cognome -->
                                                                     <td class="" >
