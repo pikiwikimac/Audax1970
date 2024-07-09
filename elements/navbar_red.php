@@ -102,6 +102,10 @@
         <li class="nav-item me-3 ">
           <a class="nav-link text-light <?php if ($_SERVER['PHP_SELF'] === '/articoli.php') echo 'active'; ?>" href="articoli.php" id="articoli" name="articoli">Articoli</a>
         </li>
+        <!--  -->
+        <li class="nav-item me-3 ">
+          <a class="nav-link text-light <?php if ($_SERVER['PHP_SELF'] === '/shop.php') echo 'active'; ?>" href="shop.php" id="shop" name="shop">Shop</a>
+        </li>
       </ul>
       <div class="d-flex">
         <a class="text-decoration-none me-2 text-light" href="https://www.facebook.com/ssaudax1970">
