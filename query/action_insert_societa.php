@@ -20,6 +20,7 @@ $email = isset($_POST['email']) ? $_POST['email'] : null;
 $whatsapp = isset($_POST['whatsapp']) ? $_POST['whatsapp'] : null;
 $instagram = isset($_POST['instagram']) ? $_POST['instagram'] : null;
 $sito_web = isset($_POST['sito_web']) ? $_POST['sito_web'] : null;
+$parent_id = isset($_POST['parent_id']) ? $_POST['parent_id'] : null;
 
 // Initialize an array to hold the columns and an array to hold the values
 $columns = [];
@@ -92,6 +93,10 @@ if (!is_null($instagram)) {
 if (!is_null($sito_web)) {
     $columns[] = 'sito_web';
     $values[] = "'$sito_web'";
+}
+if ($parent_id != 0) {
+    $columns[] = 'parent_id';
+    $values[] = "'$parent_id'";
 }
 
 

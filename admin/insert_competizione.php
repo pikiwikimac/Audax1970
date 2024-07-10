@@ -103,7 +103,7 @@
                                     <label for="prima_squadra" class="form-label">Squadra</label>
                                     <select class="form-select" id="prima_squadra" name="prima_squadra">
                                       <option value="1">Prima squadra</option>
-                                      <option value="0">Settore giovanile</option>
+                                      <option value="2">Settore giovanile</option>
                                     </select>
                                   </div>
                                     

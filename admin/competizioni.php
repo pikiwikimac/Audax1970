@@ -107,11 +107,11 @@
                                 </td>
                                 
                                 <td>
-                                  <?php if($row['prima_squadra']===0){
+                                  <?php if($row['prima_squadra'] ==1){
+                                    echo 'Prima squadra';
+                                  }else{
                                     echo 'Settore giovanile';
-                                    }else{
-                                      echo 'Prima squadra';
-                                    } ?> 
+                                  } ?> 
                                 </td>
                                 
                                 <td class="text-end">

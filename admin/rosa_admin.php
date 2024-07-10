@@ -10,98 +10,135 @@
 
   $username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
   $image = isset($_SESSION['image']) ? $_SESSION['image'] : null; 
-  $superuser=  $_SESSION['superuser'];
+  $superuser = $_SESSION['superuser'];
   
-  $id_societa=$_REQUEST['id_societa'];
-  $stagione=1;
-  $coppa_marche=2;
+  $id_societa = $_REQUEST['id_societa'];
+  $id_societa_squadra_admin = $_SESSION['id_societa_riferimento'];
 
-  #Query che seleziona tutti i giocatori di una determinata squadra
+  $stagione = 1;
+  $coppa_marche = 2;
+
+  # Query che seleziona tutti i giocatori di una determinata squadra
   $query = "
-  SELECT g.*, 
-    COALESCE((
-      SELECT COUNT(*)
-      FROM ammoniti a
-      JOIN partite p
-      ON a.id_partita = p.id
-      WHERE a.id_giocatore = g.id
-      AND p.id_stagione IN ('$stagione')
-    ), 0) AS numero_ammonizioni,
-
-    COALESCE((
-      SELECT COUNT(*)
-      FROM ammoniti a
-      JOIN partite p
-      ON a.id_partita = p.id
-      WHERE a.id_giocatore = g.id
-      AND p.id_stagione IN ('$stagione')
-    ), 0) AS numero_ammonizioni_campionato,
-    COALESCE((
-      SELECT COUNT(*)
-      FROM rossi r
-      JOIN partite p
-      ON r.id_partita = p.id
-      WHERE r.id_giocatore = g.id
-      AND p.id_stagione IN ('$stagione')
-    ), 0) AS numero_espulsioni,
-
-    COALESCE((
-      SELECT COUNT(*)
-      FROM rossi r
-      JOIN partite p
-      ON r.id_partita = p.id
-      WHERE r.id_giocatore = g.id
-      AND p.id_stagione IN ('$stagione')
-    ), 0) AS numero_espulsioni_campionato,
-    COALESCE((
-      SELECT COUNT(*)
-      FROM marcatori m
-      JOIN partite p
-      ON m.id_partita = p.id
-      WHERE m.id_giocatore = g.id
-      AND p.id_stagione IN ('$stagione')
-    ), 0) AS numero_gol,
-    
-    COALESCE((
-      SELECT COUNT(*)
-      FROM marcatori m
-      JOIN partite p
-      ON m.id_partita = p.id
-      WHERE m.id_giocatore = g.id
-      AND p.id_stagione = '$stagione'
-    ), 0) AS numero_gol_campionato,
-    COALESCE((
-      SELECT COUNT(*)
-      FROM partecipazione_allenamenti pa
-      WHERE pa.id_giocatore = g.id
-    ), 0) AS numero_allenamenti,
-    COALESCE((
-      SELECT COUNT(*)
-      FROM convocazioni c
-      INNER JOIN partite p ON p.id = c.id_partita
-      WHERE c.id_giocatore = g.id
-      AND p.id_stagione IN ('$stagione')
-    ), 0) AS convocazioni,
-    
-    COALESCE((
-      SELECT COUNT(*)
-      FROM convocazioni c
-      INNER JOIN partite p ON p.id = c.id_partita
-      WHERE c.id_giocatore = g.id
-      AND p.id_stagione IN ('$stagione')
-    ), 0) AS convocazioni_campionato
-  FROM giocatori g
-  INNER JOIN affiliazioni_giocatori ag ON ag.id_giocatore = g.id
-  WHERE ag.id_societa = '$id_societa'
+  WITH ammonizioni AS (
+  SELECT a.id_giocatore, p.id_stagione, COUNT(*) AS count
+  FROM ammoniti a
+  JOIN partite p ON a.id_partita = p.id
+  WHERE p.id_stagione IN ('$stagione', '$coppa_marche')
+  GROUP BY a.id_giocatore, p.id_stagione
+),
+espulsioni AS (
+  SELECT r.id_giocatore, p.id_stagione, COUNT(*) AS count
+  FROM rossi r
+  JOIN partite p ON r.id_partita = p.id
+  WHERE p.id_stagione IN ('$stagione', '$coppa_marche')
+  GROUP BY r.id_giocatore, p.id_stagione
+),
+gol AS (
+  SELECT m.id_giocatore, p.id_stagione, COUNT(*) AS count
+  FROM marcatori m
+  JOIN partite p ON m.id_partita = p.id
+  WHERE p.id_stagione IN ('$stagione', '$coppa_marche')
+  GROUP BY m.id_giocatore, p.id_stagione
+),
+allenamenti AS (
+  SELECT pa.id_giocatore, COUNT(*) AS count
+  FROM partecipazione_allenamenti pa
+  GROUP BY pa.id_giocatore
+),
+convocazioni AS (
+  SELECT c.id_giocatore, p.id_stagione, COUNT(*) AS count
+  FROM convocazioni c
+  JOIN partite p ON p.id = c.id_partita
+  WHERE p.id_stagione IN ('$stagione', '$coppa_marche')
+  GROUP BY c.id_giocatore, p.id_stagione
+)
+SELECT g.*,
+  COALESCE(ammonizioni_tot.count, 0) AS numero_ammonizioni,
+  COALESCE(ammonizioni_coppa.count, 0) AS numero_ammonizioni_coppa,
+  COALESCE(ammonizioni_campionato.count, 0) AS numero_ammonizioni_campionato,
+  COALESCE(espulsioni_tot.count, 0) AS numero_espulsioni,
+  COALESCE(espulsioni_coppa.count, 0) AS numero_espulsioni_coppa,
+  COALESCE(espulsioni_campionato.count, 0) AS numero_espulsioni_campionato,
+  COALESCE(gol_tot.count, 0) AS numero_gol,
+  COALESCE(gol_coppa.count, 0) AS numero_gol_coppa,
+  COALESCE(gol_campionato.count, 0) AS numero_gol_campionato,
+  COALESCE(allenamenti.count, 0) AS numero_allenamenti,
+  COALESCE(convocazioni_tot.count, 0) AS convocazioni,
+  COALESCE(convocazioni_coppa.count, 0) AS convocazioni_coppa,
+  COALESCE(convocazioni_campionato.count, 0) AS convocazioni_campionato
+FROM giocatori g
+INNER JOIN affiliazioni_giocatori ag ON ag.id_giocatore = g.id
+LEFT JOIN (
+  SELECT id_giocatore, SUM(count) AS count
+  FROM ammonizioni
+  GROUP BY id_giocatore
+) ammonizioni_tot ON g.id = ammonizioni_tot.id_giocatore
+LEFT JOIN (
+  SELECT id_giocatore, count AS count
+  FROM ammonizioni
+  WHERE id_stagione = '$coppa_marche'
+) ammonizioni_coppa ON g.id = ammonizioni_coppa.id_giocatore
+LEFT JOIN (
+  SELECT id_giocatore, count AS count
+  FROM ammonizioni
+  WHERE id_stagione = '$stagione'
+) ammonizioni_campionato ON g.id = ammonizioni_campionato.id_giocatore
+LEFT JOIN (
+  SELECT id_giocatore, SUM(count) AS count
+  FROM espulsioni
+  GROUP BY id_giocatore
+) espulsioni_tot ON g.id = espulsioni_tot.id_giocatore
+LEFT JOIN (
+  SELECT id_giocatore, count AS count
+  FROM espulsioni
+  WHERE id_stagione = '$coppa_marche'
+) espulsioni_coppa ON g.id = espulsioni_coppa.id_giocatore
+LEFT JOIN (
+  SELECT id_giocatore, count AS count
+  FROM espulsioni
+  WHERE id_stagione = '$stagione'
+) espulsioni_campionato ON g.id = espulsioni_campionato.id_giocatore
+LEFT JOIN (
+  SELECT id_giocatore, SUM(count) AS count
+  FROM gol
+  GROUP BY id_giocatore
+) gol_tot ON g.id = gol_tot.id_giocatore
+LEFT JOIN (
+  SELECT id_giocatore, count AS count
+  FROM gol
+  WHERE id_stagione = '$coppa_marche'
+) gol_coppa ON g.id = gol_coppa.id_giocatore
+LEFT JOIN (
+  SELECT id_giocatore, count AS count
+  FROM gol
+  WHERE id_stagione = '$stagione'
+) gol_campionato ON g.id = gol_campionato.id_giocatore
+LEFT JOIN allenamenti ON g.id = allenamenti.id_giocatore
+LEFT JOIN (
+  SELECT id_giocatore, SUM(count) AS count
+  FROM convocazioni
+  GROUP BY id_giocatore
+) convocazioni_tot ON g.id = convocazioni_tot.id_giocatore
+LEFT JOIN (
+  SELECT id_giocatore, count AS count
+  FROM convocazioni
+  WHERE id_stagione = '$coppa_marche'
+) convocazioni_coppa ON g.id = convocazioni_coppa.id_giocatore
+LEFT JOIN (
+  SELECT id_giocatore, count AS count
+  FROM convocazioni
+  WHERE id_stagione = '$stagione'
+) convocazioni_campionato ON g.id = convocazioni_campionato.id_giocatore
+WHERE ag.id_societa = '$id_societa'
   AND ag.data_fine IS NULL
-  ORDER BY ruolo, cognome, nome ASC;
+ORDER BY ruolo, cognome, nome ASC;
+
   ";
-  
+
   $giocatori = mysqli_query($con, $query);
   
-  
-
-  #Query che conta tutti i giocatori
+  # Query che conta tutti i giocatori
   $query2 = "
   SELECT count(*) as numero_giocatori
   FROM giocatori g
@@ -111,7 +148,6 @@
 
   $result = mysqli_query($con,$query2);
   $numero_giocatori = mysqli_fetch_assoc($result);
-
 
   $query3 = "
   SELECT count(*) as tot_allenamenti
@@ -133,16 +169,16 @@
       $query4 = "
       SELECT s.nome_societa, s.id, s.tipo
       FROM societa s
-      WHERE s.parent_id = '$parent_id'
-      OR s.id = '$parent_id'
+      WHERE s.parent_id = '$id_societa_squadra_admin'
+      OR s.id = '$id_societa_squadra_admin'
       ";
   } else {
       // Se parent_id è null, selezionare la società con id_societa e tutte le sue società figlie
       $query4 = "
       SELECT s.nome_societa, s.id, s.tipo
       FROM societa s
-      WHERE s.id = '$id_societa'
-      OR s.parent_id = '$id_societa'
+      WHERE s.id = '$id_societa_squadra_admin'
+      OR s.parent_id = '$id_societa_squadra_admin'
       ";
   }
 
@@ -153,7 +189,6 @@
 
 
 <!doctype html>
-
 <html lang="it">
   <!-- Head -->
   <?php include '../elements/head.php'; ?>
@@ -174,14 +209,14 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h1 >
+                        <h1>
                           Rosa
                         </h1>
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
                           <?php if($_SESSION['superuser'] === 1 ){ ?>
-                          <a href="insert_player.php" type="button" class="btn  btn-outline-dark ">
-                            <i class='bx bx-plus '></i> 
+                          <a href="insert_player.php" type="button" class="btn btn-outline-dark">
+                            <i class='bx bx-plus'></i> 
                           </a>
                           <?php } ?>
                           
@@ -198,9 +233,9 @@
                     <div class="">
                       <div class="row mb-3">
                         <div class="col-12">
-                          <?php while($row = mysqli_fetch_assoc($societa_collegate)) {  ?>
+                          <?php while($row = mysqli_fetch_assoc($societa_collegate)) { ?>
                             <a class="text-decoration-none text-white" href="rosa_admin.php?id_societa=<?php echo $row['id'] ?>">
-                              <span class="badge bg-secondary text-white">
+                              <span class="badge bg-secondary" style="font-size:12px;padding:8px">
                                 <?php echo $row['tipo'] ?>
                               </span>  
                             </a>
@@ -212,9 +247,7 @@
                             <caption><?php echo $numero_giocatori['numero_giocatori'] ?> giocatori totali</caption>
 
                             <thead class="table-dark">
-
                               <tr>
-
                                 <th></th>
                                 <th>Nome</th>
                                 <th>Anno</th>
@@ -226,18 +259,16 @@
                                 <th class="text-center">Allenamenti</th>
                                 <th class="text-center"><i class='bx bxs-t-shirt align-middle'></i></th>
                                 <th class="text-center"><i class='bx bx-football align-middle'></i></th>
-                                <th class="text-center"><i class='bx bxs-card align-middle' style='color:#ffb900'  ></i></th>
-                                <th class="text-center"><i class='bx bxs-card align-middle' style='color:#FF0000'  ></i></th>
+                                <th class="text-center"><i class='bx bxs-card align-middle' style='color:#ffb900'></i></th>
+                                <th class="text-center"><i class='bx bxs-card align-middle' style='color:#FF0000'></i></th>
                                 <?php if($_SESSION['superuser'] === 1 ){ ?>
                                 <th class="text-center"></th>
                                 <?php } ?>
                               </tr>
-
                             </thead>
 
                             <tbody>
-
-                              <?php while($row = mysqli_fetch_assoc($giocatori)) {  ?>
+                              <?php while($row = mysqli_fetch_assoc($giocatori)) { ?>
                               <tr class="align-middle">
                                 <!-- Immagine -->
                                 <td class="text-center">
@@ -247,10 +278,9 @@
                                     <img src="../image/default_user.jpg" class="rounded-circle" alt="Immagine di default" data-player-name="<?php echo $row['player_name'];?>" width="30" height="30" />
                                   <?php } ?>
                                 </td>
-
                                 <!-- Nome e Cognome -->
-                                <td onclick="window.location='player.php?id=<?php echo $row['id']; ?>';" style="cursor:pointer" class="text-nowrap">
-                                  <?php echo $row['cognome'] .' '. $row['nome']?>
+                                <td>
+                                  <?php echo $row['nome'] . " " . $row['cognome']; ?>
                                 </td>
 
                                 <!-- Data di nascita -->
@@ -261,161 +291,69 @@
                                     echo date('d/m/Y',strtotime($row['data_nascita']));
                                   } ?>
                                 </td>
-
+                                
                                 <!-- Ruolo -->
                                 <td>
                                   <?php if($row['ruolo']==='Portiere'){
-                                      echo '
-                                      <span class="badge bg-warning text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Portiere">
-                                        P'
-                                      .'</span>';
-                                    }elseif($row['ruolo']==='Centrale'){
-                                      echo '
-                                      <span class="badge bg-success text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Centrale">
-                                        C'
-                                      .'</span>';
-                                    }elseif($row['ruolo']==='Laterale'){
-                                      echo '
-                                      <span class="badge bg-primary text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Laterale">
-                                        L'
-                                      .'</span>';
-                                    }elseif($row['ruolo']==='Pivot'){
-                                      echo '
-                                      <span class="badge bg-danger text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Pivot">
-                                        P'
-                                      .'</span>';
-                                    }else{
-                                      echo '
-                                      <span class="badge bg-info text-light" style="width:30px;"  data-bs-toggle="tooltip" data-bs-title="Universale ">
-                                        U'
-                                      .'</span>';
-                                    } ?>
-                                      
-                                  </td>
+                                    echo '
+                                    <span class="badge bg-warning text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Portiere">
+                                      P'
+                                    .'</span>';
+                                  }elseif($row['ruolo']==='Centrale'){
+                                    echo '
+                                    <span class="badge bg-success text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Centrale">
+                                      C'
+                                    .'</span>';
+                                  }elseif($row['ruolo']==='Laterale'){
+                                    echo '
+                                    <span class="badge bg-primary text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Laterale">
+                                      L'
+                                    .'</span>';
+                                  }elseif($row['ruolo']==='Pivot'){
+                                    echo '
+                                    <span class="badge bg-danger text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Pivot">
+                                      P'
+                                    .'</span>';
+                                  }else{
+                                    echo '
+                                    <span class="badge bg-info text-light" style="width:30px;"  data-bs-toggle="tooltip" data-bs-title="Universale ">
+                                      U'
+                                    .'</span>';
+                                  } ?>
+                                    
+                                </td>
 
-                                <!-- Capitano -->
-                                <td class="text-center">
-
-                                  <?php
+                                <td class="text-center"> <?php
                                     if ($row['capitano'] == 'C') {
                                         echo 'C';
                                     } elseif ($row['capitano'] == 'VC') {
                                         echo 'VC';
                                     }
                                   ?>
-
-                                </td>
-
-                                <!-- Taglia -->
-                                <td class="text-center">
-                                  <?php echo $row['taglia'] ?>
-                                </td>
-
-                                <!-- Maglia -->
-                                <td class="text-center">
-                                  <?php echo $row['maglia'] ?>
-                                </td>
-                                
-                                <!-- Piede -->
-                                <td class="text-center">
-                                  <?php echo $row['piede_preferito'] ?>
-                                </td>
-                                
-                                <!-- Allenamenti -->
-                                <td class="text-center">
-                                  <?php if($row['convocazioni']==='0'){
-                                    echo '-';
-                                  }else{
-                                    echo number_format($row['numero_allenamenti'] / $tot_allenamenti_svolti['tot_allenamenti'] * 100, 0) .' %'; 
-                                  } ?> 
-                                </td>
-                                
-                                <!-- Convocazioni -->
-                                <td class="text-center">
-                                  <?php if($row['convocazioni']==='0'){
-                                    echo '-';
-                                  }else{
-                                    echo '<span class="" data-bs-toggle="tooltip"  title="Coppa marche : ' . $row['convocazioni_coppa'] . ' presenze   Campionato : ' . $row['convocazioni_campionato'] . ' presenze">' . $row['convocazioni'] . '</span>';
-                                  } ?>
-                                  
-                                </td>
-
-                                <!-- Numero gol -->
-                                <td class="text-center">
-                                  <?php 
-                                    if ($row['numero_gol'] === '0') {
-                                      echo '-';
-                                    } else {
-                                      echo '<span class="" data-bs-toggle="tooltip"  title="Coppa marche : ' . $row['numero_gol_coppa'] . ' gol   Campionato : ' . $row['numero_gol_campionato'] . ' gol">' . $row['numero_gol'] . '</span>';
-                                    } 
-                                  ?>
-                                </td>
-
-
-                                <!-- Numero ammonizioni -->
-                                <td class="text-center">
-                                  <?php if($row['numero_ammonizioni']==='0'){
-                                    echo '-';
-                                  }else{
-                                    echo '<span class="" data-bs-toggle="tooltip"  title="Coppa marche : ' . $row['numero_ammonizioni_coppa'] . ' gialli   Campionato : ' . $row['numero_ammonizioni_campionato'] . ' gialli">' . $row['numero_ammonizioni'] . '</span>';
-                                  } ?>
-                                  
-                                </td>
-
-                                <!-- Numero espulsioni -->
-                                <td class="text-center">
-                                  <?php if($row['numero_espulsioni']==='0'){
-                                    echo '-';
-                                  }else{
-                                    echo '<span class="" data-bs-toggle="tooltip"  title="Coppa marche : ' . $row['numero_espulsioni_coppa'] . ' rossi   Campionato : ' . $row['numero_espulsioni_campionato'] . ' rossi">' . $row['numero_espulsioni'] . '</span>';
-                                  } ?>
-                                </td>
-                                
-
-                                <!-- Pulsante Edit -->
+                                  </td>
+                                <td class="text-center"><?php echo $row['taglia']; ?></td>
+                                <td class="text-center"><?php echo $row['maglia']; ?></td>
+                                <td class="text-center"><?php echo $row['piede_preferito']; ?></td>
+                                <td class="text-center"><?php echo $row['numero_allenamenti']; ?></td>
+                                <td class="text-center"><?php echo $row['convocazioni']; ?></td>
+                                <td class="text-center"><?php echo $row['numero_gol']; ?></td>
+                                <td class="text-center"><?php echo $row['numero_ammonizioni']; ?></td>
+                                <td class="text-center"><?php echo $row['numero_espulsioni']; ?></td>
                                 <?php if($_SESSION['superuser'] === 1 ){ ?>
-                                <td class="text-end">
-                                  
-                                  <div class="dropdown">
-                                    <button class="btn dropdown-toggle" style="background-color:transparent" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                      <i class='bx bx-dots-vertical-rounded'></i>
-                                    </button>
-                                    <ul class="dropdown-menu dropdown-menu-dark">
-                                      <li><a class="dropdown-item" href="edit_player.php?id=<?php echo $row["id"]; ?>">Modifica</a></li>
-                                      <li><a class="dropdown-item" href="../query/action_fine_affiliazione.php?id_giocatore=<?php echo $row['id']; ?>&id_societa=<?php echo $id_societa?>">Rimuovi da rosa</a></li>
-                                      <li><a class="dropdown-item text-danger fw-bold" style="cursor:pointer" onclick="confirmDelete('<?php echo $row["id"]; ?>')">Cancella giocatore</a></li>
-                                    </ul>
-                                  </div>
+                                <td class="text-center">
+                                  <a class="btn btn-outline-dark btn-sm" href="edit_player.php?id=<?php echo $row['id'] ?>">
+                                    <i class='bx bx-pencil'></i>
+                                  </a>
                                 </td>
                                 <?php } ?>
-                                
-                               
                               </tr>
                               <?php } ?>
-
                             </tbody>
-
                           </table>
                         </div>
                       </div>
                     </div>
                     <!-- END:Core della pagina -->
-
-
-                    <!-- Modal Visualizzazione immagine -->
-                    <div class="modal fade" id="../imageModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="editModalLabel">Immagine</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                            <img id="modalImage" src="" alt="" class="img-fluid w-100 h-100">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -424,6 +362,7 @@
         </div>
       </div>
     </main>
+
 
 
     

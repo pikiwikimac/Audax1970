@@ -258,6 +258,7 @@
                                   <div class="col-6 col-lg-2 mt-5" id="parentSelectContainer" style="display:none;">
                                     <label for="parent_id" class="form-label">Squadra principale</label>
                                     <select class="form-select" id="parent_id" name="parent_id" >
+                                      <option value="0" selected> - Seleziona prima squadra - </option>
                                       <?php while ($squadra = mysqli_fetch_assoc($squadre)) { ?>
                                         <option value="<?php echo $squadra['id']; ?>"><?php echo $squadra['nome_societa']; ?></option>
                                       <?php } ?>

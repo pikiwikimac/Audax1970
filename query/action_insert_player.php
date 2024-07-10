@@ -31,11 +31,11 @@ $codice_fiscale = isset($_REQUEST['codice_fiscale']) ? $_REQUEST['codice_fiscale
 
 $sql = "INSERT INTO giocatori (nome, cognome, taglia, maglia, data_nascita, 
                             id_squadra, ruolo, visita_medica, tipo_contratto,
-                            image_path, capitano, matricola, data_tesseramento,
+                            capitano, matricola, data_tesseramento,
                             anno_scadenza_tesseramento, codice_fiscale) 
         VALUES ('$nome', '$cognome', '$taglia', '$maglia', '$data_nascita_timestamp',
                 '$squadra', '$ruolo', '$visita_medica_timestamp', '$tipo_contratto',
-                'user.jpg', '$capitano', '$matricola', '$data_tesseramento_timestamp',
+                 '$capitano', '$matricola', '$data_tesseramento_timestamp',
                 '$anno_scadenza_tesseramento', '$codice_fiscale')";
 
 if (mysqli_query($con, $sql)) {

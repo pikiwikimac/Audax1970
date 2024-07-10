@@ -17,7 +17,7 @@
   }
 
 
-  $id=  $_REQUEST['id'];
+  $id=$_REQUEST['id'];
 
   $query =
     "
@@ -123,7 +123,10 @@
                             <?php if (!empty($row['image_path'])) : ?>
                               <img src="../image/player/<?php echo $row['image_path']; ?>"
                               class="img-fluid  rounded " alt="Immagine attuale">
-                              <?php endif; ?>
+                            <?php else: ?>
+                              <img src="../image/default.jpeg"
+                              class="img-fluid  rounded " alt="Immagine attuale">
+                            <?php endif; ?>
                           </div>
                             
                           <form action="../query/upload_image.php" method="post" enctype="multipart/form-data">

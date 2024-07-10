@@ -77,9 +77,8 @@ try {
           <div class="card">
             <img src="image/default.jpeg" class="card-img-top" alt="Maglia da gioco">
             <div class="card-body">
-              <h5 class="card-title">Maglia da gioco</h5>
-              <p class="card-text">Descrizione della maglia da gioco.</p>
-              <p class="card-text"><strong>€49,99</strong></p>
+              <h5 class="card-title" id="font_diverso">Maglia da gioco</h5>
+              <p class="card-text">€29,99</p>
               <button class="btn btn-primary btn-acquista" data-bs-toggle="modal" data-bs-target="#acquistoModal" data-product="Maglia da gioco">Acquista</button>
             </div>
           </div>
@@ -89,9 +88,8 @@ try {
           <div class="card">
             <img src="image/default.jpeg" class="card-img-top" alt="Felpa tifosi">
             <div class="card-body">
-              <h5 class="card-title">Felpa tifosi</h5>
-              <p class="card-text">Descrizione della felpa per i tifosi.</p>
-              <p class="card-text"><strong>€59,99</strong></p>
+              <h5 class="card-title" id="font_diverso">Felpa</h5>
+              <p class="card-text">€39,99</p>
               <button class="btn btn-primary btn-acquista" data-bs-toggle="modal" data-bs-target="#acquistoModal" data-product="Felpa tifosi">Acquista</button>
             </div>
           </div>
@@ -101,9 +99,8 @@ try {
           <div class="card">
             <img src="image/default.jpeg" class="card-img-top" alt="Cappello invernale">
             <div class="card-body">
-              <h5 class="card-title">Cappello invernale</h5>
-              <p class="card-text">Descrizione del cappello invernale.</p>
-              <p class="card-text"><strong>€19,99</strong></p>
+              <h5 class="card-title" id="font_diverso">Cappellino</h5>
+              <p class="card-text">€19,99</p>
               <button class="btn btn-primary btn-acquista" data-bs-toggle="modal" data-bs-target="#acquistoModal" data-product="Cappello invernale">Acquista</button>
             </div>
           </div>

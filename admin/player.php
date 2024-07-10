@@ -183,7 +183,11 @@
                           <div class="row gy-3">
                             <!-- Foto -->
                             <div class="col-12 col-sm-8 col-lg-12">
-                              <img src="../image/player/<?php echo $row['image_path']; ?>" class="rounded img-fluid " alt="..." width="500" height="500"/>
+                              <?php if ($row['image_path']) { ?>
+                                <img src="../image/player/<?php echo $row['image_path'];?>" class="rounded img-fluid "  width="500" height="500" alt="<?php echo $row['cognome'].' '.$row['nome'];?>" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>"/>
+                              <?php } else { ?>
+                                <img src="../image/default_user.jpg" class="rounded img-fluid "  width="500" height="500" alt="Immagine di default" data-player-name="<?php echo $row['player_name'];?>"/>
+                              <?php } ?>
                             </div>
                             <!-- Sezione allenamenti -->
                             <div class="col-12 col-sm-4 col-lg-12">
