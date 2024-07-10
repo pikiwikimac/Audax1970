@@ -13,12 +13,9 @@
   $image = isset($_SESSION['image']) ? $_SESSION['image'] : null; 
   $superuser=  $_SESSION['superuser'];
   
-  $query = "select a.*,s1.nome_societa as nome_casa,s2.nome_societa as nome_ospiti,s.descrizione,s.anno_inizio,s.anno_fine,s.girone
+  $query = "select a.*,ai.descrizione as intestazione
   FROM articoli a
-  inner join stagioni s on s.id_stagione=a.id_stagione
-  left join partite p on p.id=a.id_partita
-  left join societa s1 on s1.id=p.squadraCasa
-  left join societa s2 on s2.id=p.squadraOspite
+  LEFT JOIN articoli_intestazioni ai ON ai.id = a.id_intestazione
   ORDER BY data_pubblicazione desc";
   $articoli = mysqli_query($con,$query);
 ?>
@@ -76,7 +73,7 @@
 
                               <tr>
                                 <th>Titolo</th>
-                                <th>Campionato</th>
+                                <th>Intestazione</th>
                                 <th>Tags</th>
                                 <th class="text-end" width="5%"></th>
                               </tr>
@@ -103,7 +100,7 @@
                                 </td>
                                 
                                 <td>
-                                  <?php echo $row['descrizione'] .' '.$row['girone']?> 
+                                  <?php echo $row['intestazione'] ?> 
                                 </td>
                                 
                                 <td>

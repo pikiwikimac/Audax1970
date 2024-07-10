@@ -27,7 +27,7 @@ function normalizeCharacters($input) {
 $titolo = normalizeCharacters($_REQUEST['titolo']);
 $data_pubblicazione = $_REQUEST['data_pubblicazione'];
 $autore = $_REQUEST['autore'];
-$id_stagione = $_REQUEST['id_stagione'];
+$intestazione = $_REQUEST['intestazione'];
 $tags = $_REQUEST['tags'];
 $contenuto = normalizeCharacters($_REQUEST['contenuto']);
 $data_ultima_modifica = date('Y-m-d H:i:s');
@@ -36,10 +36,10 @@ $data_ultima_modifica = date('Y-m-d H:i:s');
 $id_partita = isset($_REQUEST['id_partita']) && $_REQUEST['id_partita'] !== 'null' ? $_REQUEST['id_partita'] : null;
 
 // Prepara la query SQL con istruzioni preparate
-$sql = "INSERT INTO articoli (titolo, data_pubblicazione, autore, id_stagione, tags, contenuto, data_ultima_modifica";
+$sql = "INSERT INTO articoli (titolo, data_pubblicazione, autore, id_intestazione, tags, contenuto, data_ultima_modifica";
 $values = "VALUES (?, ?, ?, ?, ?, ?, ?";
 $types = "sssssss";
-$params = [$titolo, $data_pubblicazione, $autore, $id_stagione, $tags, $contenuto, $data_ultima_modifica];
+$params = [$titolo, $data_pubblicazione, $autore, $intestazione, $tags, $contenuto, $data_ultima_modifica];
 
 if (!is_null($id_partita)) {
     $sql .= ", id_partita";

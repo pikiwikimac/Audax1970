@@ -19,7 +19,7 @@
   }
 
   
-  $id=  $_REQUEST['id'];
+  $id=$_REQUEST['id'];
 
   $query =
     "
@@ -30,7 +30,15 @@
   $articolo = mysqli_query($con,$query);
   $row = mysqli_fetch_assoc($articolo);
 
-  $selected_partita = $row['id_partita'];  // Ottieni l'ID della partita selezionata
+
+  $sql = "SELECT * FROM `articoli_intestazioni` ORDER BY id ";
+  $result = mysqli_query($con, $sql);
+
+  // Salva i risultati della query in un array
+  $intestazioni = [];
+  while ($row2 = mysqli_fetch_assoc($result)) {
+    $intestazioni[] = $row2;
+  }
 ?>
 
 
@@ -61,7 +69,10 @@
                         </h1>
 
                         <!-- Bottoni a destra -->
-                        <div class="cta-wrapper">	
+                        <div class="cta-wrapper">
+                          <button class="btn btn-outline-dark float-end" data-bs-toggle="offcanvas"   href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                            <i class='bx bx-plus'></i>
+                          </button>	
                           <a type="button" href="articoli.php" class="btn btn-outline-dark float-end">
                             <i class='bx bx-arrow-back'></i>
                           </a>
@@ -121,27 +132,21 @@
 
                                   <!-- Stagione -->
                                   <div class="col-6 col-sm-6 col-lg-2 ">
-                                    <label for="id_stagione" class="form-label">Competizione</label>
-                                    <select class="form-select" id="id_stagione" name="id_stagione">
+                                    <label for="intestazione" class="form-label">Intestazione</label>
+                                    <select class="form-select" id="intestazione" name="intestazione">
                                       <!-- Opzioni per la squadra ospite -->
                                       <?php
-                                        $sql = "SELECT * FROM `stagioni` ORDER BY id_stagione desc";
-                                        $stagioni = mysqli_query($con, $sql);
-                                        while ($stagione = mysqli_fetch_assoc($stagioni)) {
-                                          $selected = ($stagione['id_stagione'] == $row['id_stagione']) ? "selected" : "";
-                                          echo "<option value='{$stagione['id_stagione']}' $selected>{$stagione['descrizione']} {$stagione['anno_inizio']} - {$stagione['anno_fine']}</option>";
+                                        $sql = "SELECT * FROM `articoli_intestazioni` ORDER BY id ";
+                                        $intestazioni = mysqli_query($con, $sql);
+                                        while ($intestazione = mysqli_fetch_assoc($intestazioni)) {
+                                          $selected = ($intestazione['id'] == $row['id_intestazione']) ? "selected" : "";
+                                          echo "<option value='{$intestazione['id']}' $selected>{$intestazione['descrizione']} </option>";
                                         }
                                       ?>
                                     </select>
                                   </div>
 
-                                  <!-- Partita -->
-                                  <div class="col-6 col-sm-6 col-lg-3 ">
-                                    <label for="id_partita" class="form-label">Partita</label>
-                                    <select class="form-select" id="id_partita" name="id_partita">
-                                       
-                                    </select>
-                                  </div>
+                                  
 
                                   <!-- Tags -->
                                   <div class="col-12 col-sm-6 col-lg-3">
@@ -182,6 +187,78 @@
       </div>
     </main>
 
+    <script>
+      function submitInsertForm() {
+        // Effettua la richiesta di inserimento al server tramite il form
+        document.getElementById("insertForm").submit();
+      }
+    </script>
+
+    <!-- Modal Insert -->
+    <div class="modal fade" id="insertModal" tabindex="-1" aria-labelledby="insertModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="insertModalLabel">Nuova intestazione</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            
+            <form id="insertForm" method="post" action="../query/action_insert_intestazione_articolo.php">
+              
+              <div class="row ">
+                <!-- Nome materiale -->
+                <div class="col-12 mb-3">
+                  <label for="intestazione" class="form-label">Descrizione</label>
+                  <input type="text" class="form-control" id="intestazione" name="intestazione"/>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+            <button type="button" class="btn btn-primary" onclick="submitInsertForm()">Salva</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Lista intestazioni</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        
+
+        <table class="table table-sm table-striped " >
+          <thead>
+            <tr>
+              <th>Descrizione</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+          <?php foreach ($int as $intestazioni) { ?>
+            <tr>
+              <td><?php echo $int; ?></td>
+              <!-- Aggiungi il listener per l'evento click all'icona del cestino -->
+              <td style="width:20px"><i class='bx bx-trash' onclick="deleteIntestazione('<?php echo $int['id']; ?>')"></i></td>
+
+            </tr>
+          <?php } ?>  
+          </tbody>
+        </table>
+
+        <a type="button" class="btn btn-sm btn-outline-dark float-end"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModal">
+          <i class='bx bx-plus '></i>
+        </a> 
+
+      </div>
+    </div>
+
+
 
     <!-- Import -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
@@ -194,29 +271,6 @@
     </script>
 
     <script>
-      function loadPartite(id_stagione) {
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "get_partite.php", true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState == 4 && xhr.status == 200) {
-            document.getElementById("id_partita").innerHTML = xhr.responseText;
-          }
-        };
-        xhr.send("id_stagione=" + id_stagione + "&selected_partita=<?php echo $selected_partita; ?>");
-      }
-
-      document.getElementById("id_stagione").addEventListener("change", function () {
-        var id_stagione = this.value;
-        loadPartite(id_stagione);
-      });
-
-      // Carica le partite per la stagione corrente al caricamento della pagina
-      window.onload = function() {
-        loadPartite(document.getElementById("id_stagione").value);
-      };
-
 
       // Mostra il toast di successo
       function showSuccessToast() {
@@ -224,6 +278,33 @@
         toast.show();
       }
     </script>
+
+<script>
+    function deleteIntestazione(intestazioneID) {
+    // Conferma con l'utente prima di procedere con l'eliminazione
+    if (confirm("Sei sicuro di voler eliminare questa intestazione per gli articoli?")) {
+        // Invia una richiesta AJAX al server per eliminare il materiale
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '../query/delete_intestazione.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    // Gestisci la risposta dal server, se necessario
+                    console.log(xhr.responseText);
+                    // Ricarica la pagina o aggiorna la tabella HTML, se necessario
+                    location.reload(); // Ricarica la pagina dopo l'eliminazione
+                } else {
+                    console.error('Errore durante l\'eliminazione: ' + xhr.responseText);
+                }
+            }
+        };
+        xhr.send('intestazioneID=' + encodeURIComponent(intestazioneID));
+    }
+}
+
+  </script>
+
     
 
   </body>

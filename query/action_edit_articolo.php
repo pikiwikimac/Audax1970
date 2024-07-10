@@ -27,19 +27,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     $titolo = normalizeCharacters($_POST['titolo']);
     $data_pubblicazione = $_POST['data_pubblicazione'];
     $autore = $_POST['autore'];
-    $id_stagione = $_POST['id_stagione'];
-    $id_partita = !empty($_POST['id_partita']) ? $_POST['id_partita'] : null; // Gestione di id_partita come NULL
+    $intestazione = $_POST['intestazione'];
     $tags = $_POST['tags'];
     $contenuto = normalizeCharacters($_POST['contenuto']);
     $data_ultima_modifica = date('Y-m-d H:i:s');
 
     $sql = "UPDATE articoli
-            SET titolo=?, data_pubblicazione=?, autore=?, id_stagione=?, id_partita=?, tags=?, contenuto=?, data_ultima_modifica=?
+            SET titolo=?, data_pubblicazione=?, autore=?, id_intestazione=?,  tags=?, contenuto=?, data_ultima_modifica=?
             WHERE id=?";
     $stmt = mysqli_prepare($con, $sql);
 
     if ($stmt) {
-        mysqli_stmt_bind_param($stmt, "sssiisssi", $titolo, $data_pubblicazione, $autore, $id_stagione, $id_partita, $tags, $contenuto, $data_ultima_modifica, $id);
+        mysqli_stmt_bind_param($stmt, "sssisssi", $titolo, $data_pubblicazione, $autore, $intestazione, $tags, $contenuto, $data_ultima_modifica, $id);
 
         if (mysqli_stmt_execute($stmt)) {
             // Chiudere lo statement e la connessione
