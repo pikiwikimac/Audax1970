@@ -103,6 +103,21 @@
                           <?php } else { ?>
                             <img src="../image/default_societa.png" class="img-thumbnail"  />
                           <?php } ?>
+                          <div class="mt-3">
+                            <!-- Aggiungi il nuovo bottone -->
+                            <a href="insert_player.php?id_squadra=<?php echo ($info['id']); ?>" type="button" class="btn btn-outline-dark  me-2">
+                              <i class='bx bx-user-plus'  style="font-size:1.5rem"></i>
+                            </a>  
+                          
+                          
+                            <a href="edit_societa.php?id=<?php echo $info['id'] ?>" type="button" class="btn btn-outline-dark  me-2">
+                              <i class='bx bx-pencil ' style="font-size:1.5rem"></i> 
+                            </a>
+                            
+                            <a href="societa.php" type="button" class="btn btn-outline-dark ">
+                              <i class='bx bx-arrow-back ' style="font-size:1.5rem"></i> 
+                            </a>
+                          </div>
                         </div>
                         <div class="col-12 col-md-10">
                           <div class="row gy-2">
@@ -178,21 +193,7 @@
                               </span>
                             <?php } ?>
                             
-                            <div>
-                              <!-- Aggiungi il nuovo bottone -->
-                              <a href="insert_player.php?id_squadra=<?php echo ($info['id']); ?>" type="button" class="btn btn-outline-dark  me-2">
-                                <i class='bx bx-user-plus' ></i>
-                              </a>  
                             
-                            
-                              <a href="edit_societa.php?id=<?php echo $info['id'] ?>" type="button" class="btn btn-outline-dark  me-2">
-                                <i class='bx bx-pencil '></i> 
-                              </a>
-                              
-                              <a href="societa.php" type="button" class="btn btn-outline-dark ">
-                                <i class='bx bx-arrow-back '></i> 
-                              </a>
-                            </div>
                           </div>
                         </div>
                       </div>

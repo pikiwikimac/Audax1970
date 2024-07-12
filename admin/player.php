@@ -127,7 +127,7 @@
   $tot_allenamenti_svolti_player = mysqli_fetch_assoc($result2);
 
   $query="
-    SELECT s.nome_societa, s.tipo
+    SELECT s.nome_societa, s.tipo, s.id
     FROM societa s
     INNER JOIN affiliazioni_giocatori ag ON ag.id_societa = s.id
     WHERE ag.id_giocatore = $id
@@ -163,7 +163,20 @@
                           <?php echo $row['nome']. ' ' . $row['cognome'] ?>
                         </h1>
                         <!-- Bottoni a destra -->
-                        <div class="cta-wrapper">	
+                        <div class="cta-wrapper">
+                          <?php if($row['capitano'] != 'Giocatore' ){ ?>
+                            <!-- Capitano -->
+                            <span class="badge bg-danger text-light fw-bold p-2 me-2 fs-5" style="width:50px" >
+                              &nbsp; <?php echo $row['capitano']  ?> &nbsp; 
+                            </span>
+                          <?php }?>
+                          <?php if($row['maglia'] != null ){ ?>
+                              <!-- Maglia -->
+                              <span class="badge bg-dark  text-light fw-bold p-2 me-2 fs-5" style="width:50px" >
+                                <?php echo $row['maglia']  ?>
+                              </span>
+                          <?php }?>
+                              	
                           <!-- Edit button -->    
                           <?php if($_SESSION['superuser'] === 1 ){?>      
                           <a type="button" href="edit_player.php?id=<?php echo $id; ?>" class="btn btn-outline-dark float-end" >
@@ -178,8 +191,8 @@
                     <!-- Core della pagina -->
                     <div class="">
                       <!-- Visualizzazione a card -->
-                      <div class="row  ">
-                        <div class="col-12 col-lg-2  ">
+                      <div class="row g-5">
+                        <div class="col-12 col-md-3 col-xxl-2  ">
                           <div class="row gy-3">
                             <!-- Foto -->
                             <div class="col-12 col-sm-8 col-lg-12">
@@ -189,336 +202,342 @@
                                 <img src="../image/default_user.jpg" class="rounded img-fluid "  width="500" height="500" alt="Immagine di default" data-player-name="<?php echo $row['player_name'];?>"/>
                               <?php } ?>
                             </div>
-                            <!-- Sezione allenamenti -->
-                            <div class="col-12 col-sm-4 col-lg-12">
-                              <div class="row gy-3">
-                                <?php if($row['nome_societa']==='Audax 1970'){?>
-                                  <!-- Grafico -->
-                                  <div class="col-12">
-                                    <div class="card">
-                                      <div class="card-header bg-dark text-white">
-                                        % Presenze
+                          </div>
+                        </div>
+                        
+                        <!-- Info Giocatore -->
+                        <div class="col-12 col-md-7 col-xxl-8 ps-lg-5 ">
+                          <div class="row gy-3 ">
+                            <!--  -->
+                            <div class="col-6 col-md-12">
+                              <label class="fw-bold text-muted">Squadra:</label>
+                              <span>
+                                <a class="text-decoration-none text-dark" href="show_societa.php?id=<?php echo $row['id_squadra'] ?>">
+                                  <span class="badge bg-secondary">
+                                    <?php echo $row['nome_societa'] ?> 
+                                  </span> 
+                                </a>
+                              </span>
+                            </div>
+                            <!--  -->
+                            <?php if(mysqli_num_rows($squadre_giocatore )>1)  { ?>
+                            <div class="col-6 col-md-12">
+                              <label class="fw-bold text-muted">Squadre attive:</label>
+                              <?php while($squadra = mysqli_fetch_assoc($squadre_giocatore)) {  ?>
+                                <a class="text-decoration-none text-dark" href="show_societa.php?id=<?php echo $squadra['id'] ?>">
+                                  <span class="badge bg-secondary">
+                                    <?php echo $squadra['tipo'] ?> 
+                                  </span> 
+                                </a>
+                              <?php } ?>
+                            </div>
+                            <?php } ?>
+                            <!--  -->
+                            <div class="col-6 col-md-12">
+                              <label class="fw-bold text-muted">Ruolo:</label>
+                              <span>
+                                <?php echo $row['ruolo'] ?> 
+                              </span>
+                            </div>
+                            <!--  -->
+                            <div class="col-6 col-md-12">
+                              <label class="fw-bold text-muted">Piede:</label>
+                              <span>
+                                <?php echo $row['piede_preferito'] ?> 
+                              </span>
+                            </div>
+                            <!--  -->
+                            <?php if($row['altezza'] != null ){?>
+                            <div class="col-6 col-md-12">
+                              <label class="fw-bold text-muted">Altezza:</label>
+                              <span>
+                                <?php echo $row['altezza'] ?> 
+                              </span>
+                            </div>
+                            <?php } ?>
+                            <!--  -->
+                            <?php if($row['peso'] != null ){?>
+                            <div class="col-6 col-md-12">
+                              <label class="fw-bold text-muted">Peso:</label>
+                              <span>
+                                <?php echo $row['peso'] ?> 
+                              </span>
+                            </div>
+                            <?php } ?>
+                            <!--  -->
+                            <div class="col-6 col-md-12">
+                              <label class="fw-bold text-muted">Data di nascita:</label>
+                              <span>
+                              <?php if($row['data_nascita']==='1970-01-01'){
+                                echo '-';
+                              }else{
+                                echo date('d/m/y',strtotime($row['data_nascita']));
+                              } ?>
+                              </span>
+                            </div>
+                            <!--  -->
+                            <?php if($row['visita_medica'] != null ){?>
+                              <div class="col-6 col-md-12">
+                                <label class="fw-bold text-muted">Visita medica:</label>
+                                <span>
+                                  <?php if($row['visita_medica']==='1970-01-01'){
+                                    echo 'da definire';
+                                  }else{
+                                    echo date('d/m/y',strtotime($row['visita_medica']));
+                                  } ?>
+                                </span>
+                              </div>
+                            <?php } ?>
+                            <!--  -->
+                            <div class="col-6 col-md-12">
+                              <label class="fw-bold text-muted">Tipo contratto:</label>
+                              <span>
+                                <?php echo $row['tipo_contratto'] ?> 
+                              </span>
+                            </div>
+                            <!--  -->
+                            <div class="col-6 col-md-12">
+                              <label class="fw-bold text-muted">Documento:</label>
+                              <span>
+                                <?php echo $row['documento'] ?> 
+                              </span>
+                            </div>
+                            <!--  -->
+                            <div class="col-6 col-md-12">
+                              <label class="fw-bold text-muted">Matricola:</label>
+                              <span>
+                                <?php echo $row['matricola'] ?> 
+                              </span>
+                            </div>
+                            
+                            
+                            
+
+                          </div>
+                        </div>
+                        <!-- % Presenza - Allenamenti -->
+                        <div class="col-6 col-md-2 col-xxl-2 ">
+                          <div class="row gy-3">
+                            <?php if($row['nome_societa']==='Audax 1970'){?>
+                              <!-- Grafico -->
+                              <div class="col-12">
+                                <div class="card">
+                                  <div class="card-header bg-dark text-white">
+                                    % Presenze
+                                  </div>
+                                  <div class="card-body  ">
+                                    <div class="row">
+                                      <div class="col-6 ">
+                                        <!-- Allenamenti totali -->
+                                        <h6 class="my-auto">
+                                          Allenamenti 
+                                        </h6>
+                                        <span class="fs-2 ">
+                                          <?php echo $tot_allenamenti_svolti_player['tot_player'] ?> 
+                                        </span>
+                                        <span class="fs-6 text-muted">
+                                          su <?php echo $tot_allenamenti_svolti['tot_allenamenti'] ?> totali
+                                        </span>
                                       </div>
-                                      <div class="card-body  ">
-                                        <div class="row">
-                                          <div class="col-6 ">
-                                            <!-- Allenamenti totali -->
-                                            <h6 class="my-auto">
-                                              Allenamenti 
-                                            </h6>
-                                            <span class="fs-2 ">
-                                              <?php echo $tot_allenamenti_svolti_player['tot_player'] ?> 
-                                            </span>
-                                            <span class="fs-6 text-muted">
-                                              su <?php echo $tot_allenamenti_svolti['tot_allenamenti'] ?> totali
-                                            </span>
-                                          </div>
-                                          <div class="col-6">
-                                            <canvas id="myChart"></canvas>
-                                          </div>
-                                        </div>
+                                      <div class="col-6">
+                                        <canvas id="myChart"></canvas>
                                       </div>
                                     </div>
                                   </div>
-                                <?php }?>
+                                </div>
                               </div>
-                            </div>
+                            <?php }?>
                           </div>
                         </div>
+                      </div>
 
-                        <div class="col-12 col-lg-10 ps-lg-5 ">
-                          <div class="row gy-2 mt-3">
-                            <!-- Nome -->
-                            <div class="col-6 col-md-8">
-                              <div class="form-floating mb-3" >
-                                <input type="text" readonly class="form-control-plaintext mt-3" id="" placeholder="<?php echo $row['nome_societa']  ?>" value="<?php echo $row['nome_societa']  ?>">
-                                <label style="margin-top:-10px">Squadra:</label>
-                                <?php if(mysqli_num_rows($squadre_giocatore )>1)  { ?>
-                                <?php while($squadra = mysqli_fetch_assoc($squadre_giocatore)) {  ?>
-                                  <span class="badge bg-secondary"> <?php echo $squadra['tipo'] ?> </span>
-                                <?php } ?>
-                                <?php } ?>
-                              </div> 
-                            </div>
+                      <div class="row gy-2 mt-3">    
+                        <div class="col-12 table-responsive mt-5">
+                          <h4>Stagione attuale</h4>
+                          <table class="table table-sm table-hover table-striped table-rounded">
+                            <thead class="table-dark">
+                            <tr>
+                              <th class="">Competizione</th>
+                              <th class="text-center"><i class='bx bxs-t-shirt align-middle'></i></th>
+                              <th class="text-center"><i class='bx bx-football align-middle'></i></th>
+                              <th class="text-center"><i class='bx bxs-card align-middle' style='color:#ffb900'  ></i></th>
+                              <th class="text-center"><i class='bx bxs-card align-middle' style='color:#FF0000'  ></i></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <!-- Competizione -->
+                                <td class="">
+                                  <?php echo $row['competizione'] ?> - Girone <?php echo $row['girone'] ?>
+                                </td>
+                                <!-- Convocazioni -->
+                                <td class="text-center">
+                                  <?php if($row['convocazioni']==='0'){
+                                    echo '-';
+                                  }else{
+                                    echo $row['convocazioni'] ;
+                                  } ?>
+                                </td>
 
-                            <div class="col-6 col-md-4">
-                              <div class="float-end">
-                                <?php if($row['capitano'] != '' ){ ?>
-                                  <!-- Capitano -->
-                                  <span class="badge bg-danger text-light fw-bold p-2 " >
-                                    &nbsp; <?php echo $row['capitano']  ?> &nbsp; 
-                                  </span>
-                                <?php }?>
-                                <?php if($row['maglia'] != null ){ ?>
-                                    <!-- Maglia -->
-                                    <span class="badge bg-dark  text-light fw-bold p-2 " >
-                                      <?php echo $row['maglia']  ?>
-                                    </span>
-                                <?php }?>
-                              </div>
-                            </div>
-                            
-                            <!-- Ruolo -->
-                            <div class="col-6 col-md-3">
-                              <div class="form-floating mb-3">
-                                <input type="text" readonly class="form-control-plaintext" placeholder="<?php echo $row['ruolo']  ?>" value="<?php echo $row['ruolo']  ?>">
-                                <label style="margin-top:-10px">Ruolo:</label>
-                              </div>
-                            </div>
-
-                            <!-- Piede -->
-                            <div class="col-6 col-md-3">
-                              <div class="form-floating mb-3">
-                                <input type="text" readonly class="form-control-plaintext"  placeholder="<?php echo $row['piede_preferito']  ?>" value="<?php echo $row['piede_preferito']  ?>">
-                                <label style="margin-top:-10px">Piede:</label>
-                              </div>
-                            </div>
-                            
-                            <!-- Altezza -->
-                            <?php if($row['altezza'] != null ){?>
-                            <div class="col-6 col-md-3">
-                              <div class="form-floating mb-3">
-                                <input type="text" readonly class="form-control-plaintext" id="floatingPlaintextInput" placeholder="<?php echo $row['altezza']  ?> cm" value="<?php echo $row['altezza']  ?> cm">
-                                <label style="margin-top:-10px">Altezza:</label>
-                              </div>
-                            </div>
-                            <?php } ?>
-                            
-                            <!-- Peso -->
-                            <?php if($row['peso'] != null ){?>
-                            <div class="col-6 col-md-3">
-                              <div class="form-floating mb-3">
-                                <input type="text" readonly class="form-control-plaintext" id="floatingPlaintextInput" placeholder="<?php echo $row['peso']  ?> kg" value="<?php echo $row['peso']  ?> kg"> 
-                                <label style="margin-top:-10px">Peso:</label>
-                              </div>
-                            </div>
-                            <?php } ?>
-                            
-                            <!-- Data nascita -->
-                            <div class="col-6 col-md-3">
-                              <div class="form-floating mb-3">
-                                <input type="text" readonly class="form-control-plaintext" id="floatingPlaintextInput" 
-                                placeholder="<?php if($row['data_nascita']==='0000-00-00'){
-                                      echo '-';
-                                    }else{
-                                      echo date('d/m/y',strtotime($row['data_nascita']));
-                                    } ?>" 
-                                value="<?php if($row['data_nascita']==='0000-00-00'){
-                                      echo '-';
-                                    }else{
-                                      echo date('d/m/y',strtotime($row['data_nascita']));
-                                    } ?>">
-                                <label style="margin-top:-10px">Data nascita:</label>
-                              </div>
-                            </div>
-
-                            <!-- Visita medica -->
-                            <?php if($row['visita_medica'] != '1970-01-01' ){?>
-                            <div class="col-6 col-md-3">
-                              <div class="form-floating mb-3">
-                                <input type="text" readonly class="form-control-plaintext" id="floatingPlaintextInput" placeholder="<?php echo $row['visita_medica']  ?>" value="<?php echo date('d/m/y',strtotime($row['visita_medica'])) ?>">
-                                <label style="margin-top:-10px">Scadenza visita medica:</label>
-                              </div> 
-                            </div>
-                            <?php } ?>
-
-                            <!-- Tipo contratto -->
-                            <div class="col-6 col-md-3">
-                              <div class="form-floating mb-3">
-                                <input type="text" readonly class="form-control-plaintext" id="floatingPlaintextInput" placeholder="<?php echo $row['tipo_contratto']  ?>" value="<?php echo $row['tipo_contratto']  ?>">
-                                <label style="margin-top:-10px">Contratto:</label>
-                              </div> 
-                            </div>
-                            
-                            
-                            <div class="col-12 table-responsive mt-5">
-                              <h4>Stagione attuale</h4>
-                              <table class="table table-sm table-hover table-striped table-rounded">
-                                <thead class="table-dark">
-                                <tr>
-                                  <th class="">Competizione</th>
-                                  <th class="text-center"><i class='bx bxs-t-shirt align-middle'></i></th>
-                                  <th class="text-center"><i class='bx bx-football align-middle'></i></th>
-                                  <th class="text-center"><i class='bx bxs-card align-middle' style='color:#ffb900'  ></i></th>
-                                  <th class="text-center"><i class='bx bxs-card align-middle' style='color:#FF0000'  ></i></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <!-- Competizione -->
-                                    <td class="">
-                                      <?php echo $row['competizione'] ?> - Girone <?php echo $row['girone'] ?>
-                                    </td>
-                                    <!-- Convocazioni -->
-                                    <td class="text-center">
-                                      <?php if($row['convocazioni']==='0'){
-                                        echo '-';
-                                      }else{
-                                        echo $row['convocazioni'] ;
-                                      } ?>
-                                    </td>
-
-                                    <!-- Numero gol -->
-                                    <td class="text-center">
-                                      <?php if($row['numero_gol']==='0'){
-                                        echo '-';
-                                      }else{
-                                        echo $row['numero_gol'] ;
-                                      } ?>
-                                      
-                                    </td>
-
-                                    <!-- Numero ammonizioni -->
-                                    <td class="text-center">
-                                      <?php if($row['numero_ammonizioni']==='0'){
-                                        echo '-';
-                                      }else{
-                                        echo $row['numero_ammonizioni'] ;
-                                      } ?>
-                                      
-                                    </td>
-
-                                    <!-- Numero espulsioni -->
-                                    <td class="text-center">
-                                      <?php if($row['numero_espulsioni']==='0'){
-                                        echo '-';
-                                      }else{
-                                        echo $row['numero_espulsioni'] ;
-                                      } ?>
-                                    </td>
-                                  </tr>
-                                  <!-- Coppa marche -->
-                                  <?php if($row['id_stagione']==='1'){?>
+                                <!-- Numero gol -->
+                                <td class="text-center">
+                                  <?php if($row['numero_gol']==='0'){
+                                    echo '-';
+                                  }else{
+                                    echo $row['numero_gol'] ;
+                                  } ?>
                                   
-                                  <tr>
-                                    <td class="">
-                                      Coppa marche
-                                    </td>
-                                    
-                                    <!-- Convocazioni -->
-                                    <td class="text-center">
-                                      <?php if($row_coppa['convocazioni']==='0'){
-                                        echo '-';
-                                      }else{
-                                        echo $row_coppa['convocazioni'] ;
-                                      } ?>
-                                      
-                                    </td>
+                                </td>
 
-                                    <!-- Numero gol -->
-                                    <td class="text-center">
-                                      <?php if($row_coppa['numero_gol']==='0'){
-                                        echo '-';
-                                      }else{
-                                        echo $row_coppa['numero_gol'] ;
-                                      } ?>
-                                      
-                                    </td>
+                                <!-- Numero ammonizioni -->
+                                <td class="text-center">
+                                  <?php if($row['numero_ammonizioni']==='0'){
+                                    echo '-';
+                                  }else{
+                                    echo $row['numero_ammonizioni'] ;
+                                  } ?>
+                                  
+                                </td>
 
-                                    <!-- Numero ammonizioni -->
-                                    <td class="text-center">
-                                      <?php if($row_coppa['numero_ammonizioni']==='0'){
-                                        echo '-';
-                                      }else{
-                                        echo $row_coppa['numero_ammonizioni'] ;
-                                      } ?>
-                                      
-                                    </td>
+                                <!-- Numero espulsioni -->
+                                <td class="text-center">
+                                  <?php if($row['numero_espulsioni']==='0'){
+                                    echo '-';
+                                  }else{
+                                    echo $row['numero_espulsioni'] ;
+                                  } ?>
+                                </td>
+                              </tr>
+                              <!-- Coppa marche -->
+                              <?php if($row['id_stagione']==='1'){?>
+                              
+                              <tr>
+                                <td class="">
+                                  Coppa marche
+                                </td>
+                                
+                                <!-- Convocazioni -->
+                                <td class="text-center">
+                                  <?php if($row_coppa['convocazioni']==='0'){
+                                    echo '-';
+                                  }else{
+                                    echo $row_coppa['convocazioni'] ;
+                                  } ?>
+                                  
+                                </td>
 
-                                    <!-- Numero espulsioni -->
-                                    <td class="text-center">
-                                      <?php if($row_coppa['numero_espulsioni']==='0'){
-                                        echo '-';
-                                      }else{
-                                        echo $row_coppa['numero_espulsioni'] ;
-                                      } ?>
-                                    </td>
-                                  </tr>
-                                  <?php } ?>
-                                </tbody>
-                              </table>
-                            </div>  
-                            <?php if(mysqli_num_rows($indisponibili )>0)  { ?>
-                            <div class="col-12 table-responsive mt-5">
-                              <h4>Storico indisponibilità</h4>
-                              <table class="table table-sm table-hover table-striped table-rounded">
-                                <thead class="table-dark">
-                                <tr>
-                                  <th class="text-center"><i class='bx bx-calendar '></i> &nbsp; Da</th>
-                                  <th class="text-center"><i class='bx bx-calendar '></i> &nbsp;  A</th>
-                                  <th class="">Motivo</th>
-                                  <th class="">Note</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                  <?php while($row = mysqli_fetch_assoc($indisponibili)) {  ?>
-                                  <tr>
-                                    <!-- Da -->
-                                    <td class="text-center">
-                                      <?php echo date('d/m/y',strtotime($row['da_data']));?>
-                                    </td> 
-                                    <!-- A -->
-                                    <td class="text-center">
-                                      
-                                      <?php echo date('d/m/y',strtotime($row['a_data']));?>
-                                    </td> 
-                                    
-                                    <!-- A -->
-                                    <td class="">
-                                      <?php echo $row['motivo'] ;?>
-                                    </td> 
-                                    
-                                    <!-- Note -->
-                                    <td class="">
-                                      <?php echo $row['note'] ;?>
-                                    </td>
-                                  </tr>
-                                  <?php } ?>
-                                </tbody>
-                              </table>
-                            </div>  
-                            <?php } ?>
-                            <!-- Allegati -->
-                            <?php
-                              $directory = "uploads/$id/"; // Sostituisci con la tua cartella di destinazione
+                                <!-- Numero gol -->
+                                <td class="text-center">
+                                  <?php if($row_coppa['numero_gol']==='0'){
+                                    echo '-';
+                                  }else{
+                                    echo $row_coppa['numero_gol'] ;
+                                  } ?>
+                                  
+                                </td>
 
-                              // Ottieni la lista dei file nella directory
-                              $files = scandir($directory);
+                                <!-- Numero ammonizioni -->
+                                <td class="text-center">
+                                  <?php if($row_coppa['numero_ammonizioni']==='0'){
+                                    echo '-';
+                                  }else{
+                                    echo $row_coppa['numero_ammonizioni'] ;
+                                  } ?>
+                                  
+                                </td>
 
-                              // Verifica se ci sono allegati
-                              if ($files !== false && count($files) > 2) { // La condizione > 2 tiene conto di "." e ".."
-                                  echo '<!-- Allegati -->
-                                  <div class="col-12 table-responsive ">
-                                      <table class="table table-rounded">
-                                          <thead class="table-dark">
-                                              <tr>
-                                                  <th>Allegato</th>
-                                                  <th class="text-end">Azioni</th>
-                                              </tr>
-                                          </thead>
-                                          <tbody>';
+                                <!-- Numero espulsioni -->
+                                <td class="text-center">
+                                  <?php if($row_coppa['numero_espulsioni']==='0'){
+                                    echo '-';
+                                  }else{
+                                    echo $row_coppa['numero_espulsioni'] ;
+                                  } ?>
+                                </td>
+                              </tr>
+                              <?php } ?>
+                            </tbody>
+                          </table>
+                        </div>  
+                        <?php if(mysqli_num_rows($indisponibili )>0)  { ?>
+                        <div class="col-12 table-responsive mt-5">
+                          <h4>Storico indisponibilità</h4>
+                          <table class="table table-sm table-hover table-striped table-rounded">
+                            <thead class="table-dark">
+                            <tr>
+                              <th class="text-center"><i class='bx bx-calendar '></i> &nbsp; Da</th>
+                              <th class="text-center"><i class='bx bx-calendar '></i> &nbsp;  A</th>
+                              <th class="">Motivo</th>
+                              <th class="">Note</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                              <?php while($row = mysqli_fetch_assoc($indisponibili)) {  ?>
+                              <tr>
+                                <!-- Da -->
+                                <td class="text-center">
+                                  <?php echo date('d/m/y',strtotime($row['da_data']));?>
+                                </td> 
+                                <!-- A -->
+                                <td class="text-center">
+                                  
+                                  <?php echo date('d/m/y',strtotime($row['a_data']));?>
+                                </td> 
+                                
+                                <!-- A -->
+                                <td class="">
+                                  <?php echo $row['motivo'] ;?>
+                                </td> 
+                                
+                                <!-- Note -->
+                                <td class="">
+                                  <?php echo $row['note'] ;?>
+                                </td>
+                              </tr>
+                              <?php } ?>
+                            </tbody>
+                          </table>
+                        </div>  
+                        <?php } ?>
+                        <!-- Allegati -->
+                        <?php
+                          $directory = "uploads/$id/"; // Sostituisci con la tua cartella di destinazione
 
-                                  foreach ($files as $file) {
-                                      // Ignora le directory e i file nascosti
-                                      if ($file != "." && $file != "..") {
-                                          // Crea una riga per ogni file con un link per eliminare il file
-                                          echo "<tr>";
-                                          echo "<td><a href=\"{$directory}{$file}\" target=\"_blank\">{$file}</a></td>";
-                                          echo "<td class='text-end'>";
-                                          echo "<a href=\"../query/delete_file.php?file={$file}\" class='text-decoration-none'><i class='bx bx-trash text-danger'></i></a>";
-                                          echo "</td>";
-                                          echo "</tr>";
-                                      }
+                          // Ottieni la lista dei file nella directory
+                          $files = scandir($directory);
+
+                          // Verifica se ci sono allegati
+                          if ($files !== false && count($files) > 2) { // La condizione > 2 tiene conto di "." e ".."
+                              echo '<!-- Allegati -->
+                              <div class="col-12 table-responsive ">
+                                  <table class="table table-rounded">
+                                      <thead class="table-dark">
+                                          <tr>
+                                              <th>Allegato</th>
+                                              <th class="text-end">Azioni</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>';
+
+                              foreach ($files as $file) {
+                                  // Ignora le directory e i file nascosti
+                                  if ($file != "." && $file != "..") {
+                                      // Crea una riga per ogni file con un link per eliminare il file
+                                      echo "<tr>";
+                                      echo "<td><a href=\"{$directory}{$file}\" target=\"_blank\">{$file}</a></td>";
+                                      echo "<td class='text-end'>";
+                                      echo "<a href=\"../query/delete_file.php?file={$file}\" class='text-decoration-none'><i class='bx bx-trash text-danger'></i></a>";
+                                      echo "</td>";
+                                      echo "</tr>";
                                   }
-
-                                  echo '</tbody>
-                                      </table>
-                                  </div>';
                               }
-                            ?>
 
-                          </div>
-                        </div>
+                              echo '</tbody>
+                                  </table>
+                              </div>';
+                          }
+                        ?>
+
                       </div>
                     </div>
                   </div>
