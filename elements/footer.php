@@ -40,6 +40,7 @@
         </div>
 
         <div class="col-12 col-lg-6 text-end">
+            <img src="image/lndA2.png" alt="Logo" class="img-fluid" width="150px" height="150px">
             <img src="image/lnd_a2.png" alt="Logo" class="img-fluid" width="100px" height="100px">
         </div>
     </div>

@@ -12,7 +12,7 @@
   $superuser=  $_SESSION['superuser'];
 
   $query = "
-  SELECT * FROM vista_classifica_seried_2023_2024
+  SELECT * FROM vista_classifica_A2_2024_2025
   ";
 
   $classifica = mysqli_query($con,$query);

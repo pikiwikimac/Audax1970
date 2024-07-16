@@ -66,7 +66,7 @@
                     <div class="tpl-header">
                       <div class="tpl-header--title">
                         <h1>
-                          <?php echo $row['nome_societa'] ?>
+                          <?php echo $row['nome_societa'] ?> 
                         </h1>
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
@@ -285,7 +285,7 @@
                                     <label for="parent_id" class="form-label">Squadra principale</label>
                                     <select class="form-select" id="parent_id" name="parent_id" >
                                       <?php while ($squadra = mysqli_fetch_assoc($squadre)) { ?>
-                                        <option value="<?php echo $squadra['id']; ?>" <?php if ($squadra['id']=== $row['parent_id']) { ?>selected="selected"<?php } ?>><?php echo $squadra['nome_societa']; ?></option>
+                                        <option value="<?php echo $squadra['id']; ?>" <?php if ($squadra['id']=== $row['id']) { ?>selected="selected"<?php } ?>><?php echo $squadra['nome_societa']; ?></option>
                                       <?php } ?>
                                     </select>
                                   </div>

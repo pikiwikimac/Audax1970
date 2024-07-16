@@ -453,7 +453,7 @@
                 <!-- Squadra casa -->
                 <div class="col-12 mb-3">
                   <label for="luogo" class="form-label">Luogo</label>
-                  <input type="text" class="form-control" id="luogo" name="luogo" value="Seminario"/>
+                  <input type="text" class="form-control" id="luogo" name="luogo" value="Palazzetto dello sport"/>
                 </div>
 
                 <!-- Note -->

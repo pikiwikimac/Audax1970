@@ -13,7 +13,7 @@
   $superuser=  $_SESSION['superuser'];
   $id_societa=  $_SESSION['id_societa_riferimento'];
   
-  $id=  $_REQUEST['id'];
+  $id=$_REQUEST['id'];
 
   $query =
   "
@@ -27,7 +27,7 @@
 
 
   $query="
-  SELECT *
+  SELECT g.*
   FROM giocatori g
   INNER JOIN affiliazioni_giocatori ag on ag.id_giocatore=g.id
   WHERE ag.id_societa = '$id_societa'

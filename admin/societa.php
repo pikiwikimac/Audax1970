@@ -85,7 +85,9 @@
 
                     <!-- Core della pagina -->
                     <div class="">
-            
+                      <h3>
+                        Serie A2 
+                      </h3>
                       <div class="row mb-3">
                         <div class="col-12 table-responsive">
                           <table class="table table-striped table-hover table-rounded">
@@ -135,8 +137,10 @@
                           </table>
                         </div>
                       </div>
-
-
+                      <?php if($squadre_altre->num_rows > 0){?>
+                      <h3>
+                        Altri campionati 
+                      </h3>
                       <div class="row mb-3">
                         <div class="col-12">
                           <table class="table table-striped table-hover table-rounded">
@@ -187,6 +191,7 @@
                           </table>
                         </div>
                       </div>
+                      <?php } ?>
                     </div>
                     <!-- END:Core della pagina -->
                   </div>

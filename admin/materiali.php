@@ -104,6 +104,7 @@ if (!$resultGiocatori) {
 
                             <tr>
                               <th>Nome</th>
+                              <th>Taglia</th>
                               <?php foreach ($materiali_array as $mat) { ?>
                                 <th><?php echo $mat; ?></th>
                               <?php } ?>
@@ -119,6 +120,9 @@ if (!$resultGiocatori) {
                                     <!-- Nome e Cognome -->
                                     <td onclick="window.location='player.php?id=<?php echo $row['id']; ?>';" style="cursor:pointer" class="text-nowrap">
                                       <?php echo $row['cognome'] . ' ' . $row['nome'] ?>
+                                    </td>
+                                    <td>
+                                      <?php echo $row['taglia'] ?>
                                     </td>
                                     <?php foreach ($materiali_array as $mat) { ?>
                                       <td>

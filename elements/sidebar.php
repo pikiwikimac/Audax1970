@@ -26,7 +26,7 @@
 			
 			<div class="logo-wrapper">
 				<a href="../index.php">
-					<!-- --><img src="../image/loghi/audax.jpeg" alt="" style="width:30px;height:30px"> 
+					<!-- --><img src="../image/loghi/logo_audax.png" alt="" style="width:50px;height:50px"> 
 				</a>
 			</div>
 		</div>
@@ -119,7 +119,7 @@
 							</li>
 							
 							<li class="sub-menu-voice">
-								<a href="calendario_completo_admin.php?id_stagione=<?php echo $id_stagione ?>">Girone</a>
+								<a href="calendario_completo_admin.php?id_stagione=<?php echo $stagione ?>">Girone</a>
 							</li>
 							
 						</ul>

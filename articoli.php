@@ -4,10 +4,11 @@
   require_once('config/db.php');
 
   //INIZIO QUERY
-  $query = "select a.*,s.descrizione as stagione 
+  $query = "
+  SELECT a.*,ai.descrizione as intestazione
   FROM articoli a
-  INNER JOIN stagioni s on s.id_stagione=a.id_stagione
-  ORDER BY data_pubblicazione DESC";
+  LEFT JOIN articoli_intestazioni ai ON ai.id = a.id_intestazione
+  ORDER BY a.data_pubblicazione desc";
   $articoli = mysqli_query($con,$query);
 
 ?>
@@ -87,14 +88,12 @@
                 <div class="card h-100">
                   <img src="image/articoli/<?php echo $articolo['immagine_url'] ?>" class="card-img-top" alt="..." style="max-height:250px">
                   <div class="card-body">
-                    <?php if($articolo['id_stagione'] !== null || $articolo['id_stagione'] !== 999){ ?>
-                    <div class="card-img-overlay">
-                      <h5 class="card-title fw-bold text-white">
-                        <span class="badge bg-secondary fs-5">
-                          <?php echo $articolo['stagione'] ?>
+                    <?php if($articolo['intestazione'] !== null ){ ?>
+                      <div class="card-img-overlay">
+                        <span class="badge bg-secondary bebas">
+                          <?php echo $articolo['intestazione'] ?>
                         </span>
-                      </h5>
-                    </div>
+                      </div>
                     <?php } ?>
                     <h4 class="card-title"><?php echo $articolo['titolo'] ?></h4>
                     <span class="card-text">

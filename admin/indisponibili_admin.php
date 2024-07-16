@@ -50,182 +50,187 @@
       <div class="tpl--content--inner">
         <div class="tpl-inner">
           <div class="tpl-inner-content">
-            <div class="row pe-3">
-              <div class="col-12 ">            
-                <div class="container-fluid">
-                  <!-- Intestazione -->
-                  <div class="tpl-header">
-                    <div class="tpl-header--title">
-                      <h1 >
-                        Indisponibili
-                      </h1>
-                      <!-- Bottoni a destra -->
-                      <div class="cta-wrapper">
-                        <a type="button" class="btn btn-outline-dark float-end"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModal">
-                          <i class='bx bx-plus '></i> 
-                        </a>
-                      </div>
-                    </div>
+                
+            <div class="container-fluid">
+              
+              <!-- Intestazione -->
+              <div class="tpl-header px-2">
+                <div class="tpl-header--title">
+                  <h1 >
+                    Indisponibili
+                  </h1>
+                  <!-- Bottoni a destra -->
+                  <div class="cta-wrapper">
+                    <a type="button" class="btn btn-outline-dark float-end"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModal">
+                      <i class='bx bx-plus '></i> 
+                    </a>
                   </div>
-                  <!-- END:Intestazione -->
-
-                  <!-- Core della pagina -->
-                  <div class="container-fluid">
-                    <?php if ($result->num_rows >0 ){ ?>
-                    <div class="row ">
-                      <div class="col-12 table-responsive">
-                        <h3>Attuali</h3>
-                        <table class="table  table-hover table-striped table-rounded">
-                          <thead class="table-dark">
-
-                            <tr>
-                              <th width="20%">Giocatore</th>
-                              <th width="8%">Da</th>
-                              <th width="8%">A</th>
-                              <th width="10%">Motivo</th>
-                              <th width="50%">Note</th>
-                              <th width="2%"></th>
-                              <th width="2%"></th>
-                            </tr>
-
-                          </thead>
-
-                          <tbody class="">
-
-                            <?php while($row = mysqli_fetch_assoc($result)) {  ?>
-
-                              <tr>
-                                <!-- Giocatore -->
-                                <td class="text-nowrap">
-                                  <?php echo $row['cognome'] . ' ' .$row['nome']   ?>
-                                </td>
-
-                                <!-- Da data inizio assenza -->
-                                <td>
-                                  <?php echo date('d/m/y',strtotime($row['da_data']));?>
-                                </td>
-
-                                <!-- A data fine assenza -->
-                                <td>
-                                  <?php echo date('d/m/y',strtotime($row['a_data'])); ?>
-                                </td>
-
-                                <!-- Motivo indisponbilità -->
-                                <td>
-                                  <?php echo $row['motivo']   ?>
-                                </td>
-
-                                <!-- Note -->
-                                <td class="text-nowrap">
-                                  <?php echo $row['note']   ?>
-                                </td>
-
-                                <!-- Edit -->
-                                <td>
-                                  <a href="#" class="text-decoration-none text-dark"  data-bs-toggle="tooltip" data-bs-title="Modifica"
-                                    onclick="showEditModal('<?php echo $row["id"]; ?>', '<?php echo $row["id_giocatore"]; ?>', '<?php echo $row["motivo"]; ?>', '<?php echo $row["da_data"]; ?>', '<?php echo $row["a_data"]; ?>', '<?php echo $row["note"]; ?>')" data-bs-toggle="tooltip" data-bs-title="Modifica">
-                                    <i class='bx bx-pencil'></i>
-                                  </a>
-                                </td>
-                                <!-- Delete -->
-                                <td>
-                                  <a class="text-decoration-none text-dark" data-bs-toggle="tooltip" data-bs-title="Elimina"
-                                    onclick="confirmDelete('<?php echo $row["id"]; ?>')">
-                                    <i class='bx bx-trash'></i>
-                                  </a>
-                                </td>
-
-                              </tr>
-
-                            <?php } ?>
-
-                          </tbody>
-                        </table>
-                      </div>
-                    </div> 
-                    <?php }else{ ?>
-                      <span>Nessun indisponibile premi sul bottone</span>
-                      <span class="fw-bold">+ add</span>
-                      <span> per aggiungere un giocatore alla lista.</span>
-                    <?php }?>
-                    <div class="row mt-5">
-                      <div class="col-12 table-responsive">
-                        <h3 id="toggleOldIndisponibili" style="cursor: pointer;" >Vecchie indisponibilità <span class="badge bg-danger float-end" ><?php echo $old_indisponibili_count; ?></span></h3>
-                        <table class="table  table-hover table-striped  table-rounded" id="oldIndisponibiliTable" >
-                          <thead class="table-dark">
-
-                            <tr>
-                            <th width="20%">Giocatore</th>
-                              <th width="8%">Da</th>
-                              <th width="8%">A</th>
-                              <th width="10%">Motivo</th>
-                              <th width="50%">Note</th>
-                              <th width="2%"></th>
-                              <th width="2%"></th>
-                            </tr>
-
-                          </thead>
-
-                          <tbody class="">
-
-                            <?php while($row = mysqli_fetch_assoc($result_old)) {  ?>
-
-                              <tr >
-                                <!-- Giocatore -->
-                                <td class="text-muted text-nowrap">
-                                  <?php echo $row['cognome'] . ' ' .$row['nome']   ?>
-                                </td>
-
-                                <!-- Da data inizio assenza -->
-                                <td class="text-muted">
-                                  <?php echo date('d/m/y',strtotime($row['da_data']));?>
-                                </td>
-
-                                <!-- A data fine assenza -->
-                                <td class="text-muted">
-                                  <?php echo date('d/m/y',strtotime($row['a_data'])); ?>
-                                </td>
-
-                                <!-- Motivo indisponbilità -->
-                                <td class="text-muted">
-                                  <?php echo $row['motivo']   ?>
-                                </td>
-
-                                <!-- Note -->
-                                <td class="text-muted text-nowrap">
-                                  <?php echo $row['note']   ?>
-                                </td>
-
-                                <td>
-                                  <!-- Edit -->
-                                  <a href="#" class="text-decoration-none text-dark" data-bs-toggle="tooltip" data-bs-title="Modifica"
-                                    onclick="showEditModal('<?php echo $row["id"]; ?>', '<?php echo $row["id_giocatore"]; ?>', '<?php echo $row["motivo"]; ?>', '<?php echo $row["da_data"]; ?>', '<?php echo $row["a_data"]; ?>', '<?php echo $row["note"]; ?>')" data-bs-toggle="tooltip" data-bs-title="Modifica">
-                                    <i class='bx bx-pencil'></i>
-                                  </a>
-                                </td>
-                                <td>
-                                  <!-- Delete -->
-                                  <a class="text-decoration-none text-dark" data-bs-toggle="tooltip" data-bs-title="Elimina"
-                                  onclick="confirmDelete('<?php echo $row["id"]; ?>')">
-                                    <i class='bx bx-trash'></i>
-                                  </a>
-                                </td>
-
-                              </tr>
-
-                            <?php } ?>
-
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                    
-                  </div>
-                  <!-- END:Core della pagina -->
                 </div>
               </div>
+              <!-- END:Intestazione -->
+
+              <!-- Core della pagina -->
+              <div class="container-fluid">
+                
+                <!-- Elenco indisponibili attuali -->
+                <?php if ($result->num_rows >0 ){ ?>
+                  <div class="row">
+                    <div class="col-12 table-responsive">
+                      <h3>Attuali</h3>
+                      <table class="table  table-hover table-striped table-rounded">
+                        <thead class="table-dark">
+
+                          <tr>
+                            <th width="20%">Giocatore</th>
+                            <th width="8%">Da</th>
+                            <th width="8%">A</th>
+                            <th width="10%">Motivo</th>
+                            <th width="50%">Note</th>
+                            <th width="2%"></th>
+                            <th width="2%"></th>
+                          </tr>
+
+                        </thead>
+
+                        <tbody class="">
+
+                          <?php while($row = mysqli_fetch_assoc($result)) {  ?>
+
+                            <tr>
+                              <!-- Giocatore -->
+                              <td class="text-nowrap">
+                                <?php echo $row['cognome'] . ' ' .$row['nome']   ?>
+                              </td>
+
+                              <!-- Da data inizio assenza -->
+                              <td>
+                                <?php echo date('d/m/y',strtotime($row['da_data']));?>
+                              </td>
+
+                              <!-- A data fine assenza -->
+                              <td>
+                                <?php echo date('d/m/y',strtotime($row['a_data'])); ?>
+                              </td>
+
+                              <!-- Motivo indisponbilità -->
+                              <td>
+                                <?php echo $row['motivo']   ?>
+                              </td>
+
+                              <!-- Note -->
+                              <td class="text-nowrap">
+                                <?php echo $row['note']   ?>
+                              </td>
+
+                              <!-- Edit -->
+                              <td>
+                                <a href="#" class="text-decoration-none text-dark"  data-bs-toggle="tooltip" data-bs-title="Modifica"
+                                  onclick="showEditModal('<?php echo $row["id"]; ?>', '<?php echo $row["id_giocatore"]; ?>', '<?php echo $row["motivo"]; ?>', '<?php echo $row["da_data"]; ?>', '<?php echo $row["a_data"]; ?>', '<?php echo $row["note"]; ?>')" data-bs-toggle="tooltip" data-bs-title="Modifica">
+                                  <i class='bx bx-pencil'></i>
+                                </a>
+                              </td>
+                              <!-- Delete -->
+                              <td>
+                                <a class="text-decoration-none text-dark" data-bs-toggle="tooltip" data-bs-title="Elimina"
+                                  onclick="confirmDelete('<?php echo $row["id"]; ?>')">
+                                  <i class='bx bx-trash'></i>
+                                </a>
+                              </td>
+
+                            </tr>
+
+                          <?php } ?>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div> 
+                <?php }else{ ?>
+                  <span>Nessun indisponibile premi sul bottone</span>
+                  <span class="fw-bold">+ add</span>
+                  <span> per aggiungere un giocatore alla lista.</span>
+                <?php }?>
+
+                <!-- Elenco vecchie indisponibilità -->
+                <?php if ($result_old->num_rows >0 ){ ?>
+                  <div class="row mt-5">
+                    <div class="col-12 table-responsive">
+                      <h3 id="toggleOldIndisponibili" style="cursor: pointer;" >Vecchie indisponibilità <span class="badge bg-danger float-end" ><?php echo $old_indisponibili_count; ?></span></h3>
+                      <table class="table  table-hover table-striped  table-rounded" id="oldIndisponibiliTable" >
+                        <thead class="table-dark">
+
+                          <tr>
+                          <th width="20%">Giocatore</th>
+                            <th width="8%">Da</th>
+                            <th width="8%">A</th>
+                            <th width="10%">Motivo</th>
+                            <th width="50%">Note</th>
+                            <th width="2%"></th>
+                            <th width="2%"></th>
+                          </tr>
+
+                        </thead>
+
+                        <tbody class="">
+
+                          <?php while($row = mysqli_fetch_assoc($result_old)) {  ?>
+
+                            <tr >
+                              <!-- Giocatore -->
+                              <td class="text-muted text-nowrap">
+                                <?php echo $row['cognome'] . ' ' .$row['nome']   ?>
+                              </td>
+
+                              <!-- Da data inizio assenza -->
+                              <td class="text-muted">
+                                <?php echo date('d/m/y',strtotime($row['da_data']));?>
+                              </td>
+
+                              <!-- A data fine assenza -->
+                              <td class="text-muted">
+                                <?php echo date('d/m/y',strtotime($row['a_data'])); ?>
+                              </td>
+
+                              <!-- Motivo indisponbilità -->
+                              <td class="text-muted">
+                                <?php echo $row['motivo']   ?>
+                              </td>
+
+                              <!-- Note -->
+                              <td class="text-muted text-nowrap">
+                                <?php echo $row['note']   ?>
+                              </td>
+
+                              <td>
+                                <!-- Edit -->
+                                <a href="#" class="text-decoration-none text-dark" data-bs-toggle="tooltip" data-bs-title="Modifica"
+                                  onclick="showEditModal('<?php echo $row["id"]; ?>', '<?php echo $row["id_giocatore"]; ?>', '<?php echo $row["motivo"]; ?>', '<?php echo $row["da_data"]; ?>', '<?php echo $row["a_data"]; ?>', '<?php echo $row["note"]; ?>')" data-bs-toggle="tooltip" data-bs-title="Modifica">
+                                  <i class='bx bx-pencil'></i>
+                                </a>
+                              </td>
+                              <td>
+                                <!-- Delete -->
+                                <a class="text-decoration-none text-dark" data-bs-toggle="tooltip" data-bs-title="Elimina"
+                                onclick="confirmDelete('<?php echo $row["id"]; ?>')">
+                                  <i class='bx bx-trash'></i>
+                                </a>
+                              </td>
+
+                            </tr>
+
+                          <?php } ?>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                <?php }?>
+              </div>
+              <!-- END:Core della pagina -->
             </div>
           </div>
+           
         </div>
       </div>
     </main>

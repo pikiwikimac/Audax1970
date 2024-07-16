@@ -6,10 +6,11 @@
 
   $id=$_REQUEST['id'];
 
-  $query_articoli = "select a.*,s.descrizione,s.anno_inizio,s.anno_fine,s.girone
+  $query_articoli = "
+  SELECT a.*,ai.descrizione as intestazione
   FROM articoli a
-  inner join stagioni s on s.id_stagione=a.id_stagione
-  where a.id='$id'";
+  LEFT JOIN articoli_intestazioni ai ON ai.id = a.id_intestazione
+  WHERE a.id='$id'";
   
   $articoli = mysqli_query($con,$query_articoli);
   $row = mysqli_fetch_assoc($articoli);
@@ -40,7 +41,16 @@
       <div class="row g-5 my-3">
         <div class="col-12">
           
-          <span class="fs-2 fw-bold" id="font_diverso"><?php echo $row['titolo'] ?></span>
+          <span class="fs-2 fw-bold" id="font_diverso">
+            <?php echo $row['titolo'] ?>
+            <?php if($row['intestazione'] !== null ){ ?>
+              <div class="float-end">
+                <span class="badge bg-secondary bebas">
+                  <?php echo $row['intestazione'] ?>
+                </span>
+              </div>
+            <?php } ?>
+          </span>
           <?php
             // Ottieni l'URL della pagina corrente
             $current_url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
@@ -75,7 +85,7 @@
 
           <!-- Icone condivisione social --> 
           <div class="">
-            <a href="https://www.instagram.com/?url=<?php echo urlencode($current_url); ?>" class="text-decoration-none text-dark" target="_blank">
+            <a href="https://www.instagram.com/ss_audax1970_official" class="text-decoration-none text-dark" target="_blank">
                 <i class='bx bxl-instagram bx-sm'></i>
             </a>
             <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode($current_url); ?>" class="text-decoration-none text-dark" target="_blank">

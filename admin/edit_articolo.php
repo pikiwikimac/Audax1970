@@ -73,7 +73,7 @@
                           <button class="btn btn-outline-dark float-end" data-bs-toggle="offcanvas"   href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
                             <i class='bx bx-plus'></i>
                           </button>	
-                          <a type="button" href="articoli.php" class="btn btn-outline-dark float-end">
+                          <a type="button" href="articoli.php" class="btn btn-outline-dark float-end me-2">
                             <i class='bx bx-arrow-back'></i>
                           </a>
                         </div>
@@ -137,8 +137,8 @@
                                       <!-- Opzioni per la squadra ospite -->
                                       <?php
                                         $sql = "SELECT * FROM `articoli_intestazioni` ORDER BY id ";
-                                        $intestazioni = mysqli_query($con, $sql);
-                                        while ($intestazione = mysqli_fetch_assoc($intestazioni)) {
+                                        $intestazioni2 = mysqli_query($con, $sql);
+                                        while ($intestazione = mysqli_fetch_assoc($intestazioni2)) {
                                           $selected = ($intestazione['id'] == $row['id_intestazione']) ? "selected" : "";
                                           echo "<option value='{$intestazione['id']}' $selected>{$intestazione['descrizione']} </option>";
                                         }

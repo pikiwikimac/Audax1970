@@ -30,7 +30,7 @@
 
   $coppa_marche = mysqli_query($con,$query);  
   
-  $query_giornate = "SELECT DISTINCT CAST(giornata AS UNSIGNED) AS giornata_numero  FROM `partite` p WHERE p.id_stagione = '$id_stagione' ORDER BY giornata_numero";
+  $query_giornate = "SELECT DISTINCT CAST(giornata AS UNSIGNED) AS giornata_numero  FROM `partite` p WHERE p.id_stagione = '$stagione_id' ORDER BY giornata_numero";
   $lista_giornate = mysqli_query($con, $query_giornate);
 
 ?>
@@ -215,7 +215,7 @@
                         <?php } ?>
                       </div>
 
-
+                      <?php if($coppa_marche->num_rows > 0) {  ?>
                       <div class="row mb-3">
                         <div class="col-12 table-responsive">
                           <span class="fs-2">Coppa marche</span>
@@ -358,6 +358,7 @@
                           </table>
                         </div>
                       </div>
+                      <?php } ?>
 
                     </div>
                     <!-- END:Core della pagina -->

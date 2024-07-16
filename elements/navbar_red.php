@@ -11,12 +11,12 @@
 
 </style>
 
-<nav class="navbar navbar-expand-lg fixed-top align-middle" style="background: #eb021a; border-bottom:10px solid #fedc00">
+<nav class="navbar navbar-expand-lg fixed-top align-middle" style="background: #BC0524; border-bottom:10px solid #fedc00">
   <div class="container">
     <!-- Logo + Nome squadra -->
     <a class="navbar-brand text-light" href="../index.php" >
       <!-- Logo -->
-      <img width="40" height="40" src="../image/loghi/audax.jpeg" class="logo rounded mb-2" alt="Valmisa Logo" decoding="async" loading="lazy" >
+      <img width="40" height="40" src="../image/loghi/logo_audax.png" class="logo rounded mb-2" alt="Audax Logo" decoding="async" loading="lazy" >
       &nbsp; &nbsp; 
       <!-- Nome squadra -->
       <span class="fs-2 ">
@@ -42,7 +42,7 @@
             Prima squadra
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="squadra.php" id="rosa" name="rosa">Rosa</a></li>
+            <li><a class="dropdown-item" href="squadra.php?id_squadra=1" id="rosa" name="rosa">Rosa</a></li>
             <li><a class="dropdown-item" href="calendario.php" id="calendario" name="calendario">Calendario</a></li>
             <li><a class="dropdown-item" href="classifica.php" id="classifica" name="classifica">Classifica</a></li>
           </ul>
@@ -54,7 +54,7 @@
             <li class="dropdown-submenu">
               <a class="dropdown-item dropdown-toggle" href="#">Serie D</a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Rosa</a></li>
+                <li><a class="dropdown-item" href="squadra.php?id_squadra=2">Rosa</a></li>
                 <li><a class="dropdown-item" href="#">Calendario</a></li>
                 <li><a class="dropdown-item" href="#">Classifica</a></li>
               </ul>
@@ -62,7 +62,7 @@
             <li class="dropdown-submenu">
               <a class="dropdown-item dropdown-toggle" href="#">Under 19</a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Rosa</a></li>
+                <li><a class="dropdown-item" href="squadra.php?id_squadra=3">Rosa</a></li>
                 <li><a class="dropdown-item" href="#">Calendario</a></li>
                 <li><a class="dropdown-item" href="#">Classifica</a></li>
               </ul>
@@ -70,7 +70,7 @@
             <li class="dropdown-submenu">
               <a class="dropdown-item dropdown-toggle" href="#">Under 17</a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Rosa</a></li>
+                <li><a class="dropdown-item" href="squadra.php?id_squadra=4">Rosa</a></li>
                 <li><a class="dropdown-item" href="#">Calendario</a></li>
                 <li><a class="dropdown-item" href="#">Classifica</a></li>
               </ul>
@@ -78,7 +78,7 @@
             <li class="dropdown-submenu">
               <a class="dropdown-item dropdown-toggle" href="#">Under 15</a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Rosa</a></li>
+                <li><a class="dropdown-item" href="squadra.php?id_squadra=6">Rosa</a></li>
                 <li><a class="dropdown-item" href="#">Calendario</a></li>
                 <li><a class="dropdown-item" href="#">Classifica</a></li>
               </ul>
@@ -102,10 +102,11 @@
         <li class="nav-item me-3 ">
           <a class="nav-link text-light <?php if ($_SERVER['PHP_SELF'] === '/articoli.php') echo 'active'; ?>" href="articoli.php" id="articoli" name="articoli">Articoli</a>
         </li>
-        <!--  -->
+        <!-- 
         <li class="nav-item me-3 ">
           <a class="nav-link text-light <?php if ($_SERVER['PHP_SELF'] === '/shop.php') echo 'active'; ?>" href="shop.php" id="shop" name="shop">Shop</a>
         </li>
+         -->
       </ul>
       <div class="d-flex">
         <a class="text-decoration-none me-2 text-light" href="https://www.facebook.com/ssaudax1970">

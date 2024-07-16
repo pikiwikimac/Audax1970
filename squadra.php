@@ -5,20 +5,26 @@
 
   include('check_user_logged.php');
 
+  $id_squadra=$_REQUEST['id_squadra'];
+
+  $query_tipo_squadra="SELECT tipo FROM societa WHERE id=$id_squadra";
+  $tipo_squadra = mysqli_query($con,$query_tipo_squadra);
+  $tipo = mysqli_fetch_assoc($tipo_squadra);
+
   //INIZIO QUERY
-  $queryPortiere = "select * FROM giocatori where ruolo='Portiere' and id_squadra=1 order by ruolo,cognome,nome asc";
+  $queryPortiere = "select * FROM giocatori where ruolo='Portiere' and id_squadra=$id_squadra order by ruolo,cognome,nome asc";
   $portieri = mysqli_query($con,$queryPortiere);
 
-  $queryCentrale = "select * FROM giocatori where ruolo='Centrale' and id_squadra=1 order by ruolo,cognome,nome asc";
+  $queryCentrale = "select * FROM giocatori where ruolo='Centrale' and id_squadra=$id_squadra order by ruolo,cognome,nome asc";
   $centrali = mysqli_query($con,$queryCentrale);
 
-  $queryUniversale = "select * FROM giocatori where ruolo='Universale' and id_squadra=1 order by ruolo,cognome,nome asc";
+  $queryUniversale = "select * FROM giocatori where ruolo='Universale' and id_squadra=$id_squadra order by ruolo,cognome,nome asc";
   $universali = mysqli_query($con,$queryUniversale);
 
-  $queryLaterale = "select * FROM giocatori where ruolo='Laterale' and id_squadra=1 order by ruolo,cognome,nome asc";
+  $queryLaterale = "select * FROM giocatori where ruolo='Laterale' and id_squadra=$id_squadra order by ruolo,cognome,nome asc";
   $laterali = mysqli_query($con,$queryLaterale);
 
-  $queryPivot = "select * FROM giocatori where ruolo='Pivot' and id_squadra=1 order by ruolo,cognome,nome asc";
+  $queryPivot = "select * FROM giocatori where ruolo='Pivot' and id_squadra=$id_squadra order by ruolo,cognome,nome asc";
   $pivot = mysqli_query($con,$queryPivot);
 
   $queryDirigenza = "select nome,ruolo,ordinamento,image_path FROM dirigenti WHERE ordinamento > 0  order by ordinamento,nome ";
@@ -42,10 +48,16 @@
         
     <!-- Carousel di sfondo  -->
     <?php include 'elements/carousel.php'; ?>
+    
 
     <!-- Descrizione iniziale -->
     <div class="container my-5">
+      <span class="fw-bold fs-2" id="font_diverso">
+        <?php echo $tipo['tipo'] ?>
+      </span>
+        
       <?php if(mysqli_num_rows($portieri)=== 0 && mysqli_num_rows($centrali)=== 0 && mysqli_num_rows($laterali)=== 0 && mysqli_num_rows($pivot)=== 0 && mysqli_num_rows($universali)=== 0){ ?>
+        <br/>
         <span class="text-muted">Nessun giocatore ancora inserito</span>
       <?php } ?>
       
@@ -261,9 +273,9 @@
             <div class="card player hover-box-shadow ">
               <!-- Immagine dirigente -->
               <?php if($row['image_path']!= NULL){ ?>
-                <img src="image/staff/<?php echo $row['image_path']; ?>" class="card-img-top image-clickable " alt="..." style="width:100%;cursor:pointer;" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>"/>
+                <img src="image/staff/<?php echo $row['image_path']; ?>" class="card-img-top image-clickable " alt="..." style="width:100%;max-height:200px;cursor:pointer;" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>"/>
               <?php }else{ ?>
-                <img src="image/default_user.jpg" class="card-img-top image-clickable " alt="..." style="width:100%;cursor:pointer;" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>"/>
+                <img src="image/default_user.jpg" class="card-img-top image-clickable " alt="..." style="width:100%;max-height:200px;cursor:pointer;" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>"/>
               <?php } ?>
 
               <!-- Info dirigente -->

@@ -139,12 +139,10 @@
     ORDER BY gol_fatti asc -- Ordina per data in modo decrescente per ottenere l'ultima partita";
     $marcatori_ospite_ultima_partita = mysqli_query($con, $query_marcatori_ospite_ultima_partita);
 
-    $query_articoli = "select a.*,s1.nome_societa as nome_casa,s2.nome_societa as nome_ospiti,s.descrizione as stagione,s.anno_inizio,s.anno_fine,s.girone
+    
+    $query_articoli = "select a.*,ai.descrizione as intestazione
     FROM articoli a
-    inner join stagioni s on s.id_stagione=a.id_stagione
-    left join partite p on p.id=a.id_partita
-    left join societa s1 on s1.id=p.squadraCasa
-    left join societa s2 on s2.id=p.squadraOspite
+    LEFT JOIN articoli_intestazioni ai ON ai.id = a.id_intestazione
     ORDER BY data_pubblicazione desc
     LIMIT 4";
     $articoli = mysqli_query($con,$query_articoli);
@@ -153,6 +151,12 @@
 
 
 <style>
+  .bebas{
+    font-size: 14px!important;
+    font-weight: 300;
+    font-family: 'Bebas Neue';
+    letter-spacing:1px;
+  }
   .card {
     display: flex;
     flex-direction: column;
@@ -174,7 +178,7 @@
 
   .card-title {
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 500;
     font-family: 'Bebas Neue';
   }
 
@@ -230,13 +234,11 @@
                     <img src="image/lnd_a2.png" class="card-img-top" alt="..." style="max-height:250px">
                   <?php } ?>
                   <div class="card-body">
-                    <?php if($articolo['id_stagione'] !== null || $articolo['id_stagione'] !== 999){ ?>
+                    <?php if($articolo['intestazione'] !== null ){ ?>
                     <div class="card-img-overlay">
-                      <h5 class="card-title fw-bold text-white">
-                        <span class="badge bg-secondary">
-                          <?php echo $articolo['stagione'] ?>
-                        </span>
-                      </h5>
+                      <span class="badge bg-secondary bebas">
+                        <?php echo $articolo['intestazione'] ?>
+                      </span>
                     </div>
                     <?php } ?>
                     <h4 class="card-title"><?php echo $articolo['titolo'] ?></h4>
