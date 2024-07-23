@@ -158,7 +158,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
             <div class="form-container " >
                 <form action="../query/insert_user.php" method="POST">
-                    <h1>VALMISA FUTSAL</h1>
+                    <h1>AUDAX 1970</h1>
                     <div class="" >
                         <input type="text" placeholder="Nome" id="nome" name="nome" class=""/>
                         <input type="text" placeholder="Cognome" id="cognome" name="cognome" class=""/>

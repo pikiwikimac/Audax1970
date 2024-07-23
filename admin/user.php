@@ -48,13 +48,7 @@
                         </h1>
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
-                          <a href="edit_user.php?id=<?php echo $user['id'] ?>" type="button" class="btn btn-outline-dark float-end">
-                            <i class='bx bx-pencil '></i>
-                          </a>
-                          
-                          <a href="../login/change_password.php?id=<?php echo $user['id'] ?>" type="button" class="btn btn-outline-dark float-end me-2">
-                            Cambia password
-                          </a>
+                         
                           
                         </div>
                       </div>
@@ -65,10 +59,12 @@
                     <div class="">
 
                       <div class="row  gy-3">
+                        <!-- Immagine utente -->
                         <div class="col-12 col-lg-2">
                           <img src="../<?php echo $user['image']; ?>" class="rounded img-fluid " alt="..." width="500" height="500"/>
                         </div>
-                        <div class="col-12 col-lg-10">
+                        <!-- Info utente -->
+                        <div class="col-12 col-lg-8">
                           <div class="row  gy-3">
                             <div class="col-12">
                               <span class="fs-5 text-muted mt-0">
@@ -114,10 +110,39 @@
                             </div>    
                           </div>
                         </div>
+                        <!-- Bottoni -->
+                        <div class="col-12 col-lg-2">
+                          <div class="row gy-3 ">
+                            <!-- Bottone gestione registrazioni -->
+                            <div class="col-12">
+                              <a class="btn btn-outline-dark" href="gestore_registrazioni.php" style="width:200px">
+                                <i class='bx bx-user-plus'></i> &nbsp; Gestione registrazioni
+                              </a>
+                            </div>
 
-                       
+                            <!-- Bottone -->
+                            <div class="col-12">
+                              <a class="btn btn-outline-dark" href="show_societa.php?id=<?php echo $id_societa ?>" style="width:200px">
+                                <i class='bx bxs-building-house'></i> &nbsp; Modifica info squadra
+                              </a>
+                            </div>
 
-                      </div>
+                            <!-- Bottone -->
+                            <div class="col-12">
+                              <a href="edit_user.php?id=<?php echo $user['id'] ?>" type="button" class="btn btn-outline-dark " style="width:200px">
+                                <i class='bx bx-pencil '></i> &nbsp; Modifica utente
+                              </a>
+                            </div>
+
+                            <!-- Bottone  -->
+                            <div class="col-12">
+                              <a href="../login/change_password.php?id=<?php echo $user['id'] ?>" type="button" class="btn btn-outline-dark " style="width:200px">
+                                <i class='bx bxs-lock' ></i> &nbsp; Modifica password
+                              </a>
+                            </div>
+
+                          </div>
+                        </div>
 
                     </div>
                     <!-- END:Core della pagina -->

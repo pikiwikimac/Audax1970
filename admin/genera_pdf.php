@@ -28,7 +28,6 @@ $vicecapitano=$_POST['vicecapitano'];
 
 // Allenatore
 $allenatore=$_POST['allenatore'];
-$tipo_doc_allenatore=mysqli_real_escape_string($con, $_POST['tipo_doc_allenatore']);
 $doc_allenatore=mysqli_real_escape_string($con, $_POST['doc_allenatore']);
 
 // Assicurati che il valore di $_POST sia opportunamente sanificato per prevenire attacchi di SQL injection
@@ -171,7 +170,6 @@ $pdf->Cell(8,8,' ', 1, 0, 'C', true);
 $pdf->Ln(10);
 $pdf->Cell(85,8,'DIRGENTE/ALLEN.', 1, 0, 'C', true);
 $pdf->Cell(75,8,$allenatore, 1, 0, 'C', true);
-$pdf->Cell(30,8,$tipo_doc_allenatore .'-' .$doc_allenatore, 1, 0, 'C', true);
 
 // SHOW Dirigente 1
 $pdf->Ln(10);

@@ -1,5 +1,6 @@
 {
     "require": {
-        "phpmailer/phpmailer": "^6.5"
+        "phpmailer/phpmailer": "^6.5",
+        "telegram-bot/api": "^2.5"
     }
 }

@@ -1,8 +1,7 @@
-<!-- Pagina principale per utente semplice -->
 <?php
-    session_start();
-    require_once('config/db.php');
-    
+session_start();
+
+require_once('config/db.php');
 
     # QUERY
     $query = "
@@ -62,12 +61,20 @@
                     )
     ";
     $ultimo_match = mysqli_query($con,$query_ultimo_match);
+    // Ensure that $row is not null before accessing its elements
     $row = mysqli_fetch_assoc($ultimo_match);
 
-    // Variabili che dichiaro
-    $squadraCasa = $row['squadraCasa'];
-    $squadraOspite = $row['squadraOspite'];
-    $id_partita = $row['id'];
+    if ($row !== null) {
+        $squadraCasa = $row['squadraCasa'] ?? '';
+        $squadraOspite = $row['squadraOspite'] ?? '';
+        $id_partita = $row['id'] ?? 0;
+    } else {
+      // Handle the case when no match is found
+      $squadraCasa = '';
+      $squadraOspite = '';
+      $id_partita = 0;
+    }
+
 
     # QUERY
     $query_prossimo_match="
@@ -428,7 +435,15 @@
                   <span class="float-end">
                     <i class='bx bx-calendar'></i>
                     <span>
-                    <?php echo  date("d/m/y", strtotime($row2['data'])) .' - ' .date('H:i', strtotime($row2['orario_partita'])); ?>
+                    <?php 
+                      if (isset($row2['data'], $row2['orario_partita'])) {
+                        $formatted_date = date("d/m/y", strtotime($row2['data']));
+                        $formatted_time = date('H:i', strtotime($row2['orario_partita']));
+                      } else {
+                        $formatted_date = '';
+                        $formatted_time = '';
+                      }
+                    ?>
                     </span>
                     
                   </span>

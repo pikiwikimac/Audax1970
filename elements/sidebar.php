@@ -2,6 +2,8 @@
 <?php 
 	session_start();
 	$id_societa=$_SESSION['id_societa_riferimento'];
+	$user_id = $_SESSION['user_id'];
+
 
 	$query="
 	SELECT id_campionato
@@ -11,6 +13,8 @@
 	$xyz = mysqli_query($con,$query);
 	$id_stagione= mysqli_fetch_assoc($xyz);
 	$stagione=$id_stagione['id_campionato'];
+
+	
 
 ?>
 <div class="tpl--sidenav d-print-none">
@@ -304,7 +308,7 @@
 			</li>
 			
 			<li>
-				<a href="../admin/impostazioni.php">
+				<a href="../admin/user.php?id=<?php echo $user_id ?>">
 					<i class="bi bi-gear"></i>
 				</a>
 				<div class="sub-menu">

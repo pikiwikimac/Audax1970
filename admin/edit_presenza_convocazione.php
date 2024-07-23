@@ -142,14 +142,13 @@
                     <!-- Core della pagina -->
                     <div class="">
                       <div class="row mt-3 gy-3">
-                        <div class="col-12 col-lg-6">
+                        <div class="col-12 col-lg-5">
                           <form action="../query/action_insert_convocati.php?id=<?php echo $id; ?>" method="POST">
                             <!-- Card convocabili -->
                             <div class="card">
 
                               <div class="card-header bg-dark">
-                                <span class="text-white"> Convocabili </span>
-                                <span class="float-end text-white"> <span id="conteggio">0</span> / <?php echo $numero_giocatori['numero_giocatori'] ?> giocatori selezionati </span>
+                                <h3 class="text-white"> Convocabili </h3>
                               </div>
 
                               <div class="card-body">
@@ -194,6 +193,10 @@
                                 <?php } ?>
                               </div>
 
+                              <div class="card-footer">
+                                <span class="float-end"> <span id="conteggio">0</span> / <?php echo $numero_giocatori['numero_giocatori'] ?> giocatori selezionati </span>
+                              </div>
+
                             </div>
                           <button type="submit" class="btn btn-lg btn-outline-dark mt-3 float-end float-md-start " id="btn-stampa">Salva convocati</button>
                         </form>
@@ -201,54 +204,75 @@
                           
 
                       <!-- Luogo, Giorno e Dirigenza -->
-                      <div class="col-12 col-lg-6" id="info-match" name="info-match" >
+                      <div class="col-12 col-lg-7" id="info-match" name="info-match" >
                         <form action="genera_pdf.php?id=<?php echo $partita['id'] ?>" method="POST">
                           <div class="card mb-3">
+                            <div class="card-header bg-dark">
+                              <h3 class="text-white">Info partita</h3>
+                            </div>
                             <div class="card-body">
-                              <h3>Info partita</h3>
-                              <div class="row mt-3 gy-3">
+                              
+                              <div class="row p-3 g-4">
 
                                 <div class="col-12 col-lg-6 ">
-                                  <label for="" >Luogo</label>
+                                  <label for="sede" >Luogo</label>
                                   <input value="<?php echo $partita['sede'] ?>" type="text" class="form-control " id="sede" name="sede"></input>
                                 </div>
 
                                 <div class="col-6  col-lg-3">
-                                  <label for="" >Città</label>
+                                  <label for="citta" >Città</label>
                                   <input value="<?php echo $partita['citta'] ?>" type="text" class="form-control " id="citta" name="citta"></input>
                                 </div>
 
                                 <div class="col-6 col-lg-3">
-                                  <label for="" >Giorno</label>
+                                  <label for="data" >Giorno</label>
                                   <input value="<?php echo $partita['data'] ?>" type="date" class="form-control " id="data" name="data"></input>
                                 </div>
-                              </div>
-                            
-                              <div class="row my-3 gy-3 ">
-                                <div class="col-6 ">
-                                  <label for="" >Allenatore</label>
-                                  <input class="form-control"  name="allenatore" id="allenatore" value=""></input>
+                              
+                                <div class="col-6 col-lg-3">
+                                  <label for="allenatore" >Allenatore</label>
+                                  <input class="form-control"  name="allenatore" id="allenatore" value="Diego Petrolati"></input>
                                 </div>
                                 
-                                <div class="col-2">
-                                  <label for="" > &nbsp; </label>
-                                  <select class="form-select" name="tipo_doc_allenatore" id="tipo_doc_allenatore">
-                                    <option value="CI">CI</option>
-                                    <option value="P">P</option>
-                                  </select>
-                                </div>
                                     
-                                <div class="col-4">
-                                  <label for="" > &nbsp; </label>
+                                <div class="col-6 col-lg-3">
+                                  <label for="doc_allenatore" > Documento </label>
                                   <input class="form-control"  name="doc_allenatore" id="doc_allenatore" value=""></input>
                                 </div>
-                                
-                              </div>
-                          
-                              <div class="row my-3 gy-3 ">
+
                                 <div class="col-6 col-lg-3 ">
-                                  <label for="" >Dirigente 1</label>
-                                  <div class="input-group mb-3">
+                                  <label for="capitano" >Capitano</label>
+                                  <select class="form-select" id="capitano" name="capitano">
+                                    <?php
+                                    // Utilizziamo una nuova variabile $giocatoriCapitano per iterare sui giocatori
+                                    while($rowCapitano = mysqli_fetch_assoc($capitano)) {
+                                        // Se il ruolo del giocatore è "C", lo segna automaticamente come capitano
+                                        $selected = ($rowCapitano['capitano'] === 'C') ? 'selected' : '';
+                                        echo '<option value="' . $rowCapitano['id'] . '" ' . $selected . '>' . $rowCapitano['nome'] . ' ' . $rowCapitano['cognome'] . '</option>';
+                                    }
+                                    ?>
+                                  </select>
+                                  
+                                </div>
+
+                                <div class="col-6  col-lg-3">
+                                  <label for="vicecapitano" >Vicecapitano</label>
+                                  <select class="form-select" id="vicecapitano" name="vicecapitano">
+                                    <?php
+                                    // Utilizziamo una nuova variabile $giocatoriCapitano per iterare sui giocatori
+                                    while($rowCapitano = mysqli_fetch_assoc($vicecapitano)) {
+                                        // Se il ruolo del giocatore è "C", lo segna automaticamente come capitano
+                                        $selected = ($rowCapitano['capitano'] === 'VC') ? 'selected' : '';
+                                        echo '<option value="' . $rowCapitano['id'] . '" ' . $selected . '>' . $rowCapitano['nome'] . ' ' . $rowCapitano['cognome'] . '</option>';
+                                    }
+                                    ?>
+                                  </select>
+                                </div>
+                                
+
+                                <div class="col-6 col-lg-3 ">
+                                  <label for="dirigente_1" >Dirigente 1</label>
+                                  <div class="input-group">
                                     <input class="form-control"  name="dirigente_1" id="dirigente_1" value=""></input>
                                     <input type="hidden"  name="dirigente_1_doc" id="dirigente_1_doc" value=""></input>
                                     <span class="input-group-text dirigenti"  data-bs-toggle="offcanvas" data-bs-target="#dirigenteOffcanvas" data-bs-dirigente="1">
@@ -258,8 +282,8 @@
                                 </div>
 
                                 <div class="col-6 col-lg-3 ">
-                                  <label for="" >Dirigente 2</label>
-                                  <div class="input-group mb-3">
+                                  <label for="dirigente_2" >Dirigente 2</label>
+                                  <div class="input-group">
                                     <input class="form-control"  name="dirigente_2" id="dirigente_2" value=""></input>
                                     <span class="input-group-text dirigenti"  data-bs-toggle="offcanvas" data-bs-target="#dirigenteOffcanvas" data-bs-dirigente="2">
                                       <i class="bx bx-plus align-middle"></i>
@@ -268,8 +292,8 @@
                                 </div>
 
                                 <div class="col-6 col-lg-3">
-                                  <label for="" >Dirigente 3</label>
-                                  <div class="input-group mb-3">
+                                  <label for="dirigente_3" >Dirigente 3</label>
+                                  <div class="input-group">
                                     <input class="form-control"  name="dirigente_3" id="dirigente_3" value=""></input>
                                     <span class="input-group-text dirigenti"  data-bs-toggle="offcanvas" data-bs-target="#dirigenteOffcanvas" data-bs-dirigente="3">
                                       <i class="bx bx-plus align-middle"></i>
@@ -278,8 +302,8 @@
                                 </div>
 
                                 <div class="col-6 col-lg-3">
-                                  <label for="" >Dirigente 4</label>
-                                  <div class="input-group mb-3">
+                                  <label for="dirigente_4" >Dirigente 4</label>
+                                  <div class="input-group">
                                     <input class="form-control"  name="dirigente_4" id="dirigente_4" value=""></input>
                                     <span class="input-group-text dirigenti"  data-bs-toggle="offcanvas" data-bs-target="#dirigenteOffcanvas" data-bs-dirigente="4">
                                       <i class="bx bx-plus align-middle"></i>
@@ -288,43 +312,13 @@
                                 </div>
 
                                 <div class="col-6 col-lg-3 ">
-                                  <label for="" >Luogo convocazione</label>
+                                  <label for="luogo_convocazione" >Luogo convocazione</label>
                                   <input value="" type="text" class="form-control " id="luogo_convocazione" name="luogo_convocazione"></input>
                                 </div>
 
                                 <div class="col-6  col-lg-3">
-                                  <label for="" >Orario convocazione</label>
+                                  <label for="orario_convocazione" >Orario convocazione</label>
                                   <input value="" type="time" class="form-control " id="orario_convocazione" name="orario_convocazione"></input>
-                                </div>
-
-                                <div class="col-6 col-lg-3 ">
-                                  <label for="" >Capitano</label>
-                                  
-                                  <select class="form-select" id="capitano" name="capitano">
-                                  <?php
-                                  // Utilizziamo una nuova variabile $giocatoriCapitano per iterare sui giocatori
-                                  while($rowCapitano = mysqli_fetch_assoc($capitano)) {
-                                      // Se il ruolo del giocatore è "C", lo segna automaticamente come capitano
-                                      $selected = ($rowCapitano['capitano'] === 'C') ? 'selected' : '';
-                                      echo '<option value="' . $rowCapitano['id'] . '" ' . $selected . '>' . $rowCapitano['nome'] . ' ' . $rowCapitano['cognome'] . '</option>';
-                                  }
-                                  ?>
-                                  </select>
-                                  
-                                </div>
-
-                                <div class="col-6  col-lg-3">
-                                  <label for="" >Vicecapitano</label>
-                                  <select class="form-select" id="vicecapitano" name="vicecapitano">
-                                  <?php
-                                  // Utilizziamo una nuova variabile $giocatoriCapitano per iterare sui giocatori
-                                  while($rowCapitano = mysqli_fetch_assoc($vicecapitano)) {
-                                      // Se il ruolo del giocatore è "C", lo segna automaticamente come capitano
-                                      $selected = ($rowCapitano['capitano'] === 'VC') ? 'selected' : '';
-                                      echo '<option value="' . $rowCapitano['id'] . '" ' . $selected . '>' . $rowCapitano['nome'] . ' ' . $rowCapitano['cognome'] . '</option>';
-                                  }
-                                  ?>
-                                  </select>
                                 </div>
 
                               </div>
