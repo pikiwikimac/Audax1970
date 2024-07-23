@@ -38,7 +38,7 @@ require_once('config/db.php');
       AND p.id_stagione = 1
     ) AS numero_gol
     FROM giocatori g
-    WHERE id_squadra = 106
+    WHERE id_squadra = 1
     ORDER BY ruolo, cognome, nome ASC";
     $result = mysqli_query($con,$query);
 
@@ -164,41 +164,48 @@ require_once('config/db.php');
     font-family: 'Bebas Neue';
     letter-spacing:1px;
   }
-  .card {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
+/* Card wrapper */
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-  .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
+/* Uniform card height */
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-  .card-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex: 1 1 auto;
-  }
+/* Card body should flex to fill the card space */
+.card-body {
+  flex: 1;
+}
 
-  .card-title {
-    font-size: 20px;
-    font-weight: 500;
-    font-family: 'Bebas Neue';
-  }
+/* Ensuring the content in card is aligned properly */
+.card-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
-  .card-text {
-    flex: 1;
-    font-size: 12px;
-    font-weight: 400;
-  }
+/* Adjust card header and footer */
+.card-header, .card-footer {
+  flex: 0;
+}
 
-  .card-text-footer {
-    text-align: right;
-    margin-top: auto;
-  }
+/* Remove margin for header */
+.card-header {
+  margin-bottom: 0;
+}
+
+/* Ensure footer at the bottom */
+.card-footer {
+  margin-top: auto;
+}
+
 
   .card-img-top {
     object-fit: cover; /* Copre l'intero contenitore ritagliando l'immagine se necessario */
@@ -278,236 +285,190 @@ require_once('config/db.php');
       </div>
 
       <!-- Prossima partita & Ultima partita  -->
-      <div class="container my-5 d-none">
+      <div class="container my-5">
         <div class="row row-cols-1 row-cols-lg-2 g-4">
 
-          <!-- Card: Ultimo match -->
+          <!-- Prossima partita -->
+          <div class="col">
+            <a class="text-decoration-none" href="show_partita.php?id=<?php echo $row2['id'] ?>">
+              <div class="card h-100 card-wrapper">
+                <div class="card-header bg-dark text-light">
+                  Giornata <?php echo $row2['giornata'] ?>° - <?php echo $row2['descrizione'] ?>
+                  <span class="float-end">
+                    <i class='bx bx-calendar'></i>
+                    <span>
+                      <?php 
+                        if (isset($row2['data'], $row2['orario_partita'])) {
+                          $formatted_date = date("d/m/y", strtotime($row2['data']));
+                          $formatted_time = date('H:i', strtotime($row2['orario_partita']));
+                        } else {
+                          $formatted_date = '';
+                          $formatted_time = '';
+                        }
+                      ?>
+                      <?php echo $formatted_date; ?> <?php echo $formatted_time; ?>
+                    </span>
+                  </span>
+                </div>
+                <div class="card-body card-content">
+                  <!-- Luogo partita prossimo match-->
+                  <div class="row">
+                    <div class="col-12 text-center">
+                      <span class="text-muted" id="luogo_match"><?php echo $row2['sede'] .' - ' .$row2['citta']?></span>
+                    </div>
+                  </div>
+
+                  <!-- Team casa vs team fuori casa prossimo match -->
+                  <div class="row">
+                    <!-- Team casa prossimo match-->
+                    <div class="col-6 text-center">
+                      <div class="row">
+                        <div class="col-12">
+                          <span class="fw-bold fs-3" id="font_diverso"><?php echo $row2['casa'] ?></span>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12">
+                          <span class="fw-bold fs-4">-</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Team ospite prossimo match -->
+                    <div class="col-6 text-center">
+                      <div class="row">
+                        <div class="col-12">
+                          <span class="fw-bold fs-3" id="font_diverso"><?php echo $row2['ospite'] ?></span>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12">
+                          <span class="fw-bold fs-4">-</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+            </a>
+          </div>
+
+          <!-- Ultimo match -->
           <div class="col">
             <a class="text-decoration-none" href="show_partita.php?id=<?php echo $row['id'] ?>">
-              <div class="card h-100" >
-                <!-- Intestazione  -->
+              <div class="card h-100 card-wrapper">
                 <div class="card-header bg-dark text-light">
-                  <?php if($row['giornata']>500){
+                  <?php if($row['giornata']>500) {
                     echo 'Amichevole' .'<span class="float-end">
                     <i class="bx bx-calendar"></i>
                     <span>' .date("d/m/y", strtotime($row['data'])) .'</span>
                   </span>';
-                  }else{  ?>
-                    
+                  } else { ?>
                     Giornata <?php echo $row['giornata'] ?>° - <?php echo $row['descrizione'] ?>
                     <span class="float-end">
                       <i class='bx bx-calendar'></i>
-                      <span>
-                        <?php echo  date("d/m/y", strtotime($row['data'])); ?>
-                      </span>
+                      <span><?php echo  date("d/m/y", strtotime($row['data'])); ?></span>
                     </span>
                   <?php } ?>
                 </div>
-
-                <div class="card-body ">
+                <div class="card-body card-content">
                   <!-- Luogo partita -->
-                  <div class="row ">
-                    <div class="col-12 ">
+                  <div class="row">
+                    <div class="col-12">
                       <div class="text-center" id="luogo_match">
-                        <span class="text-muted "><?php echo $row['sede'] .' - '  .$row['citta'] ?></span>
+                        <span class="text-muted"><?php echo $row['sede'] .' - '  .$row['citta'] ?></span>
                       </div>
                     </div>
                   </div>
 
-                  <div class="row ">
+                  <div class="row">
                     <!-- Team casa -->
-                    <div class="col-6 ">
-                      <!-- Nome team casa -->
+                    <div class="col-6">
                       <div class="row text-center">
                         <div class="col-12">
-                          <span class="fw-bold fs-3" id="font_diverso">
-                            <?php echo $row['casa'] ?>
-                          </span>
+                          <span class="fw-bold fs-3" id="font_diverso"><?php echo $row['casa'] ?></span>
                         </div>
                       </div>
-
-                      <!-- Gol team casa -->
                       <div class="row text-center">
                         <div class="col-12">
-                          <span class="fw-bold fs-4">
-                          <span><?php echo $row['golCasa'] ?></span>
-                          </span>
+                          <span class="fw-bold fs-4"><?php echo $row['golCasa'] ?></span>
                         </div>
                       </div>
-
-                      <!-- Marcatore team casa  -->
                       <div class="row mt-3">
                         <div class="col-12">
                           <?php while ($marcatore = mysqli_fetch_assoc($marcatori_casa_ultima_partita)) { ?>
                             <div class="row altezza_ridotta">
                               <div class="col-9">
-                                <span class="text-muted " id="marcatore">
-                                  <span class="d-none d-md-block"><?php echo $marcatore['cognome'] .' '.$marcatore['nome']?></span>
-                                  <span class="d-block d-md-none"><?php echo $marcatore['cognome'] .' '.mb_substr($marcatore['nome'], 0, 1) .'.' ?></span>
-                                </span>
-                              </div>
-                              <div class="col-3">
-                                <span class="text-muted text-end text-nowrap " id="gol_segnati">
-                                  
-                                  <?php if( $marcatore['gol_fatti'] > 1 ){  ?>
-                                    <i class='bx bx-football align-middle'></i>
-                                    x
-                                    <?php echo $marcatore['gol_fatti'] ?>
-                                  <?php }else{ ?>
-                                    <i class='bx bx-football align-middle'></i>
-                                  <?php } ?>
-                                </span>
-                              </div>
-                            </div>
-                          <?php } ?>
-                        </div>
-                      </div>
-
-                    </div>
-                    <!-- END: Team casa -->
-
-                    <!-- Team ospite -->
-                    <div class="col-6 ">
-
-                      <!-- Nome  team ospite -->
-                      <div class="row text-center">
-                        <div class="col-12">
-                          <span class="fw-bold fs-3" id="font_diverso">
-                            <?php echo $row['ospite'] ?>
-                          </span>
-                        </div>
-                      </div>
-
-                      <!-- Goal  team ospite -->
-                      <div class="row text-center">
-                        <div class="col-12">
-                          <span class="fw-bold fs-4">
-                            <span><?php echo $row['golOspiti'] ?></span>
-                          </span>
-                        </div>
-                      </div>
-
-                      <!-- Marcatore team ospite -->
-                      <div class="row mt-3">
-                        <div class="col-12">
-
-                          <?php while ($marcatore = mysqli_fetch_assoc($marcatori_ospite_ultima_partita)) { ?>
-                            <div class="row altezza_ridotta ">
-                              <div class="col-9">
-                                <span class="text-muted " id="marcatore">
+                                <span class="text-muted" id="marcatore">
                                   <span class="d-none d-md-block"><?php echo $marcatore['cognome'] .' '.$marcatore['nome']?></span>
                                   <span class="d-block d-md-none"><?php echo $marcatore['cognome'] .' '.mb_substr($marcatore['nome'], 0, 1) .'.' ?></span>
                                 </span>
                               </div>
                               <div class="col-3">
                                 <span class="text-muted text-end text-nowrap" id="gol_segnati">
-                                  <?php if( $marcatore['gol_fatti'] > 1 ){  ?>
-                                    <i class='bx bx-football align-middle'></i>
-                                    x
-                                    <?php echo $marcatore['gol_fatti'] ?>
-                                  <?php }else{ ?>
+                                  <?php if($marcatore['gol_fatti'] > 1) { ?>
+                                    <i class='bx bx-football align-middle'></i> x <?php echo $marcatore['gol_fatti'] ?>
+                                  <?php } else { ?>
                                     <i class='bx bx-football align-middle'></i>
                                   <?php } ?>
                                 </span>
                               </div>
                             </div>
                           <?php } ?>
-
                         </div>
                       </div>
+                    </div>
+                    <!-- END: Team casa -->
 
+                    <!-- Team ospite -->
+                    <div class="col-6">
+                      <div class="row text-center">
+                        <div class="col-12">
+                          <span class="fw-bold fs-3" id="font_diverso"><?php echo $row['ospite'] ?></span>
+                        </div>
+                      </div>
+                      <div class="row text-center">
+                        <div class="col-12">
+                          <span class="fw-bold fs-4"><?php echo $row['golOspiti'] ?></span>
+                        </div>
+                      </div>
+                      <div class="row mt-3">
+                        <div class="col-12">
+                          <?php while ($marcatore = mysqli_fetch_assoc($marcatori_ospite_ultima_partita)) { ?>
+                            <div class="row altezza_ridotta">
+                              <div class="col-9">
+                                <span class="text-muted" id="marcatore">
+                                  <span class="d-none d-md-block"><?php echo $marcatore['cognome'] .' '.$marcatore['nome']?></span>
+                                  <span class="d-block d-md-none"><?php echo $marcatore['cognome'] .' '.mb_substr($marcatore['nome'], 0, 1) .'.' ?></span>
+                                </span>
+                              </div>
+                              <div class="col-3">
+                                <span class="text-muted text-end text-nowrap" id="gol_segnati">
+                                  <?php if($marcatore['gol_fatti'] > 1) { ?>
+                                    <i class='bx bx-football align-middle'></i> x <?php echo $marcatore['gol_fatti'] ?>
+                                  <?php } else { ?>
+                                    <i class='bx bx-football align-middle'></i>
+                                  <?php } ?>
+                                </span>
+                              </div>
+                            </div>
+                          <?php } ?>
+                        </div>
+                      </div>
                     </div>
                     <!-- END: Team ospite -->
                   </div>
                 </div>
-              </div>
-            </a>
+      
+    </div>
+  </a>
           </div>
-          <!-- END Card: Ultimo match -->
 
-
-          <!-- Card: Prossimo match -->
-          <div class="col">
-            <a class="text-decoration-none" href="show_partita.php?id=<?php echo $row2['id'] ?>">
-              <div class="card h-100">
-                <div class="card-header bg-dark text-light">
-                  Giornata <?php echo $row2['giornata'] ?>° - <?php echo $row2['descrizione'] ?>
-                  <span class="float-end">
-                    <i class='bx bx-calendar'></i>
-                    <span>
-                    <?php 
-                      if (isset($row2['data'], $row2['orario_partita'])) {
-                        $formatted_date = date("d/m/y", strtotime($row2['data']));
-                        $formatted_time = date('H:i', strtotime($row2['orario_partita']));
-                      } else {
-                        $formatted_date = '';
-                        $formatted_time = '';
-                      }
-                    ?>
-                    </span>
-                    
-                  </span>
-                </div>
-
-                <div class="card-body mb-5">
-                  <!-- Luogo partita prossimo match-->
-                  <div class="row ">
-                    <div class="col-12 text-center">
-                      <span class="text-muted" id="luogo_match"><?php echo $row2['sede'] .' - ' .$row2['citta']?><span>
-                    </div>
-                  </div>
-
-                  <!-- Team casa vs team fuori casa prossimo match -->
-                  <div class="row ">
-                    <!-- Team casa prossimo match-->
-                    <div class="col-6 text-center">
-                      <!-- Nome -->
-                      <div class="row">
-                        <div class="col-12">
-                          <span class="fw-bold fs-3" id="font_diverso">
-                            <?php echo $row2['casa'] ?>
-                          </span>
-                        </div>
-                      </div>
-
-                      <!-- Gol squadra casa prossimo match -->
-                      <div class="row">
-                        <div class="col-12">
-                          <span class="fw-bold fs-4">-</span>
-                        </div>
-                      </div>
-
-                    </div>
-
-                    <!-- Team ospite prossimo match -->
-                    <div class="col-6 text-center">
-                      <!-- Nome -->
-                      <div class="row">
-                        <div class="col-12">
-                          <span class="fw-bold fs-3" id="font_diverso">
-                            <?php echo $row2['ospite'] ?>
-                          </span>
-                        </div>
-                      </div>
-                      <!-- Gol squadra ospite prossimo match -->
-                      <div class="row">
-                        <div class="col-12">
-                          <span class="fw-bold fs-4">-</span>
-                        </div>
-                      </div>
-
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </a>
-          </div>
-          <!-- END Card: Prossimo match -->
         </div>
       </div>
       <!-- Giocatori & Classifica -->
-      <div class="container my-5 d-none">
+      <div class="container my-5 ">
         <div class="row gy-3">
           <!-- Tabella rosa -->
           <div class="col-12 col-lg-6 table-responsive">

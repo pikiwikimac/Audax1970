@@ -1,4 +1,3 @@
-<!-- Sidebar da utilizzare nelle pagine "admin" -->
 <?php 
 	session_start();
 	$id_societa=$_SESSION['id_societa_riferimento'];
@@ -30,7 +29,7 @@
 			
 			<div class="logo-wrapper">
 				<a href="../index.php">
-					<!-- --><img src="../image/loghi/logo_audax.png" alt="" style="width:50px;height:50px"> 
+					<!-- --><img src="../image/loghi/logo_audax.png" alt="" style="width:40px;height:40px"> 
 				</a>
 			</div>
 		</div>

@@ -32,6 +32,9 @@ if (isset($_REQUEST['id']) && is_numeric($_REQUEST['id'])) {
         $sito_web = isset($row['sito_web']) ? $row['sito_web'] : null;
         $logo = isset($row['logo']) ? $row['logo'] : null;
 
+        // Modifica il nome della società per evitarne la duplicazione
+        $nome_societa = $nome_societa . ' - copy';
+
         // Inserisci i dati duplicati nella tabella societa
         $insert_query = "INSERT INTO societa (nome_societa, tipo, sede, sede_legale, citta, giorno_settimana, ora_match, presidente, vicepresidente, id_campionato, contatto_riferimento, telefono, email, whatsapp, instagram, sito_web, parent_id, logo) 
                          VALUES ('$nome_societa', '$tipo', '$sede', '$sede_legale', '$citta', '$giorno_settimana', '$ora_match', '$presidente', '$vicepresidente', '$campionato', '$contatto_riferimento', '$telefono', '$email', '$whatsapp', '$instagram', '$sito_web', '$id_societa', '$logo')";
