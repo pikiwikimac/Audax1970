@@ -28,17 +28,20 @@
         <div class="col-12">
           <span class="fs-2 fw-bold" id="font_diverso">Chi siamo</span>
         </div>
-        <div class="col-12">
+        <div class="col-12 col-lg-8">
           <span class="" >
           La Società Sportiva AUDAX 1970 è nata nel giugno del 1970 grazie all'iniziativa del Presidente Sandro Mantovani, insieme a un gruppo di amici appassionati di calcio. 
           Negli anni, l'attività principale della Società è stata la scuola calcio, un'eccellenza nell'insegnamento di questo sport a Senigallia. 
           <br/>
           <br/>
           Da questa scuola sono emersi giocatori che hanno raggiunto il professionismo e altri che hanno militato a lungo nei campionati dilettantistici locali e regionali, permettendo all'AUDAX di competere nei campionati di seconda e prima categoria.
-          Nel giugno del 2003, AUDAX 1970 e GS Domenico Moroni di S.Angelo hanno deciso di fondersi, dando vita all'attuale SS AUDAX 1970 S.Angelo ASD. Nei primi due anni, la nuova società ha partecipato al campionato di seconda categoria e successivamente, a causa di una retrocessione, al campionato di terza categoria. In questo periodo, la presidenza è passata da Sandro Mantovani a Tiziano Tarsi.
-          Nel giugno 2004, la società ha avviato anche l'attività di Calcio a 5, iscrivendosi al suo primo campionato di Serie D e ottenendo subito la promozione in Serie C2. Tuttavia, nel giugno 2005, si è deciso di abbandonare il settore del calcio a 11 a causa della mancanza di nuove generazioni, dovuta alla chiusura della scuola calcio, per concentrarsi esclusivamente sul calcio a 5, sviluppando nel tempo un valido settore giovanile.
-          Dal giugno 2006 fino ad oggi, dopo una iniziale retrocessione in Serie D e una pronta risalita, la società ha sempre disputato i campionati di Serie C2 e Serie C1, ottenendo ottimi risultati con giocatori locali e dominando spesso nei campionati giovanili, dall'Under 21 fino ai Giovanissimi ed Esordienti, passando anche per le categorie Juniores e Allievi.
-          Attualmente, la SS AUDAX 1970 S.Angelo ASD conta un centinaio di tesserati tra giocatori, allenatori, preparatori e dirigenti. La nostra sede è a Senigallia (AN), dove svolgiamo sia le partite casalinghe che la preparazione atletica.
+          <br/>
+          <br/>Nel giugno del 2003, AUDAX 1970 e GS Domenico Moroni di S.Angelo hanno deciso di fondersi, dando vita all'attuale SS AUDAX 1970 S.Angelo ASD. 
+          <br/>Nei primi due anni, la nuova società ha partecipato al campionato di seconda categoria e successivamente, a causa di una retrocessione, al campionato di terza categoria. In questo periodo, la presidenza è passata da Sandro Mantovani a Tiziano Tarsi.
+          <br/>Nel giugno 2004, la società ha avviato anche l'attività di Calcio a 5, iscrivendosi al suo primo campionato di Serie D e ottenendo subito la promozione in Serie C2. Tuttavia, nel giugno 2005, si è deciso di abbandonare il settore del calcio a 11 a causa della mancanza di nuove generazioni, dovuta alla chiusura della scuola calcio, per concentrarsi esclusivamente sul calcio a 5, sviluppando nel tempo un valido settore giovanile.
+          <br/>Dal giugno 2006 fino ad oggi, dopo una iniziale retrocessione in Serie D e una pronta risalita, la società ha sempre disputato i campionati di Serie C2 e Serie C1, ottenendo ottimi risultati con giocatori locali e dominando spesso nei campionati giovanili, dall'Under 21 fino ai Giovanissimi ed Esordienti, passando anche per le categorie Juniores e Allievi.
+          <br/>Attualmente, la SS AUDAX 1970 S.Angelo ASD conta un centinaio di tesserati tra giocatori, allenatori, preparatori e dirigenti. 
+          <br/>La nostra sede è a Senigallia (AN), dove svolgiamo sia le partite casalinghe che la preparazione atletica.
           <br/>
           <br/>
           Senigallia è una città con una popolazione di 44.618 abitanti, rinomata come meta turistica internazionale grazie alle sue spiagge di sabbia chilometriche, tre ristoranti stellati e una vasta gamma di comfort. L'Aeroporto di Ancona dista solo 18 km, rendendo Senigallia una meta ambita per chi desidera investire nel territorio.
@@ -46,6 +49,10 @@
 
 
           </span>
+        </div>
+
+        <div class="col-12 col-lg-4">
+          <img src="image/chisiamo.jpg" class="w-100 rounded  p-3"/>
         </div>
       </div>
 

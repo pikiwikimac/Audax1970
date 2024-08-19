@@ -52,14 +52,6 @@
           <a class="nav-link dropdown-toggle  text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Settore giovanile</a>
           <ul class="dropdown-menu">
             <li class="dropdown-submenu">
-              <a class="dropdown-item dropdown-toggle" href="#">Serie D</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="squadra.php?id_squadra=2">Rosa</a></li>
-                <li><a class="dropdown-item" href="#">Calendario</a></li>
-                <li><a class="dropdown-item" href="#">Classifica</a></li>
-              </ul>
-            </li>
-            <li class="dropdown-submenu">
               <a class="dropdown-item dropdown-toggle" href="#">Under 19</a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="squadra.php?id_squadra=3">Rosa</a></li>
@@ -90,6 +82,12 @@
           <a class="nav-link  text-light <?php if ($_SERVER['PHP_SELF'] === '/gallery.php') echo 'active'; ?>" href="gallery.php" id="gallery" name="gallery">Gallery</a>
         </li>
           -->
+        <!--  -->
+        <li class="nav-item me-3 ">
+          <a class="nav-link text-light <?php if ($_SERVER['PHP_SELF'] === '/organigramma.php') echo 'active'; ?>" aria-current="page" href="organigramma.php" id="organigramma" name="organigramma">
+            Organigramma
+          </a>
+        </li>
         <!--  -->
         <li class="nav-item me-3 ">
           <a class="nav-link text-light <?php if ($_SERVER['PHP_SELF'] === '/chisiamo.php') echo 'active'; ?>" href="chisiamo.php" id="chi-siamo" name="chi-siamo">Chi siamo</a>

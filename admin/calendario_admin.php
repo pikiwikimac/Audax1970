@@ -395,7 +395,7 @@ $campionato = mysqli_query($con, $sql);
                 <select class="form-select" name="squadraCasa" id="squadraCasa">
                   <!-- Opzioni per la squadra casa -->
                   <?php
-                    $query_squadre = "SELECT * FROM societa ORDER BY nome_societa";
+                    $query_squadre = "SELECT * FROM societa ORDER BY id_campionato ASC,nome_societa";
                     $result_squadre = mysqli_query($con, $query_squadre);
                     while ($row_squadre = mysqli_fetch_assoc($result_squadre)) {
                       echo "<option value='{$row_squadre['id']}'>{$row_squadre['nome_societa']}</option>";
@@ -434,7 +434,7 @@ $campionato = mysqli_query($con, $sql);
                   <select class="form-select" name="stagione" id="stagione">
                     <!-- Opzioni per la squadra ospite -->
                     <?php
-                      $sql = "SELECT * FROM `stagioni` ORDER BY anno_fine DESC, anno_inizio DESC, descrizione ASC, girone ASC";
+                      $sql = "SELECT * FROM `stagioni` ORDER BY anno_fine DESC, anno_inizio DESC, priorita DESC, descrizione ASC, girone ASC";
                       $stagioni = mysqli_query($con, $sql);
                       while ($stagione = mysqli_fetch_assoc($stagioni)) {
                         $selected = ($stagione['id_stagione'] == $id_stagione) ? 'selected' : '';

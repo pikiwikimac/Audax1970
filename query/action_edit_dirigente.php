@@ -5,16 +5,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     $id = $_POST['id'];
     $nome = $_POST['nome'];
     $ruolo = $_POST['ruolo'];
+    $ordinamento = $_POST['ordinamento'];
     $documento = $_POST['documento'];
     $data_nascita = !empty($_POST['data_nascita']) ? $_POST['data_nascita'] : null;
 
     $sql = "UPDATE dirigenti
-            SET nome=?, ruolo=?, data_nascita=?, documento=?
+            SET nome=?, ruolo=?, data_nascita=?, documento=?, ordinamento=?
             WHERE id=?";
     $stmt = mysqli_prepare($con, $sql);
 
     if ($stmt) {
-        mysqli_stmt_bind_param($stmt, "ssssi", $nome, $ruolo, $data_nascita, $documento, $id);
+        mysqli_stmt_bind_param($stmt, "ssssii", $nome, $ruolo, $data_nascita, $documento, $ordinamento, $id);
 
         if (mysqli_stmt_execute($stmt)) {
             // Chiudere lo statement e la connessione

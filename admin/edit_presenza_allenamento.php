@@ -184,69 +184,91 @@
                         </div>
 
                         <div class="col-12 col-lg-6">
-                          <div class="mb-3">
-                            <!-- Luogo allenamento -->
-                            <i class='bx bx-calendar' ></i>
-                            <?php echo date("d/m/y", strtotime($all['data'])) .' - ' .date("H:i",strtotime($all['orario'])); ?> 
-                            <br/>
-                            <!-- Luogo allenamento -->
-                            <i class='bx bx-map' ></i>
-                            <?php echo $all['luogo']  ?>
-                            <br/>
-                            <!-- Presenti allenamento -->
-                            <i class='bx bx-user'></i>
-                            <span class="text-nowrap">Presenti : <span class="card-text" id="contatore-selezione">0</span></span>
-                            <br/>
-                            <!-- Non presenti allenamento -->
-                            <i class='bx bx-user-x'></i>
-                            <span class="text-nowrap">Assenti : <span class="card-text" id="contatore-non-selezione">0</span></span>
+                          <div class="row mb-3">
+                            <div class="col-12 col-lg-4">
+                              <!-- Luogo allenamento -->
+                              <i class='bx bx-calendar' ></i>
+                              <?php echo date("d/m/y", strtotime($all['data'])) .' - ' .date("H:i",strtotime($all['orario'])); ?> 
+                              <br/>
+                              <!-- Luogo allenamento -->
+                              <i class='bx bx-map' ></i>
+                              <?php echo $all['luogo']  ?>
+                              <br/>
+                              <!-- Presenti allenamento -->
+                              <i class='bx bx-user'></i>
+                              <span class="text-nowrap">Presenti : <span class="card-text" id="contatore-selezione">0</span></span>
+                              <br/>
+                              <!-- Non presenti allenamento -->
+                              <i class='bx bx-user-x'></i>
+                              <span class="text-nowrap">Assenti : <span class="card-text" id="contatore-non-selezione">0</span></span>
+                            </div>
+                            <div class="col-12 col-lg-8">
+                              <!-- Form upload allegato -->
+                              <div class="row mb-3">
+                                <div class="col-12">
+                                  <?php if (!isset($all['file_path'])) { ?>
+                                    <form action="../query/upload_image_allenamento.php?id=<?php echo urlencode($id); ?>" method="POST" enctype="multipart/form-data" class="mt-3">
+                                      <div class="row mb-3">
+                                        <label for="file_allegato" class="form-label">Allega un file</label>
+                                        <input class="form-control" type="file" id="file_allegato" name="file_allegato">
+                                      </div>
+                                      <button type="submit" class="btn btn-outline-dark mt-2 float-end">
+                                        Carica Allegato
+                                      </button>
+                                    </form>
+                                  <?php } ?>
+                                </div>
+                                <div class="col-12">
+                                  <?php if (isset($all['file_path']) && $all['file_path']) { ?>
+                                      <div class="mb-3">
+                                          <label class="form-label">File allegato:</label>
+                                          <a href="<?php echo $all['file_path']; ?>" class="text-decoration-none" target="_blank"><i class="bi bi-paperclip"></i> &nbsp; Visualizza</a>
+                                          <br/>
+                                          <button type="button" class="btn btn-danger btn-sm" onclick="deleteAllegato('<?php echo $id; ?>')">Elimina allegato</button>
+                                      </div>
+                                  <?php } ?>
+                                </div>
+                            </div>
+
                           </div>
                           
                           <?php if (mysqli_num_rows($note) > 0) { ?>
-                                <div class="card my-3">
-                                  <div class="card-header bg-dark">
-                                    <h5 class="card-title text-white">Note</h5>
-                                  </div>
-                                  <div class="card-body">
-                                    <?php while($nota = mysqli_fetch_assoc($note)) {  ?>
-                                        <table class="table table-sm table-borderless p-0">
-                                          <tbody>
-                                            <tr>
-                                              <td width="98%"><?php echo $nota['descrizione'] ?> </td>
-                                              <td class=" text-end" width="2%">
-                                                <a class="text-decoration-none text-dark" onclick="confirmDelete('<?php echo $nota['id']; ?>','<?php echo $nota['id_allenamento']; ?>')">
-                                                  <i class='bx bx-trash' ></i>
-                                                </a>
-                                              </td>
-                                            </tr>
-                                          </tbody>
-                                        </table>
-                                      <?php } ?>
-                                  </div>
-                                </div>
-                              <?php } ?>
+                            <div class="card my-3">
+                              <div class="card-header bg-dark">
+                                <h5 class="card-title text-white">Note</h5>
+                              </div>
+                              <div class="card-body">
+                                <?php while($nota = mysqli_fetch_assoc($note)) {  ?>
+                                    <table class="table table-sm table-borderless p-0">
+                                      <tbody>
+                                        <tr>
+                                          <td width="98%"><?php echo $nota['descrizione'] ?> </td>
+                                          <td class=" text-end" width="2%">
+                                            <a class="text-decoration-none text-dark" onclick="confirmDelete('<?php echo $nota['id']; ?>','<?php echo $nota['id_allenamento']; ?>')">
+                                              <i class='bx bx-trash' ></i>
+                                            </a>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  <?php } ?>
+                              </div>
+                            </div>
+                          <?php } ?>
+                          
+                          <!-- Form Note allenamento  -->
+                          <form action="../query/action_note_allenamenti.php?id=<?php echo urlencode($id); ?>" method="POST" class="mt-0">
+                            
+                            <label for="note_allenamento">Note allenamento</label>
+                            <textarea class="form-control" placeholder="" id="note_allenamento" name="note_allenamento" style="height: 100px"></textarea>
 
-                              <form action="../query/action_note_allenamenti.php?id=<?php echo urlencode($id); ?>" method="POST" class="mt-0">
-                                
-                                <label for="note_allenamento">Note allenamento</label>
-                                <textarea class="form-control" placeholder="" id="note_allenamento" name="note_allenamento" style="height: 100px"></textarea>
+                            <button type="submit" class="btn btn-outline-dark mt-2 float-end">
+                              Inserisci
+                            </button>
+                          </form>
 
-                                
-
-                                <button type="submit" class="btn btn-outline-dark mt-2 float-end">
-                                  Inserisci
-                                </button>
-                              </form>
+                          
                         </div>
-                        
-                        
-                        
-                        
-
-                        
-
-                        
-
                       </div>
                     </div>
                     <!-- END:Core della pagina -->
@@ -327,6 +349,15 @@
         }
       }
     </script>
+
+    <script>
+      function deleteAllegato(allenamentoId) {
+        if (confirm("Sei sicuro di voler eliminare questo allegato?")) {
+          window.location.href = "../query/delete_allegato_allenamento.php?id=" + allenamentoId;
+        }
+    }
+    </script>
+
 
 
 

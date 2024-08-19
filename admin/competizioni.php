@@ -118,7 +118,7 @@
                                   <a href="edit_competizione.php?id_stagione=<?php echo $row['id_stagione'] ?>" class="text-decoration-none">
                                     <i class='bx bx-pencil'></i>
                                   </a>
-                                  <a href="../query/delete_competizione.php?id_stagione=<?php echo $row['id_stagione']; ?>" class="text-decoration-none">
+                                  <a href="../query/action_delete_competizione.php?id_stagione=<?php echo $row['id_stagione']; ?>" class="text-decoration-none">
                                     <i class='bx bx-trash text-danger'></i>
                                   </a>
                                 </td>

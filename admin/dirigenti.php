@@ -14,7 +14,7 @@
   $query = "
     SELECT d.*
     FROM dirigenti d
-    ORDER BY d.ruolo
+    ORDER BY CAST(d.ordinamento AS UNSIGNED) ASC, nome;
     ";
   $result = mysqli_query($con,$query);
 
@@ -69,7 +69,8 @@
                                 <th width="5%"></th>
                                 <th width="23%">Nome</th>
                                 <th width="20%">Data</th>
-                                <th width="25%">Ruolo</th>
+                                <th width="20%">Ruolo</th>
+                                <th width="5%">Ordinamento</th>
                                 <th width="25%">Documento</th>
                                 <th width="1%"></th>
                                 <th width="1%"></th>
@@ -108,6 +109,11 @@
                                   <td>
                                     <?php echo $row['ruolo']   ?>
                                   </td>
+                                  
+                                  <!-- Ruolo all'intenrno della società -->
+                                  <td>
+                                    <?php echo $row['ordinamento']   ?>
+                                  </td>
 
                                   <!-- Numnero documento  -->
                                   <td>
@@ -117,7 +123,7 @@
                                   <td>
                                     <!-- Edit -->
                                     <a href="#" class="text-decoration-none text-dark" 
-                                      onclick="showEditModal('<?php echo $row["id"]; ?>', '<?php echo $row["nome"]; ?>', '<?php echo $row["data_nascita"]; ?>', '<?php echo $row["ruolo"]; ?>', '<?php echo $row["documento"]; ?>')" data-bs-toggle="tooltip" data-bs-title="Modifica">
+                                      onclick="showEditModal('<?php echo $row["id"]; ?>', '<?php echo $row["nome"]; ?>', '<?php echo $row["data_nascita"]; ?>', '<?php echo $row["ruolo"]; ?>','<?php echo $row["ordinamento"]; ?>', '<?php echo $row["documento"]; ?>')" data-bs-toggle="tooltip" data-bs-title="Modifica">
                                       <i class='bx bx-pencil'></i>
                                     </a>
                                   </td>
@@ -171,9 +177,15 @@
                 </div> 
 
                 <!-- Ruolo -->
-                <div class="col-12 mb-3">
+                <div class="col-12 col-lg-8 mb-3">
                   <label for="ruolo" class="form-label">Ruolo</label>
                   <input typer="text" class="form-control" id="ruolo" name="ruolo" value="" required/>
+                </div>
+                
+                <!-- Ordinamento -->
+                <div class="col-12 col-lg-4 mb-3">
+                  <label for="ordinamento" class="form-label">Ordinamento</label>
+                  <input typer="text" class="form-control" id="ordinamento" name="ordinamento" value="" />
                 </div>
 
                 <!-- Data di nascita -->
@@ -263,11 +275,12 @@
 
 
     <script>
-      function showEditModal(id, nome, data_nascita, ruolo, documento) {
+      function showEditModal(id, nome, data_nascita, ruolo, ordinamento, documento) {
         document.getElementById("id").value = id;
         document.getElementById("nome").value = nome;
         document.getElementById("data_nascita").value = data_nascita;
         document.getElementById("ruolo").value = ruolo;
+        document.getElementById("ordinamento").value = ordinamento;
         document.getElementById("documento").value = documento;
         
 

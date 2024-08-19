@@ -42,7 +42,10 @@ require_once('config/db.php');
     ORDER BY ruolo, cognome, nome ASC";
     $result = mysqli_query($con,$query);
 
-    
+    # QUERY
+    $query2 = "
+    SELECT * FROM vista_classifica_A2_2024_2025";
+    $classifica = mysqli_query($con,$query2);
 
     # QUERY
     $query_ultimo_match=
@@ -164,48 +167,42 @@ require_once('config/db.php');
     font-family: 'Bebas Neue';
     letter-spacing:1px;
   }
-/* Card wrapper */
-.card-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
 
-/* Uniform card height */
-.card {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
 
-/* Card body should flex to fill the card space */
-.card-body {
-  flex: 1;
-}
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1 1 auto;
+  }
 
-/* Ensuring the content in card is aligned properly */
-.card-content {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
+  .card-title {
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Bebas Neue';
+  }
 
-/* Adjust card header and footer */
-.card-header, .card-footer {
-  flex: 0;
-}
+  .card-text {
+    flex: 1;
+    font-size: 12px;
+    font-weight: 400;
+  }
 
-/* Remove margin for header */
-.card-header {
-  margin-bottom: 0;
-}
-
-/* Ensure footer at the bottom */
-.card-footer {
-  margin-top: auto;
-}
-
+  .card-text-footer {
+    text-align: right;
+    margin-top: auto;
+  }
 
   .card-img-top {
     object-fit: cover; /* Copre l'intero contenitore ritagliando l'immagine se necessario */
@@ -249,20 +246,22 @@ require_once('config/db.php');
                   <?php } ?>
                   <div class="card-body">
                     <?php if($articolo['intestazione'] !== null ){ ?>
-                    <div class="card-img-overlay">
-                      <span class="badge bg-secondary bebas">
-                        <?php echo $articolo['intestazione'] ?>
-                      </span>
-                    </div>
+                      <div class="card-img-overlay">
+                        <span class="badge bg-secondary bebas">
+                          <?php echo $articolo['intestazione'] ?>
+                        </span>
+                      </div>
                     <?php } ?>
                     <h4 class="card-title"><?php echo $articolo['titolo'] ?></h4>
                     <span class="card-text">
                       <?php 
                         $content = $articolo['contenuto'];
                         if (strlen($content) > 180) {
-                          $content = substr($content, 0, 180) . '...';
+                            $content = substr($content, 0, 180) . '...';
+                            // Wordwrap the content at 180 characters
+                            $content = wordwrap($content, 180, "\n", true);
                         }
-                        echo $content;
+                        echo nl2br($content);
                       ?>
                     </span>
                     <br/>
@@ -578,6 +577,7 @@ require_once('config/db.php');
               <thead class="table-dark">
                 <tr>
                   <th></th>
+                  <th></th>
                   <th>Squadra</th>
                   <th>G</th>
                   <th class="">V</th>
@@ -586,8 +586,77 @@ require_once('config/db.php');
                   <th class="text-center">Punti</th>
                 </tr>
               </thead>
+              <tbody class="align-middle">
+                <?php 
+                $posizione = 1;
+                while($row = mysqli_fetch_assoc($classifica)) {
+                  // Classi CSS e tooltip in base al posizionamento in classifica
+                  $rowClass = '';
+                  $tooltip = '';
+                  if ($posizione == 1) {
+                    $rowClass = 'bg-success';
+                    $tooltip = 'Promozione diretta';
+                  } elseif ($posizione >= 2 && $posizione <= 5) {
+                    $rowClass = 'bg-primary';
+                    $tooltip = 'Playoff';
+                  } elseif ($posizione > mysqli_num_rows($classifica) - 2) {
+                    $rowClass = 'bg-danger';
+                    $tooltip = 'Retrocessione';
+                  }
 
-              
+                  // Codice per mostrare un pallino colorato con tooltip
+                  $circle = '<span class="position-relative d-inline-block" data-bs-toggle="tooltip" data-bs-title="' . $tooltip . '">
+                              <span class="bg-opacity-50 ' . $rowClass . ' rounded-circle d-inline-block" style="width: 15px; height: 15px;"></span>
+                            </span>';
+                ?>
+                  <tr>
+                    <!-- Posizione in classifica -->
+                    <td class="text-center">
+                      <?php echo $posizione ?>°
+                    </td>
+                    <!-- Colonna per il pallino colorato -->
+                    <td class="text-center">
+                      <?php echo $circle; ?>
+                    </td>
+                    <!-- Nome società -->
+                    <td class="<?php if($row['societa'] === 'AUDAX 1970'){ echo 'fw-bold'; }?> ">
+                      <a href="team.php?id=<?php echo $row['id'] ?>" class="text-decoration-none text-dark d-none d-md-block">
+                        <?php echo $row['societa'] ?>
+                      </a>
+
+                      <a href="team.php?id=<?php echo $row['id'] ?>" class="text-decoration-none text-dark d-block d-md-none">
+                        <?php 
+                          $societa = $row['societa'];
+                          if(strlen($societa) > 20) {
+                            $societa = substr($societa, 0, 20) . '...';
+                          }
+                          echo htmlspecialchars($societa, ENT_QUOTES, 'UTF-8');
+                        ?>
+                      </a>
+                    </td>
+                    <!-- Numero partite giocate -->
+                    <td>
+                      <?php echo $row['played'] ?> 
+                    </td>
+                    <!-- Numero partite vinte -->
+                    <td>
+                      <?php echo $row['vinte'] ?> 
+                    </td>
+                    <!-- Numero partite pareggiate -->
+                    <td>
+                      <?php echo $row['pareggi'] ?> 
+                    </td>
+                    <!-- Numero partite perse -->
+                    <td>
+                      <?php echo $row['perse'] ?> 
+                    </td>
+                    <td class="fw-bold text-center">
+                      <?php echo $row['risultato'] ?> 
+                    </td>
+                  </tr>
+                <?php $posizione += 1; } ?>
+              </tbody>
+
             </table>
           </div>
           <!-- END: Tabella classifica -->
@@ -601,8 +670,9 @@ require_once('config/db.php');
     </footer>
 
     <!-- Import -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
     <!-- Tooltip -->
     <script>
       const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')

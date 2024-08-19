@@ -101,9 +101,11 @@
                       <?php 
                         $content = $articolo['contenuto'];
                         if (strlen($content) > 180) {
-                          $content = substr($content, 0, 180) . '...';
+                            $content = substr($content, 0, 180) . '...';
+                            // Wordwrap the content at 180 characters
+                            $content = wordwrap($content, 180, "\n", true);
                         }
-                        echo $content;
+                        echo nl2br($content);
                       ?>
                     </span>
                     <br/>
