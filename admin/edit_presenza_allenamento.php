@@ -81,9 +81,9 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h1>
+                        <h3>
                           <?php echo $all['tipologia'] ?>
-                        </h1>
+                        </h3>
 
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">	

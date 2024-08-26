@@ -49,7 +49,6 @@
     WHERE c.id_giocatore=g.id
     AND p.id_stagione = 1
   ) as convocazioni,stag.descrizione as competizione, stag.girone,stag.id_stagione
-  
   FROM giocatori g
   INNER JOIN societa s on s.id=id_squadra
   INNER JOIN stagioni stag on stag.id_stagione=s.id_campionato
@@ -57,6 +56,64 @@
   ORDER BY ruolo,cognome,nome asc;";
   $giocatore = mysqli_query($con,$query);
   $row = mysqli_fetch_assoc($giocatore);
+
+  $query_stagioni = "
+  SELECT 
+    g.id AS id_giocatore,
+    s.nome_societa AS nome_societa,
+    stag.descrizione AS competizione,
+    stag.girone,
+    stag.id_stagione,
+    COALESCE(
+        (
+            SELECT COUNT(*)
+            FROM ammoniti a
+            JOIN partite p ON a.id_partita = p.id
+            WHERE a.id_giocatore = g.id
+            AND p.id_stagione = stag.id_stagione
+        ), 0
+    ) AS numero_ammonizioni,
+    COALESCE(
+        (
+            SELECT COUNT(*)
+            FROM rossi r
+            JOIN partite p ON r.id_partita = p.id
+            WHERE r.id_giocatore = g.id
+            AND p.id_stagione = stag.id_stagione
+        ), 0
+    ) AS numero_espulsioni,
+    COALESCE(
+        (
+            SELECT COUNT(*)
+            FROM marcatori m
+            JOIN partite p ON m.id_partita = p.id
+            WHERE m.id_giocatore = g.id
+            AND p.id_stagione = stag.id_stagione
+        ), 0
+    ) AS numero_gol,
+    COALESCE(
+        (
+            SELECT COUNT(*)
+            FROM convocazioni c
+            INNER JOIN partite p ON p.id = c.id_partita
+            WHERE c.id_giocatore = g.id
+            AND p.id_stagione = stag.id_stagione
+        ), 0
+    ) AS convocazioni
+    FROM 
+        affiliazioni_giocatori ag
+    INNER JOIN 
+        giocatori g ON g.id = ag.id_giocatore
+    INNER JOIN 
+        societa s ON s.id = ag.id_societa
+    INNER JOIN 
+        stagioni stag ON stag.id_stagione = s.id_campionato
+    WHERE 
+        g.id = '$id'
+    ORDER BY 
+        stag.id_stagione DESC, s.nome_societa ASC, stag.descrizione ASC;
+    ";
+    $stagioni_attuali = mysqli_query($con,$query_stagioni);
   
   
   $query_coppa = "
@@ -159,9 +216,9 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h1>
+                        <h3>
                           <?php echo $row['nome']. ' ' . $row['cognome'] ?>
-                        </h1>
+                        </h3>
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
                           <?php if($row['capitano'] != 'Giocatore' ){ ?>
@@ -332,7 +389,7 @@
                                         <h6 class="my-auto">
                                           Allenamenti 
                                         </h6>
-                                        <span class="fs-2 ">
+                                        <span class="fs-5 ">
                                           <?php echo $tot_allenamenti_svolti_player['tot_player'] ?> 
                                         </span>
                                         <span class="fs-6 text-muted">
@@ -365,51 +422,55 @@
                             </tr>
                             </thead>
                             <tbody>
+                              <?php while($stagione = mysqli_fetch_assoc($stagioni_attuali)) {  ?>
                               <tr>
                                 <!-- Competizione -->
                                 <td class="">
-                                  <?php echo $row['competizione'] ?> - Girone <?php echo $row['girone'] ?>
+                                  <?php echo $stagione['competizione'] ?> - Girone <?php echo $stagione['girone'] ?>
                                 </td>
                                 <!-- Convocazioni -->
                                 <td class="text-center">
-                                  <?php if($row['convocazioni']==='0'){
+                                  <?php if($stagione['convocazioni']==='0'){
                                     echo '-';
                                   }else{
-                                    echo $row['convocazioni'] ;
+                                    echo $stagione['convocazioni'] ;
                                   } ?>
                                 </td>
 
                                 <!-- Numero gol -->
                                 <td class="text-center">
-                                  <?php if($row['numero_gol']==='0'){
+                                  <?php if($stagione['numero_gol']==='0'){
                                     echo '-';
                                   }else{
-                                    echo $row['numero_gol'] ;
+                                    echo $stagione['numero_gol'] ;
                                   } ?>
                                   
                                 </td>
 
                                 <!-- Numero ammonizioni -->
                                 <td class="text-center">
-                                  <?php if($row['numero_ammonizioni']==='0'){
+                                  <?php if($stagione['numero_ammonizioni']==='0'){
                                     echo '-';
                                   }else{
-                                    echo $row['numero_ammonizioni'] ;
+                                    echo $stagione['numero_ammonizioni'] ;
                                   } ?>
                                   
                                 </td>
 
                                 <!-- Numero espulsioni -->
                                 <td class="text-center">
-                                  <?php if($row['numero_espulsioni']==='0'){
+                                  <?php if($stagione['numero_espulsioni']==='0'){
                                     echo '-';
                                   }else{
-                                    echo $row['numero_espulsioni'] ;
+                                    echo $stagione['numero_espulsioni'] ;
                                   } ?>
                                 </td>
                               </tr>
+                              <?php } ?>
+
+                              
                               <!-- Coppa marche -->
-                              <?php if($row['id_stagione']==='1'){?>
+                              <?php if($stagione['id_stagione']==='1'){?>
                               
                               <tr>
                                 <td class="">

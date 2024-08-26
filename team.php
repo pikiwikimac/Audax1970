@@ -59,7 +59,7 @@
       <div class="row gy-3 ">
         <h1 id="font_diverso">
           <?php echo $info['nome_societa'] ?>
-        </h1>
+        </h3>
         <hr id="separatore" />
 
         <!-- Info squadra -->

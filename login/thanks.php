@@ -27,7 +27,7 @@
     <div class="container d-flex justify-content-center align-items-center vh-100 ">
       <div class="card p-5">
           <div class="card-body">
-            <h1 class="text-center">Grazie per la tua richiesta di iscrizione </h1>
+            <h1 class="text-center">Grazie per la tua richiesta di iscrizione </h3>
 
             <span>La richiesta verrà mandata alla società Audax 1970, attendi di essere accettato per poter accedere alla tua sezione dedicata.</span>
             <br>

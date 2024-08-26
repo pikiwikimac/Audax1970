@@ -98,7 +98,7 @@
 
     # QUERY cerca giocatori
     $query_rosa = "
-    SELECT g.*,ag.id_societa,(  
+    SELECT g.*,ag.id_societa,g.id_squadra as squadra_madre,(  
             SELECT count(*) as tot_player
             FROM partecipazione_allenamenti pa
             WHERE pa.id_giocatore = g.id
@@ -168,390 +168,393 @@
                                         <!-- Intestazione -->
                                         <div class="tpl-header">
                                             <div class="tpl-header--title">
-                                                <h1 class="ps-3">
+                                                <h3 class="">
                                                     Ciao  <?php echo $username ?> !
-                                                </h1>
-                                                <h5 class="ps-3">
+                                                </h3>
+                                                <h6 class="">
                                                     <span class="badge bg-secondary text-white"><?php echo $tipo['tipo'] ?></span>
-                                                </h5>
+                                                </h6>
                                             </div>
                                         </div>
-                                        <!-- END:Intestazione -->
+                                    </div>
+                                    <!-- END:Intestazione -->
 
-                                        <!-- Core della pagina -->
-                                        <div class="container-fluid">
-                                            <div class="row g-5 mb-3">
-                                                <!-- Prossimo match -->
-                                                <div class="col-12 col-md-6 col-lg-4">
-                                                    <!-- Prima card -->
-                                                    <div class="card equal-height-card" style="min-height:12rem;">
-                                                        <div class="card-header bg-dark text-light">  
-                                                            <?php if (!empty($row2["id"])) : ?>
-                                                                <i class="bx bx-football align-middle"></i> <?php echo $row2["descrizione"] .' - Giornata ' .$row2["giornata"] .'°' ?>
-                                                                <a class="text-decoration-none text-light float-end " href="edit_presenza_convocazione.php?id=<?php echo $row2["id"]; ?>" >
-                                                                    <i class='bx bx-right-arrow-alt align-middle' ></i>
-                                                                </a>
-                                                            <?php else : ?>
-                                                                <span class=""><i class="bx bx-football align-middle"></i> Prossimo match</span>
-                                                            <?php endif; ?>
-                                                        </div>
-                                                                    
-                                                        <div class="card-body">
-                                                            <?php if (!empty($row2["id"])) : ?>
-                                                                <div class="row">
-                                                                    <div class="col-12">
-                                                                        <!-- Prossimo match -->
-                                                                        <span class="fs-5">
-                                                                            <a href="show_societa.php?id=<?php echo ($row2['squadraCasa'] === 1) ? $row2['squadraCasa'] : $row2['squadraOspite']; ?>" class="text-decoration-none text-dark" style="cursor:pointer">
-                                                                                <?php echo $row2['casa'] . '-' . $row2['ospite']; ?>
-                                                                            </a>
-                                                                        </span>
-
-                                                                        <br/>
-
-                                                                        <!-- Data prossimo match -->
-                                                                        <div class="fs-5 mt-3">
-                                                                            <i class='bx bx-calendar' ></i>
-                                                                            <?php echo  date("d/m/y", strtotime($row2['giornata_partita'])) .' - ' .date("H:i",strtotime($row2['orario_partita'])); ?>
-                                                                        </div>
-
-                                                                        <!-- Luogo prossimo match -->
-                                                                        <div class="fs-5 text-muted">
-                                                                            <i class='bx bx-map-pin' ></i>
-                                                                            <?php echo $row2['sede'] . ' - ' . $row2['citta']; ?>
-                                                                        </div>
-                                                                        
-                                                                        <span class="text-muted float-end" style="cursor:pointer" onclick="apriGoogleMapsConIndirizzo('<?php echo $row2['sede'] . ', ' . $row2['citta']; ?>')"> Google maps <i class='bx bx-right-arrow-alt align-middle' ></i></span>
-
-                                                                    </div>
-                                                                </div>
-                                                            <?php else : ?>
-                                                                <span class="">Nessun match fissato</span>
-                                                            <?php endif; ?> 
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <!-- Prossimo allenamento -->
-                                                <div class="col-12 col-md-6 col-lg-4">
-
-                                                    <div class="card equal-height-card" style="min-height:12rem;">
-
-                                                        <div class="card-header bg-dark text-light">
-                                                            <i class='bx bx-dumbbell align-middle'></i> Prossimo allenamento
-                                                            <a class="text-decoration-none text-light float-end " href="allenamenti_admin.php" >
+                                    <!-- Core della pagina -->
+                                    <div class="container-fluid">
+                                        <div class="row g-5 mb-3">
+                                            <!-- Prossimo match -->
+                                            <div class="col-12 col-md-6 col-lg-4">
+                                                <!-- Prima card -->
+                                                <div class="card equal-height-card" style="min-height:12rem;">
+                                                    <div class="card-header bg-dark text-light">  
+                                                        <?php if (!empty($row2["id"])) : ?>
+                                                            <i class="bx bx-football align-middle"></i> <?php echo $row2["descrizione"] .' - Giornata ' .$row2["giornata"] .'°' ?>
+                                                            <a class="text-decoration-none text-light float-end " href="edit_presenza_convocazione.php?id=<?php echo $row2["id"]; ?>" >
                                                                 <i class='bx bx-right-arrow-alt align-middle' ></i>
                                                             </a>
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <?php if($num_allenamenti > 0){ ?>
-                                                            <a class="text-decoration-none text-dark align-middle" href="edit_presenza_allenamento.php?id=<?php echo $row['id']; ?>" >
-                                                                <div class="row">
-
-                                                                    <div class="col-12">
-
-                                                                        <!-- Tipologia -->
-                                                                        <span class="fs-5">
-                                                                            <?php echo $row['tipologia'] ?>
-                                                                        </span>
-
-                                                                        <br/>
-
-                                                                        <div class="fs-6 mt-3">
-                                                                            <i class='bx bx-calendar'></i>
-                                                                            <?php
-                                                                                $dataOggi = date("d/m/y");
-                                                                                $dataDaVisualizzare = date("d/m/y", strtotime($row['data']));
-
-                                                                                if ($dataDaVisualizzare === $dataOggi) {
-                                                                                echo "<span class='text-danger'>$dataDaVisualizzare</span>" ;
-                                                                                } else {
-                                                                                echo $dataDaVisualizzare;
-                                                                                }
-                                                                            ?> - 
-                                                                            
-                                                                            <?php echo date("H:i",strtotime($row['orario'])) ?>
-                                                                        </div>
-
-                                                                        
-                                                                        <!-- Luogo -->
-                                                                        <div class="fs-6 text-muted">
-                                                                            <i class='bx bx-map-pin' ></i> <?php echo $row['luogo'] ?>
-                                                                        </div>
-                                                                        <!-- Note -->
-                                                                        <small class="text-muted">
-                                                                            <?php echo $row['note'] ?>
-                                                                        </small>
-
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                            <?php } ?>
-
-                                                            <?php if($num_allenamenti == 0){ ?>
-                                                            <div class="row">
-                                                                <div class="col-12">
-                                                                    <span>Nessun allenamento fissato</span>
-                                                                </div>
-                                                            </div>
-                                                            <?php } ?>
-                                                        </div>
-
+                                                        <?php else : ?>
+                                                            <span class=""><i class="bx bx-football align-middle"></i> Prossimo match</span>
+                                                        <?php endif; ?>
                                                     </div>
-
-                                                </div>
-
-                                                <!-- Indisponibili -->
-                                                <div class="col-12 col-md-6 col-lg-4">
-                                                    <div class="card equal-height-card" style="min-height:12rem;">
-                                                        <div class="card-header bg-dark text-light">
-                                                            <i class="bx bxs-ambulance align-middle"></i> Indisponibili
-                                                            <a class="text-decoration-none text-light float-end " href="indisponibili_admin.php" >
-                                                                <i class='bx bx-right-arrow-alt align-middle' ></i>
-                                                            </a>
-                                                        </div>
-
-                                                        <div class="card-body">
-                                                            <div class="row">
-                                                                <div class="col-12">
-                                                                    <?php while($indisponibili = mysqli_fetch_assoc($result)){  ?>
-                                                                        <?php
-                                                                            $a_data = $indisponibili['a_data'];
-
-                                                                            // Creazione dell'oggetto DateTime per la data di fine
-                                                                            $a_data_dt = DateTime::createFromFormat('Y-m-d', $a_data);
-
-                                                                            // Data di oggi
-                                                                            $oggi = new DateTime();
-
-                                                                            // Calcolo della differenza tra oggi e la data di fine
-                                                                            $differenza = $oggi->diff($a_data_dt);
-
-                                                                            // Accesso ai componenti della differenza
-                                                                            $giorni_rimasti = $differenza->days;
-
-                                                                            if($giorni_rimasti > 1){
-                                                                            echo $indisponibili['nome'] . ' ' . $indisponibili['cognome'] 
-                                                                                . '<span class="float-end"> (' . $giorni_rimasti . ' giorni rimasti)
-                                                                                </span>
-                                                                                <br/>';
-                                                                            }elseif($giorni_rimasti == 1){
-                                                                                echo $indisponibili['nome'] . ' ' . $indisponibili['cognome'] 
-                                                                                . '<span class="float-end"> (1 giorno rimasto)
-                                                                                </span>
-                                                                                <br/>';
-
-                                                                            }else{
-                                                                                echo $indisponibili['nome'] . ' ' . $indisponibili['cognome'] 
-                                                                                . '<span class="float-end"> (ultimo giorno)
-                                                                                </span>
-                                                                                <br/>';
-                                                                            }
-                                                                        ?>  
-
-                                                                    <?php } ?>
-
-                                                                    <!-- Se non ho nessuno indisponibile -->
-                                                                    <?php if($num_indisponibili==0) {?>
-                                                                        Tutti i giocatori sono disponibili
-                                                                    <?php } ?>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
-                                                <!-- Bottoni link rapidi -->
-                                                <div class="col-12">
-                                                    <!-- Gestione registrazioni -->
-                                                    <?php if($_SESSION['superuser']==1 && $numero_richieste['numero_richieste']>0){ ?>
-                                                        <a href="gestore_registrazioni.php" type="button" class="btn btn-outline-dark me-2 position-relative" data-bs-toggle="tooltip" data-bs-title="Richieste registrazioni">
-                                                            <i class='bx bx-user-plus bx-sm'></i> 
-                                                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                                                <?php echo $numero_richieste['numero_richieste'] ?>
-                                                            </span>
-                                                        </a>
-                                                    <?php } ?>
-                                                    <!-- Comunicazioni telegram -->
-                                                    <a role="button" class="btn btn-lg btn-outline-dark me-2" data-bs-toggle="modal" data-bs-toggle="tooltip" data-bs-title="Comunicazione telegram"  
-                                                        data-bs-target="#insertModal" href="comunicazione_telegram.php">
-                                                        <i class='bx bxl-telegram bx-sm'></i>  
-                                                    </a>
-                                                    <!-- Calendario -->
-                                                    <a role="button" class="btn btn-lg btn-outline-dark me-2" href="google_calendar.php" data-bs-toggle="tooltip" data-bs-title="Google calendar">
-                                                        <i class='bx bxs-calendar bx-sm'></i> 
-                                                    </a>
-                                                    <!-- Vai ai comunicati calcio a 5 marche -->
-                                                    <a type="button" href="https://www.figcmarche.it/categoria-comunicati/calcio-a-5" class="btn btn-lg btn-outline-dark  me-2" data-bs-toggle="tooltip" data-bs-title="Comunicati LND" target="blank">
-                                                        <i class='bx bx-archive bx-sm'></i>
-                                                    </a>
-                                                    <!-- Link mercato -->
-                                                    <?php if($_SESSION['superuser']==1 ){ ?>
-                                                        <a href="mercato.php" type="button" class="btn btn-outline-dark btn-lg me-2 position-relative" data-bs-toggle="tooltip" data-bs-title="Mercato">
-                                                            <i class='bx bx-store bx-sm'></i> 
-                                                        </a>
-                                                    <?php } ?>
-                                                    <!-- Link a gallery -->
-                                                    <?php if($_SESSION['superuser']==1 ){ ?>
-                                                        <a href="create_gallery.php" type="button" class="btn btn-lg btn-outline-dark me-2 position-relative" data-bs-toggle="tooltip" data-bs-title="Gallery">
-                                                            <i class='bx bx-photo-album bx-sm'></i>
-                                                        </a>
-                                                    <?php } ?>
-                                                </div>
-                                                
-                                                <!-- Tabella -->
-                                                <div class="col-12">
-                                                    <div class="table-responsive">
-                                                        <table class="table table-hover table-striped table-rounded " >
-
-                                                            <caption>
-                                                                <?php echo $numero_giocatori['numero_giocatori'] ?> giocatori totali
-                                                            </caption>
-
-                                                            <thead class="table-dark">
-
-                                                                <tr>
-                                                                    <th width="3%"></th>
-                                                                    <th>Nome</th>
-                                                                    <th class="text-center" width="8%">Ruolo</th>
-                                                                    <th class="text-center" width="8%">Anno</th>
-                                                                    <th class="text-center" width="5%">N.</th>
-                                                                    <th class="text-center" width="5%"><span data-bs-toggle="tooltip" data-bs-title="Allenamento">A</span></th>
-                                                                    <th class="text-center" width="5%"><span data-bs-toggle="tooltip" data-bs-title="Partite">P</span></th>
-                                                                </tr>
-
-                                                            </thead>
-
-                                                            <tbody class="mb-5">
-                                                                <?php while($row = mysqli_fetch_assoc($giocatori)) {  ?>
-
-                                                                <tr onclick="window.location='player.php?id=<?php echo $row['id']; ?>';" style="cursor:pointer" class="align-middle">
-                                                                    <!-- Immagine -->
-                                                                    <td>
-                                                                        <?php if ($row['image_path']) { ?>
-                                                                            <img src="../image/player/<?php echo $row['image_path'];?>" class="rounded-circle " alt="<?php echo $row['cognome'].' '.$row['nome'];?>" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>" width="30" height="30"/>
-                                                                        <?php } else { ?>
-                                                                            <img src="../image/default_user.jpg" class="rounded-circle" alt="Immagine di default" data-player-name="<?php echo $row['cognome'] .' ' .$row['nome'];?>" width="30" height="30" />
-                                                                        <?php } ?>
-                                                                    </td>
-                                                                    <!-- Nome e cognome -->
-                                                                    <td class="" >
-                                                                        <?php echo $row['cognome'] . '  ' .$row['nome']   ?> 
-                                                                        <?php
-                                                                            if ($row['capitano'] == 'C') {
-                                                                                echo '<i class="bx bx-copyright  float-end"></i>';
-                                                                            } elseif ($row['capitano'] == 'VC') {
-                                                                                echo '<span class="float-end">VC</span>';
-                                                                            }
-                                                                        ?>
-                                                                        <?php
-                                                                            // Verifica se il giocatore è presente nella tabella indisponibili
-                                                                            $giocatoreId = $row['id'];
-                                                                            $queryVerificaIndisponibilita = "SELECT motivo FROM indisponibili WHERE id_giocatore = $giocatoreId AND a_data >= CURRENT_DATE AND da_data < CURRENT_DATE ";
-                                                                            $resultVerifica = mysqli_query($con, $queryVerificaIndisponibilita);
-                                                                            
-                                                                            if (mysqli_num_rows($resultVerifica) > 0) {
-                                                                                // Il giocatore è indisponibile, otteniamo il motivo
-                                                                                $rowIndisponibilita = mysqli_fetch_assoc($resultVerifica);
-                                                                                $motivo = $rowIndisponibilita['motivo'];
-                                                                                
-                                                                                // In base al motivo, mostriamo l'icona corrispondente
-                                                                                if ($motivo === 'Lavoro') {
-                                                                                    echo '<i class="bx bx-briefcase " data-bs-toggle="tooltip" data-bs-title="Lavoro"></i>'; // Icona per Lavoro
-                                                                                } elseif ($motivo === 'Malattia') {
-                                                                                    echo '<i class="bx bxs-ambulance text-danger" data-bs-toggle="tooltip" data-bs-title="Malattia"></i>'; // Icona per Malattia
-                                                                                } elseif ($motivo === 'Viaggio') {
-                                                                                    echo '<i class="bx bxs-plane-alt" data-bs-toggle="tooltip" data-bs-title="Viaggio"></i >'; // Icona per Viaggio
-                                                                                } else {
-                                                                                    // Motivo sconosciuto, puoi gestirlo in modo appropriato
-                                                                                }
-                                                                            }
-                                                                        ?>
-                                                                    </td>
                                                                 
+                                                    <div class="card-body">
+                                                        <?php if (!empty($row2["id"])) : ?>
+                                                            <div class="row">
+                                                                <div class="col-12">
+                                                                    <!-- Prossimo match -->
+                                                                    <span class="fs-6">
+                                                                        <a href="show_societa.php?id=<?php echo ($row2['squadraCasa'] === 1) ? $row2['squadraCasa'] : $row2['squadraOspite']; ?>" class="text-decoration-none text-dark" style="cursor:pointer">
+                                                                            <?php echo $row2['casa'] . '-' . $row2['ospite']; ?>
+                                                                        </a>
+                                                                    </span>
 
-                                                                    <td class="text-center"> 
-                                                                        <?php if($row['ruolo']==='Portiere'){
-                                                                        echo '
-                                                                        <span class="badge bg-warning text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Portiere">
-                                                                            P'
-                                                                        .'</span>';
-                                                                        }elseif($row['ruolo']==='Centrale'){
-                                                                        echo '
-                                                                        <span class="badge bg-success text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Centrale">
-                                                                            C'
-                                                                        .'</span>';
-                                                                        }elseif($row['ruolo']==='Laterale'){
-                                                                        echo '
-                                                                        <span class="badge bg-primary text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Laterale">
-                                                                            L'
-                                                                        .'</span>';
-                                                                        }elseif($row['ruolo']==='Pivot'){
-                                                                        echo '
-                                                                        <span class="badge bg-danger text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Pivot">
-                                                                            P'
-                                                                        .'</span>';
-                                                                        }else{
-                                                                        echo '
-                                                                        <span class="badge bg-info text-light" style="width:30px;"  data-bs-toggle="tooltip" data-bs-title="Universale ">
-                                                                            U'
-                                                                        .'</span>';
-                                                                        } ?>
-                                                                    </td>
+                                                                    <br/>
+
+                                                                    <!-- Data prossimo match -->
+                                                                    <div class="fs-7 mt-3">
+                                                                        <i class='bx bx-calendar' ></i>
+                                                                        <?php echo  date("d/m/y", strtotime($row2['giornata_partita'])) .' - ' .date("H:i",strtotime($row2['orario_partita'])); ?>
+                                                                    </div>
+
+                                                                    <!-- Luogo prossimo match -->
+                                                                    <div class="fs-7 text-muted">
+                                                                        <i class='bx bx-map-pin' ></i>
+                                                                        <?php echo $row2['sede'] . ' - ' . $row2['citta']; ?>
+                                                                    </div>
                                                                     
-                                                                <td class="text-center">
-                                                                    <?php if($row['data_nascita']==='0000-00-00'){
-                                                                            echo '-';
-                                                                        }else{
-                                                                            echo date('Y', strtotime($row['data_nascita']));
-                                                                    } ?>
+                                                                    <span class="text-muted float-end" style="cursor:pointer" onclick="apriGoogleMapsConIndirizzo('<?php echo $row2['sede'] . ', ' . $row2['citta']; ?>')"> Google maps <i class='bx bx-right-arrow-alt align-middle' ></i></span>
+
+                                                                </div>
+                                                            </div>
+                                                        <?php else : ?>
+                                                            <span class="">Nessun match fissato</span>
+                                                        <?php endif; ?> 
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Prossimo allenamento -->
+                                            <div class="col-12 col-md-6 col-lg-4">
+
+                                                <div class="card equal-height-card" style="min-height:12rem;">
+
+                                                    <div class="card-header bg-dark text-light">
+                                                        <i class='bx bx-dumbbell align-middle'></i> Prossimo allenamento
+                                                        <a class="text-decoration-none text-light float-end " href="allenamenti_admin.php" >
+                                                            <i class='bx bx-right-arrow-alt align-middle' ></i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <?php if($num_allenamenti > 0){ ?>
+                                                        <a class="text-decoration-none text-dark align-middle" href="edit_presenza_allenamento.php?id=<?php echo $row['id']; ?>" >
+                                                            <div class="row">
+
+                                                                <div class="col-12">
+
+                                                                    <!-- Tipologia -->
+                                                                    <span class="fs-6">
+                                                                        <?php echo $row['tipologia'] ?>
+                                                                    </span>
+
+                                                                    <br/>
+
+                                                                    <div class="fs-7 mt-3">
+                                                                        <i class='bx bx-calendar'></i>
+                                                                        <?php
+                                                                            $dataOggi = date("d/m/y");
+                                                                            $dataDaVisualizzare = date("d/m/y", strtotime($row['data']));
+
+                                                                            if ($dataDaVisualizzare === $dataOggi) {
+                                                                            echo "<span class='text-danger'>$dataDaVisualizzare</span>" ;
+                                                                            } else {
+                                                                            echo $dataDaVisualizzare;
+                                                                            }
+                                                                        ?> - 
+                                                                        
+                                                                        <?php echo date("H:i",strtotime($row['orario'])) ?>
+                                                                    </div>
+
                                                                     
-                                                                </td>
-                                                                <td class="text-center"><?php echo $row['maglia'] ?></td>
-                                                                <td class="text-center"><?php echo $row['numero_allenamenti'] ?></td>
-                                                                <td class="text-center"><?php echo $row['convocazioni'] ?></td>
-                                                                </tr>
+                                                                    <!-- Luogo -->
+                                                                    <div class="fs-7 text-muted">
+                                                                        <i class='bx bx-map-pin' ></i> <?php echo $row['luogo'] ?>
+                                                                    </div>
+                                                                    <!-- Note -->
+                                                                    <small class="text-muted">
+                                                                        <?php echo $row['note'] ?>
+                                                                    </small>
+
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <?php } ?>
+
+                                                        <?php if($num_allenamenti == 0){ ?>
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                <span class="fs-7">Nessun allenamento fissato</span>
+                                                            </div>
+                                                        </div>
+                                                        <?php } ?>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                            <!-- Indisponibili -->
+                                            <div class="col-12 col-md-6 col-lg-4">
+                                                <div class="card equal-height-card" style="min-height:12rem;">
+                                                    <div class="card-header bg-dark text-light">
+                                                        <i class="bx bxs-ambulance align-middle"></i> Indisponibili
+                                                        <a class="text-decoration-none text-light float-end " href="indisponibili_admin.php" >
+                                                            <i class='bx bx-right-arrow-alt align-middle' ></i>
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                <?php while($indisponibili = mysqli_fetch_assoc($result)){  ?>
+                                                                    <?php
+                                                                        $a_data = $indisponibili['a_data'];
+
+                                                                        // Creazione dell'oggetto DateTime per la data di fine
+                                                                        $a_data_dt = DateTime::createFromFormat('Y-m-d', $a_data);
+
+                                                                        // Data di oggi
+                                                                        $oggi = new DateTime();
+
+                                                                        // Calcolo della differenza tra oggi e la data di fine
+                                                                        $differenza = $oggi->diff($a_data_dt);
+
+                                                                        // Accesso ai componenti della differenza
+                                                                        $giorni_rimasti = $differenza->days;
+
+                                                                        if($giorni_rimasti > 1){
+                                                                        echo $indisponibili['nome'] . ' ' . $indisponibili['cognome'] 
+                                                                            . '<span class="float-end"> (' . $giorni_rimasti . ' giorni rimasti)
+                                                                            </span>
+                                                                            <br/>';
+                                                                        }elseif($giorni_rimasti == 1){
+                                                                            echo $indisponibili['nome'] . ' ' . $indisponibili['cognome'] 
+                                                                            . '<span class="float-end"> (1 giorno rimasto)
+                                                                            </span>
+                                                                            <br/>';
+
+                                                                        }else{
+                                                                            echo $indisponibili['nome'] . ' ' . $indisponibili['cognome'] 
+                                                                            . '<span class="float-end"> (ultimo giorno)
+                                                                            </span>
+                                                                            <br/>';
+                                                                        }
+                                                                    ?>  
 
                                                                 <?php } ?>
-                                                            </tbody>
 
-                                                        </table>
+                                                                <!-- Se non ho nessuno indisponibile -->
+                                                                <?php if($num_indisponibili==0) {?>
+                                                                    <span class="fs-7">
+                                                                        Tutti i giocatori sono disponibili
+                                                                    </span>
+                                                                <?php } ?>
+
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <!-- END:Core della pagina -->
+                                            
+                                            <!-- Bottoni link rapidi -->
+                                            <div class="col-12">
+                                                <!-- Gestione registrazioni -->
+                                                <?php if($_SESSION['superuser']==1 && $numero_richieste['numero_richieste']>0){ ?>
+                                                <a href="gestore_registrazioni.php" type="button" class="btn btn-outline-dark me-2 position-relative" data-bs-toggle="tooltip" data-bs-title="Richieste registrazioni">
+                                                    <i class='bx bx-user-plus'></i> 
+                                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                                        <?php echo $numero_richieste['numero_richieste'] ?>
+                                                    </span>
+                                                </a>
+                                                <?php } ?>
+                                                <!-- Comunicazioni telegram -->
+                                                <a role="button" class="btn  btn-outline-dark me-2" data-bs-toggle="modal" data-bs-toggle="tooltip" data-bs-title="Comunicazione telegram"  
+                                                    data-bs-target="#insertModal" href="comunicazione_telegram.php">
+                                                    <i class='bx bxl-telegram'></i>  
+                                                </a>
+                                                <!-- Calendario -->
+                                                <a role="button" class="btn  btn-outline-dark me-2" href="google_calendar.php" data-bs-toggle="tooltip" data-bs-title="Google calendar">
+                                                    <i class='bx bxs-calendar'></i> 
+                                                </a>
+                                                <!-- Vai ai comunicati calcio a 5 marche -->
+                                                <a type="button" href="https://www.figcmarche.it/categoria-comunicati/calcio-a-5" class="btn  btn-outline-dark  me-2" data-bs-toggle="tooltip" data-bs-title="Comunicati LND" target="blank">
+                                                    <i class='bx bx-archive'></i>
+                                                </a>
+                                                <!-- Link mercato -->
+                                                <?php if($_SESSION['superuser']==1 ){ ?>
+                                                    <a href="mercato.php" type="button" class="btn btn-outline-dark  me-2 position-relative" data-bs-toggle="tooltip" data-bs-title="Mercato">
+                                                        <i class='bx bx-store'></i> 
+                                                    </a>
+                                                <?php } ?>
+                                                <!-- Link a gallery -->
+                                                <?php if($_SESSION['superuser']==1 ){ ?>
+                                                    <a href="create_gallery.php" type="button" class="btn  btn-outline-dark me-2 position-relative" data-bs-toggle="tooltip" data-bs-title="Gallery">
+                                                        <i class='bx bx-photo-album'></i>
+                                                    </a>
+                                                <?php } ?>
+                                            </div>
+                                            
+                                            <!-- Tabella -->
+                                            <div class="col-12">
+                                                <div class="table-responsive">
+                                                    <table class="table table-hover table-striped table-rounded " >
 
-                                        <!-- Modal  -->
-                                        <div class="modal fade" id="insertModal" tabindex="-1" aria-labelledby="insertModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="insertModalLabel">Comunicazione</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <form id="insertForm" method="post" action="comunicazioni_telegram.php">
-                                                            <div class="row">
-                                                                <!-- Nome -->
-                                                                <div class="col-12 mb-3">
-                                                                    <label for="comunicazione" class="form-label">Comunicazione</label>
-                                                                    <textarea  class="form-control" id="comunicazione" name="comunicazione" ></textarea>
-                                                                </div> 
-                                                            </div> 
-                                                        </form>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-                                                        <button type="button" class="btn btn-primary" onclick="submitInsertForm()">Inserisci</button>
-                                                    </div>
+                                                        <caption>
+                                                            <?php echo $numero_giocatori['numero_giocatori'] ?> giocatori totali
+                                                        </caption>
+
+                                                        <thead class="table-dark">
+
+                                                            <tr>
+                                                                <th width="3%"></th>
+                                                                <th>Nome</th>
+                                                                <th class="text-center" width="8%">Ruolo</th>
+                                                                <th class="text-center" width="8%">Anno</th>
+                                                                <th class="text-center" width="5%">N.</th>
+                                                                <th class="text-center" width="5%"><span data-bs-toggle="tooltip" data-bs-title="Allenamento">A</span></th>
+                                                                <th class="text-center" width="5%"><span data-bs-toggle="tooltip" data-bs-title="Partite">P</span></th>
+                                                            </tr>
+
+                                                        </thead>
+
+                                                        <tbody class="mb-5">
+                                                            <?php while($row = mysqli_fetch_assoc($giocatori)) {  ?>
+
+                                                            <tr onclick="window.location='player.php?id=<?php echo $row['id']; ?>';" style="cursor:pointer" class="align-middle">
+                                                                <!-- Immagine -->
+                                                                <td>
+                                                                    <?php if ($row['image_path']) { ?>
+                                                                        <img src="../image/player/<?php echo $row['image_path'];?>" class="rounded-circle " alt="<?php echo $row['cognome'].' '.$row['nome'];?>" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>" width="30" height="30"/>
+                                                                    <?php } else { ?>
+                                                                        <img src="../image/default_user.jpg" class="rounded-circle" alt="Immagine di default" data-player-name="<?php echo $row['cognome'] .' ' .$row['nome'];?>" width="30" height="30" />
+                                                                    <?php } ?>
+                                                                </td>
+                                                                <!-- Nome e cognome -->
+                                                                <td class="" >
+                                                                    <?php echo $row['cognome'] . '  ' .$row['nome']   ?> 
+                                                                    <?php
+                                                                        if ($row['capitano'] == 'C' && $row['squadra_madre'] == $id_societa) {
+                                                                            echo '<i class="bx bx-copyright  float-end"></i>';
+                                                                        } elseif ($row['capitano'] == 'VC' && $row['squadra_madre'] == $id_societa) {
+                                                                            echo '<span class="float-end">VC</span>';
+                                                                        }
+                                                                    ?>
+                                                                    <?php
+                                                                        // Verifica se il giocatore è presente nella tabella indisponibili
+                                                                        $giocatoreId = $row['id'];
+                                                                        $queryVerificaIndisponibilita = "SELECT motivo FROM indisponibili WHERE id_giocatore = $giocatoreId AND a_data >= CURRENT_DATE AND da_data < CURRENT_DATE ";
+                                                                        $resultVerifica = mysqli_query($con, $queryVerificaIndisponibilita);
+                                                                        
+                                                                        if (mysqli_num_rows($resultVerifica) > 0) {
+                                                                            // Il giocatore è indisponibile, otteniamo il motivo
+                                                                            $rowIndisponibilita = mysqli_fetch_assoc($resultVerifica);
+                                                                            $motivo = $rowIndisponibilita['motivo'];
+                                                                            
+                                                                            // In base al motivo, mostriamo l'icona corrispondente
+                                                                            if ($motivo === 'Lavoro') {
+                                                                                echo '<i class="bx bx-briefcase " data-bs-toggle="tooltip" data-bs-title="Lavoro"></i>'; // Icona per Lavoro
+                                                                            } elseif ($motivo === 'Malattia') {
+                                                                                echo '<i class="bx bxs-ambulance text-danger" data-bs-toggle="tooltip" data-bs-title="Malattia"></i>'; // Icona per Malattia
+                                                                            } elseif ($motivo === 'Viaggio') {
+                                                                                echo '<i class="bx bxs-plane-alt" data-bs-toggle="tooltip" data-bs-title="Viaggio"></i >'; // Icona per Viaggio
+                                                                            } else {
+                                                                                // Motivo sconosciuto, puoi gestirlo in modo appropriato
+                                                                            }
+                                                                        }
+                                                                    ?>
+                                                                </td>
+                                                            
+
+                                                                <td class="text-center"> 
+                                                                    <?php if($row['ruolo']==='Portiere'){
+                                                                    echo '
+                                                                    <span class="badge bg-warning text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Portiere">
+                                                                        P'
+                                                                    .'</span>';
+                                                                    }elseif($row['ruolo']==='Centrale'){
+                                                                    echo '
+                                                                    <span class="badge bg-success text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Centrale">
+                                                                        C'
+                                                                    .'</span>';
+                                                                    }elseif($row['ruolo']==='Laterale'){
+                                                                    echo '
+                                                                    <span class="badge bg-primary text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Laterale">
+                                                                        L'
+                                                                    .'</span>';
+                                                                    }elseif($row['ruolo']==='Pivot'){
+                                                                    echo '
+                                                                    <span class="badge bg-danger text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Pivot">
+                                                                        P'
+                                                                    .'</span>';
+                                                                    }else{
+                                                                    echo '
+                                                                    <span class="badge bg-info text-light" style="width:30px;"  data-bs-toggle="tooltip" data-bs-title="Universale ">
+                                                                        U'
+                                                                    .'</span>';
+                                                                    } ?>
+                                                                </td>
+                                                                
+                                                            <td class="text-center">
+                                                                <?php if($row['data_nascita']==='0000-00-00'){
+                                                                        echo '-';
+                                                                    }else{
+                                                                        echo date('Y', strtotime($row['data_nascita']));
+                                                                } ?>
+                                                                
+                                                            </td>
+                                                            <td class="text-center"><?php echo $row['maglia'] ?></td>
+                                                            <td class="text-center"><?php echo $row['numero_allenamenti'] ?></td>
+                                                            <td class="text-center"><?php echo $row['convocazioni'] ?></td>
+                                                            </tr>
+
+                                                            <?php } ?>
+                                                        </tbody>
+
+                                                    </table>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- END: Modal  -->
                                     </div>
+                                    <!-- END:Core della pagina -->
+
+                                    <!-- Modal  -->
+                                    <div class="modal fade" id="insertModal" tabindex="-1" aria-labelledby="insertModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="insertModalLabel">Comunicazione</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form id="insertForm" method="post" action="comunicazioni_telegram.php">
+                                                        <div class="row">
+                                                            <!-- Nome -->
+                                                            <div class="col-12 mb-3">
+                                                                <label for="comunicazione" class="form-label">Comunicazione</label>
+                                                                <textarea  class="form-control" id="comunicazione" name="comunicazione" ></textarea>
+                                                            </div> 
+                                                        </div> 
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                                                    <button type="button" class="btn btn-primary" onclick="submitInsertForm()">Inserisci</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END: Modal  -->
                                 </div>
+                                
                             </div>
                         </div>
                     </div>

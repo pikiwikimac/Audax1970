@@ -38,7 +38,8 @@ require_once('config/db.php');
       AND p.id_stagione = 1
     ) AS numero_gol
     FROM giocatori g
-    WHERE id_squadra = 1
+    INNER JOIN affiliazioni_giocatori ag ON ag.id_giocatore = g.id  
+    WHERE ag.id_societa = 1
     ORDER BY ruolo, cognome, nome ASC";
     $result = mysqli_query($con,$query);
 
@@ -204,11 +205,12 @@ require_once('config/db.php');
     margin-top: auto;
   }
 
-  .card-img-top {
-    object-fit: cover; /* Copre l'intero contenitore ritagliando l'immagine se necessario */
-    height: 250px; /* Altezza fissa per tutte le immagini */
-    width: 100%; /* Larghezza che riempie completamente il contenitore */
+  .card-img-wrapper {
+    height: 255px; /* Altezza fissa per il contenitore dell'immagine */
+    overflow: hidden; /* Nasconde le parti dell'immagine che escono dal contenitore */
   }
+
+   
 </style>
 
 <!doctype html>
@@ -227,23 +229,26 @@ require_once('config/db.php');
     <?php include 'elements/carousel.php'; ?>
 
     <!-- Corpo del testo -->
-    <div class="" >
+    <div class="p-3 p-md-0 " >
       <!-- Articoli  -->
-      <div class="container my-5">
-        
-        <span class="fs-2 fw-bold" id="font_diverso">Articoli</span>
+      <div class="container ">
+        <div class="mt-3">
+          <span class="fs-5 fw-bold" id="font_diverso">Articoli</span>
+        </div>
         <hr/>
-
-        <div class="row g-5">
+        <div class="row  g-5">
           <?php while ($articolo = mysqli_fetch_assoc($articoli)) { ?>
             <div class="col-12 col-lg-3">
               <a href="articolo.php?id=<?php echo $articolo['id'] ?>" class="text-decoration-none">
                 <div class="card h-100">
-                  <?php if($articolo['immagine_url']){ ?>
-                    <img src="image/articoli/<?php echo $articolo['immagine_url'] ?>" class="card-img-top" alt="..." style="max-height:250px">
-                  <?php }else{ ?>
-                    <img src="image/lnd_a2.png" class="card-img-top" alt="..." style="max-height:250px">
-                  <?php } ?>
+                  <div class="card-img-wrapper">
+                    <?php if($articolo['immagine_url']){ ?>
+                      <img src="image/articoli/<?php echo $articolo['immagine_url'] ?>" class="card-img-top" alt="..." style="max-height:250px">
+                    <?php }else{ ?>
+                      <img src="image/lnd_a2.png" class="img-fluid" alt="..." style="max-height:250px">
+                    <?php } ?>
+                  </div>
+
                   <div class="card-body">
                     <?php if($articolo['intestazione'] !== null ){ ?>
                       <div class="card-img-overlay">
@@ -256,10 +261,10 @@ require_once('config/db.php');
                     <span class="card-text">
                       <?php 
                         $content = $articolo['contenuto'];
-                        if (strlen($content) > 180) {
-                            $content = substr($content, 0, 180) . '...';
+                        if (strlen($content) > 160) {
+                            $content = substr($content, 0, 160) . '...';
                             // Wordwrap the content at 180 characters
-                            $content = wordwrap($content, 180, "\n", true);
+                            $content = wordwrap($content, 160, "\n", true);
                         }
                         echo nl2br($content);
                       ?>
@@ -279,13 +284,12 @@ require_once('config/db.php');
               </a>
             </div>
           <?php } ?>
-
         </div>
       </div>
 
       <!-- Prossima partita & Ultima partita  -->
       <div class="container my-5">
-        <div class="row row-cols-1 row-cols-lg-2 g-4">
+        <div class="row row-cols-1 row-cols-lg-2 g-5">
 
           <!-- Prossima partita -->
           <div class="col">
@@ -460,12 +464,13 @@ require_once('config/db.php');
                   </div>
                 </div>
       
-    </div>
-  </a>
+              </div>
+            </a>
           </div>
 
         </div>
       </div>
+      
       <!-- Giocatori & Classifica -->
       <div class="container my-5 ">
         <div class="row gy-3">

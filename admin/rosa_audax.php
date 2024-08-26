@@ -172,9 +172,9 @@ SELECT g.*,
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h1 >
+                        <h3>
                           Rosa
-                        </h1>
+                        </h3>
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
                           <?php if($_SESSION['superuser'] == 1 ){ ?>

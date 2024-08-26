@@ -49,7 +49,7 @@
 				<li>
 					<button class="" onclick="window.location.href = 'dashboard.php'">
 						<i class="bx bx-home" title="Dashboard"></i>
-						<h2>Dashboard</h2>
+						<h4>Dashboard</h4>
 					</button>
 				</li>
 
@@ -57,16 +57,16 @@
 				<li>
 					<button class="js--menu--first-level">
 						<i class="bi bi-people" title="Rosa"></i>
-						<h2>Rosa</h2>
+						<h4>Rosa</h4>
 					</button>
 					<div class="sub-menu">
 						<button class="js--submenu--close menu-close-button">
 							<i class="bi bi-chevron-double-left"></i>
 						</button>
 						
-						<h2>
+						<h6>
 							ROSA
-						</h2>
+						</h6>
 						
 						<ul class="accordion" id="accordionRosa">
 							
@@ -105,16 +105,16 @@
 				<li>
 					<button class="js--menu--first-level ">
 						<i class="bi bi-calendar" title="Campionato"></i>
-						<h2>Calendario</h2>
+						<h4>Calendario</h4>
 					</button>
 					
 					<div class="sub-menu">
 						<button class="js--submenu--close menu-close-button">
 							<i class="bi bi-chevron-double-left"></i>
 						</button>
-						<h2>
+						<h6>
 							CALENDARIO
-						</h2>
+						</h6>
 						<ul class="accordion" id="accordionCalendario">
 							
 							<li class="sub-menu-voice">
@@ -133,16 +133,16 @@
 				<li>
 					<button class="js--menu--first-level ">
 						<i class="bi bi-trophy" title="Classifica"></i>
-						<h2>Classifica</h2>
+						<h4>Classifica</h4>
 					</button>
 					
 					<div class="sub-menu">
 						<button class="js--submenu--close menu-close-button">
 							<i class="bi bi-chevron-double-left"></i>
 						</button>
-						<h2>
+						<h6>
 							CLASSIFICA
-						</h2>
+						</h6>
 						<ul class="accordion" id="accordionClassifica">
 							
 							
@@ -161,21 +161,25 @@
 				<li>
 					<button class="js--menu--first-level ">
 						<i class="bi bi-stopwatch" title="Allenamenti"></i>
-						<h2>Allenamenti</h2>
+						<h4>Allenamenti</h4>
 					</button>
 					
 					<div class="sub-menu">
 						<button class="js--submenu--close menu-close-button">
 							<i class="bi bi-chevron-double-left"></i>
 						</button>
-						<h2>
+						<h6>
 							ALLENAMENTI
-						</h2>
+						</h6>
 						<ul class="accordion" id="accordionAllenamenti">
 							
 							
 							<li class="sub-menu-voice">
 								<a href="allenamenti_admin.php?id_societa=<?php echo $id_societa ?>">Gestione allenamenti</a>
+							</li>
+
+							<li class="sub-menu-voice">
+								<a href="materiali_allenamento.php?id_societa=<?php echo $id_societa ?>">Materiale allenamenti</a>
 							</li>
 							
 						</ul>
@@ -187,16 +191,16 @@
 				<li>
 					<button class="js--menu--first-level">
 						<i class="bi bi-clipboard-data" title="Squadre"></i>
-						<h2>Squadre</h2>
+						<h4>Squadre</h4>
 					</button>
 					<div class="sub-menu">
 						<button class="js--submenu--close menu-close-button">
 							<i class="bi bi-chevron-double-left"></i>
 						</button>
 						
-						<h2>
+						<h6>
 							SQUADRE
-						</h2>
+						</h6>
 						
 						<ul class="accordion" id="accordionSquadre">
 							<!-- Gestione squadre -->
@@ -218,16 +222,16 @@
 				<li>
 					<button class="js--menu--first-level">
 						<i class="bi bi-coin" title="Amministrazione"></i>
-						<h2>Amministrazione</h2>
+						<h4>Amministrazione</h4>
 					</button>
 					<div class="sub-menu">
 						<button class="js--submenu--close menu-close-button">
 							<i class="bi bi-chevron-double-left"></i>
 						</button>
 						
-						<h2>
+						<h6>
 						AMMINISTRAZIONE
-						</h2>
+						</h6>
 						
 						<ul class="accordion" id="accordionAmministrazione">
 							<!-- Gestione economica  -->
@@ -262,16 +266,16 @@
 				<li>
 					<button class="js--menu--first-level">
 						<i class="bi bi-newspaper" title="Articoli"></i>
-						<h2>Articoli</h2>
+						<h4>Articoli</h4>
 					</button>
 					<div class="sub-menu">
 						<button class="js--submenu--close menu-close-button">
 							<i class="bi bi-chevron-double-left"></i>
 						</button>
 						
-						<h2>
+						<h6>
 						ARTICOLI
-						</h2>
+						</h6>
 						
 						<ul class="accordion" id="accordionArticoli">
 							<!-- Gestione  -->
@@ -323,7 +327,7 @@
 					<?php
 						$image = isset($image) && !empty($image) ? $image : 'image/default_user.jpg';
 					?>
-					<span><img src="../<?php echo $image; ?>" alt="" width="30" height="30" class="rounded-circle ms-2 me-1"></span>
+					<span><img src="../<?php echo $image; ?>" alt="" width="85%" height="85%" class="rounded-circle mx-auto"></span>
 
 				</a>
 

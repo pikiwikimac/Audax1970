@@ -165,7 +165,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
             <div class="form-container ">
                 <form action="login.php" method="post">
-                    <h1>AUDAX 1970</h1>
+                    <h3>AUDAX 1970</h3>
                     <div class="my-5">
                         <input type="text" placeholder="Username" id="username" name="username" />
                         <input type="password" placeholder="Password" id="password" name="password"/>

@@ -119,9 +119,9 @@
                       <!-- Intestazione -->
                       <div class="tpl-header">
                         <div class="tpl-header--title">
-                          <h1>
+                          <h3>
                             Giornata <?php echo $partita['giornata'] ?>
-                          </h1>
+                          </h3>
 
                           <!-- Bottoni a destra -->
                           <div class="cta-wrapper">	

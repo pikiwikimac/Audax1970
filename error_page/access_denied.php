@@ -60,7 +60,7 @@
         <div class="card">
             <div class="card-body">
                 <i class="fas fa-exclamation-triangle icon"></i>
-                <h1>Accesso Negato!</h1>
+                <h3>Accesso Negato!</h3>
                 <p>Non hai i privilegi di amministratore per accedere a questa pagina.</p>
                 <a href="../admin/dashboard.php" class="btn">Torna alla Home</a>
             </div>

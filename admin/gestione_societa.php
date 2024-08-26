@@ -52,9 +52,9 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h1 >
+                        <h3>
                           <?php echo $row['nome_societa']?>
-                        </h1>
+                        </h3>
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
                           <a href="edit_societa.php?id=<?php echo $row['id']; ?>" type="button" class="btn btn-outline-dark float-end ">

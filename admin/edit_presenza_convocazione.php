@@ -121,9 +121,9 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h1>
+                        <h3>
                           Convocazione
-                        </h1>
+                        </h3>
 
                       </div>
                     </div>
@@ -198,7 +198,7 @@
                               </div>
 
                             </div>
-                          <button type="submit" class="btn btn-lg btn-outline-dark mt-3 float-end float-md-start " id="btn-stampa">Salva convocati</button>
+                          <button type="submit" class="btn  btn-outline-dark mt-3 float-end float-md-start " id="btn-stampa">Salva convocati</button>
                         </form>
                       </div>
                           
@@ -326,13 +326,13 @@
                         </div>
                           
                           <span class="float-end">
-                            <button type="submit" class="btn btn-lg btn-outline-dark mb-3 float-end" target="_blank">
+                            <button type="submit" class="btn  btn-outline-dark mb-3 float-end" target="_blank">
                               <i class='bx bxs-file-pdf' ></i> Genera PDF
                             </button>
                           </span>
 
                           <span class="float-end me-2">
-                          <a role="button" class="btn btn-lg btn-outline-dark" onclick="inviaTelegram()">
+                          <a role="button" class="btn  btn-outline-dark" onclick="inviaTelegram()">
                             <i class="bx bxl-telegram"></i> Telegram
                           </a>
 

@@ -98,7 +98,7 @@
                                                 <a class="text-decoration-none float-end text-dark " data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Le transazioni non possono essere modificate, in caso di errore, eliminare e reinserire.">
                                                     <i class='bx bx-info-circle'></i>
                                                 </a>
-                                            </h1>
+                                            </h3>
                                         </div>
                                     </div>
                                     <!-- END: Intestazione -->

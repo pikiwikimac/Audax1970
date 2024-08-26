@@ -58,12 +58,12 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h1>Nuovo articolo</h1>
+                        <h3>Nuovo articolo</h3>
                         <div class="cta-wrapper">
                           <button class="btn btn-outline-dark float-end" data-bs-toggle="offcanvas"   href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
                             <i class='bx bx-plus'></i>
                           </button>	  
-                          <a type="button" href="articoli.php" class="btn btn-outline-dark float-end">
+                          <a type="button" href="articoli.php" class="btn btn-outline-dark float-end me-2">
                             <i class='bx bx-arrow-back'></i>
                           </a>
                         </div>

@@ -17,6 +17,34 @@
 
   $classifica = mysqli_query($con,$query);
   $posizione=1;
+
+  // Eseguire una query iniziale per ottenere il parent_id della società con id_societa
+  $checkParentQuery = "SELECT parent_id FROM societa WHERE id = '$id_societa'";
+  $checkParentResult = mysqli_query($con, $checkParentQuery);
+  $row = mysqli_fetch_assoc($checkParentResult);
+
+  // Controllare il valore di parent_id
+  if ($row['parent_id'] !== null) {
+      // Se parent_id non è null, selezionare tutte le squadre con lo stesso parent_id inclusa la squadra con id = parent_id
+      $parent_id = $row['parent_id'];
+      $query4 = "
+      SELECT s.nome_societa, s.id, s.tipo
+      FROM societa s
+      WHERE s.parent_id = '$id_societa_squadra_admin'
+      OR s.id = '$id_societa_squadra_admin'
+      ";
+  } else {
+      // Se parent_id è null, selezionare la società con id_societa e tutte le sue società figlie
+      $query4 = "
+      SELECT s.nome_societa, s.id, s.tipo
+      FROM societa s
+      WHERE s.id = '$id_societa_squadra_admin'
+      OR s.parent_id = '$id_societa_squadra_admin'
+      ";
+  }
+
+  // Eseguire la query e ottenere i risultati
+  $societa_collegate = mysqli_query($con, $query4);
 ?>
 
 <!doctype html>
@@ -40,9 +68,9 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h1 >
+                        <h3>
                           Classifica
-                        </h1>
+                        </h3>
                       </div>
                     </div>
                     <!-- END:Intestazione -->
@@ -50,7 +78,16 @@
                     <!-- Core della pagina -->
                     <div class="">
               
-                      <div class="row  ">
+                      <div class="row g-3 ">
+                        <div class="col-12">
+                          <?php while($row = mysqli_fetch_assoc($societa_collegate)) { ?>
+                            <a class="text-decoration-none text-white" href="classifica_admin.php?id_societa=<?php echo $row['id'] ?>">
+                              <span class="badge bg-secondary" style="font-size:12px;padding:8px">
+                                <?php echo $row['tipo'] ?>
+                              </span>  
+                            </a>
+                          <?php } ?>    
+                        </div>
                         <div class="col-12 table-responsive  ">
                           <table class="table table-striped table-hover table-rounded">
                             <thead class="table-dark ">

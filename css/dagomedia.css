@@ -1,4 +1,11 @@
-/* Override file app.css e bootstrap */
+@charset "UTF-8";
+/*!
+   * Bootstrap Utilities v5.3.1 (https://getbootstrap.com/)
+   * Copyright 2011-2023 The Bootstrap Authors
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+   */
+
+
 :root {
 	/*
 	--color-sidebar: #333846;
@@ -11,7 +18,6 @@
 	--bs-secondary-rgb: 108,117,125;
 	--c--primary--light: #EAF3FD;
 }
-
 
 
 /* Badge di dimensione fissa */
@@ -195,4 +201,74 @@
 		width: 100%!important
 	}
    
+}
+
+
+
+/* CLASSI CUSTOM Tabelle */
+th{
+    color: grey;
+    font-weight:300;
+    font-size: small;}
+
+
+.hover:hover {
+    background-color: var(--c--primary--light);}
+
+
+/* CLASSI CUSTOM Bottoni */
+.btn.btn-checkbox {
+    color: var(--c--primary);
+    background-color: var(--c--white);
+    border: 0; }
+
+.btn.btn-checkbox:active, .btn.btn-checkbox:focus, .btn.btn-checkbox:hover {
+  color: var(--c--primary);
+  background-color: var(--c--primary--light) }
+
+
+HTML CSSResult Skip Results Iframe
+EDIT ON
+@property --p{
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+
+.pie {
+  --p:10;
+  --b:8px;
+  --c:darkred;
+  --w:60px;
+  width:var(--w);
+  aspect-ratio:1;
+  position:relative;
+  display:inline-grid;
+  place-content:center;
+  font-size:12px;
+  font-weight:bold;
+  font-family:sans-serif;
+}
+.pie:before,
+.pie:after {
+  content:"";
+  position:absolute;
+  border-radius:50%;
+}
+.pie:before {
+  inset:0;
+  background:
+    radial-gradient(farthest-side,var(--c) 98%,#0000) top/var(--b) var(--b) no-repeat,
+    conic-gradient(var(--c) calc(var(--p)*1%),#0000 0);
+  -webkit-mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
+          mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
+}
+.pie:after {
+  inset:calc(50% - var(--b)/2);
+  background:var(--c);
+  transform:rotate(calc(var(--p)*3.6deg)) translateY(calc(50% - var(--w)/2));
+}
+
+@keyframes p {
+  from{--p:0}
 }

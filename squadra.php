@@ -12,19 +12,44 @@
   $tipo = mysqli_fetch_assoc($tipo_squadra);
 
   //INIZIO QUERY
-  $queryPortiere = "select * FROM giocatori where ruolo='Portiere' and id_squadra=$id_squadra order by ruolo,cognome,nome asc";
+  $queryPortiere = "SELECT * 
+  FROM giocatori g 
+  INNER JOIN affiliazioni_giocatori ag ON ag.id_giocatore = g.id 
+  WHERE g.ruolo='Portiere' 
+  AND ag.id_societa=$id_squadra 
+  ORDER BY ruolo,cognome,nome asc";
   $portieri = mysqli_query($con,$queryPortiere);
 
-  $queryCentrale = "select * FROM giocatori where ruolo='Centrale' and id_squadra=$id_squadra order by ruolo,cognome,nome asc";
+  $queryCentrale = "SELECT * 
+  FROM giocatori g 
+  INNER JOIN affiliazioni_giocatori ag ON ag.id_giocatore = g.id  
+  WHERE ruolo='Centrale' 
+  AND ag.id_societa=$id_squadra 
+  ORDER BY ruolo,cognome,nome asc";
   $centrali = mysqli_query($con,$queryCentrale);
 
-  $queryUniversale = "select * FROM giocatori where ruolo='Universale' and id_squadra=$id_squadra order by ruolo,cognome,nome asc";
+  $queryUniversale = "SELECT * 
+  FROM giocatori g 
+  INNER JOIN affiliazioni_giocatori ag ON ag.id_giocatore = g.id 
+  where ruolo='Universale' 
+  AND ag.id_societa=$id_squadra 
+  ORDER BY ruolo,cognome,nome asc";
   $universali = mysqli_query($con,$queryUniversale);
 
-  $queryLaterale = "select * FROM giocatori where ruolo='Laterale' and id_squadra=$id_squadra order by ruolo,cognome,nome asc";
+  $queryLaterale = "SELECT * 
+  FROM giocatori g 
+  INNER JOIN affiliazioni_giocatori ag ON ag.id_giocatore = g.id 
+  where ruolo='Laterale' 
+  AND ag.id_societa=$id_squadra 
+  ORDER BY ruolo,cognome,nome asc";
   $laterali = mysqli_query($con,$queryLaterale);
 
-  $queryPivot = "select * FROM giocatori where ruolo='Pivot' and id_squadra=$id_squadra order by ruolo,cognome,nome asc";
+  $queryPivot = "SELECT * 
+  FROM giocatori g 
+  INNER JOIN affiliazioni_giocatori ag ON ag.id_giocatore = g.id 
+  WHERE ruolo='Pivot' 
+  AND ag.id_societa=$id_squadra 
+  ORDER BY ruolo,cognome,nome asc";
   $pivot = mysqli_query($con,$queryPivot);
 
   $queryDirigenza = "select nome,ruolo,ordinamento,image_path FROM dirigenti WHERE ordinamento > 0  order by ordinamento,nome ";
@@ -52,7 +77,7 @@
 
     <!-- Descrizione iniziale -->
     <div class="container my-5">
-      <span class="fw-bold fs-2" id="font_diverso">
+      <span class="fw-bold fs-5" id="font_diverso">
         <?php echo $tipo['tipo'] ?>
       </span>
         
@@ -64,9 +89,11 @@
       <!-- Portieri -->
       <?php if(mysqli_num_rows($portieri)>0){ ?>
       <div class="row gy-3 ">
-        <span class="fw-bold fs-2" id="font_diverso">
+        <!--
+        <span class="fw-bold fs-5" id="font_diverso">
           Portieri
         </span>
+        -->
         <hr id="separatore" />
 
         <?php while($row = mysqli_fetch_assoc($portieri)) {  ?>
@@ -79,20 +106,21 @@
                 <img src="image/player/<?php echo $row['image_path'];?>" class="card-img-top image-clickable " alt="..." style="width:100%;cursor:pointer" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>"/>
               <?php } else { ?>
                 <img src="image/default_user.jpg" class="card-img-top image-clickable " alt="..." style="width:100%;cursor:pointer" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>"/>
-              <?php } ?>
-              <!-- Info giocatore -->
-              <div class="card-body bg-dark rounded-bottom text-white p-3">
-                <div class="row">
-                  <!-- Nome giocatore -->
-                  <div class="col-sm-9 col-10 ">
-                    <span class="fs-5"><?php echo $row['nome'].'<br/> ' .$row['cognome'] ?></span>
-                  </div>
-                  <!-- Numero di maglia giocatore -->
-                  <div class="col-sm-3 col-2 ">
-                    <span class="text-nowrap numero_maglia"><?php echo $row['maglia'] ?></span>
+                <!-- Info giocatore -->
+                <div class="card-body bg-dark rounded-bottom text-white p-3">
+                  <div class="row">
+                    <!-- Nome giocatore -->
+                    <div class="col-sm-9 col-10 ">
+                      <span class="fs-5"><?php echo $row['nome'].'<br/> ' .$row['cognome'] ?></span>
+                    </div>
+                    <!-- Numero di maglia giocatore -->
+                    <div class="col-sm-3 col-2 ">
+                      <span class="text-nowrap numero_maglia"><?php echo $row['maglia'] ?></span>
+                    </div>
                   </div>
                 </div>
-              </div>
+              <?php } ?>
+              
             </div>
             
 
@@ -105,7 +133,7 @@
       <!-- Centrali -->
       <?php if(mysqli_num_rows($centrali)>0){ ?>
       <div class="row mt-5 gy-3">
-        <span class="fw-bold fs-2" id="font_diverso"> Centrali </span>
+        <!-- <span class="fw-bold fs-5" id="font_diverso"> Centrali </span> -->
         <hr id="separatore" />
 
         <?php while($row = mysqli_fetch_assoc($centrali)) {  ?>
@@ -118,20 +146,20 @@
                 <img src="image/player/<?php echo $row['image_path'];?>" class="card-img-top image-clickable " alt="..." style="width:100%;cursor:pointer" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>"/>
               <?php } else { ?>
                 <img src="image/default_user.jpg" class="card-img-top image-clickable " alt="..." style="width:100%;cursor:pointer" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>"/>
-              <?php } ?>
-              <!-- Info giocatore -->
-              <div class="card-body bg-dark rounded-bottom text-white p-3">
-                <div class="row">
-                  <!-- Nome giocatore -->
-                  <div class="col-sm-9 col-10 ">
-                    <span class="fs-5"><?php echo $row['nome'].'<br/> ' .$row['cognome'] ?></span>
-                  </div>
-                  <!-- Numero di maglia giocatore -->
-                  <div class="col-sm-3 col-2 ">
-                    <span class="text-nowrap numero_maglia"><?php echo $row['maglia'] ?></span>
+                <!-- Info giocatore -->
+                <div class="card-body bg-dark rounded-bottom text-white p-3">
+                  <div class="row">
+                    <!-- Nome giocatore -->
+                    <div class="col-sm-9 col-10 ">
+                      <span class="fs-5"><?php echo $row['nome'].'<br/> ' .$row['cognome'] ?></span>
+                    </div>
+                    <!-- Numero di maglia giocatore -->
+                    <div class="col-sm-3 col-2 ">
+                      <span class="text-nowrap numero_maglia"><?php echo $row['maglia'] ?></span>
+                    </div>
                   </div>
                 </div>
-              </div>
+              <?php } ?>
             </div>
 
           </div>
@@ -144,7 +172,7 @@
       <?php if(mysqli_num_rows($laterali)>0){ ?>
       <div class="row mt-5 gy-3">
 
-        <span class="fw-bold fs-2" id="font_diverso"> Laterali </span>
+        <!-- <span class="fw-bold fs-5" id="font_diverso"> Laterali </span> -->
 
         <hr id="separatore" />
 
@@ -158,20 +186,20 @@
                 <img src="image/player/<?php echo $row['image_path'];?>" class="card-img-top image-clickable " alt="..." style="width:100%;cursor:pointer" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>"/>
               <?php } else { ?>
                 <img src="image/default_user.jpg" class="card-img-top image-clickable " alt="..." style="width:100%;cursor:pointer" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>"/>
-              <?php } ?>
-              <!-- Info giocatore -->
-              <div class="card-body bg-dark rounded-bottom text-white p-3">
-                <div class="row">
-                  <!-- Nome giocatore -->
-                  <div class="col-sm-9 col-10 ">
-                    <span class="fs-5"><?php echo $row['nome'].'<br/> ' .$row['cognome'] ?></span>
-                  </div>
-                  <!-- Numero di maglia giocatore -->
-                  <div class="col-sm-3 col-2 ">
-                    <span class="text-nowrap numero_maglia"><?php echo $row['maglia'] ?></span>
+                <!-- Info giocatore -->
+                <div class="card-body bg-dark rounded-bottom text-white p-3">
+                  <div class="row">
+                    <!-- Nome giocatore -->
+                    <div class="col-sm-9 col-10 ">
+                      <span class="fs-5"><?php echo $row['nome'].'<br/> ' .$row['cognome'] ?></span>
+                    </div>
+                    <!-- Numero di maglia giocatore -->
+                    <div class="col-sm-3 col-2 ">
+                      <span class="text-nowrap numero_maglia"><?php echo $row['maglia'] ?></span>
+                    </div>
                   </div>
                 </div>
-              </div>
+              <?php } ?>
             </div>
 
           </div>
@@ -184,7 +212,7 @@
       <?php if(mysqli_num_rows($universali)>0){ ?>
       <div class="row mt-5 gy-3">
 
-        <span class="fw-bold fs-2" id="font_diverso"> Universali </span>
+        <!-- <span class="fw-bold fs-5" id="font_diverso"> Universali </span> -->
 
         <hr id="separatore" />
         <?php while($row = mysqli_fetch_assoc($universali)) {  ?>
@@ -197,20 +225,20 @@
                 <img src="image/player/<?php echo $row['image_path'];?>" class="card-img-top image-clickable " alt="..." style="width:100%;cursor:pointer" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>"/>
               <?php } else { ?>
                 <img src="image/default_user.jpg" class="card-img-top image-clickable " alt="..." style="width:100%;cursor:pointer" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>"/>
-              <?php } ?>
-              <!-- Info giocatore -->
-              <div class="card-body bg-dark rounded-bottom text-white p-3">
-                <div class="row">
-                  <!-- Nome giocatore -->
-                  <div class="col-sm-9 col-10 ">
-                    <span class="fs-5"><?php echo $row['nome'].'<br/> ' .$row['cognome'] ?></span>
-                  </div>
-                  <!-- Numero di maglia giocatore -->
-                  <div class="col-sm-3 col-2 ">
-                    <span class="text-nowrap numero_maglia"><?php echo $row['maglia'] ?></span>
+                <!-- Info giocatore -->
+                <div class="card-body bg-dark rounded-bottom text-white p-3">
+                  <div class="row">
+                    <!-- Nome giocatore -->
+                    <div class="col-sm-9 col-10 ">
+                      <span class="fs-5"><?php echo $row['nome'].'<br/> ' .$row['cognome'] ?></span>
+                    </div>
+                    <!-- Numero di maglia giocatore -->
+                    <div class="col-sm-3 col-2 ">
+                      <span class="text-nowrap numero_maglia"><?php echo $row['maglia'] ?></span>
+                    </div>
                   </div>
                 </div>
-              </div>
+              <?php } ?>
             </div>
 
           </div>
@@ -222,7 +250,7 @@
       <!-- Pivot -->
       <?php if(mysqli_num_rows($pivot)>0){ ?>
       <div class="row mt-5 gy-3">
-        <span class="fw-bold fs-2" class="" id="font_diverso"> Pivot </span>
+        <!-- <span class="fw-bold fs-5" class="" id="font_diverso"> Pivot </span> -->
 
         <hr id="separatore"/>
 
@@ -236,59 +264,21 @@
                 <img src="image/player/<?php echo $row['image_path'];?>" class="card-img-top image-clickable " alt="..." style="width:100%;cursor:pointer" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>"/>
               <?php } else { ?>
                 <img src="image/default_user.jpg" class="card-img-top image-clickable " alt="..." style="width:100%;cursor:pointer" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>"/>
-              <?php } ?>
-              <!-- Info giocatore -->
-              <div class="card-body bg-dark rounded-bottom text-white p-3">
-                <div class="row">
-                  <!-- Nome giocatore -->
-                  <div class="col-sm-9 col-10 ">
-                    <span class="fs-5"><?php echo $row['nome'].'<br/> ' .$row['cognome'] ?></span>
-                  </div>
-                  <!-- Numero di maglia giocatore -->
-                  <div class="col-sm-3 col-2 ">
-                    <span class="text-nowrap numero_maglia"><?php echo $row['maglia'] ?></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        <?php } ?>
-
-      </div>
-      <?php } ?>
-      
-      <!-- Dirigenza -->
-      <?php if(mysqli_num_rows($dirigenti)>0){ ?>
-      <div class="row mt-5 gy-3">
-        <span class="fw-bold fs-2" class="" id="font_diverso"> Organigramma </span>
-
-        <hr id="separatore"/>
-
-        <?php while($row = mysqli_fetch_assoc($dirigenti)) {  ?>
-
-          <div class="col-12 col-sm-6 col-lg-3  p-3">
-
-            <div class="card player hover-box-shadow ">
-              <!-- Immagine dirigente -->
-              <?php if($row['image_path']!= NULL){ ?>
-                <img src="image/staff/<?php echo $row['image_path']; ?>" class="card-img-top image-clickable " alt="..." style="width:100%;max-height:200px;cursor:pointer;" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>"/>
-              <?php }else{ ?>
-                <img src="image/default_user.jpg" class="card-img-top image-clickable " alt="..." style="width:100%;max-height:200px;cursor:pointer;" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>"/>
-              <?php } ?>
-
-              <!-- Info dirigente -->
-              <div class="card-body bg-dark rounded-bottom text-white p-3">
-                <div class="row">
-                  <!-- Nome dirigente -->
-                  <div class="col-12">
-                    <span class="fs-5"><?php echo $row['nome'].'<br/> ' .$row['ruolo'] ?></span>
+                <!-- Info giocatore -->
+                <div class="card-body bg-dark rounded-bottom text-white p-3">
+                  <div class="row">
+                    <!-- Nome giocatore -->
+                    <div class="col-sm-9 col-10 ">
+                      <span class="fs-5"><?php echo $row['nome'].'<br/> ' .$row['cognome'] ?></span>
+                    </div>
+                    <!-- Numero di maglia giocatore -->
+                    <div class="col-sm-3 col-2 ">
+                      <span class="text-nowrap numero_maglia"><?php echo $row['maglia'] ?></span>
+                    </div>
                   </div>
                 </div>
-              </div>
+              <?php } ?>
             </div>
-            
 
           </div>
 

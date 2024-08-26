@@ -58,9 +58,9 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                      <h1 >
+                      <h3>
                         Calendario completo
-                      </h1>
+                      </h3>
 
                       <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
@@ -218,7 +218,7 @@
                       <?php if($coppa_marche->num_rows > 0) {  ?>
                       <div class="row mb-3">
                         <div class="col-12 table-responsive">
-                          <span class="fs-2">Coppa marche</span>
+                          <span class="fs-5">Coppa marche</span>
                           <table class="table  table-hover table-striped table-rounded">
                             <thead class="table-dark">
 

@@ -123,7 +123,7 @@
                           <div class="row gy-2">
 
                             <!-- Nome società  -->
-                            <span class="fs-2 fw-bold">
+                            <span class="fs-5 fw-bold">
                               <?php echo $info['nome_societa'] ?>
                             </span>
 

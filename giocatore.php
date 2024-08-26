@@ -120,7 +120,7 @@
       <div class="container my-5">
         <h1 id="font-diverso">
           <?php echo $row['nome']. ' ' . $row['cognome'] ?>          
-        </h1>
+        </h3>
 
 
         <hr/>

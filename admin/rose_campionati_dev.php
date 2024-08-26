@@ -92,9 +92,9 @@ ORDER BY
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h1 >
+                        <h3>
                           Tutti i giocatori
-                        </h1>
+                        </h3>
 
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">	

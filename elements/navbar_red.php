@@ -9,6 +9,20 @@
   left: 100%;
 }
 
+.dropdown-menu{
+  background: #BC0524;
+  border:none;
+}
+
+.dropdown-item{
+  color:white;
+}
+
+.dropdown-item:hover{
+  color: #fedc00;
+  background: #BC0524;
+}
+
 </style>
 
 <nav class="navbar navbar-expand-lg fixed-top align-middle" style="background: #BC0524; border-bottom:10px solid #fedc00">
@@ -19,7 +33,7 @@
       <img width="40" height="40" src="../image/loghi/logo_audax.png" class="logo rounded mb-2" alt="Audax Logo" decoding="async" loading="lazy" >
       &nbsp; &nbsp; 
       <!-- Nome squadra -->
-      <span class="fs-2 ">
+      <span class="fs-5 ">
         Audax 1970
       </span>
     </a>
@@ -41,7 +55,7 @@
           <a class="nav-link dropdown-toggle  text-light"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Prima squadra
           </a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu" >
             <li><a class="dropdown-item" href="squadra.php?id_squadra=1" id="rosa" name="rosa">Rosa</a></li>
             <li><a class="dropdown-item" href="calendario.php" id="calendario" name="calendario">Calendario</a></li>
             <li><a class="dropdown-item" href="classifica.php" id="classifica" name="classifica">Classifica</a></li>

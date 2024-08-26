@@ -41,7 +41,7 @@
 
     <!-- Descrizione iniziale -->
     <div class="container my-5">
-      <span class="fw-bold fs-2" id="font_diverso">
+      <span class="fw-bold fs-5" id="font_diverso">
         <?php echo $tipo['tipo'] ?>
       </span>
         
@@ -93,7 +93,7 @@
       <!-- Dirigenza -->
       <?php if(mysqli_num_rows($dirigenti)>0){ ?>
       <div class="row mt-5 gy-3">
-        <span class="fw-bold fs-2" class="" id="font_diverso"> Organigramma </span>
+        <span class="fw-bold fs-5" class="" id="font_diverso"> Organigramma </span>
 
         <hr id="separatore"/>
 

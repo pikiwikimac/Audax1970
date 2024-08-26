@@ -84,9 +84,9 @@ $campionato = mysqli_query($con, $sql);
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h1 >
+                        <h3>
                           Calendario
-                        </h1>
+                        </h3>
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
                           <?php if($_SESSION['superuser'] == 1 ){ ?>
@@ -108,7 +108,7 @@ $campionato = mysqli_query($con, $sql);
 
                       <div class="row g-5 mb-3">
                         <div class="col-12 table-responsive">
-                          <span class="fs-2 mb-2 ">
+                          <span class="fs-5 mb-2 ">
                             Serie A2
                           </span>
                           

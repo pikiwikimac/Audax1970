@@ -72,9 +72,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['photoFile'])) {
                   <!-- Intestazione -->
                   <div class="tpl-header">
                     <div class="tpl-header--title">
-                      <h1>
+                      <h3>
                         <?php echo $folder ?>
-                      </h1>
+                      </h3>
                       <!-- Bottoni a destra -->
                       <div class="cta-wrapper">
                         <?php

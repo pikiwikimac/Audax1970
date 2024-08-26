@@ -120,8 +120,8 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h1>Giornata <?php echo $partita['giornata'] ?> 
-                      </h1>
+                        <h3>Giornata <?php echo $partita['giornata'] ?> 
+                      </h3>
                       <!-- Bottoni a destra -->
                       <div class="cta-wrapper">
                         <button type="button" class="btn btn-outline-dark float-end me-2"  onclick="window.location.href='edit_risultato_massivo.php?id=<?php echo $partita["id"]; ?>'">

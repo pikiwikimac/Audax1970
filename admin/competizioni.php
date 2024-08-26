@@ -50,9 +50,9 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h1>
+                        <h3>
                           Competizioni 
-                        </h1>
+                        </h3>
 
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">	

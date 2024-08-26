@@ -11,13 +11,50 @@
   $image = isset($_SESSION['image']) ? $_SESSION['image'] : null; 
   $superuser=  $_SESSION['superuser'];
 
-  $query = "SELECT * FROM `allenamenti` WHERE stato='Fissato' ORDER BY data desc";
-  $query2 = "SELECT * FROM `allenamenti` WHERE stato!='Fissato' ORDER BY data desc";
+  $id_societa = $_REQUEST['id_societa'];
+  $id_societa_squadra_admin = $_SESSION['id_societa_riferimento'];
+
+  $query = "SELECT * FROM `allenamenti` WHERE stato='Fissato' AND id_societa='$id_societa'  ORDER BY data desc";
+  $query2 = "SELECT * FROM `allenamenti` WHERE stato!='Fissato' AND id_societa='$id_societa' ORDER BY data desc";
 
   $allenamentiProssimi = mysqli_query($con,$query);
   $allenamentiSvolti = mysqli_query($con,$query2);
 
-  $id_societa=$_REQUEST['$id_societa'];
+  $query2 = "
+  select nome_societa,id
+  FROM societa
+  WHERE parent_id=1 OR id=1
+  ";
+  $squadre = mysqli_query($con,$query2);  
+  $squadre2 = mysqli_query($con,$query2);
+
+  // Eseguire una query iniziale per ottenere il parent_id della società con id_societa
+  $checkParentQuery = "SELECT parent_id FROM societa WHERE id = '$id_societa'";
+  $checkParentResult = mysqli_query($con, $checkParentQuery);
+  $row = mysqli_fetch_assoc($checkParentResult);
+
+  // Controllare il valore di parent_id
+  if ($row['parent_id'] !== null) {
+      // Se parent_id non è null, selezionare tutte le squadre con lo stesso parent_id inclusa la squadra con id = parent_id
+      $parent_id = $row['parent_id'];
+      $query4 = "
+      SELECT s.nome_societa, s.id, s.tipo
+      FROM societa s
+      WHERE s.parent_id = '$id_societa_squadra_admin'
+      OR s.id = '$id_societa_squadra_admin'
+      ";
+  } else {
+      // Se parent_id è null, selezionare la società con id_societa e tutte le sue società figlie
+      $query4 = "
+      SELECT s.nome_societa, s.id, s.tipo
+      FROM societa s
+      WHERE s.id = '$id_societa_squadra_admin'
+      OR s.parent_id = '$id_societa_squadra_admin'
+      ";
+  }
+
+  // Eseguire la query e ottenere i risultati
+  $societa_collegate = mysqli_query($con, $query4);
 
 ?>
 
@@ -45,9 +82,9 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h1 > 
+                        <h5> 
                           Allenamenti
-                        </h1>
+                        </h5>
 
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
@@ -66,6 +103,15 @@
 
                       <!-- Allenamenti fissati -->
                       <div class="row g-5 mb-3 ">
+                        <div class="col-12">
+                          <?php while($rowx = mysqli_fetch_assoc($societa_collegate)) { ?>
+                            <a class="text-decoration-none text-white" href="allenamenti_admin.php?id_societa=<?php echo $rowx['id'] ?>">
+                              <span class="badge bg-secondary" style="font-size:12px;padding:8px">
+                                <?php echo $rowx['tipo'] ?>
+                              </span>  
+                            </a>
+                          <?php } ?>    
+                        </div>
                         <div class="col-12 col-lg-6 table-responsive">
                           <?php if ($allenamentiProssimi->num_rows >0 ){ ?>
                           <table class="table table-sm table-hover table-striped table-rounded">
@@ -159,7 +205,7 @@
                                       <!-- Edit -->
                                       <a  class="text-decoration-none text-dark" style="cursor:pointer" 
                                         data-bs-toggle="tooltip" data-bs-title="Modifica"
-                                        onclick="showEditModal('<?php echo $row["id"]; ?>', '<?php echo $row["data"]; ?>', '<?php echo $row["orario"]; ?>', '<?php echo $row["tipologia"]; ?>', '<?php echo $row["stato"]; ?>', '<?php echo $row["luogo"]; ?>', '<?php echo $row["note"]; ?>')" >
+                                        onclick="showEditModal('<?php echo $row["id"]; ?>', '<?php echo $row["data"]; ?>', '<?php echo $row["orario"]; ?>', '<?php echo $row["tipologia"]; ?>', '<?php echo $row["stato"]; ?>', '<?php echo $row["id_squadra"]; ?>', '<?php echo $row["luogo"]; ?>', '<?php echo $row["note"]; ?>')" >
                                         <i class='bx bx-pencil'></i>
                                       </a>
 
@@ -183,7 +229,7 @@
 
                           <!-- Messaggio : Nessun allenamento programmato -->
                           <?php }else{ ?>
-                            <h3>Nessun allenamento programmato</h3>
+                            <h5>Nessun allenamento programmato</h5>
                           <?php } ?>
 
                         </div>
@@ -287,7 +333,7 @@
                                     <!-- Edit -->
                                     <a  class="text-decoration-none text-dark" style="cursor:pointer" 
                                       data-bs-toggle="tooltip" data-bs-title="Modifica"
-                                      onclick="showEditModal('<?php echo $row["id"]; ?>', '<?php echo $row["data"]; ?>', '<?php echo $row["orario"]; ?>', '<?php echo $row["tipologia"]; ?>', '<?php echo $row["stato"]; ?>', '<?php echo $row["luogo"]; ?>', '<?php echo $row["note"]; ?>')" >
+                                      onclick="showEditModal('<?php echo $row["id"]; ?>', '<?php echo $row["data"]; ?>', '<?php echo $row["orario"]; ?>', '<?php echo $row["tipologia"]; ?>', '<?php echo $row["stato"]; ?>', '<?php echo $row["id_societa"]; ?>', '<?php echo $row["luogo"]; ?>', '<?php echo $row["note"]; ?>')" >
                                       <i class='bx bx-pencil'></i>
                                     </a>
 
@@ -313,7 +359,7 @@
 
                           <!-- Messaggio: Nessun allenamento programmato -->
                           <?php }else{ ?>
-                            <h3>Nessun allenamento svolto</h3>
+                            <h5>Nessun allenamento svolto</h5>
                           <?php } ?>
 
                         </div>
@@ -362,7 +408,7 @@
                 </div>
 
                 <!-- Tipologia -->
-                <div class="col-12 mb-3 ">
+                <div class="col-6 mb-3 ">
                   <label for="tipologia" class="form-label">Tipologia</label>
                   <select  class="form-select" id="tipologia" name="tipologia">
                     <option value="Allenamento">Allenamento</option>
@@ -371,7 +417,7 @@
                 </div>
 
                 <!-- Stato -->
-                <div class="col-12 mb-3 ">
+                <div class="col-6 mb-3 ">
                   <label for="stato" class="form-label">Stato</label>
                   <select  class="form-select" id="stato" name="stato">
                     <option value="Fissato">Fissato</option>
@@ -381,10 +427,24 @@
                   </select>
                 </div>
 
-                <!-- Squadra casa -->
-                <div class="col-12 mb-3 ">
+                <!-- Luogo -->
+                <div class="col-6 mb-3 ">
                   <label for="luogo" class="form-label">Luogo</label>
                   <input type="text" class="form-control" id="luogo" name="luogo" />
+                </div>
+                
+                <!-- Squadra -->
+                <div class="col-6 mb-3 ">
+                  <label for="id_squadra" class="form-label">Squadra</label>
+                  <select class="form-select" aria-label="Default select example" name="id_societa" id="id_societa" >
+                    <?php
+                      while ($rowX = mysqli_fetch_assoc($squadre))
+                      {
+                        echo '<option value="'.$rowX['id'].'" '.($rowX['id'] === $row['id_squadra'] ? 'selected="selected"' : '').'>'.$rowX['nome_societa'].'</option>';
+                      }
+
+                    ?>
+                  </select>
                 </div>
 
                 <!-- Note -->
@@ -431,7 +491,7 @@
                 </div>
 
                 <!-- Tipologia -->
-                <div class="col-12 mb-3">
+                <div class="col-6 mb-3">
                   <label for="tipologia" class="form-label">Tipologia</label>
                   <select  class="form-select" id="tipologia" name="tipologia">
                     <option value="Allenamento">Allenamento</option>
@@ -440,7 +500,7 @@
                 </div>
 
                 <!-- Stato -->
-                <div class="col-12 mb-3">
+                <div class="col-6 mb-3">
                   <label for="stato" class="form-label">Stato</label>
                   <select  class="form-select" id="stato" name="stato">
                     <option value="Fissato">Fissato</option>
@@ -450,10 +510,24 @@
                   </select>
                 </div>
 
-                <!-- Squadra casa -->
-                <div class="col-12 mb-3">
+                <!-- Luogo -->
+                <div class="col-6 mb-3">
                   <label for="luogo" class="form-label">Luogo</label>
                   <input type="text" class="form-control" id="luogo" name="luogo" value="Palazzetto dello sport"/>
+                </div>
+                
+                <!-- Squadra -->
+                 <div class="col-6 mb-3 ">
+                  <label for="id_squadra" class="form-label">Squadra</label>
+                  <select class="form-select" aria-label="Default select example" name="id_squadra" id="id_squadra" >
+                    <?php
+                      while ($rowX = mysqli_fetch_assoc($squadre2))
+                      {
+                        echo '<option value="'.$rowX['id'].'" '.($rowX['id'] === $row['id_squadra'] ? 'selected="selected"' : '').'>'.$rowX['nome_societa'].'</option>';
+                      }
+
+                    ?>
+                  </select>
                 </div>
 
                 <!-- Note -->
@@ -491,13 +565,14 @@
 
     <!-- Funzione Edit modal -->
     <script>
-      function showEditModal(id, data, orario, tipologia, stato, luogo, note) {
+      function showEditModal(id, data, orario, tipologia, stato, id_squadra, luogo, note) {
         document.getElementById("id").value = id;
         document.getElementById("data").value = data;
         document.getElementById("orario").value = orario;
         document.getElementById("tipologia").value = tipologia;
         document.getElementById("stato").value = stato;
         document.getElementById("luogo").value = luogo;
+        document.getElementById("id_squadra").value = id_squadra;
         document.getElementById("note").value = note;
 
         

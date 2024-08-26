@@ -66,7 +66,7 @@ try {
     <div class="container my-5">
       <div class="row">
         <div class="col-12">
-          <span class="fs-2 fw-bold" id="font_diverso">Prodotti in vendita</span>
+          <span class="fs-5 fw-bold" id="font_diverso">Prodotti in vendita</span>
         </div>
       </div>
       

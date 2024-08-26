@@ -59,9 +59,9 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h1>
+                        <h3>
                           Nuova societa 
-                        </h1>
+                        </h3>
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
                           <a type="button" href="societa.php" class="btn btn-outline-dark float-end" >

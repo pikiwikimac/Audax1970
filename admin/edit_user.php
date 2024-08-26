@@ -73,9 +73,9 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h1 >
+                        <h3>
                           Modifica user
-                        </h1>
+                        </h3>
                       </div>
                     </div>
                     <!-- END:Intestazione -->
