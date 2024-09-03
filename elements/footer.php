@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-12 col-lg-6 text-start">
 
-            <h3 class="text-light">Contatti</h3>
+            <h4 class="text-light">Contatti<h4>
             
             <br/>
             

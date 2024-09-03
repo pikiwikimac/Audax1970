@@ -121,15 +121,14 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h3>
+                        <h4>
                           Convocazione
-                        </h3>
-
+                        </h4>
                       </div>
                     </div>
                     <!-- END:Intestazione -->
 
-                    <span class="fs-4 text-muted">
+                    <span class="fs-6 text-muted">
                       <?php echo $partita['casa'] ?> - <?php echo $partita['ospite'] ?>
                     </span>
 
@@ -142,13 +141,13 @@
                     <!-- Core della pagina -->
                     <div class="">
                       <div class="row mt-3 gy-3">
-                        <div class="col-12 col-lg-5">
+                        <div class="col-12 col-lg-3">
                           <form action="../query/action_insert_convocati.php?id=<?php echo $id; ?>" method="POST">
                             <!-- Card convocabili -->
                             <div class="card">
 
                               <div class="card-header bg-dark">
-                                <h3 class="text-white"> Convocabili </h3>
+                                <h6 class="text-white"> Convocabili </h6>
                               </div>
 
                               <div class="card-body">
@@ -208,7 +207,7 @@
                         <form action="genera_pdf.php?id=<?php echo $partita['id'] ?>" method="POST">
                           <div class="card mb-3">
                             <div class="card-header bg-dark">
-                              <h3 class="text-white">Info partita</h3>
+                              <h4 class="text-white">Info partita</h4>
                             </div>
                             <div class="card-body">
                               
@@ -216,33 +215,33 @@
 
                                 <div class="col-12 col-lg-6 ">
                                   <label for="sede" >Luogo</label>
-                                  <input value="<?php echo $partita['sede'] ?>" type="text" class="form-control " id="sede" name="sede"></input>
+                                  <input value="<?php echo $partita['sede'] ?>" type="text" class="form-control form-control-sm " id="sede" name="sede"></input>
                                 </div>
 
                                 <div class="col-6  col-lg-3">
                                   <label for="citta" >Città</label>
-                                  <input value="<?php echo $partita['citta'] ?>" type="text" class="form-control " id="citta" name="citta"></input>
+                                  <input value="<?php echo $partita['citta'] ?>" type="text" class="form-control form-control-sm " id="citta" name="citta"></input>
                                 </div>
 
                                 <div class="col-6 col-lg-3">
                                   <label for="data" >Giorno</label>
-                                  <input value="<?php echo $partita['data'] ?>" type="date" class="form-control " id="data" name="data"></input>
+                                  <input value="<?php echo $partita['data'] ?>" type="date" class="form-control form-control-sm " id="data" name="data"></input>
                                 </div>
                               
                                 <div class="col-6 col-lg-3">
                                   <label for="allenatore" >Allenatore</label>
-                                  <input class="form-control"  name="allenatore" id="allenatore" value="Diego Petrolati"></input>
+                                  <input class="form-control form-control-sm"  name="allenatore" id="allenatore" value="Diego Petrolati"></input>
                                 </div>
                                 
                                     
                                 <div class="col-6 col-lg-3">
                                   <label for="doc_allenatore" > Documento </label>
-                                  <input class="form-control"  name="doc_allenatore" id="doc_allenatore" value=""></input>
+                                  <input class="form-control form-control-sm"  name="doc_allenatore" id="doc_allenatore" value=""></input>
                                 </div>
 
                                 <div class="col-6 col-lg-3 ">
                                   <label for="capitano" >Capitano</label>
-                                  <select class="form-select" id="capitano" name="capitano">
+                                  <select class="form-select form-select-sm" id="capitano" name="capitano">
                                     <?php
                                     // Utilizziamo una nuova variabile $giocatoriCapitano per iterare sui giocatori
                                     while($rowCapitano = mysqli_fetch_assoc($capitano)) {
@@ -257,7 +256,7 @@
 
                                 <div class="col-6  col-lg-3">
                                   <label for="vicecapitano" >Vicecapitano</label>
-                                  <select class="form-select" id="vicecapitano" name="vicecapitano">
+                                  <select class="form-select form-select-sm" id="vicecapitano" name="vicecapitano">
                                     <?php
                                     // Utilizziamo una nuova variabile $giocatoriCapitano per iterare sui giocatori
                                     while($rowCapitano = mysqli_fetch_assoc($vicecapitano)) {
@@ -273,7 +272,7 @@
                                 <div class="col-6 col-lg-3 ">
                                   <label for="dirigente_1" >Dirigente 1</label>
                                   <div class="input-group">
-                                    <input class="form-control"  name="dirigente_1" id="dirigente_1" value=""></input>
+                                    <input class="form-control form-control-sm"  name="dirigente_1" id="dirigente_1" value=""></input>
                                     <input type="hidden"  name="dirigente_1_doc" id="dirigente_1_doc" value=""></input>
                                     <span class="input-group-text dirigenti"  data-bs-toggle="offcanvas" data-bs-target="#dirigenteOffcanvas" data-bs-dirigente="1">
                                       <i class="bx bx-plus align-middle"></i>
@@ -284,7 +283,7 @@
                                 <div class="col-6 col-lg-3 ">
                                   <label for="dirigente_2" >Dirigente 2</label>
                                   <div class="input-group">
-                                    <input class="form-control"  name="dirigente_2" id="dirigente_2" value=""></input>
+                                    <input class="form-control form-control-sm"  name="dirigente_2" id="dirigente_2" value=""></input>
                                     <span class="input-group-text dirigenti"  data-bs-toggle="offcanvas" data-bs-target="#dirigenteOffcanvas" data-bs-dirigente="2">
                                       <i class="bx bx-plus align-middle"></i>
                                     </span>
@@ -294,7 +293,7 @@
                                 <div class="col-6 col-lg-3">
                                   <label for="dirigente_3" >Dirigente 3</label>
                                   <div class="input-group">
-                                    <input class="form-control"  name="dirigente_3" id="dirigente_3" value=""></input>
+                                    <input class="form-control form-control-sm"  name="dirigente_3" id="dirigente_3" value=""></input>
                                     <span class="input-group-text dirigenti"  data-bs-toggle="offcanvas" data-bs-target="#dirigenteOffcanvas" data-bs-dirigente="3">
                                       <i class="bx bx-plus align-middle"></i>
                                     </span>
@@ -304,7 +303,7 @@
                                 <div class="col-6 col-lg-3">
                                   <label for="dirigente_4" >Dirigente 4</label>
                                   <div class="input-group">
-                                    <input class="form-control"  name="dirigente_4" id="dirigente_4" value=""></input>
+                                    <input class="form-control form-control-sm"  name="dirigente_4" id="dirigente_4" value=""></input>
                                     <span class="input-group-text dirigenti"  data-bs-toggle="offcanvas" data-bs-target="#dirigenteOffcanvas" data-bs-dirigente="4">
                                       <i class="bx bx-plus align-middle"></i>
                                     </span>
@@ -313,12 +312,12 @@
 
                                 <div class="col-6 col-lg-3 ">
                                   <label for="luogo_convocazione" >Luogo convocazione</label>
-                                  <input value="" type="text" class="form-control " id="luogo_convocazione" name="luogo_convocazione"></input>
+                                  <input value="" type="text" class="form-control form-control-sm " id="luogo_convocazione" name="luogo_convocazione"></input>
                                 </div>
 
                                 <div class="col-6  col-lg-3">
                                   <label for="orario_convocazione" >Orario convocazione</label>
-                                  <input value="" type="time" class="form-control " id="orario_convocazione" name="orario_convocazione"></input>
+                                  <input value="" type="time" class="form-control form-control-sm " id="orario_convocazione" name="orario_convocazione"></input>
                                 </div>
 
                               </div>

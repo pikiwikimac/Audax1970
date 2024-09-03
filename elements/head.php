@@ -5,7 +5,7 @@
     
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
+    
     <!-- CSS: fornito da Adattivo  -->
 	<link rel="stylesheet" href="../css/app.css">
 	<link rel="stylesheet" href="../css/dagomedia.css">
@@ -43,13 +43,13 @@
 
 
     <!-- Icona title -->
-    <link rel="icon" href="../image/loghi/audax.jpeg" type ="image/x-icon">
+    <link rel="icon" href="../image/loghi/logo.png" type ="image/x-icon">
 
     <!-- Icona per dispositivi Apple -->
-    <link rel="apple-touch-icon" sizes="180x180" href="../image/loghi/audax.jpeg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../image/loghi/logo.png">
     
     <!-- Icona per dispositivi Android -->
-    <link rel="icon" type="image/png" sizes="192x192" href="../image/loghi/audax.jpeg">
+    <link rel="icon" type="image/png" sizes="192x192" href="../image/loghi/logo.png">
     
 
 </head>

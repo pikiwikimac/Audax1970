@@ -106,16 +106,16 @@
                           <div class="mt-3">
                             <!-- Aggiungi il nuovo bottone -->
                             <a href="insert_player.php?id_squadra=<?php echo ($info['id']); ?>" type="button" class="btn btn-outline-dark  me-2">
-                              <i class='bx bx-user-plus'  style="font-size:1.5rem"></i>
+                              <i class='bx bx-user-plus' ></i>
                             </a>  
                           
                           
                             <a href="edit_societa.php?id=<?php echo $info['id'] ?>" type="button" class="btn btn-outline-dark  me-2">
-                              <i class='bx bx-pencil ' style="font-size:1.5rem"></i> 
+                              <i class='bx bx-pencil '></i> 
                             </a>
                             
                             <a href="societa.php" type="button" class="btn btn-outline-dark ">
-                              <i class='bx bx-arrow-back ' style="font-size:1.5rem"></i> 
+                              <i class='bx bx-arrow-back '></i> 
                             </a>
                           </div>
                         </div>
@@ -123,12 +123,12 @@
                           <div class="row gy-2">
 
                             <!-- Nome società  -->
-                            <span class="fs-5 fw-bold">
+                            <span class="fs-6 fw-bold">
                               <?php echo $info['nome_societa'] ?>
                             </span>
 
                             <!-- Elenco società  -->
-                            <span class="fs-4 text-muted">
+                            <span class="text-muted">
                               <?php while($row = mysqli_fetch_assoc($squadre_correlate)){?>
                                 <a class="text-decoration-none text-white" href="show_societa.php?id=<?php echo $row['id'] ?>">
                                   <span class="badge bg-secondary">
@@ -139,56 +139,56 @@
                             </span>
                             
                             <!-- Sede e città  -->
-                            <span class="fs-4 text-muted">
+                            <span class="text-muted">
                               <i class='bx bxs-map-pin'></i> &nbsp; <?php echo $info['sede']  ?> - <?php echo $info['citta']  ?>
                             </span>
 
                             <!-- Giorno e ora  -->
-                            <span class="fs-5 text-muted mt-0">
+                            <span class="text-muted mt-0">
                               <i class='bx bx-calendar' ></i> &nbsp; <?php echo $info['giorno_settimana']  ?> - <?php echo $info['ora_match']  ?>
                             </span>
                             
 
                             <!-- Contatto di riferimento -->
                             <?php if($info['contatto_riferimento'] != null){ ?>
-                              <span class="fs-5 text-muted mt-0">
+                              <span class="text-muted mt-0">
                                 <i class='bx bxs-contact' ></i> &nbsp; Referente :&nbsp;<?php echo $info['contatto_riferimento'] .' ' .$info['telefono'] ?>
                               </span>
                             <?php } ?>
                             <!-- Email -->
                             <?php if($info['email'] != null){ ?>
-                              <span class="fs-5 text-muted mt-0">
+                              <span class="text-muted mt-0">
                                 <i class='bx bx-envelope' ></i> &nbsp; Email :&nbsp;<?php echo $info['email']  ?>
                               </span>
                             <?php } ?>
                             <!-- Instagram -->
                             <?php if($info['instagram'] != null){ ?>
-                              <span class="fs-5 text-muted mt-0">
+                              <span class="text-muted mt-0">
                                 <i class='bx bxl-instagram'></i> &nbsp; Instagram :&nbsp;<?php echo $info['instagram']  ?>
                               </span>
                             <?php } ?>
                             <!-- Whatsapp -->
                             <?php if($info['whatsapp'] != null){ ?>
-                              <span class="fs-5 text-muted mt-0">
+                              <span class="text-muted mt-0">
                                 <i class='bx bxl-whatsapp'></i> &nbsp; Whatsapp :&nbsp;<?php echo $info['whatsapp']  ?>
                               </span>
                             <?php } ?>
                             <!-- Sito web -->
                             <?php if($info['sito_web'] != null){ ?>
-                              <span class="fs-5 text-muted mt-0">
+                              <span class="text-muted mt-0">
                                 <i class='bx bx-link'></i> &nbsp; Sito web :&nbsp;<a class="text-decoration-none text-dark" href="<?php echo $info['sito_web']?> "><?php echo $info['sito_web']?> </a>
                               </span>
                             <?php } ?>
 
                             <!-- Presidente -->
                             <?php if($info['presidente'] != null){ ?>
-                              <span class="fs-5 text-muted mt-3">
+                              <span class="text-muted mt-3">
                                 Presidente :&nbsp;<?php echo $info['presidente']  ?>
                               </span>
                             <?php } ?>
                             <!-- VicePresidente -->
                             <?php if($info['vicepresidente'] != null){ ?>
-                              <span class="fs-5 text-muted mt-0">
+                              <span class="text-muted mt-0">
                                 Vicepresidente :&nbsp;<?php echo $info['vicepresidente']  ?>
                               </span>
                             <?php } ?>
@@ -230,9 +230,9 @@
                                   <!-- Immagine -->
                                   <td class="text-center">
                                     <?php if ($row['image_path']) { ?>
-                                      <img src="../image/player/<?php echo $row['image_path'];?>" class="rounded-circle image-clickable" alt="<?php echo $row['cognome'].' '.$row['nome'];?>" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>" width="30" height="30"/>
+                                      <img src="../image/player/<?php echo $row['image_path'];?>" class="rounded-circle image-clickable" alt="<?php echo $row['cognome'].' '.$row['nome'];?>" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>" width="20" height="20"/>
                                     <?php } else { ?>
-                                      <img src="../image/default_user.jpg" class="rounded-circle" alt="Immagine di default" data-player-name="<?php echo $row['player_name'];?>" width="30" height="30" />
+                                      <img src="../image/default_user.jpg" class="rounded-circle" alt="Immagine di default" data-player-name="<?php echo $row['player_name'];?>" width="15" height="15" />
                                     <?php } ?>
                                   </td>
 
@@ -316,6 +316,7 @@
                           <table class="table table-sm table-striped table-hover table-rounded">
                             <thead class="table-dark ">
                               <tr>
+                                <th class="text-center" width="10%"></th>
                                 <th class="text-center" width="5%"></th>
                                 <th class="text-end">Casa</th>
                                 <th class="text-center"></th>
@@ -340,7 +341,8 @@
                                       echo $abbreviatedDay;
                                     ?>
                                   </small>
-                                  <br/>
+                                </td>
+                                <td class="text-center">
                                   <small class="">
                                     <?php echo date('d/m/y',strtotime( $partita['data'])) ?>
                                   </small>
@@ -348,18 +350,27 @@
                                 
                                 <!-- Squadra casa -->
                                 <td class="text-end">
-                                  <div class="<?php if (($partita['casa'] == $info['nome_societa'] ) && $partita['risultato'] === '1') {
-                                      echo 'text-success fw-bold';
-                                    } elseif (($partita['casa'] == $info['nome_societa'] ) && $partita['risultato'] === 'X') {
-                                      echo 'text-primary fw-bold';
-                                    } elseif (($partita['casa'] == $info['nome_societa'] ) && $partita['risultato'] === '2') {
-                                      echo 'text-danger fw-bold';
-                                    } else {
-                                      echo 'text-dark';
-                                    }
+                                  <div class="
+                                    <?php 
+                                      // Verifica se la squadra ospite è quella dell'utente e assegna 'fw-bold'
+                                      if ($partita['casa'] == $info['nome_societa']) {
+                                        echo 'fw-bold ';
+                                      }
+
+                                      // Verifica il risultato per assegnare il colore
+                                      if ($partita['risultato'] === '1' && $partita['casa'] == $info['nome_societa']) {
+                                        echo 'text-danger';
+                                      } elseif ($partita['risultato'] === 'X') {
+                                        echo 'text-primary';
+                                      } elseif ($partita['risultato'] === '2' && $partita['casa'] == $info['nome_societa']) {
+                                        echo 'text-success';
+                                      } else {
+                                        echo 'text-dark';
+                                      }
                                     ?>
                                   ">
-                                  <?php echo $partita['casa'] ?></div>
+                                    <?php echo $partita['casa'] ?>
+                                  </div>
                                 </td>
                                 <!-- Gol casa -->
                                 <td class="text-center">
@@ -372,18 +383,27 @@
                                 </td>
                                 <!-- Squadra ospite -->
                                 <td class="">
-                                <div class="<?php if (($partita['ospite'] == $info['nome_societa'] ) && $partita['risultato'] === '1') {
-                                      echo 'text-danger fw-bold';
-                                    } elseif (($partita['ospite'] == $info['nome_societa'] ) && $partita['risultato'] === 'X') {
-                                      echo 'text-primary fw-bold';
-                                    } elseif (($partita['ospite'] == $info['nome_societa'] ) && $partita['risultato'] === '2') {
-                                      echo 'text-success fw-bold';
-                                    } else {
-                                      echo 'text-dark';
-                                    }
+                                  <div class="
+                                    <?php 
+                                      // Verifica se la squadra ospite è quella dell'utente e assegna 'fw-bold'
+                                      if ($partita['ospite'] == $info['nome_societa']) {
+                                        echo 'fw-bold ';
+                                      }
+
+                                      // Verifica il risultato per assegnare il colore
+                                      if ($partita['risultato'] === '1' && $partita['ospite'] == $info['nome_societa']) {
+                                        echo 'text-danger';
+                                      } elseif ($partita['risultato'] === 'X') {
+                                        echo 'text-primary';
+                                      } elseif ($partita['risultato'] === '2' && $partita['ospite'] == $info['nome_societa']) {
+                                        echo 'text-success';
+                                      } else {
+                                        echo 'text-dark';
+                                      }
                                     ?>
                                   ">
-                                    <?php echo $partita['ospite'] ?></div>
+                                    <?php echo $partita['ospite'] ?>
+                                  </div>
                                 </td>
                                 
                               </tr>

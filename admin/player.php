@@ -14,6 +14,7 @@
   $superuser=  $_SESSION['superuser'];
 
   $id=$_REQUEST['id'];
+  
 
   $query = "
   SELECT g.*, s.nome_societa,
@@ -167,10 +168,13 @@
   ";
   $indisponibili = mysqli_query($con,$query_indisponibili);
 
+  
+  // Costruisci la query SQL
   $query = "
   SELECT count(*) as tot_allenamenti
   FROM allenamenti a
-  WHERE a.stato='Svolto'
+  WHERE a.stato = 'Svolto'
+  AND a.id_societa = 1
   ";
   $result = mysqli_query($con,$query);
   $tot_allenamenti_svolti = mysqli_fetch_assoc($result);
@@ -216,20 +220,21 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h3>
+                        <h4>
                           <?php echo $row['nome']. ' ' . $row['cognome'] ?>
-                        </h3>
+                          
+                        <h4>
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
                           <?php if($row['capitano'] != 'Giocatore' ){ ?>
                             <!-- Capitano -->
-                            <span class="badge bg-danger text-light fw-bold p-2 me-2 fs-5" style="width:50px" >
+                            <span class="badge bg-danger text-light fw-bold p-2 me-2 fs-6" style="width:50px" >
                               &nbsp; <?php echo $row['capitano']  ?> &nbsp; 
                             </span>
                           <?php }?>
                           <?php if($row['maglia'] != null ){ ?>
                               <!-- Maglia -->
-                              <span class="badge bg-dark  text-light fw-bold p-2 me-2 fs-5" style="width:50px" >
+                              <span class="badge bg-dark  text-light fw-bold p-2 me-2 fs-6" style="width:50px" >
                                 <?php echo $row['maglia']  ?>
                               </span>
                           <?php }?>
@@ -248,7 +253,7 @@
                     <!-- Core della pagina -->
                     <div class="">
                       <!-- Visualizzazione a card -->
-                      <div class="row g-5">
+                      <div class="row g-3">
                         <div class="col-12 col-md-3 col-xxl-2  ">
                           <div class="row gy-3">
                             <!-- Foto -->
@@ -263,18 +268,18 @@
                         </div>
                         
                         <!-- Info Giocatore -->
-                        <div class="col-12 col-md-7 col-xxl-8 ps-lg-5 ">
+                        <div class="col-12 col-md-6 col-xxl-8 ">
                           <div class="row gy-3 ">
                             <!--  -->
                             <div class="col-6 col-md-12">
                               <label class="fw-bold text-muted">Squadra:</label>
-                              <span>
+                              
                                 <a class="text-decoration-none text-dark" href="show_societa.php?id=<?php echo $row['id_squadra'] ?>">
                                   <span class="badge bg-secondary">
                                     <?php echo $row['nome_societa'] ?> 
                                   </span> 
                                 </a>
-                              </span>
+                              
                             </div>
                             <!--  -->
                             <?php if(mysqli_num_rows($squadre_giocatore )>1)  { ?>
@@ -373,12 +378,12 @@
                           </div>
                         </div>
                         <!-- % Presenza - Allenamenti -->
-                        <div class="col-6 col-md-2 col-xxl-2 ">
+                        <div class="col-6 col-md-3 col-xxl-2">
                           <div class="row gy-3">
                             <?php if($row['nome_societa']==='Audax 1970'){?>
                               <!-- Grafico -->
                               <div class="col-12">
-                                <div class="card">
+                                <div class="card" >
                                   <div class="card-header bg-dark text-white">
                                     % Presenze
                                   </div>
@@ -386,13 +391,13 @@
                                     <div class="row">
                                       <div class="col-6 ">
                                         <!-- Allenamenti totali -->
-                                        <h6 class="my-auto">
+                                        <h6 class="my-auto text-nowrap">
                                           Allenamenti 
                                         </h6>
-                                        <span class="fs-5 ">
+                                        <span class="">
                                           <?php echo $tot_allenamenti_svolti_player['tot_player'] ?> 
                                         </span>
-                                        <span class="fs-6 text-muted">
+                                        <span class="text-muted">
                                           su <?php echo $tot_allenamenti_svolti['tot_allenamenti'] ?> totali
                                         </span>
                                       </div>

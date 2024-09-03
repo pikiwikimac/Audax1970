@@ -61,9 +61,9 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h3>
+                        <h4>
                           Nuovo giocatore  
-                        </h3>
+                        <h4>
 
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">	
@@ -96,7 +96,7 @@
                           <div class="col-12 col-lg-8">
                             <div class="card">
                               <div class="card-body">
-                                <h3>Info di base</h3>
+                                <h4>Info di base<h4>
                                 
                                 <div class="row my-3 g-3">
                                   <!-- Nome -->
@@ -172,7 +172,7 @@
                           <div class="col-12 col-lg-4">
                             <div class="card">
                               <div class="card-body">
-                                <h3>Altre info</h3>
+                                <h4>Altre info<h4>
 
                                 <div class="row my-3 g-3">
                                   <!-- Piede -->
@@ -220,7 +220,7 @@
                           <div class="col-12">
                             <div class="card">
                               <div class="card-body">
-                                <h3>Info contrattuali</h3>
+                                <h4>Info contrattuali<h4>
 
                                   <div class="row my-3 g-3">
                                     <!-- Visita medica -->

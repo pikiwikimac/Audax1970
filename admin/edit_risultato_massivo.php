@@ -46,10 +46,9 @@
     g.*
   FROM
       giocatori g
-  WHERE
-      (
-          id_squadra = '$casa' OR(id_squadra = 0 AND id = 100)
-      ) 
+  INNER JOIN affiliazioni_giocatori ag ON ag.id_giocatore = g.id
+  WHERE ag.id_societa = '$casa'
+  AND g.id NOT IN (SELECT i.id_giocatore FROM indisponibili i WHERE i.a_data > '$data_partita' AND i.da_data<'$data_partita') 
   ORDER BY
       ruolo,
       cognome,
@@ -62,10 +61,8 @@
     g.*
   FROM
     giocatori g
-  WHERE
-    (
-        id_squadra = '$ospite' OR(id_squadra = 0 AND id = 102)
-    ) 
+  INNER JOIN affiliazioni_giocatori ag ON ag.id_giocatore = g.id
+  WHERE ag.id_societa = '$ospite'
   AND g.id NOT IN (SELECT i.id_giocatore FROM indisponibili i WHERE i.a_data > '$data_partita' AND i.da_data<'$data_partita') 
   ORDER BY
     ruolo,
@@ -119,9 +116,9 @@
                       <!-- Intestazione -->
                       <div class="tpl-header">
                         <div class="tpl-header--title">
-                          <h3>
+                          <h4>
                             Giornata <?php echo $partita['giornata'] ?>
-                          </h3>
+                          </h4>
 
                           <!-- Bottoni a destra -->
                           <div class="cta-wrapper">	
@@ -133,224 +130,223 @@
                       </div>
 
                       <!-- Riga casa vs ospite -->
-                      <div class="container-fluid">
-                        <div class="row ">
-                          <!-- Colonna Casa -->
-                          <div class="col-12 mb-5  col-lg-6 mb-lg-0 table-responsive">
-                            <!-- Intestazione squadra casa con gol segnati -->
-                            <h4>
-                              <a href="show_societa.php?id=<?php echo $partita['idCasa'] ?>" class="text-decoration-none text-dark">
-                                <?php echo $partita['casa'] ?>
-                              </a>
-                              <span class="float-end">
-                                <?php echo $partita['golCasa'] ?>
-                              </span>
-                            </h4>
+                      <div class="row ">
+                        <!-- Colonna Casa -->
+                        <div class="col-12 mb-5  col-lg-6 mb-lg-0 table-responsive">
+                          <!-- Intestazione squadra casa con gol segnati -->
+                          <h4>
+                            <a href="show_societa.php?id=<?php echo $partita['idCasa'] ?>" class="text-decoration-none text-dark">
+                              <?php echo $partita['casa'] ?>
+                            </a>
+                            <span class="float-end">
+                              <?php echo $partita['golCasa'] ?>
+                            </span>
+                          </h4>
 
-                            <hr/>
-                            <form action="../query/action_edit_risultato_massivo.php" method="post">
-                              
-                             
+                          <hr/>
+                          <form action="../query/action_edit_risultato_massivo.php" method="post">
+                            
+                            
 
-                              <table class="table table-sm table-hover table-striped table-rounded">
-                                <caption> 
-                                  <?php echo $count_gol_squadra_a_giornata['gol_totali_giornata'] ?> segnati su <?php echo $golCasa ?> totali  
-                                  <a href="calendario_admin.php?id_stagione=<?php echo $stagione ?>&id_societa=<?php echo $id_societa ?>" class="text-decoration-none text-muted float-end">
-                                    <i class='bx bx-arrow-back '></i>  Indietro
-                                  </a>
-                                </caption>
-                                <thead class="table-dark">
-                                  <tr>
-                                    <th>Cognome</th>
-                                    <th>Nome</th>
-                                    <th class="text-center"><i class='bx bx-football align-middle'></i></th>
-                                    <th class="text-center"><i class='bx bxs-card align-middle' style='color:#ffb900'></i></th>
-                                    <th class="text-center"><i class='bx bxs-card align-middle' style='color:#FF0000'></i></th>
-                                  </tr>
-                                </thead>
+                            <table class="table table-sm table-hover table-striped table-rounded">
+                              <caption> 
+                                <?php echo $count_gol_squadra_a_giornata['gol_totali_giornata'] ?> segnati su <?php echo $golCasa ?> totali  
+                                <a href="calendario_admin.php?id_stagione=<?php echo $stagione ?>&id_societa=<?php echo $id_societa ?>" class="text-decoration-none text-muted float-end">
+                                  <i class='bx bx-arrow-back '></i>  Indietro
+                                </a>
+                              </caption>
+                              <thead class="table-dark">
+                                <tr>
+                                  <th>Cognome</th>
+                                  <th>Nome</th>
+                                  <th class="text-center"><i class='bx bx-football align-middle'></i></th>
+                                  <th class="text-center"><i class='bx bxs-card align-middle' style='color:#ffb900'></i></th>
+                                  <th class="text-center"><i class='bx bxs-card align-middle' style='color:#FF0000'></i></th>
+                                </tr>
+                              </thead>
 
-                                <tbody>
-                                  <?php while($row = mysqli_fetch_assoc($giocatori_casa)) {  ?>
-                                  <tr>
-                                    <input type="hidden" value="<?php echo $id_partita ?>" id="match" name="match"/>
-                                    <input type="hidden" value="<?php echo $row['id_squadra'] ?>" id="id_societa_casa" name="id_societa_casa"/>
-                                    <td><?php echo $row['cognome'] ?></td>
-                                    <td><?php echo $row['nome'] ?></td>
-                                    <!-- Goal -->
-                                    <td class="text-center" style="width:50px">
-                                      
-                                      
-                                        <?php
-                                          # QUERY che conta per ogni giocatore i gol fatti in questa partita
-                                          $sql = "
-                                          select coalesce(count(*),0) as gol_fatti
-                                          FROM marcatori m
-                                          where id_giocatore={$row['id']}
-                                          and id_partita='$id_partita'
-                                          ";
-
-                                          $result = mysqli_query($con,$sql);
-                                          $count_gol_giornata = mysqli_fetch_assoc($result);
-                                        ?>
-
-                                        <input value="<?php echo $count_gol_giornata['gol_fatti'] ;?>" class="form-control form-control-sm p-1" style="font-size:10px;width:40px" id="gol-<?php echo $row['id'] ?>" name="gol-<?php echo $row['id'] ?>"></input>
-                                        
-                                        
-                                    </td>
-                                    <!-- Cartellino giallo -->
-                                    <td class="text-center" style="width:50px">
-                                      <?php
-                                          # QUERY che conta per ogni giocatore le ammonizioni in questa partita
-                                          $sql = "
-                                          select coalesce(count(*),0) as ammoniti
-                                          FROM ammoniti a
-                                          where id_giocatore={$row['id']}
-                                          and id_partita='$id_partita'
-                                          ";
-
-                                          $result = mysqli_query($con,$sql);
-                                          $count_ammonito = mysqli_fetch_assoc($result);
-                                        ?>
-                                        <input value="<?php echo $count_ammonito['ammoniti'] ;?>" class="form-control form-control-sm p-1" style="font-size:10px;width:40px" id="giallo-<?php echo $row['id'] ?>" name="giallo-<?php echo $row['id'] ?>"></input>
-
-                                        
-                                      
-                                    </td>
-                                    <!-- Cartellino rosso -->
-                                    <td class="text-center" style="width:50px">
-                                      <?php
-                                        # QUERY che conta per ogni giocatore i gol fatti in questa partita
-                                        $sql = "
-                                        select coalesce(count(*),0) as rossi
-                                        FROM rossi r
-                                        where id_giocatore={$row['id']}
-                                        and id_partita='$id_partita'
-                                        ";
-
-                                        $result = mysqli_query($con,$sql);
-                                        $count_rossi = mysqli_fetch_assoc($result);
-                                      ?>
-                                      <input value="<?php echo $count_rossi['rossi'] ;?>" class="form-control form-control-sm p-1" style="font-size:10px;width:40px" id="rosso-<?php echo $row['id'] ?>" name="rosso-<?php echo $row['id'] ?>"></input>
-                                      
-                                      
-                                      
-                                    </td>
-
-                                  </tr>
-                                  <?php } ?>
-                                </tbody>
-                              </table>
-                              <button type="submit" class="btn btn-outline-dark float-end">Salva</button>
-                            </form>
-                          </div>
-                          <!-- Colonna OSPITE  -->
-                          <div class="col-12 col-lg-6 table-responsive">
-                            <!-- Intestazione squadra ospite con gol segnati -->
-                            <h4>
-                              <a href="show_societa.php?id=<?php echo $partita['idOspite'] ?>" class="text-decoration-none text-dark">
-                                <?php echo $partita['ospite'] ?>
-                              </a>
-                              <span class="float-end">
-                                <?php echo $partita['golOspiti'] ?>
-                              </span>
-                            </h4>
-
-                            <hr/>
-                            <!-- Tabella OSPITE  -->
-                            <form action="../query/action_edit_risultato_massivo_f.php" method="post">
-                              
-                              
-                              <table class="table table-sm table-hover table-striped table-rounded">
-                                <caption> 
-                                  <?php echo $count_gol_squadra_b_giornata['gol_totali_giornata'] ?> segnati su <?php echo $golOspiti ?> totali  
-                                  <a href="calendario_admin.php?id_stagione=<?php echo $stagione ?>&id_societa=<?php echo $id_societa ?>" class="text-decoration-none text-muted float-end">
-                                    <i class='bx bx-arrow-back '></i>  Indietro
-                                  </a>
-                                </caption>
-                                <thead class="table-dark">
-                                  <tr>
-                                    <th>Cognome</th>
-                                    <th>Nome</th>
-                                    <th class="text-center"><i class='bx bx-football align-middle'></i></th>
-                                    <th class="text-center"><i class='bx bxs-card align-middle' style='color:#ffb900'></i></th>
-                                    <th class="text-center"><i class='bx bxs-card align-middle' style='color:#FF0000'></i></th>
-                                  </tr>
-                                </thead>
-
-                                <tbody>
-                                  <?php while($row2 = mysqli_fetch_assoc($giocatori_ospiti)) {  ?>
-                                  <tr>
-                                    <input type="hidden" value="<?php echo $id_partita ?>" id="match" name="match"/>
-                                    <input type="hidden" value="<?php echo $row2['id_squadra'] ?>" id="id_societa_ospite" name="id_societa_ospite"/>
+                              <tbody>
+                                <?php while($row = mysqli_fetch_assoc($giocatori_casa)) {  ?>
+                                <tr>
+                                  <input type="hidden" value="<?php echo $id_partita ?>" id="match" name="match"/>
+                                  <input type="hidden" value="<?php echo $row['id_squadra'] ?>" id="id_societa_casa" name="id_societa_casa"/>
+                                  <td><?php echo $row['cognome'] ?></td>
+                                  <td><?php echo $row['nome'] ?></td>
+                                  <!-- Goal -->
+                                  <td class="text-center" style="width:50px">
                                     
-                                    <td><?php echo $row2['cognome'] ?></td>
-                                    <td><?php echo $row2['nome'] ?></td>
-                                    <!-- Gol modal -->
-                                    <td class="text-center" style="width:50px">
+                                    
                                       <?php
                                         # QUERY che conta per ogni giocatore i gol fatti in questa partita
                                         $sql = "
                                         select coalesce(count(*),0) as gol_fatti
                                         FROM marcatori m
-                                        where id_giocatore={$row2['id']}
+                                        where id_giocatore={$row['id']}
                                         and id_partita='$id_partita'
                                         ";
 
                                         $result = mysqli_query($con,$sql);
                                         $count_gol_giornata = mysqli_fetch_assoc($result);
                                       ?>
-                                      <input value="<?php echo $count_gol_giornata['gol_fatti'] ;?>" class="form-control form-control-sm" style="font-size:10px;width:40px" id="golF-<?php echo $row2['id'] ?>" name="golF-<?php echo $row2['id'] ?>"></input>
+
+                                      <input value="<?php echo $count_gol_giornata['gol_fatti'] ;?>" class="form-control form-control-sm p-1" style="font-size:10px;width:40px" id="gol-<?php echo $row['id'] ?>" name="gol-<?php echo $row['id'] ?>"></input>
                                       
                                       
+                                  </td>
+                                  <!-- Cartellino giallo -->
+                                  <td class="text-center" style="width:50px">
+                                    <?php
+                                        # QUERY che conta per ogni giocatore le ammonizioni in questa partita
+                                        $sql = "
+                                        select coalesce(count(*),0) as ammoniti
+                                        FROM ammoniti a
+                                        where id_giocatore={$row['id']}
+                                        and id_partita='$id_partita'
+                                        ";
 
-                                    </td>
-                                    <!-- Cartellino giallo -->
-                                    <td class="text-center" style="width:50px">
-                                      <?php
-                                          # QUERY che conta per ogni giocatore i gol fatti in questa partita
-                                          $sql = "
-                                          select coalesce(count(*),0) as ammoniti
-                                          FROM ammoniti a
-                                          where id_giocatore={$row2['id']}
-                                          and id_partita='$id_partita'
-                                          ";
+                                        $result = mysqli_query($con,$sql);
+                                        $count_ammonito = mysqli_fetch_assoc($result);
+                                      ?>
+                                      <input value="<?php echo $count_ammonito['ammoniti'] ;?>" class="form-control form-control-sm p-1" style="font-size:10px;width:40px" id="giallo-<?php echo $row['id'] ?>" name="giallo-<?php echo $row['id'] ?>"></input>
 
-                                          $result = mysqli_query($con,$sql);
-                                          $count_ammonito = mysqli_fetch_assoc($result);
-                                        ?>
-                                        <input value="<?php echo $count_ammonito['ammoniti'] ;?>" class="form-control form-control-sm" style="font-size:10px;width:40px" id="gialloF-<?php echo $row2['id'] ?>" name="gialloF-<?php echo $row2['id'] ?>"></input>
-                                        
-                                    </td>
-                                    <!-- Cartellino rosso -->
-                                    <td class="text-center" style="width:50px">
-                                      <?php
+                                      
+                                    
+                                  </td>
+                                  <!-- Cartellino rosso -->
+                                  <td class="text-center" style="width:50px">
+                                    <?php
+                                      # QUERY che conta per ogni giocatore i gol fatti in questa partita
+                                      $sql = "
+                                      select coalesce(count(*),0) as rossi
+                                      FROM rossi r
+                                      where id_giocatore={$row['id']}
+                                      and id_partita='$id_partita'
+                                      ";
+
+                                      $result = mysqli_query($con,$sql);
+                                      $count_rossi = mysqli_fetch_assoc($result);
+                                    ?>
+                                    <input value="<?php echo $count_rossi['rossi'] ;?>" class="form-control form-control-sm p-1" style="font-size:10px;width:40px" id="rosso-<?php echo $row['id'] ?>" name="rosso-<?php echo $row['id'] ?>"></input>
+                                    
+                                    
+                                    
+                                  </td>
+
+                                </tr>
+                                <?php } ?>
+                              </tbody>
+                            </table>
+                            <button type="submit" class="btn btn-outline-dark float-end">Salva</button>
+                          </form>
+                        </div>
+                        <!-- Colonna OSPITE  -->
+                        <div class="col-12 col-lg-6 table-responsive">
+                          <!-- Intestazione squadra ospite con gol segnati -->
+                          <h4>
+                            <a href="show_societa.php?id=<?php echo $partita['idOspite'] ?>" class="text-decoration-none text-dark">
+                              <?php echo $partita['ospite'] ?>
+                            </a>
+                            <span class="float-end">
+                              <?php echo $partita['golOspiti'] ?>
+                            </span>
+                          </h4>
+
+                          <hr/>
+                          <!-- Tabella OSPITE  -->
+                          <form action="../query/action_edit_risultato_massivo_f.php" method="post">
+                            
+                            
+                            <table class="table table-sm table-hover table-striped table-rounded">
+                              <caption> 
+                                <?php echo $count_gol_squadra_b_giornata['gol_totali_giornata'] ?> segnati su <?php echo $golOspiti ?> totali  
+                                <a href="calendario_admin.php?id_stagione=<?php echo $stagione ?>&id_societa=<?php echo $id_societa ?>" class="text-decoration-none text-muted float-end">
+                                  <i class='bx bx-arrow-back '></i>  Indietro
+                                </a>
+                              </caption>
+                              <thead class="table-dark">
+                                <tr>
+                                  <th>Cognome</th>
+                                  <th>Nome</th>
+                                  <th class="text-center"><i class='bx bx-football align-middle'></i></th>
+                                  <th class="text-center"><i class='bx bxs-card align-middle' style='color:#ffb900'></i></th>
+                                  <th class="text-center"><i class='bx bxs-card align-middle' style='color:#FF0000'></i></th>
+                                </tr>
+                              </thead>
+
+                              <tbody>
+                                <?php while($row2 = mysqli_fetch_assoc($giocatori_ospiti)) {  ?>
+                                <tr>
+                                  <input type="hidden" value="<?php echo $id_partita ?>" id="match" name="match"/>
+                                  <input type="hidden" value="<?php echo $row2['id_squadra'] ?>" id="id_societa_ospite" name="id_societa_ospite"/>
+                                  
+                                  <td><?php echo $row2['cognome'] ?></td>
+                                  <td><?php echo $row2['nome'] ?></td>
+                                  <!-- Gol modal -->
+                                  <td class="text-center" style="width:50px">
+                                    <?php
+                                      # QUERY che conta per ogni giocatore i gol fatti in questa partita
+                                      $sql = "
+                                      select coalesce(count(*),0) as gol_fatti
+                                      FROM marcatori m
+                                      where id_giocatore={$row2['id']}
+                                      and id_partita='$id_partita'
+                                      ";
+
+                                      $result = mysqli_query($con,$sql);
+                                      $count_gol_giornata = mysqli_fetch_assoc($result);
+                                    ?>
+                                    <input value="<?php echo $count_gol_giornata['gol_fatti'] ;?>" class="form-control form-control-sm" style="font-size:10px;width:40px" id="golF-<?php echo $row2['id'] ?>" name="golF-<?php echo $row2['id'] ?>"></input>
+                                    
+                                    
+
+                                  </td>
+                                  <!-- Cartellino giallo -->
+                                  <td class="text-center" style="width:50px">
+                                    <?php
                                         # QUERY che conta per ogni giocatore i gol fatti in questa partita
                                         $sql = "
-                                        select coalesce(count(*),0) as rossi
-                                        FROM rossi r
+                                        select coalesce(count(*),0) as ammoniti
+                                        FROM ammoniti a
                                         where id_giocatore={$row2['id']}
                                         and id_partita='$id_partita'
                                         ";
 
                                         $result = mysqli_query($con,$sql);
-                                        $count_rossi = mysqli_fetch_assoc($result);
+                                        $count_ammonito = mysqli_fetch_assoc($result);
                                       ?>
+                                      <input value="<?php echo $count_ammonito['ammoniti'] ;?>" class="form-control form-control-sm" style="font-size:10px;width:40px" id="gialloF-<?php echo $row2['id'] ?>" name="gialloF-<?php echo $row2['id'] ?>"></input>
                                       
-                                      <input value="<?php echo $count_rossi['rossi'] ;?>" class="form-control form-control-sm" style="font-size:10px;width:40px" id="rossoF-<?php echo $row2['id'] ?>" name="rossoF-<?php echo $row2['id'] ?>"></input>
-                                      
-                                        
+                                  </td>
+                                  <!-- Cartellino rosso -->
+                                  <td class="text-center" style="width:50px">
+                                    <?php
+                                      # QUERY che conta per ogni giocatore i gol fatti in questa partita
+                                      $sql = "
+                                      select coalesce(count(*),0) as rossi
+                                      FROM rossi r
+                                      where id_giocatore={$row2['id']}
+                                      and id_partita='$id_partita'
+                                      ";
+
+                                      $result = mysqli_query($con,$sql);
+                                      $count_rossi = mysqli_fetch_assoc($result);
+                                    ?>
                                     
-                                    </td>
-                                  </tr>
-                                  <?php } ?>
-                                </tbody>
-                              </table>
-                              <button type="submit" class="btn btn-outline-dark float-end">Salva</button>
-                            </form>
-                          </div>
-                          
+                                    <input value="<?php echo $count_rossi['rossi'] ;?>" class="form-control form-control-sm" style="font-size:10px;width:40px" id="rossoF-<?php echo $row2['id'] ?>" name="rossoF-<?php echo $row2['id'] ?>"></input>
+                                    
+                                      
+                                  
+                                  </td>
+                                </tr>
+                                <?php } ?>
+                              </tbody>
+                            </table>
+                            <button type="submit" class="btn btn-outline-dark float-end">Salva</button>
+                          </form>
                         </div>
+                        
                       </div>
+                      
                       <br/>
                       <br/>
                     </div>

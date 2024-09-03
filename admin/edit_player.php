@@ -67,7 +67,7 @@
     $affiliated_player[] = $row_aff['id'];
   }
 
-  
+  $previous_url = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'show_societa.php?id=' . $row['id_squadra'];
 
 ?>
 
@@ -95,15 +95,16 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h3>
+                        <h4>
                           <?php echo $row['nome'].' '.$row['cognome'];?>
-                        </h3>
+                        <h4>
 
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">	
-                          <a type="button" href="show_societa.php?id=<?php echo $row['id_squadra'] ?>" class="btn btn-outline-dark float-end" >
-                            <i class='bx bx-arrow-back '></i>
-                          </a>
+                        <a type="button" href="<?php echo $previous_url; ?>" class="btn btn-outline-dark float-end">
+                          <i class='bx bx-arrow-back'></i>
+                        </a>
+
                           <button class="btn btn-outline-dark float-end me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
                             <i class='bx bx-folder-open' ></i>
                           </button>                          
@@ -132,7 +133,7 @@
                           <form action="../query/upload_image.php" method="post" enctype="multipart/form-data">
                             <div class="mb-3 p-3">
                               <label for="formFile" class="form-label">Immagine</label>
-                              <input class="form-control" type="file" id="formFile" name="playerImage">
+                              <input class="form-control form-control-sm" type="file" id="formFile" name="playerImage">
                               <input type="hidden"  id="id" name="id" value="<?php echo $id?>" />
                               <input type="submit" value="Carica" class="btn btn-outline-dark float-end mt-2" name="submit">
                             </div>
@@ -149,31 +150,31 @@
                               <div class="col-12 col-lg-8">
                                 <div class="card">
                                   <div class="card-body">
-                                    <h3>Info di base</h3>
+                                    <h4>Info di base</h4>
                                     
                                     <div class="row my-3 g-3">
                                       <!-- Nome -->
                                       <div class="col-12 col-sm-6 col-lg-4 ">
                                         <label for="nome" class="form-label">Nome</label>
-                                        <input typer="text" class="form-control" id="nome" name="nome" value="<?php echo $row['nome'];?>" required/>
+                                        <input typer="text" class="form-control form-control-sm" id="nome" name="nome" value="<?php echo $row['nome'];?>" required/>
                                       </div>
 
                                       <!-- Cognome -->
                                       <div class="col-12 col-sm-6 col-lg-4 ">
                                         <label for="cognome" class="form-label">Cognome</label>
-                                        <input typer="text" class="form-control " id="cognome" name="cognome" value="<?php echo $row['cognome'];?>" required/>
+                                        <input typer="text" class="form-control form-control-sm " id="cognome" name="cognome" value="<?php echo $row['cognome'];?>" required/>
                                       </div>
 
                                       <!-- Data di nascita -->
                                       <div class="col-12 col-sm-6 col-lg-4 ">
                                         <label for="data_nascita" class="form-label">Data di nascita</label>
-                                        <input type="date" class="form-control" id="data_nascita" name="data_nascita" value="<?php echo $row['data_nascita'];?>"></input>
+                                        <input type="date" class="form-control form-control-sm" id="data_nascita" name="data_nascita" value="<?php echo $row['data_nascita'];?>"></input>
                                       </div>
 
                                       <!-- Squadra -->
                                       <div class="col-12 col-sm-6 col-lg-4">
                                         <label for="squadra" class="form-label">Squadra</label>
-                                        <select class="form-select" aria-label="Default select example" name="squadra" id="squadra" >
+                                        <select class="form-select form-select-sm" aria-label="Default select example" name="squadra" id="squadra" >
                                           <option disabled selected>-- Seleziona --</option>
                                           <?php
                                             while ($rowX = mysqli_fetch_assoc($squadre))
@@ -189,7 +190,7 @@
                                       <!-- Ruolo -->
                                       <div class="col-12 col-sm-6 col-lg-4 ">
                                         <label for="ruolo" class="form-label">Ruolo</label>
-                                        <select class="form-select" id="ruolo" name="ruolo">
+                                        <select class="form-select form-select-sm" id="ruolo" name="ruolo">
                                           <option <?php if ($row['ruolo']=='Portiere') { ?>selected="selected"<?php } ?> value="Portiere">
                                             Portiere
                                           </option>
@@ -215,7 +216,7 @@
                                       <!-- Codice fiscale -->
                                       <div class="col-12 col-sm-4">
                                         <label for="codice_fiscale" class="form-label">Codice fiscale</label>
-                                        <input type="text"  class="form-control" id="codice_fiscale" name="codice_fiscale" value="<?php echo $row['codice_fiscale'];?>"/>
+                                        <input type="text"  class="form-control form-control-sm" id="codice_fiscale" name="codice_fiscale" value="<?php echo $row['codice_fiscale'];?>"/>
                                       </div>
 
                                     </div>
@@ -226,13 +227,13 @@
                               <div class="col-12 col-lg-4">
                                 <div class="card">
                                   <div class="card-body">
-                                    <h3>Altre info</h3>
+                                    <h4>Altre info</h4>
 
                                     <div class="row my-3 g-3">
                                       <!-- Piede -->
                                       <div class="col-6">
                                         <label for="piede_preferito" class="form-label">Piede:</label>
-                                        <select class="form-select" aria-label="Default select example" name="piede_preferito" id="piede_preferito" >
+                                        <select class="form-select form-select-sm" aria-label="Default select example" name="piede_preferito" id="piede_preferito" >
                                           <option value="DX" <?php if($row['piede_preferito'] == 'DX') echo 'selected'; ?> >DX</option>
                                           <option value="SX" <?php if($row['piede_preferito'] == 'SX') echo 'selected'; ?>>SX</option>
                                           <option value="Entrambi" <?php if($row['piede_preferito'] == 'Entrambi') echo 'selected'; ?>>Entrambi</option>
@@ -242,7 +243,7 @@
                                       <!-- Taglia -->
                                       <div class="col-6 ">
                                         <label for="taglia" class="form-label">Taglia</label>
-                                        <select class="form-select " id="taglia" name="taglia">
+                                        <select class="form-select form-select-sm " id="taglia" name="taglia">
                                           <option value="XS" <?php if ($row['taglia']=='XS') { ?>selected="selected"<?php } ?> >XS</option>
                                           <option value="S" <?php if ($row['taglia']=='S') { ?>selected="selected"<?php } ?> >S</option>
                                           <option value="M" <?php if ($row['taglia']=='M') { ?>selected="selected"<?php } ?> >M</option>
@@ -255,13 +256,13 @@
                                       <!-- Altezza -->
                                       <div class="col-6 ">
                                         <label for="altezza" class="form-label">Altezza:</label>
-                                        <input type="number" class="form-control" id="altezza" name="altezza" value="<?php echo $row['altezza'];?>" />
+                                        <input type="number" class="form-control form-control-sm" id="altezza" name="altezza" value="<?php echo $row['altezza'];?>" />
                                       </div>
                                       
                                       <!-- Peso -->
                                       <div class="col-6 ">
                                         <label for="peso" class="form-label">Peso:</label>
-                                        <input type="number" class="form-control" id="peso" name="peso" value="<?php echo $row['peso'];?>"/>
+                                        <input type="number" class="form-control form-control-sm" id="peso" name="peso" value="<?php echo $row['peso'];?>"/>
                                       </div>
                                       
                                     </div>
@@ -274,19 +275,19 @@
                               <div class="col-12 col-lg-8">
                                 <div class="card">
                                   <div class="card-body">
-                                    <h3>Info contrattuali</h3>
+                                    <h4>Info contrattuali</h4>
 
                                     <div class="row my-3 g-3">
                                       <!-- Visita medica -->
                                       <div class="col-6 col-md-3 col-lg-2">
                                         <label for="visita_medica" class="form-label">Visita medica:</label>
-                                        <input type="date" class="form-control" id="visita_medica" name="visita_medica" value="" />
+                                        <input type="date" class="form-control form-control-sm" id="visita_medica" name="visita_medica" value="" />
                                       </div>
                                     
                                       <!-- Tipo contratto -->
                                       <div class="col-6 col-md-3 col-lg-2 ">
                                         <label for="tipo_contratto" class="form-label">Tipo contratto:</label>
-                                        <select class="form-select" aria-label="Default select example" name="tipo_contratto" id="tipo_contratto" >
+                                        <select class="form-select form-select-sm" aria-label="Default select example" name="tipo_contratto" id="tipo_contratto" >
                                           <option value="Proprietari" <?php if ($row['tipo_contratto']=='Proprietari') { ?>selected="selected"<?php } ?> >Propietari</option>
                                           <option value="Prestito" <?php if ($row['tipo_contratto']=='Prestito') { ?>selected="selected"<?php } ?> >Prestito</option>
                                         </select>
@@ -295,31 +296,31 @@
                                       <!-- Matricola tesseramento -->
                                       <div class="col-6 col-md-3 col-lg-2">
                                         <label for="matricola" class="form-label">Matricola</label>
-                                        <input type="text" class="form-control"  id="matricola" name="matricola" value="<?php echo $row['matricola'];?>" />
+                                        <input type="text" class="form-control form-control-sm"  id="matricola" name="matricola" value="<?php echo $row['matricola'];?>" />
                                       </div>
 
                                       <!-- Data tesseramento -->
                                       <div class="col-6 col-md-3 col-lg-2">
                                         <label for="data_tesseramento" class="form-label">Data tesseraemento</label>
-                                        <input type="date"  class="form-control" id="data_tesseramento" name="data_tesseramento"  value="<?php if ($row['data_tesseramento'] != '1970-01-01') { echo $row['data_tesseramento']; } ?>"/>
+                                        <input type="date"  class="form-control form-control-sm" id="data_tesseramento" name="data_tesseramento"  value="<?php if ($row['data_tesseramento'] != '1970-01-01') { echo $row['data_tesseramento']; } ?>"/>
                                       </div>
                                       
                                       <!-- Scadenza -->
                                       <div class="col-6 col-md-3 col-lg-2">
                                         <label for="anno_scadenza_tesseramento" class="form-label">Anno scadenza</label>
-                                        <input type="text"  class="form-control" id="anno_scadenza_tesseramento" name="anno_scadenza_tesseramento" value="<?php if ($row['anno_scadenza_tesseramento'] != 0) { echo $row['anno_scadenza_tesseramento']; } ?>" />
+                                        <input type="text"  class="form-control form-control-sm" id="anno_scadenza_tesseramento" name="anno_scadenza_tesseramento" value="<?php if ($row['anno_scadenza_tesseramento'] != 0) { echo $row['anno_scadenza_tesseramento']; } ?>" />
                                       </div>
 
                                       <!-- Numero di maglia -->
                                       <div class="col-3 col-md-2 col-lg">
                                         <label for="maglia" class="form-label">N:</label>
-                                        <input typer="text" class="form-control" id="maglia" name="maglia" value="<?php echo $row['maglia'];?>"/>
+                                        <input typer="text" class="form-control form-control-sm" id="maglia" name="maglia" value="<?php echo $row['maglia'];?>"/>
                                       </div>
 
                                       <!-- Capitano -->
                                       <div class="col-3 col-md-2 col-lg">
                                         <label for="capitano" class="form-label">Capitano:</label>
-                                        <select class="form-select" aria-label="Default select example" name="capitano" id="capitano" >
+                                        <select class="form-select form-select-sm" aria-label="Default select example" name="capitano" id="capitano" >
                                           <option <?php if ($row['capitano']=='Giocatore') { ?>selected="selected"<?php } ?> value="Giocatore">
                                             -
                                           </option>
@@ -344,7 +345,7 @@
                                     <!-- Affiliazioni giocatore -->
                                     <div class="row g-3">
                                       <div class="col-12 ">
-                                        <h3>Affiliazioni</h3>
+                                        <h4>Affiliazioni</h4>
                                         <div class="p-3">
                                           <?php
                                           while ($row_societa = mysqli_fetch_assoc($societa_collegate)) :
@@ -409,7 +410,7 @@
           <form action="../query/upload.php" method="post" enctype="multipart/form-data">
             <div class="mb-3">
               <label for="formFile" class="form-label">Allegati</label>
-              <input class="form-control" type="file" id="formFile" name="formFile">
+              <input class="form-control form-control-sm" type="file" id="formFile" name="formFile">
             </div>
             <input type="hidden"  id="id" name="id" value="<?php echo $id?>" />
             <input type="submit" value="Carica" class="btn btn-outline-dark " name="submit">

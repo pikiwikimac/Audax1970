@@ -47,9 +47,9 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h3>
+                        <h4>
                           Scadenze visite mediche
-                        </h3>
+                        <h4>
                       </div>
                     </div>
                     <!-- END:Intestazione -->

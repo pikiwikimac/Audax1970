@@ -66,9 +66,9 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h3>
+                        <h4>
                           Società
-                        </h3>
+                        <h4>
                         
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
@@ -85,9 +85,9 @@
 
                     <!-- Core della pagina -->
                     <div class="">
-                      <h3>
+                      <h4>
                         Serie A2 
-                      </h3>
+                      <h4>
                       <div class="row mb-3">
                         <div class="col-12 table-responsive">
                           <table class="table table-striped table-hover table-rounded">
@@ -138,9 +138,9 @@
                         </div>
                       </div>
                       <?php if($squadre_altre->num_rows > 0){?>
-                      <h3>
+                      <h4>
                         Altri campionati 
-                      </h3>
+                      <h4>
                       <div class="row mb-3">
                         <div class="col-12">
                           <table class="table table-striped table-hover table-rounded">

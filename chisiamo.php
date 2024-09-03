@@ -22,12 +22,12 @@
 
 
     <!-- Descrizione iniziale -->
-    <div class="container">
+    <div class="container my-5">
 
       <div class="row gy-3 ">
         
         <div class="col-12">
-          <span class="fs-5 fw-bold" id="font_diverso">Chi siamo</span>
+          <span class="fs-3 fw-bold" id="font_diverso">Chi siamo</span>
         </div>
      
         <div class="col-12 col-lg-8">

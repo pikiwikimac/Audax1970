@@ -118,9 +118,9 @@
       
       <!-- Descrizione iniziale -->
       <div class="container my-5">
-        <h1 id="font-diverso">
+        <h4 id="font-diverso">
           <?php echo $row['nome']. ' ' . $row['cognome'] ?>          
-        </h3>
+        <h4>
 
 
         <hr/>
@@ -136,7 +136,7 @@
             </div>
           </div>
 
-          <div class="col-12 col-lg-8 ps-lg-5 ">
+          <div class="col-12 col-lg-8 ps-lg-3 ">
             <div class="row gy-2 mt-3">
               <!-- Ruolo -->
               <div class="col-6 col-md-3">

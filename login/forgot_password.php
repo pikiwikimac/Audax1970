@@ -112,7 +112,7 @@
 <body>
     <div class="container">
         <form action="send_password.php" method="post">
-            <h3>Password dimenticata</h3>
+            <h4>Password dimenticata<h4>
             <p>Inserisci l'email associata al tuo account. Ti invieremo le istruzioni per reimpostare la password.</p>
             <input type="email" placeholder="Email" id="email" name="email" required>
             <button type="submit">Invia email</button>

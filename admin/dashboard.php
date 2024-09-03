@@ -168,12 +168,12 @@
                                         <!-- Intestazione -->
                                         <div class="tpl-header">
                                             <div class="tpl-header--title">
-                                                <h3 class="">
+                                                <h4 class="">
                                                     Ciao  <?php echo $username ?> !
-                                                </h3>
-                                                <h6 class="">
-                                                    <span class="badge bg-secondary text-white"><?php echo $tipo['tipo'] ?></span>
-                                                </h6>
+                                                <h4>
+                                                
+                                                <span class="badge fs-6 bg-secondary text-white"><?php echo $tipo['tipo'] ?></span>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -181,7 +181,7 @@
 
                                     <!-- Core della pagina -->
                                     <div class="container-fluid">
-                                        <div class="row g-5 mb-3">
+                                        <div class="row g-3 mb-3">
                                             <!-- Prossimo match -->
                                             <div class="col-12 col-md-6 col-lg-4">
                                                 <!-- Prima card -->
@@ -240,7 +240,7 @@
 
                                                     <div class="card-header bg-dark text-light">
                                                         <i class='bx bx-dumbbell align-middle'></i> Prossimo allenamento
-                                                        <a class="text-decoration-none text-light float-end " href="allenamenti_admin.php" >
+                                                        <a class="text-decoration-none text-light float-end " href="allenamenti_admin.php?id_societa=<?php echo $id_societa ?>" >
                                                             <i class='bx bx-right-arrow-alt align-middle' ></i>
                                                         </a>
                                                     </div>
@@ -369,7 +369,7 @@
                                             <div class="col-12">
                                                 <!-- Gestione registrazioni -->
                                                 <?php if($_SESSION['superuser']==1 && $numero_richieste['numero_richieste']>0){ ?>
-                                                <a href="gestore_registrazioni.php" type="button" class="btn btn-outline-dark me-2 position-relative" data-bs-toggle="tooltip" data-bs-title="Richieste registrazioni">
+                                                <a href="gestore_registrazioni.php" type="button" class="btn btn-outline-dark me-2 position-relative" data-bs-toggle="tooltip" data-bs-title="Richieste registrazioni" data-bs-placement="bottom">
                                                     <i class='bx bx-user-plus'></i> 
                                                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                                         <?php echo $numero_richieste['numero_richieste'] ?>
@@ -377,27 +377,27 @@
                                                 </a>
                                                 <?php } ?>
                                                 <!-- Comunicazioni telegram -->
-                                                <a role="button" class="btn  btn-outline-dark me-2" data-bs-toggle="modal" data-bs-toggle="tooltip" data-bs-title="Comunicazione telegram"  
-                                                    data-bs-target="#insertModal" href="comunicazione_telegram.php">
+                                                <a role="button" class="btn  btn-outline-dark me-2" data-bs-toggle="modal"  data-bs-title="Comunicazione telegram"  
+                                                    data-bs-target="#insertModal" href="comunicazione_telegram.php" data-bs-placement="bottom">
                                                     <i class='bx bxl-telegram'></i>  
                                                 </a>
                                                 <!-- Calendario -->
-                                                <a role="button" class="btn  btn-outline-dark me-2" href="google_calendar.php" data-bs-toggle="tooltip" data-bs-title="Google calendar">
+                                                <a role="button" class="btn  btn-outline-dark me-2" href="google_calendar.php" data-bs-toggle="tooltip" data-bs-title="Google calendar" data-bs-placement="bottom">
                                                     <i class='bx bxs-calendar'></i> 
                                                 </a>
                                                 <!-- Vai ai comunicati calcio a 5 marche -->
-                                                <a type="button" href="https://www.figcmarche.it/categoria-comunicati/calcio-a-5" class="btn  btn-outline-dark  me-2" data-bs-toggle="tooltip" data-bs-title="Comunicati LND" target="blank">
+                                                <a type="button" href="https://www.figcmarche.it/categoria-comunicati/calcio-a-5" class="btn  btn-outline-dark  me-2" data-bs-toggle="tooltip" data-bs-title="Comunicati LND" data-bs-placement="bottom" target="blank">
                                                     <i class='bx bx-archive'></i>
                                                 </a>
                                                 <!-- Link mercato -->
                                                 <?php if($_SESSION['superuser']==1 ){ ?>
-                                                    <a href="mercato.php" type="button" class="btn btn-outline-dark  me-2 position-relative" data-bs-toggle="tooltip" data-bs-title="Mercato">
+                                                    <a href="mercato.php" type="button" class="btn btn-outline-dark  me-2 position-relative" data-bs-toggle="tooltip" data-bs-title="Mercato" data-bs-placement="bottom">
                                                         <i class='bx bx-store'></i> 
                                                     </a>
                                                 <?php } ?>
                                                 <!-- Link a gallery -->
                                                 <?php if($_SESSION['superuser']==1 ){ ?>
-                                                    <a href="create_gallery.php" type="button" class="btn  btn-outline-dark me-2 position-relative" data-bs-toggle="tooltip" data-bs-title="Gallery">
+                                                    <a href="create_gallery.php" type="button" class="btn  btn-outline-dark me-2 position-relative" data-bs-toggle="tooltip" data-bs-title="Gallery" data-bs-placement="bottom">
                                                         <i class='bx bx-photo-album'></i>
                                                     </a>
                                                 <?php } ?>
@@ -420,8 +420,8 @@
                                                                 <th class="text-center" width="8%">Ruolo</th>
                                                                 <th class="text-center" width="8%">Anno</th>
                                                                 <th class="text-center" width="5%">N.</th>
-                                                                <th class="text-center" width="5%"><span data-bs-toggle="tooltip" data-bs-title="Allenamento">A</span></th>
-                                                                <th class="text-center" width="5%"><span data-bs-toggle="tooltip" data-bs-title="Partite">P</span></th>
+                                                                <th class="text-center" width="5%"><span data-bs-toggle="tooltip" data-bs-title="Allenamento" data-bs-placement="bottom">A</span></th>
+                                                                <th class="text-center" width="5%"><span data-bs-toggle="tooltip" data-bs-title="Partite" data-bs-placement="bottom">P</span></th>
                                                             </tr>
 
                                                         </thead>
@@ -461,11 +461,11 @@
                                                                             
                                                                             // In base al motivo, mostriamo l'icona corrispondente
                                                                             if ($motivo === 'Lavoro') {
-                                                                                echo '<i class="bx bx-briefcase " data-bs-toggle="tooltip" data-bs-title="Lavoro"></i>'; // Icona per Lavoro
+                                                                                echo '<i class="bx bx-briefcase " data-bs-toggle="tooltip" data-bs-title="Lavoro" data-bs-placement="bottom"></i>'; // Icona per Lavoro
                                                                             } elseif ($motivo === 'Malattia') {
-                                                                                echo '<i class="bx bxs-ambulance text-danger" data-bs-toggle="tooltip" data-bs-title="Malattia"></i>'; // Icona per Malattia
+                                                                                echo '<i class="bx bxs-ambulance text-danger" data-bs-toggle="tooltip" data-bs-title="Malattia" data-bs-placement="bottom"></i>'; // Icona per Malattia
                                                                             } elseif ($motivo === 'Viaggio') {
-                                                                                echo '<i class="bx bxs-plane-alt" data-bs-toggle="tooltip" data-bs-title="Viaggio"></i >'; // Icona per Viaggio
+                                                                                echo '<i class="bx bxs-plane-alt" data-bs-toggle="tooltip" data-bs-title="Viaggio" data-bs-placement="bottom"></i >'; // Icona per Viaggio
                                                                             } else {
                                                                                 // Motivo sconosciuto, puoi gestirlo in modo appropriato
                                                                             }
@@ -477,27 +477,27 @@
                                                                 <td class="text-center"> 
                                                                     <?php if($row['ruolo']==='Portiere'){
                                                                     echo '
-                                                                    <span class="badge bg-warning text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Portiere">
+                                                                    <span class="badge bg-warning text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Portiere" data-bs-placement="bottom">
                                                                         P'
                                                                     .'</span>';
                                                                     }elseif($row['ruolo']==='Centrale'){
                                                                     echo '
-                                                                    <span class="badge bg-success text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Centrale">
+                                                                    <span class="badge bg-success text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Centrale" data-bs-placement="bottom">
                                                                         C'
                                                                     .'</span>';
                                                                     }elseif($row['ruolo']==='Laterale'){
                                                                     echo '
-                                                                    <span class="badge bg-primary text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Laterale">
+                                                                    <span class="badge bg-primary text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Laterale" data-bs-placement="bottom">
                                                                         L'
                                                                     .'</span>';
                                                                     }elseif($row['ruolo']==='Pivot'){
                                                                     echo '
-                                                                    <span class="badge bg-danger text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Pivot">
+                                                                    <span class="badge bg-danger text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Pivot" data-bs-placement="bottom">
                                                                         P'
                                                                     .'</span>';
                                                                     }else{
                                                                     echo '
-                                                                    <span class="badge bg-info text-light" style="width:30px;"  data-bs-toggle="tooltip" data-bs-title="Universale ">
+                                                                    <span class="badge bg-info text-light" style="width:30px;"  data-bs-toggle="tooltip" data-bs-title="Universale" data-bs-placement="bottom">
                                                                         U'
                                                                     .'</span>';
                                                                     } ?>
@@ -562,16 +562,16 @@
             </div>
 
         </main>
-        <!-- Import -->
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
-    
-        <!-- Tooltip -->
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+        
+        <!-- Tooltip Initialization -->
         <script>
             const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
             const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
         </script>
-        
+
         
         <!-- Script : per il submit del form -->
         <script>

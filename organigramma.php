@@ -36,7 +36,7 @@
       <!-- Dirigenza -->
       <?php if(mysqli_num_rows($dirigenti)>0){ ?>
       <div class="row gy-3">
-        <span class="fw-bold fs-5" class="" id="font_diverso"> Organigramma </span>
+        <span class="fw-bold fs-3" class="" id="font_diverso"> Organigramma </span>
 
         <hr id="separatore"/>
 
@@ -57,7 +57,7 @@
                 <div class="row">
                   <!-- Nome dirigente -->
                   <div class="col-12">
-                    <span class="fs-5"><?php echo $row['nome'].'<br/> ' .$row['ruolo'] ?></span>
+                    <span class="fs-3"><?php echo $row['nome'].'<br/> ' .$row['ruolo'] ?></span>
                   </div>
                 </div>
               </div>

@@ -33,7 +33,7 @@
 
             <div class="row">
                 <div class="col-12">
-                    <span class="fs-5 fw-bold" id="font_diverso">Classifica Serie A2</span>
+                    <span class="fs-3 fw-bold" id="font_diverso">Classifica Serie A2</span>
                 </div>
             </div>
 

@@ -370,8 +370,8 @@ ul.user-menu {
     margin: auto; }
   ul.user-menu .user-button span {
     background: linear-gradient(222deg, #2DE47D 0%, #2AC2EB 100%);
-    min-width: 3.2rem;
-    min-height: 3.2rem;
+    min-width: 2.5rem;
+    min-height: 2.5rem;
     border-radius: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -395,7 +395,7 @@ ul.user-menu {
     background-color: #254977; }
   .nav-main-menu {
     margin-top: 1rem; }
-    .nav-main-menu button > h4 {
+    .nav-main-menu button > h6 {
       display: none; } }
 
 @media (max-width: 575.98px) {
@@ -409,9 +409,10 @@ ul.user-menu {
     ul.user-menu .sub-menu {
       display: none; }
     ul.user-menu li.user-button {
-      width: auto; }
+      width: auto;
+      margin-left:1rem; }
     ul.user-menu li a {
-      width: auto !important;
+      width: 1rem !important;
       opacity: 1 !important; }
   .nav-main-menu {
     background-color: var(--c--black);
@@ -525,7 +526,7 @@ ul.user-menu {
     align-items: center;
     gap: .8rem; }
     .logo-button-wrap img {
-      min-width: 4rem; } }
+      min-width: 2rem; } }
 
 .tpl--sidenav--nav .main-nav-toggle {
   display: -webkit-box;
@@ -534,12 +535,12 @@ ul.user-menu {
   color: var(--c--white);
   margin: 0;
   padding: 0;
-  width: 3rem;
-  height: 3rem;
+  /* width: 3rem;
+  height: 3rem; */
   border: none;
   background-color: transparent; }
   .tpl--sidenav--nav .main-nav-toggle i {
-    /* font-size: 3rem;  */
+    font-size: 1.5rem;  
   }
 .fixed-bottom-right {
   position: fixed;

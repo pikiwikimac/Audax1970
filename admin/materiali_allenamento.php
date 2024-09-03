@@ -49,9 +49,9 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h3>
+                        <h4>
                           Materiali Allenamento
-                        </h3>
+                        <h4>
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
                           <a type="button" class="btn btn-outline-dark float-end"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModal">
@@ -71,9 +71,9 @@
 
                               <tr>
                                 <th width="36%">Nome</th>
-                                <th width="20%">Costo unitario</th>
-                                <th width="20%">Quantità</th>
-                                <th width="20%">Costo totale</th>
+                                <th class="text-center" width="20%">Costo unitario</th>
+                                <th class="text-center" width="20%">Quantità</th>
+                                <th class="text-center" width="20%">Costo totale</th>
                                 <th width="2%"></th>
                                 <th width="2%"></th>
                                 
@@ -92,12 +92,12 @@
                                 </td>
 
                                 <!-- Costo unitario -->
-                                <td>
-                                <?php echo $row['costo'] ?>
+                                <td class="text-center">
+                                <?php echo $row['costo'].' €' ?>
                                 </td>
                                 
                                 <!-- Quantità -->
-                                <td >
+                                <td  class="text-center">
                                   <?php echo $row['quantita'] ?>
                                 </td>
                                 <?php
@@ -117,8 +117,8 @@
                                   // Mostra i risultati
                                 ?>
                                 <!-- Costo totale -->
-                                <td>
-                                  <?php echo htmlspecialchars($costo_totale); ?>
+                                <td class="text-center">
+                                  <?php echo htmlspecialchars($costo_totale) .' €'; ?>
                                 </td>
 
                                 <!-- Bottone edit-->

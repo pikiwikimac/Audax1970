@@ -98,7 +98,7 @@ $pdf = new FPDF();
 $pdf->AddPage();
 
 // Aggiungi logo in alto a sinistra
-$pdf->Image('../image/loghi/audax.jpeg', 10, 10, 30);
+$pdf->Image('../image/loghi/logo.png', 10, 10, 30);
 
 // Aggiungi logo in alto a destra
 $pdf->Image('../image/lnd_a2.png', $pdf->GetPageWidth()-40, 10, 30);

@@ -46,26 +46,23 @@
     g.*
   FROM
       giocatori g
-  WHERE
-      (
-          id_squadra = '$casa' OR(id_squadra = 0 AND id = 100)
-      ) 
+  INNER JOIN affiliazioni_giocatori ag ON ag.id_giocatore = g.id
+  WHERE ag.id_societa = '$casa'
+  AND g.id NOT IN (SELECT i.id_giocatore FROM indisponibili i WHERE i.a_data > '$data_partita' AND i.da_data<'$data_partita') 
   ORDER BY
       ruolo,
       cognome,
       nome ASC";
   $giocatori_casa = mysqli_query($con,$query);
 
- # QUERY che seleziona tutti i giocatori disponibili squadra ospite
+  # QUERY che seleziona tutti i giocatori disponibili squadra ospite
   $query2 = "
   SELECT
     g.*
   FROM
     giocatori g
-  WHERE
-    (
-        id_squadra = '$ospite' OR(id_squadra = 0 AND id = 102)
-    ) 
+  INNER JOIN affiliazioni_giocatori ag ON ag.id_giocatore = g.id
+  WHERE ag.id_societa = '$ospite'
   AND g.id NOT IN (SELECT i.id_giocatore FROM indisponibili i WHERE i.a_data > '$data_partita' AND i.da_data<'$data_partita') 
   ORDER BY
     ruolo,
@@ -120,20 +117,18 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h3>Giornata <?php echo $partita['giornata'] ?> 
-                      </h3>
-                      <!-- Bottoni a destra -->
-                      <div class="cta-wrapper">
-                        <button type="button" class="btn btn-outline-dark float-end me-2"  onclick="window.location.href='edit_risultato_massivo.php?id=<?php echo $partita["id"]; ?>'">
-                          Massiva
-                        </button>
+                        <h4>Giornata <?php echo $partita['giornata'] ?> </h4>
+                        <!-- Bottoni a destra -->
+                        <div class="cta-wrapper">
+                          <button type="button" class="btn btn-outline-dark float-end me-2"  onclick="window.location.href='edit_risultato_massivo.php?id=<?php echo $partita["id"]; ?>'">
+                            Massiva
+                          </button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <!-- END:Intestazione -->
+                    <!-- END:Intestazione -->
 
-                  <!-- Core della pagina -->
-                  <div class="container-fluid">
+                    <!-- Core della pagina -->
                     <div class="row">
                       <!-- Colonna Casa -->
                       <div class="col-12 mb-5  col-lg-6 mb-lg-0 table-responsive">

@@ -29,7 +29,7 @@
       <!-- Top sponsor -->
       <div class="row">
         <div class="col-12">
-          <span class="fs-5 fw-bold" id="font_diverso">Sponsor</span>
+          <span class="fs-3 fw-bold" id="font_diverso">Sponsor</span>
         </div>
       </div>
 

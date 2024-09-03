@@ -70,13 +70,13 @@
     
 
     <!-- Icona title -->
-    <link rel="icon" href="image/loghi/audax.jpeg" type ="image/x-icon">
+    <link rel="icon" href="image/loghi/logo.png" type ="image/x-icon">
 
     <!-- Icona per dispositivi Apple -->
-    <link rel="apple-touch-icon" sizes="180x180" href="image/loghi/audax.jpeg">
+    <link rel="apple-touch-icon" sizes="180x180" href="image/loghi/logo.png">
     
     <!-- Icona per dispositivi Android -->
-    <link rel="icon" type="image/png" sizes="192x192" href="image/loghi/audax.jpeg">
+    <link rel="icon" type="image/png" sizes="192x192" href="image/loghi/logo.png">
 
 </head>
 
@@ -94,9 +94,9 @@
 
     <!-- Descrizione iniziale -->
     <div class="container my-5">
-      <div class="row g-5 mt-5">
+      <div class="row g-3 mt-5">
         <div class="col-12 align-middle">
-          <span class="fs-5 fw-semibold" id="font_diverso">
+          <span class="fs-3 fw-semibold" id="font_diverso">
             <?php echo htmlspecialchars($row['titolo']); ?>
             <?php if($row['intestazione'] !== null ){ ?>
               <div class="float-end">
@@ -123,7 +123,7 @@
 
       <hr/>
       
-      <div class="row g-5">
+      <div class="row g-3">
         <div class="col-12 col-lg-8">
           <!-- Contenuto articolo -->
           <p class="" style="font-size:14px">

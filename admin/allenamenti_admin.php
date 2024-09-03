@@ -102,7 +102,7 @@
                     <div class="">
 
                       <!-- Allenamenti fissati -->
-                      <div class="row g-5 mb-3 ">
+                      <div class="row g-3 mb-3 ">
                         <div class="col-12">
                           <?php while($rowx = mysqli_fetch_assoc($societa_collegate)) { ?>
                             <a class="text-decoration-none text-white" href="allenamenti_admin.php?id_societa=<?php echo $rowx['id'] ?>">

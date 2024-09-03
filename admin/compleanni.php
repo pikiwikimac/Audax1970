@@ -50,9 +50,9 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h3>
+                        <h4>
                           Compleanni
-                        </h3>
+                        <h4>
                       </div>
                     </div>
                     <!-- END:Intestazione -->

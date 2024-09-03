@@ -233,10 +233,10 @@ require_once('config/db.php');
       <!-- Articoli  -->
       <div class="container ">
         <div class="mt-3">
-          <span class="fs-5 fw-bold" id="font_diverso">Articoli</span>
+          <span class="fs-3 fw-bold" id="font_diverso">Articoli</span>
         </div>
         <hr/>
-        <div class="row  g-5">
+        <div class="row  g-3">
           <?php while ($articolo = mysqli_fetch_assoc($articoli)) { ?>
             <div class="col-12 col-lg-3">
               <a href="articolo.php?id=<?php echo $articolo['id'] ?>" class="text-decoration-none">
@@ -289,7 +289,7 @@ require_once('config/db.php');
 
       <!-- Prossima partita & Ultima partita  -->
       <div class="container my-5">
-        <div class="row row-cols-1 row-cols-lg-2 g-5">
+        <div class="row row-cols-1 row-cols-lg-2 g-3">
 
           <!-- Prossima partita -->
           <div class="col">

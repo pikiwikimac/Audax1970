@@ -144,9 +144,9 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h3>
+                        <h4>
                           Multe
-                        </h3>
+                        <h4>
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
                           <a class="text-decoration-none text-dark"  data-bs-toggle="offcanvas"   href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
@@ -216,9 +216,9 @@
                       </div>
 
 
-                      <div class="row g-5 my-3 ">
+                      <div class="row g-3 my-3 ">
                         <div class="col-12 col-md-6 table-responsive">
-                          <h3>
+                          <h4>
                             Multe giocatori
                             <a type="button" class="btn btn-outline-dark float-end me-2"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModalPagamento" data-bs-info="dirigenza">
                               <i class='bx bx-plus '></i> Pagamento
@@ -227,7 +227,7 @@
                             <a type="button" class="btn btn-outline-dark float-end me-2"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModal" data-bs-info="dirigenza">
                               <i class='bx bx-plus '></i> Multa
                             </a>
-                          </h3> 
+                          <h4> 
                           <table class="table table-sm table-hover table-striped table-rounded mt-3 " >
                             
                             <thead class="table-dark">
@@ -274,7 +274,7 @@
                       
                       
                         <div class="col-12 col-md-6 table-responsive">
-                          <h3> 
+                          <h4> 
                             Multe dirigenti 
                             <a type="button" class="btn btn-outline-dark float-end me-2"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModalPagamentoDirigenza" data-bs-info="dirigenza">
                               <i class='bx bx-plus '></i> Pagamento
@@ -283,7 +283,7 @@
                             <a type="button" class="btn btn-outline-dark float-end me-2"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModalDirigenza" data-bs-info="dirigenza">
                               <i class='bx bx-plus '></i> Multa
                             </a>
-                          </h3>
+                          <h4>
                           
                           <table class="table table-sm table-hover table-striped table-rounded mt-3 " >
                             

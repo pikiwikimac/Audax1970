@@ -12,7 +12,7 @@
     
     <meta property="og:title" content="Audax 1970 - Campionato Serie A2">
     <meta property="og:description" content="Campioni Serie B 2023/2024">
-    <meta property="og:image" content="../image/loghi/audax.jpeg">
+    <meta property="og:image" content="../image/loghi/logo.png">
 
     
     <!-- Bootstrap -->
@@ -36,13 +36,13 @@
     
 
     <!-- Icona title -->
-    <link rel="icon" href="image/loghi/audax.jpeg" type ="image/x-icon">
+    <link rel="icon" href="image/loghi/logo.png" type ="image/x-icon">
 
     <!-- Icona per dispositivi Apple -->
-    <link rel="apple-touch-icon" sizes="180x180" href="image/loghi/audax.jpeg">
+    <link rel="apple-touch-icon" sizes="180x180" href="image/loghi/logo.png">
     
     <!-- Icona per dispositivi Android -->
-    <link rel="icon" type="image/png" sizes="192x192" href="image/loghi/audax.jpeg">
+    <link rel="icon" type="image/png" sizes="192x192" href="image/loghi/logo.png">
 
 </head>
 

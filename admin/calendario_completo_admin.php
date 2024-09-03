@@ -58,9 +58,9 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                      <h3>
+                      <h4>
                         Calendario completo
-                      </h3>
+                      <h4>
 
                       <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
@@ -80,7 +80,7 @@
                     <!-- Core della pagina -->
                     <div class="">
          
-                      <div class="row g-5 mb-3">
+                      <div class="row g-3 mb-3">
                         <?php 
                           while ($giornata = mysqli_fetch_assoc($lista_giornate)) {
                               $giornata_numero = $giornata['giornata_numero'];

@@ -51,9 +51,9 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h3>
+                        <h4>
                           Società
-                        </h3>
+                        <h4>
                         <div class="cta-wrapper">	
                           <a href="societa.php" type="button" class="btn btn-outline-dark ms-2">
                             Prime squadre

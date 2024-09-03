@@ -28,7 +28,7 @@
 
             <div class="row">
                 <div class="col-12">
-                    <span class="fs-5 fw-bold" id="font_diverso">Calendario Serie A2 </span>
+                    <span class="fs-3 fw-bold" id="font_diverso">Calendario Serie A2 </span>
                 </div>
             </div>
 
@@ -72,7 +72,7 @@
                 <div class="col-12 col-xl-6 table-responsive">
 
                     <table class="table table-sm table-hover table-striped caption-top table-rounded" >
-                        <caption class="fs-5 text-dark"><?php echo $giornata_numero ?> ° giornata </caption>
+                        <caption class="fs-3 text-dark"><?php echo $giornata_numero ?> ° giornata </caption>
                         <thead class="table-dark">
 
                             <tr>

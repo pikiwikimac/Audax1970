@@ -75,7 +75,7 @@
     <div class="container my-4">
       <!-- Portieri -->
       <div class="row gy-3 ">
-        <span class="fw-bold fs-5" id="font_diverso">
+        <span class="fw-bold fs-3" id="font_diverso">
           Articoli
         </span>
         <hr id="separatore" />

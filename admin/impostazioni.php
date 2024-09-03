@@ -39,9 +39,9 @@ $user_id = $_SESSION['user_id'];
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h3>
+                        <h4>
                           Impostazioni
-                        </h3>
+                        <h4>
                       </div>
                     </div>
                     <!-- END:Intestazione -->

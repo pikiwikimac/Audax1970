@@ -77,7 +77,7 @@
 
     <!-- Descrizione iniziale -->
     <div class="container my-5">
-      <span class="fw-bold fs-5" id="font_diverso">
+      <span class="fw-bold fs-3" id="font_diverso">
         <?php echo $tipo['tipo'] ?>
       </span>
         
@@ -90,7 +90,7 @@
       <?php if(mysqli_num_rows($portieri)>0){ ?>
       <div class="row gy-3 ">
         <!--
-        <span class="fw-bold fs-5" id="font_diverso">
+        <span class="fw-bold fs-3" id="font_diverso">
           Portieri
         </span>
         -->
@@ -111,7 +111,7 @@
                   <div class="row">
                     <!-- Nome giocatore -->
                     <div class="col-sm-9 col-10 ">
-                      <span class="fs-5"><?php echo $row['nome'].'<br/> ' .$row['cognome'] ?></span>
+                      <span class="fs-3"><?php echo $row['nome'].'<br/> ' .$row['cognome'] ?></span>
                     </div>
                     <!-- Numero di maglia giocatore -->
                     <div class="col-sm-3 col-2 ">
@@ -133,7 +133,7 @@
       <!-- Centrali -->
       <?php if(mysqli_num_rows($centrali)>0){ ?>
       <div class="row mt-5 gy-3">
-        <!-- <span class="fw-bold fs-5" id="font_diverso"> Centrali </span> -->
+        <!-- <span class="fw-bold fs-3" id="font_diverso"> Centrali </span> -->
         <hr id="separatore" />
 
         <?php while($row = mysqli_fetch_assoc($centrali)) {  ?>
@@ -151,7 +151,7 @@
                   <div class="row">
                     <!-- Nome giocatore -->
                     <div class="col-sm-9 col-10 ">
-                      <span class="fs-5"><?php echo $row['nome'].'<br/> ' .$row['cognome'] ?></span>
+                      <span class="fs-3"><?php echo $row['nome'].'<br/> ' .$row['cognome'] ?></span>
                     </div>
                     <!-- Numero di maglia giocatore -->
                     <div class="col-sm-3 col-2 ">
@@ -172,7 +172,7 @@
       <?php if(mysqli_num_rows($laterali)>0){ ?>
       <div class="row mt-5 gy-3">
 
-        <!-- <span class="fw-bold fs-5" id="font_diverso"> Laterali </span> -->
+        <!-- <span class="fw-bold fs-3" id="font_diverso"> Laterali </span> -->
 
         <hr id="separatore" />
 
@@ -191,7 +191,7 @@
                   <div class="row">
                     <!-- Nome giocatore -->
                     <div class="col-sm-9 col-10 ">
-                      <span class="fs-5"><?php echo $row['nome'].'<br/> ' .$row['cognome'] ?></span>
+                      <span class="fs-3"><?php echo $row['nome'].'<br/> ' .$row['cognome'] ?></span>
                     </div>
                     <!-- Numero di maglia giocatore -->
                     <div class="col-sm-3 col-2 ">
@@ -212,7 +212,7 @@
       <?php if(mysqli_num_rows($universali)>0){ ?>
       <div class="row mt-5 gy-3">
 
-        <!-- <span class="fw-bold fs-5" id="font_diverso"> Universali </span> -->
+        <!-- <span class="fw-bold fs-3" id="font_diverso"> Universali </span> -->
 
         <hr id="separatore" />
         <?php while($row = mysqli_fetch_assoc($universali)) {  ?>
@@ -230,7 +230,7 @@
                   <div class="row">
                     <!-- Nome giocatore -->
                     <div class="col-sm-9 col-10 ">
-                      <span class="fs-5"><?php echo $row['nome'].'<br/> ' .$row['cognome'] ?></span>
+                      <span class="fs-3"><?php echo $row['nome'].'<br/> ' .$row['cognome'] ?></span>
                     </div>
                     <!-- Numero di maglia giocatore -->
                     <div class="col-sm-3 col-2 ">
@@ -250,7 +250,7 @@
       <!-- Pivot -->
       <?php if(mysqli_num_rows($pivot)>0){ ?>
       <div class="row mt-5 gy-3">
-        <!-- <span class="fw-bold fs-5" class="" id="font_diverso"> Pivot </span> -->
+        <!-- <span class="fw-bold fs-3" class="" id="font_diverso"> Pivot </span> -->
 
         <hr id="separatore"/>
 
@@ -269,7 +269,7 @@
                   <div class="row">
                     <!-- Nome giocatore -->
                     <div class="col-sm-9 col-10 ">
-                      <span class="fs-5"><?php echo $row['nome'].'<br/> ' .$row['cognome'] ?></span>
+                      <span class="fs-3"><?php echo $row['nome'].'<br/> ' .$row['cognome'] ?></span>
                     </div>
                     <!-- Numero di maglia giocatore -->
                     <div class="col-sm-3 col-2 ">

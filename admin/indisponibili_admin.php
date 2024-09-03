@@ -56,9 +56,9 @@
               <!-- Intestazione -->
               <div class="tpl-header px-2">
                 <div class="tpl-header--title">
-                  <h3>
+                  <h4>
                     Indisponibili
-                  </h3>
+                  <h4>
                   <!-- Bottoni a destra -->
                   <div class="cta-wrapper">
                     <a type="button" class="btn btn-outline-dark float-end"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModal">
@@ -76,7 +76,7 @@
                 <?php if ($result->num_rows >0 ){ ?>
                   <div class="row">
                     <div class="col-12 table-responsive">
-                      <h3>Attuali</h3>
+                      <h4>Attuali<h4>
                       <table class="table  table-hover table-striped table-rounded">
                         <thead class="table-dark">
 
@@ -155,7 +155,7 @@
                 <?php if ($result_old->num_rows >0 ){ ?>
                   <div class="row mt-5">
                     <div class="col-12 table-responsive">
-                      <h3 id="toggleOldIndisponibili" style="cursor: pointer;" >Vecchie indisponibilità <span class="badge bg-danger float-end" ><?php echo $old_indisponibili_count; ?></span></h3>
+                      <h4 id="toggleOldIndisponibili" style="cursor: pointer;" >Vecchie indisponibilità <span class="badge bg-danger float-end" ><?php echo $old_indisponibili_count; ?></span><h4>
                       <table class="table  table-hover table-striped  table-rounded" id="oldIndisponibiliTable" >
                         <thead class="table-dark">
 

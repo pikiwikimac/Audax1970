@@ -161,7 +161,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div class="container">
             <form action="change_password.php" method="post" class="">
-                <h1 class="mb-3">Cambia Password</h3>
+                <h4 class="mb-3">Cambia Password<h4>
                 <input type="text" placeholder="Vecchia password" id="old_password" name="old_password" required>
                 <input type="text" placeholder="Nuova password" id="new_password" name="new_password" required>
                 <input type="text" placeholder="Conferma password" id="confirm_password" name="confirm_password" class="mb-5" required>

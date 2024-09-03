@@ -1,4 +1,35 @@
-node_modules
-vendor
-video
-image
+# Node.js dependencies
+node_modules/
+
+# Vendor directories
+vendor/
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# IDE and editor specific files
+.vscode/
+.idea/
+.DS_Store
+*.swp
+
+# Build directories
+dist/
+build/
+public/
+
+# Environment files
+.env
+config/*.local
+
+# Uploaded files
+uploads/
+pdf/
+
+# Miscellaneous
+*.class
+*.o
+*.exe
+*.dll
+*.pyc

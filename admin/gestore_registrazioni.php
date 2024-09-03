@@ -56,9 +56,9 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h3>
+                        <h4>
                           Lista utenti in attesa di approvazione
-                        </h3>
+                        <h4>
                       </div>
                     </div>
                     <!-- END:Intestazione -->
@@ -133,7 +133,7 @@
                               <tbody>
                                 <?php while($user = mysqli_fetch_assoc($users_accettati)) {  ?>
                                   <tr >
-                                    <td></td>
+                                    <td><img src="../image/username/<?php echo $user['image']; ?>" class="rounded-circle " alt="..." width="30" height="30"/></td>
                                     <td  onclick="window.location='edit_user.php?id=<?php echo $user['id']; ?>';" style="cursor:pointer"><?php echo $user['firstname'] ?></td>
                                     <td  onclick="window.location='edit_user.php?id=<?php echo $user['id']; ?>';" style="cursor:pointer"><?php echo $user['lastname'] ?></td>
                                     <td><?php echo $user['email'] ?></td>

@@ -64,9 +64,9 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h3>
+                        <h4>
                           Modifica articolo  
-                        </h3>
+                        <h4>
 
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
@@ -108,7 +108,7 @@
                           <form action="../query/action_edit_articolo.php" method="POST" enctype="multipart/form-data">
                             <div class="card">
                               <div class="card-body">
-                                <h3>Info di base</h3>
+                                <h4>Info di base<h4>
                                 
                                 <div class="row my-3 g-3">
                                   <!-- Titolo -->

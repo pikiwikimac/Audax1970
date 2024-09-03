@@ -43,9 +43,9 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h3>
+                        <h4>
                           Scheda utente
-                        </h3>
+                        <h4>
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
                          
@@ -61,49 +61,49 @@
                       <div class="row  gy-3">
                         <!-- Immagine utente -->
                         <div class="col-12 col-lg-2">
-                          <img src="../<?php echo $user['image']; ?>" class="rounded img-fluid " alt="..." width="500" height="500"/>
+                          <img src="../image/username/<?php echo $user['image']; ?>" class="rounded img-fluid " alt="..." width="500" height="500"/>
                         </div>
                         <!-- Info utente -->
                         <div class="col-12 col-lg-8">
                           <div class="row  gy-3">
                             <div class="col-12">
-                              <span class="fs-5 text-muted mt-0">
+                              <span class="text-muted mt-0">
                                 <i class='bx bxs-contact' ></i> &nbsp;Nome:
                                 <?php echo $user['firstname'] .' ' .$user['lastname']?> 
                               </span>
                             </div>
                             <div class="col-12">
-                              <span class="fs-5 text-muted mt-0">
+                              <span class="text-muted mt-0">
                                 <i class='bx bx-envelope' ></i> &nbsp;Email:
                                 <?php echo $user['email'] ?>
                               </span>
                             </div>
                             <div class="col-12">
-                              <span class="fs-5 text-muted mt-0">
+                              <span class="text-muted mt-0">
                                 <i class='bx bxs-user-circle' ></i> &nbsp; Username:
                                 <?php echo $user['username'] ?>
                               </span>
                             </div>
                             <div class="col-12">
-                              <span class="fs-5 text-muted mt-0">
+                              <span class="text-muted mt-0">
                                 <i class='bx bx-lock-alt'></i> &nbsp; Autorizzazioni:
                                 <?php if($user['superuser']==1){echo 'Admin';}else{echo 'Giocatore';}?>
                               </span>
                             </div>
                             <div class="col-12">
-                              <span class="fs-5 text-muted mt-0">
+                              <span class="text-muted mt-0">
                                 <i class='bx bxl-instagram'></i> &nbsp; Instagram:
                                 <?php echo !empty($user['instagram']) ? $user['instagram'] : '-'; ?>
                               </span>
                             </div>
                             <div class="col-12">
-                              <span class="fs-5 text-muted mt-0">
+                              <span class="text-muted mt-0">
                                 <i class='bx bxl-whatsapp'></i> &nbsp; Whatsapp:
                                 <?php echo !empty($user['whatsapp']) ? $user['whatsapp'] : '-'; ?>
                               </span>
                             </div>
                             <div class="col-12">
-                              <span class="fs-5 text-muted mt-0">
+                              <span class="text-muted mt-0">
                                 <i class='bx bx-desktop'></i> &nbsp; Squadra riferimento:
                                 <?php echo !empty($user['tipo']) ? $user['tipo'] : '-'; ?>
                               </span>
@@ -115,28 +115,28 @@
                           <div class="row gy-3 ">
                             <!-- Bottone gestione registrazioni -->
                             <div class="col-12">
-                              <a class="btn btn-outline-dark" href="gestore_registrazioni.php" style="width:200px">
+                              <a class="btn btn-outline-dark" href="gestore_registrazioni.php" style="width:250px">
                                 <i class='bx bx-user-plus'></i> &nbsp; Gestione registrazioni
                               </a>
                             </div>
 
                             <!-- Bottone -->
                             <div class="col-12">
-                              <a class="btn btn-outline-dark" href="show_societa.php?id=<?php echo $id_societa ?>" style="width:200px">
+                              <a class="btn btn-outline-dark" href="show_societa.php?id=<?php echo $id_societa ?>" style="width:250px">
                                 <i class='bx bxs-building-house'></i> &nbsp; Modifica info squadra
                               </a>
                             </div>
 
                             <!-- Bottone -->
                             <div class="col-12">
-                              <a href="edit_user.php?id=<?php echo $user['id'] ?>" type="button" class="btn btn-outline-dark " style="width:200px">
+                              <a href="edit_user.php?id=<?php echo $user['id'] ?>" type="button" class="btn btn-outline-dark " style="width:250px">
                                 <i class='bx bx-pencil '></i> &nbsp; Modifica utente
                               </a>
                             </div>
 
                             <!-- Bottone  -->
                             <div class="col-12">
-                              <a href="../login/change_password.php?id=<?php echo $user['id'] ?>" type="button" class="btn btn-outline-dark " style="width:200px">
+                              <a href="../login/change_password.php?id=<?php echo $user['id'] ?>" type="button" class="btn btn-outline-dark " style="width:250px">
                                 <i class='bx bxs-lock' ></i> &nbsp; Modifica password
                               </a>
                             </div>

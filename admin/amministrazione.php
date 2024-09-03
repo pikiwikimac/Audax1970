@@ -92,13 +92,13 @@
                                     <!-- Intestazione -->
                                     <div class="tpl-header">
                                         <div class="tpl-header--title">
-                                            <h1 class="">
+                                            <h4 class="">
                                                 Amministrazione
                                                 <!-- Tootlip di informazione -->
                                                 <a class="text-decoration-none float-end text-dark " data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Le transazioni non possono essere modificate, in caso di errore, eliminare e reinserire.">
                                                     <i class='bx bx-info-circle'></i>
                                                 </a>
-                                            </h3>
+                                            <h4>
                                         </div>
                                     </div>
                                     <!-- END: Intestazione -->
@@ -191,7 +191,7 @@
                                         <div class="row mt-5 gy-3">
                                             <div class="col-12 col-lg-6">
                                                 <?php if($lista_entrate ->num_rows > 0){ ?>
-                                                    <h3>Registro entrate</h3>
+                                                    <h4>Registro entrate<h4>
                                                     <hr>
 
                                                     <div class="table-responsive">
@@ -241,7 +241,7 @@
 
                                             <div class="col-12 col-lg-6">
                                                 <?php if($lista_uscite ->num_rows > 0){ ?>
-                                                    <h3>Registro uscite</h3>
+                                                    <h4>Registro uscite<h4>
                                                     <hr>
 
                                                     <div class="table-responsive">

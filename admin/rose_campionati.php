@@ -84,9 +84,9 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h3>
+                        <h4>
                           Tutti i giocatori
-                        </h3>
+                        <h4>
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">	
                           <?php if($_SESSION['superuser'] === 1 ){?>

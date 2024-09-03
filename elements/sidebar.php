@@ -23,13 +23,13 @@
 		<div class="logo-button-wrap">
 			<div class="toggle-menu js--menu-mobile--open">
 				<button class="menu-icon main-nav-toggle">
-					<i class="bi bi-list align-middle" style="margin-top:-6px"></i>
+					<i class="bi bi-list align-middle"></i>
 				</button>
 			</div>
 			
 			<div class="logo-wrapper">
 				<a href="../index.php">
-					<!-- --><img src="../image/loghi/logo_audax.png" alt="" style="width:40px;height:40px"> 
+					<!-- --><img src="../image/loghi/logo.png" alt="" style="width:40px;height:40px"> 
 				</a>
 			</div>
 		</div>
@@ -40,7 +40,7 @@
 					<i class="bi bi-x-lg align-middle"></i>
 				</button>
 				<!-- Logo -->
-				<img src="../image/loghi/audax.jpeg" alt="Audax 1970" style="width:30px;height:30px">
+				<img src="../image/loghi/logo.png" alt="Audax 1970" style="width:30px;height:30px">
 			</div>
 			
 			<ul class="menu">
@@ -49,7 +49,7 @@
 				<li>
 					<button class="" onclick="window.location.href = 'dashboard.php'">
 						<i class="bx bx-home" title="Dashboard"></i>
-						<h4>Dashboard</h4>
+						<h6>Dashboard</h6>
 					</button>
 				</li>
 
@@ -57,7 +57,7 @@
 				<li>
 					<button class="js--menu--first-level">
 						<i class="bi bi-people" title="Rosa"></i>
-						<h4>Rosa</h4>
+						<h6>Rosa</h6>
 					</button>
 					<div class="sub-menu">
 						<button class="js--submenu--close menu-close-button">
@@ -105,7 +105,7 @@
 				<li>
 					<button class="js--menu--first-level ">
 						<i class="bi bi-calendar" title="Campionato"></i>
-						<h4>Calendario</h4>
+						<h6>Calendario</h6>
 					</button>
 					
 					<div class="sub-menu">
@@ -133,7 +133,7 @@
 				<li>
 					<button class="js--menu--first-level ">
 						<i class="bi bi-trophy" title="Classifica"></i>
-						<h4>Classifica</h4>
+						<h6>Classifica</h6>
 					</button>
 					
 					<div class="sub-menu">
@@ -161,7 +161,7 @@
 				<li>
 					<button class="js--menu--first-level ">
 						<i class="bi bi-stopwatch" title="Allenamenti"></i>
-						<h4>Allenamenti</h4>
+						<h6>Allenamenti</h6>
 					</button>
 					
 					<div class="sub-menu">
@@ -191,7 +191,7 @@
 				<li>
 					<button class="js--menu--first-level">
 						<i class="bi bi-clipboard-data" title="Squadre"></i>
-						<h4>Squadre</h4>
+						<h6>Squadre</h6>
 					</button>
 					<div class="sub-menu">
 						<button class="js--submenu--close menu-close-button">
@@ -222,7 +222,7 @@
 				<li>
 					<button class="js--menu--first-level">
 						<i class="bi bi-coin" title="Amministrazione"></i>
-						<h4>Amministrazione</h4>
+						<h6>Amministrazione</h6>
 					</button>
 					<div class="sub-menu">
 						<button class="js--submenu--close menu-close-button">
@@ -266,7 +266,7 @@
 				<li>
 					<button class="js--menu--first-level">
 						<i class="bi bi-newspaper" title="Articoli"></i>
-						<h4>Articoli</h4>
+						<h6>Articoli</h6>
 					</button>
 					<div class="sub-menu">
 						<button class="js--submenu--close menu-close-button">
@@ -325,9 +325,9 @@
 				
 				<a href="#" >
 					<?php
-						$image = isset($image) && !empty($image) ? $image : 'image/default_user.jpg';
+						$image = isset($image) && !empty($image) ? $image : 'default_user.jpg';
 					?>
-					<span><img src="../<?php echo $image; ?>" alt="" width="85%" height="85%" class="rounded-circle mx-auto"></span>
+					<span><img src="../image/username/<?php echo $image; ?>" alt="" width="85%" height="85%" class="rounded-circle mx-auto"></span>
 
 				</a>
 

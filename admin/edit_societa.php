@@ -65,9 +65,9 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h3>
+                        <h4>
                           <?php echo $row['nome_societa'] ?> 
-                        </h3>
+                        <h4>
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
                           <a type="button" href="societa.php" class="btn btn-outline-dark float-end" >

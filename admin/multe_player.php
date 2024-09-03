@@ -78,9 +78,9 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h3>
+                        <h4>
                           <?php echo $giocatore['nome'].' ' .$giocatore['cognome'] ?>
-                        </h3>
+                        <h4>
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
                           <a type="button" href="multe.php" class="btn btn-outline-dark float-end" >

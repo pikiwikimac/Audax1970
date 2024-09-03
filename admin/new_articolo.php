@@ -58,7 +58,7 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h3>Nuovo articolo</h3>
+                        <h4>Nuovo articolo<h4>
                         <div class="cta-wrapper">
                           <button class="btn btn-outline-dark float-end" data-bs-toggle="offcanvas"   href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
                             <i class='bx bx-plus'></i>
@@ -76,7 +76,7 @@
                           <div class="col-12">
                             <div class="card">
                               <div class="card-body">
-                                <h3>Info di base</h3>
+                                <h4>Info di base<h4>
                                 <div class="row my-3 g-3">
                                   <!-- Titolo -->
                                   <div class="col-12 col-sm-6 col-lg-12">

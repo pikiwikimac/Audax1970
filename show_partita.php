@@ -98,13 +98,13 @@
 
         <div class="row  mt-5 gy-3">
           <div class="col-12 col-lg-6">
-            <h3 id="font-diverso" class="fw-bold">
+            <h4 id="font-diverso" class="fw-bold">
               <img src="image/loghi/<?php echo $row['logoCasa']; ?>" class="rounded-circle " alt="..." width="30" height="30"/>
               <?php echo $row['casa'] ?>
               <span class="float-end">
                 <?php echo $row['golCasa'] ?>
               </span>
-            </h3>
+            <h4>
 
             <hr/>
             
@@ -214,13 +214,13 @@
             
           </div>
           <div class="col-12 col-lg-6 ">
-            <h3 id="font-diverso" class="fw-bold">
+            <h4 id="font-diverso" class="fw-bold">
               <img src="image/loghi/<?php echo $row['logoOspiti']; ?>" class="rounded-circle " alt="..." width="30" height="30"/>
               <?php echo $row['ospite'] ?> 
               <span class="float-end">
                 <?php echo $row['golOspiti'] ?>
               </span> 
-            </h3>
+            <h4>
             <hr/>
 
             <?php
