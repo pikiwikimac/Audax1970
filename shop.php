@@ -63,10 +63,10 @@ try {
     <?php include 'elements/carousel.php'; ?>
 
     <!-- Descrizione iniziale -->
-    <div class="container my-5">
+    <div class="container my-5 px-4">
       <div class="row">
         <div class="col-12">
-          <span class="fs-3 fw-bold" id="font_diverso">Prodotti in vendita</span>
+          <h1 id="font_diverso">Prodotti in vendita</h1>
         </div>
       </div>
       

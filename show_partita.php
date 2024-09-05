@@ -67,12 +67,12 @@
     <main class="d-flex flex-nowrap">
       
       <!-- Descrizione iniziale -->
-      <div class="container my-5">
-        <h2 id="font-diverso">
+      <div class="container my-5 px-4">
+        <h1 id="font-diverso">
           <span class="fw-bold">Giornata <?php echo $row['giornata'] .' ° ' ?></span>
           <span class="badge bg-primary float-end"><?php echo $row['descrizione'] ?> - <?php echo $row['girone'] ?> 
           </span>
-        </h2>
+        </h1>
 
         <hr/>
         <!-- Visualizzazione a card -->

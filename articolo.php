@@ -32,7 +32,7 @@
     <!-- TITLE -->
     <title>Audax 1970</title>
 
-    <meta name="description" content="Squadra di futsal che nasce quest’anno e affronterà il campionato di serie D marchigiano.">
+    <meta name="description" content="Serie A2 Nazionale">
     <meta name="google-site-verification" content="+nxGUDJ4QpAZ5l9Bsjdi102tLVC21AIh5d1Nl23908vVuFHs34=">
     <meta name="robots" content="nofollow">
     
@@ -81,6 +81,9 @@
 </head>
 
 
+<style>
+  
+</style>
 
 
   <body>
@@ -93,10 +96,10 @@
     <?php include 'elements/carousel_audax.php'; ?>
 
     <!-- Descrizione iniziale -->
-    <div class="container my-5">
-      <div class="row g-3 mt-5">
+    <div class="container my-5 px-4">
+      <div class="row g-3 margin-mobile">
         <div class="col-12 align-middle">
-          <span class="fs-3 fw-semibold" id="font_diverso">
+          <h2 id="font_diverso">
             <?php echo htmlspecialchars($row['titolo']); ?>
             <?php if($row['intestazione'] !== null ){ ?>
               <div class="float-end">
@@ -105,7 +108,7 @@
                 </span>
               </div>
             <?php } ?>
-          </span>
+          </h2>
 
           <!-- Data pubblicazione -->
           <div>

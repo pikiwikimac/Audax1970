@@ -18,49 +18,70 @@
   <?php include 'elements/head_base.php'; ?>
 
   <style>
-    .card {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+    .bebas{
+    font-size: 14px!important;
+    font-weight: 300;
+    font-family: 'Bebas Neue';
+    letter-spacing:1px;
+  }
 
-    .card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
+  .card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
 
-    .card-body {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      flex: 1 1 auto;
-    }
+  .card-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 200px; /* Altezza fissa per la card, puoi modificarla */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-    .card-title {
-      font-size: 20px;
-      font-weight: 600;
-      font-family: 'Bebas Neue';
-    }
+  .card-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    object-position: center; /* Centra l'immagine */
+  }
 
-    .card-text {
-      flex: 1;
-      font-size: 12px;
-      font-weight: 400;
-    }
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
 
-    .card-text-footer {
-      text-align: right;
-      margin-top: auto;
-    }
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1 1 auto;
+  }
 
-    .card-img-wrapper {
-      height: 255px; /* Altezza fissa per il contenitore dell'immagine */
-      overflow: hidden; /* Nasconde le parti dell'immagine che escono dal contenitore */
-    }
+  .card-title {
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Bebas Neue';
+  }
 
-    
-  </style>
+  .card-text {
+    flex: 1;
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  .card-text-footer {
+    text-align: right;
+    margin-top: auto;
+  }
+
+ 
+
+   
+</style>
 
   <body>
     <!-- Navbar -->
@@ -72,12 +93,12 @@
     <?php include 'elements/carousel.php'; ?>
 
     <!-- Descrizione iniziale -->
-    <div class="container my-4">
-      <!-- Portieri -->
+    <div class="container my-5 px-4">
+      <!-- Articoli -->
       <div class="row gy-3 ">
-        <span class="fw-bold fs-3" id="font_diverso">
+        <h1 id="font_diverso">
           Articoli
-        </span>
+        </h1>
         <hr id="separatore" />
         <?php if(mysqli_num_rows($articoli) > 0){ ?>
           <?php while($articolo = mysqli_fetch_assoc($articoli)) { ?>
@@ -85,7 +106,11 @@
               <a href="articolo.php?id=<?php echo $articolo['id'] ?>" class="text-decoration-none">
                 <div class="card h-100">
                   <div class="card-img-wrapper">
-                    <img src="image/articoli/<?php echo $articolo['immagine_url'] ?>" class="img-fluid" alt="Articolo immagine">
+                    <?php if($articolo['immagine_url']){ ?>
+                      <img src="image/articoli/<?php echo $articolo['immagine_url'] ?>" class="img-fluid card-img" alt="..." style="max-height:200px">
+                    <?php }else{ ?>
+                      <img src="image/lnd_a2.png" class="img-fluid card-img" alt="..." style="max-height:200px">
+                    <?php } ?>
                   </div>
                   <div class="card-body">
                     <?php if($articolo['intestazione'] !== null ){ ?>

@@ -31,12 +31,12 @@
     
 
     <!-- Descrizione iniziale -->
-    <div class="container my-5">
+    <div class="container my-5 px-4">
       
       <!-- Dirigenza -->
       <?php if(mysqli_num_rows($dirigenti)>0){ ?>
       <div class="row gy-3">
-        <span class="fw-bold fs-3" class="" id="font_diverso"> Organigramma </span>
+        <h1 id="font_diverso"> Organigramma </h1>
 
         <hr id="separatore"/>
 

@@ -24,12 +24,12 @@
     <?php include 'elements/carousel.php'; ?>
   
     <!-- Descrizione iniziale -->
-    <div class="container my-5">
+    <div class="container my-5 px-4">
       
       <!-- Top sponsor -->
       <div class="row">
         <div class="col-12">
-          <span class="fs-3 fw-bold" id="font_diverso">Sponsor</span>
+          <h1 id="font_diverso">Sponsor</h1>
         </div>
       </div>
 
@@ -213,6 +213,32 @@
                   <!-- Link a sito web -->
                   <p class="sito_web">
                     <a href="https://www.arkingegnisrl.it/" class="text-decoration-none text-dark "><i class='bx bx-globe align-middle'></i> Sito web</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Verde mare -->
+          <div class="col-12 text-center col-sm-6 ">
+            <div class="flip-card mx-auto ">
+              <div class="flip-card-inner">
+                <!-- Fronte : Immagine -->
+                <div class="flip-card-front">
+                  <img src="image/sponsor/verdemare.jpg" alt="" width="300" height="300" class="img-fluid p-2 ">
+                </div>
+                <!-- Retro -->
+                <div class="flip-card-back">
+                  <!-- Nome azienda -->
+                  <p class="title">Verde mare</p>
+                  <!-- Sede azienda -->
+                  <p class="location">
+                    <i class='bx bxs-map'></i> 
+                    Str. delle Vigne in Frazione Scapezzano, 273, 60019 Senigallia AN
+                  </p>
+                  <!-- Link a sito web -->
+                  <p class="sito_web">
+                    <a href="https://www.verdemarecountryhouse.it/" class="text-decoration-none text-dark "><i class='bx bx-globe align-middle'></i> Sito web</a>
                   </p>
                 </div>
               </div>

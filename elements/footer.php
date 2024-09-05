@@ -33,7 +33,7 @@
             <br/>
 
             <!-- Luogo -->
-            <span class="mb-2 text-light">
+            <span class="mb-2 text-light" style="font-size:14px">
                 <i class='bx bxs-map-pin bx-tada-hover bx-sm align-middle me-2' ></i> Palasport "Panzini" via Capanna, Senigallia(AN), Italy, 60019
             </span>
             <br/>

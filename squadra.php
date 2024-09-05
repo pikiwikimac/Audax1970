@@ -76,10 +76,10 @@
     
 
     <!-- Descrizione iniziale -->
-    <div class="container my-5">
-      <span class="fw-bold fs-3" id="font_diverso">
+    <div class="container my-5 px-4">
+      <h1 id="font_diverso">
         <?php echo $tipo['tipo'] ?>
-      </span>
+      </h1>
         
       <?php if(mysqli_num_rows($portieri)=== 0 && mysqli_num_rows($centrali)=== 0 && mysqli_num_rows($laterali)=== 0 && mysqli_num_rows($pivot)=== 0 && mysqli_num_rows($universali)=== 0){ ?>
         <br/>

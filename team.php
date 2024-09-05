@@ -53,11 +53,11 @@
     <?php include 'elements/carousel.php'; ?>
 
     <!-- Descrizione iniziale -->
-    <div class="container my-5">
+    <div class="container my-5 px-4">
       
       <!-- Società -->
       <div class="row gy-3 ">
-        <h4 id="font_diverso">
+        <h1 id="font_diverso">
           <?php echo $info['nome_societa'] ?>
         <h4>
         <hr id="separatore" />
