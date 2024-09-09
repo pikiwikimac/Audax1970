@@ -44,58 +44,14 @@
     INNER JOIN partite p on p.id=c.id_partita
     WHERE c.id_giocatore=g.id
     AND p.id_stagione = 1
-  ) as convocazioni
-  
+  ) as convocazioni,stag.descrizione as competizione, stag.girone,stag.id_stagione
   FROM giocatori g
-  INNER JOIN societa s on s.id=id_squadra 
+  INNER JOIN societa s on s.id=id_squadra
+  INNER JOIN stagioni stag on stag.id_stagione=s.id_campionato
   WHERE g.id=$id 
-  ORDER BY ruolo,cognome,nome asc";
+  ORDER BY ruolo,cognome,nome asc;";
   $giocatore = mysqli_query($con,$query);
   $row = mysqli_fetch_assoc($giocatore);
-  
-  
-  $query_coppa = "
-  SELECT g.*, s.nome_societa,
-  (
-    SELECT COUNT(*)
-    FROM ammoniti a
-    JOIN partite p
-    ON a.id_partita = p.id
-    WHERE a.id_giocatore = g.id
-    AND p.id_stagione = 2
-    
-  ) AS numero_ammonizioni,
-  (
-    SELECT COUNT(*)
-    FROM rossi r
-    JOIN partite p
-    ON r.id_partita = p.id
-    WHERE r.id_giocatore = g.id
-    AND p.id_stagione = 2
-  ) AS numero_espulsioni,
-  (
-    SELECT COUNT(*)
-    FROM marcatori m
-    JOIN partite p
-    ON m.id_partita = p.id
-    WHERE m.id_giocatore = g.id
-    AND p.id_stagione = 2
-  ) AS numero_gol,
-  (
-    SELECT count(*) as convocazioni
-    FROM convocazioni c
-    INNER JOIN partite p on p.id=c.id_partita
-    WHERE c.id_giocatore=g.id
-    AND p.id_stagione = 2
-  ) as convocazioni
-  
-  FROM giocatori g
-  INNER JOIN societa s on s.id=id_squadra 
-  WHERE g.id=$id 
-  ORDER BY ruolo,cognome,nome asc";
-  $giocatore_coppa = mysqli_query($con,$query_coppa);
-  $row_coppa = mysqli_fetch_assoc($giocatore_coppa);
-
 ?>
 
 
@@ -127,11 +83,14 @@
         <!-- Visualizzazione a card -->
         <div class="row  ">
 
-
           <div class="col-12 col-lg-4  ">
             <div class="row gy-3">
               <div class="col-12">
-                <img src="image/player/<?php echo $row['image_path']; ?>" class="rounded img-fluid " alt="..." width="500" height="500"/>
+                <?php if ($row['image_path']) { ?>
+                  <img src="image/player/<?php echo $row['image_path'];?>" class="rounded-circle img-fluid p-3" alt="<?php echo $row['cognome'].' '.$row['nome'];?>" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>" width="400" height="400"/>
+                <?php } else { ?>
+                  <img src="image/default_user.jpg" class="rounded-circle img-fluid p-3" alt="Immagine di default" data-player-name="<?php echo $row['player_name'];?>" width="400" height="400" />
+                <?php } ?>
               </div>
             </div>
           </div>
@@ -181,7 +140,7 @@
               </div>
               
               <div class="col-12 table-responsive mt-5">
-                <h4>Serie D</h4>
+                <h4><?php echo $row['competizione']  ?></h4>
                 <!-- Tabella: risultati della stagione -->
                 <table class="table table-sm table-hover table-striped table-rounded">
                   <thead class="table-dark">
@@ -234,68 +193,7 @@
                 </table>
               </div> 
               
-              <div class="col-12 table-responsive mt-5">
-                <h4>Coppa marche</h4>
-                <!-- Tabella: risultati della coppa marche -->
-                <table class="table table-sm table-hover table-striped table-rounded">
-                  <thead class="table-dark">
-                    <tr>
-                      <th class="text-center">
-                        <i class='bx bxs-t-shirt align-middle'></i>
-                      </th>
-                      <th class="text-center">
-                        <i class='bx bx-football align-middle'></i>
-                      </th>
-                      <th class="text-center">
-                        <i class='bx bxs-card align-middle' style='color:#ffb900'  ></i>
-                      </th>
-                      <th class="text-center">
-                        <i class='bx bxs-card align-middle' style='color:#FF0000'  ></i>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <!-- Convocazioni -->
-                    <td class="text-center">
-                      <?php if($row_coppa['convocazioni']==='0'){
-                        echo '-';
-                      }else{
-                        echo $row_coppa['convocazioni'] ;
-                      } ?>
-                      
-                    </td>
 
-                    <!-- Numero gol -->
-                    <td class="text-center">
-                      <?php if($row_coppa['numero_gol']==='0'){
-                        echo '-';
-                      }else{
-                        echo $row_coppa['numero_gol'] ;
-                      } ?>
-                      
-                    </td>
-
-                    <!-- Numero ammonizioni -->
-                    <td class="text-center">
-                      <?php if($row_coppa['numero_ammonizioni']==='0'){
-                        echo '-';
-                      }else{
-                        echo $row_coppa['numero_ammonizioni'] ;
-                      } ?>
-                      
-                    </td>
-
-                    <!-- Numero espulsioni -->
-                    <td class="text-center">
-                      <?php if($row_coppa['numero_espulsioni']==='0'){
-                        echo '-';
-                      }else{
-                        echo $row_coppa['numero_espulsioni'] ;
-                      } ?>
-                    </td>
-                  </tbody>
-                </table>
-              </div>  
               
             </div>
           </div>

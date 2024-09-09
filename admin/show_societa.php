@@ -123,9 +123,9 @@
                           <div class="row gy-2">
 
                             <!-- Nome società  -->
-                            <span class="fs-6 fw-bold">
+                            <h4>
                               <?php echo $info['nome_societa'] ?>
-                            </span>
+                            </h4>
 
                             <!-- Elenco società  -->
                             <span class="text-muted">
