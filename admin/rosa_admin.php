@@ -44,6 +44,8 @@ gol AS (
 allenamenti AS (
   SELECT pa.id_giocatore, COUNT(*) AS count
   FROM partecipazione_allenamenti pa
+  JOIN allenamenti a ON pa.id_allenamento = a.id
+  WHERE a.id_societa = '$id_societa'
   GROUP BY pa.id_giocatore
 ),
 convocazioni AS (
@@ -150,10 +152,12 @@ ORDER BY ruolo, cognome, nome ASC;
   $numero_giocatori = mysqli_fetch_assoc($result);
 
   $query3 = "
-  SELECT count(*) as tot_allenamenti
+  SELECT COUNT(*) as tot_allenamenti
   FROM allenamenti a
   WHERE a.stato='Svolto'
+  AND a.id_societa = '$id_societa'
   ";
+  
   $allenamenti = mysqli_query($con,$query3);
   $tot_allenamenti_svolti = mysqli_fetch_assoc($allenamenti);
 
@@ -211,16 +215,16 @@ ORDER BY ruolo, cognome, nome ASC;
                       <div class="tpl-header--title">
                         <h4>
                           Rosa
-                        <h4>
+                        </h4>
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
                           <?php if($_SESSION['superuser'] === 1 ){ ?>
-                          <a href="insert_player.php" type="button" class="btn btn-outline-dark">
+                          <a href="insert_player.php" type="button" class="btn btn-sm btn-outline-dark">
                             <i class='bx bx-plus'></i> 
                           </a>
                           <?php } ?>
                           
-                          <button onclick="window.location.href='rose_campionati.php'" type="button" class="btn btn-outline-dark me-2">
+                          <button onclick="window.location.href='rose_campionati.php'" type="button" class="btn btn-sm btn-outline-dark me-2">
                             Rose campionati
                           </button>
 
@@ -235,7 +239,7 @@ ORDER BY ruolo, cognome, nome ASC;
                         <div class="col-12">
                           <?php while($row = mysqli_fetch_assoc($societa_collegate)) { ?>
                             <a class="text-decoration-none text-white" href="rosa_admin.php?id_societa=<?php echo $row['id'] ?>">
-                              <span class="badge bg-secondary" style="font-size:12px;padding:8px">
+                              <span class="badge bg-secondary" style="font-size:10px;padding:6px">
                                 <?php echo $row['tipo'] ?>
                               </span>  
                             </a>
@@ -279,7 +283,7 @@ ORDER BY ruolo, cognome, nome ASC;
                                   <?php } ?>
                                 </td>
                                 <!-- Nome e Cognome -->
-                                <td>
+                                <td class="fw-semibold">
                                   <?php echo $row['nome'] . " " . $row['cognome']; ?>
                                 </td>
 
@@ -341,7 +345,7 @@ ORDER BY ruolo, cognome, nome ASC;
                                 <td class="text-center"><?php echo $row['numero_espulsioni']; ?></td>
                                 <?php if($_SESSION['superuser'] === 1 ){ ?>
                                 <td class="text-center">
-                                  <a class="btn btn-outline-dark btn-sm" href="edit_player.php?id=<?php echo $row['id'] ?>">
+                                  <a class="text-decoration-none text-dark" href="edit_player.php?id=<?php echo $row['id'] ?>">
                                     <i class='bx bx-pencil'></i>
                                   </a>
                                 </td>

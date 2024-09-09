@@ -54,10 +54,10 @@
                       <div class="tpl-header--title">
                         <h4>
                           <?php echo $row['nome_societa']?>
-                        <h4>
+                        </h4>
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
-                          <a href="edit_societa.php?id=<?php echo $row['id']; ?>" type="button" class="btn btn-outline-dark float-end ">
+                          <a href="edit_societa.php?id=<?php echo $row['id']; ?>" type="button" class="btn btn-sm btn-outline-dark float-end ">
                             <i class='bx bx-pencil'></i>
                           </a>
                         </div>

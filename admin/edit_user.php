@@ -53,7 +53,7 @@
                 <div class="col-12">
                   <div class="container-fluid">
                     <div class="tpl-header">
-                      <h4>Modifica user<h4>
+                      <h4>Modifica user</h4>
                     </div>
 
                     <!-- Core della pagina -->
@@ -129,7 +129,7 @@
                                 </div>
                               </div>
                             </div>
-                            <button type="submit" class="btn btn-outline-dark float-end mt-3">Conferma</button>
+                            <button type="submit" class="btn btn-sm btn-outline-dark float-end mt-3">Conferma</button>
                           </form>
                         </div>
                       </div>

@@ -41,7 +41,7 @@ $user_id = $_SESSION['user_id'];
                       <div class="tpl-header--title">
                         <h4>
                           Impostazioni
-                        <h4>
+                        </h4>
                       </div>
                     </div>
                     <!-- END:Intestazione -->
@@ -50,19 +50,19 @@ $user_id = $_SESSION['user_id'];
                     <div class="">
                       <div class="row gy-3 mb-3">
                         <div class="col-12">
-                          <a class="btn btn-outline-dark" href="gestore_registrazioni.php" style="width:200px">
+                          <a class="btn btn-sm btn-outline-dark" href="gestore_registrazioni.php" style="width:200px">
                             Gestione registrazioni
                           </a>
                         </div>
 
                         <div class="col-12">
-                          <a class="btn btn-outline-dark" href="show_societa.php?id=<?php echo $id_societa ?>" style="width:200px">
+                          <a class="btn btn-sm btn-outline-dark" href="show_societa.php?id=<?php echo $id_societa ?>" style="width:200px">
                             Scheda info squadra
                           </a>
                         </div>
 
                         <div class="col-12">
-                          <a class="btn btn-outline-dark" href="user.php?id=<?php echo $user_id ?>" style="width:200px">
+                          <a class="btn btn-sm btn-outline-dark" href="user.php?id=<?php echo $user_id ?>" style="width:200px">
                             Scheda info utente
                           </a>
                         </div>

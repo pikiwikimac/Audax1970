@@ -118,9 +118,9 @@
       
       <!-- Descrizione iniziale -->
       <div class="container my-5 px-4">
-        <h1 id="font-diverso">
+        <h4 id="font-diverso">
           <?php echo $row['nome']. ' ' . $row['cognome'] ?>          
-        <h4>
+        </h4>
 
 
         <hr/>

@@ -63,7 +63,7 @@
                       <div class="tpl-header--title">
                         <h4>
                           Nuovo giocatore  
-                        <h4>
+                        </h4>
 
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">	
@@ -75,7 +75,7 @@
                             }
                           ?>
 
-                          <a type="button" href="<?php echo $redirectUrl; ?>" class="btn btn-outline-dark float-end">
+                          <a type="button" href="<?php echo $redirectUrl; ?>" class="btn btn-sm btn-outline-dark float-end">
                             <i class='bx bx-arrow-back'></i>
                           </a>
                         </div>
@@ -96,7 +96,7 @@
                           <div class="col-12 col-lg-8">
                             <div class="card">
                               <div class="card-body">
-                                <h4>Info di base<h4>
+                                <h4>Info di base</h4>
                                 
                                 <div class="row my-3 g-3">
                                   <!-- Nome -->
@@ -172,7 +172,7 @@
                           <div class="col-12 col-lg-4">
                             <div class="card">
                               <div class="card-body">
-                                <h4>Altre info<h4>
+                                <h4>Altre info</h4>
 
                                 <div class="row my-3 g-3">
                                   <!-- Piede -->
@@ -220,7 +220,7 @@
                           <div class="col-12">
                             <div class="card">
                               <div class="card-body">
-                                <h4>Info contrattuali<h4>
+                                <h4>Info contrattuali</h4>
 
                                   <div class="row my-3 g-3">
                                     <!-- Visita medica -->
@@ -279,7 +279,7 @@
                           
                           <!-- Submit -->
                           <div class="d-flex justify-content-end">
-                            <button type="submit" class="btn btn-outline-dark mt-2">Conferma</button>
+                            <button type="submit" class="btn btn-sm btn-outline-dark mt-2">Conferma</button>
                           </div>
                           
                         </div>

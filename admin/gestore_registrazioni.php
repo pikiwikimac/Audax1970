@@ -58,7 +58,7 @@
                       <div class="tpl-header--title">
                         <h4>
                           Lista utenti in attesa di approvazione
-                        <h4>
+                        </h4>
                       </div>
                     </div>
                     <!-- END:Intestazione -->

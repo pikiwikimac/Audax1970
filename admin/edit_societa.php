@@ -67,10 +67,10 @@
                       <div class="tpl-header--title">
                         <h4>
                           <?php echo $row['nome_societa'] ?> 
-                        <h4>
+                        </h4>
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
-                          <a type="button" href="societa.php" class="btn btn-outline-dark float-end" >
+                          <a type="button" href="societa.php" class="btn btn-sm btn-outline-dark float-end" >
                             <i class='bx bx-arrow-back '></i>
                           </a>
                         </div>
@@ -94,9 +94,9 @@
                           <form action="../query/upload_image_team.php" method="post" enctype="multipart/form-data" class="mt-3">
                             
                             <label for="formFile" class="form-label">Logo</label>
-                            <input class="form-control form-control-md" type="file" id="formFile" name="playerImage">
+                            <input class="form-control form-control-sm form-control form-control-sm-md" type="file" id="formFile" name="playerImage">
                             <input type="hidden"  id="id" name="id" value="<?php echo $id?>" />
-                            <input type="submit" value="Carica" class="btn btn-outline-dark float-end mt-3" name="submit">
+                            <input type="submit" value="Carica" class="btn btn-sm btn-outline-dark float-end mt-3" name="submit">
                             
                           </form>
                           
@@ -112,13 +112,13 @@
                                   <!-- Nome societa -->
                                   <div class="col-12 col-lg-3">
                                     <label for="sede" class="form-label">Società</label>
-                                    <input type="text" class="form-control" id="nome_societa" name="nome_societa" value="<?php echo $row['nome_societa'];?>" required/>
+                                    <input type="text" class="form-control form-control-sm" id="nome_societa" name="nome_societa" value="<?php echo $row['nome_societa'];?>" required/>
                                   </div>
 
                                   <!-- Tipo -->
                                   <div class="col-6 col-lg-2">
                                     <label for="tipo" class="form-label">Tipo</label>
-                                    <select class="form-select" id="tipo" name="tipo" onchange="toggleParentSelect()">
+                                    <select class="form-select form-select-sm" id="tipo" name="tipo" onchange="toggleParentSelect()">
                                       <option value="Prima squadra" <?php if ($row['tipo']==='Prima squadra') { ?>selected="selected"<?php } ?>>Prima squadra</option>
                                       <option value="Seconda squadra" <?php if ($row['tipo']==='Seconda squadra') { ?>selected="selected"<?php } ?>>Seconda squadra</option>
                                       <option value="Under 21" <?php if ($row['tipo']==='Under 21') { ?>selected="selected"<?php } ?>>Under 21</option>
@@ -130,13 +130,13 @@
                                   </div>
                                   
                                   <!-- Campo da gioco -->
-                                  <div class="col-12 col-lg-3">
+                                  <div class="col-12 col-lg-5">
                                     <label for="sede" class="form-label">Campo da gioco</label>
                                     <div class="input-group">
                                       <span class="input-group-text" id="basic-addon1">
                                         <i class='bx bxs-map-pin' ></i>
                                       </span>
-                                      <input type="text" class="form-control" id="sede" name="sede" value="<?php echo $row['sede'];?>" />
+                                      <input type="text" class="form-control form-control-sm" id="sede" name="sede" value="<?php echo $row['sede'];?>" />
                                     </div>
                                   </div>
                                   
@@ -147,14 +147,14 @@
                                       <span class="input-group-text" id="basic-addon1">
                                         <i class='bx bx-map' ></i>
                                       </span>
-                                      <input type="text" class="form-control" id="citta" name="citta" value="<?php echo $row['citta'];?>"  />
+                                      <input type="text" class="form-control form-control-sm" id="citta" name="citta" value="<?php echo $row['citta'];?>"  />
                                     </div>
                                   </div>
 
                                   <!-- Giorno match -->
                                   <div class="col-6 col-lg-2">
                                     <label for="giorno_settimana" class="form-label">Giorno match</label>
-                                    <select class="form-select" id="giorno_settimana" name="giorno_settimana" >
+                                    <select class="form-select form-select-sm" id="giorno_settimana" name="giorno_settimana" >
                                       <option value="Lunedi" <?php if ($row['giorno_settimana']==='Lunedi') { ?>selected="selected"<?php } ?>>Lunedì</option>
                                       <option value="Martedi" <?php if ($row['giorno_settimana']==='Martedi') { ?>selected="selected"<?php } ?>>Martedì</option>
                                       <option value="Mercoledi" <?php if ($row['giorno_settimana']==='Mercoledi') { ?>selected="selected"<?php } ?>>Mercoledì</option>
@@ -173,47 +173,28 @@
                                       <span class="input-group-text" id="basic-addon1">
                                         <i class='bx bx-time-five' ></i>
                                       </span>
-                                      <input type="time" class="form-control" id="ora_match" name="ora_match" value="<?php echo $row['ora_match'];?>" />
+                                      <input type="time" class="form-control form-control-sm" id="ora_match" name="ora_match" value="<?php echo $row['ora_match'];?>" />
                                     </div>
                                   </div>
 
                                   <!-- Presidente -->
-                                  <div class="col-12 col-lg-2 ">
+                                  <div class="col-12 col-lg-2">
                                     <label for="citta" class="form-label">Presidente</label>
-                                    <input type="text" class="form-control" id="presidente" name="presidente" value="<?php echo $row['presidente'];?>"  />
+                                    <input type="text" class="form-control form-control-sm" id="presidente" name="presidente" value="<?php echo $row['presidente'];?>"  />
                                   </div>
 
                                   <!-- Vicepresidente -->
                                   <div class="col-12 col-lg-2">
                                     <label for="vicepresidente" class="form-label">Vicepresidente</label>
-                                    <input type="text" class="form-control" id="vicepresidente" name="vicepresidente" value="<?php echo $row['vicepresidente'];?>"></input>
+                                    <input type="text" class="form-control form-control-sm" id="vicepresidente" name="vicepresidente" value="<?php echo $row['vicepresidente'];?>"></input>
                                   </div>
 
-                                  <!-- Sede legale -->
-                                  <div class="col-12 col-lg-3">
-                                    <label for="sede_legale" class="form-label">Sede legale</label>
-                                    <div class="input-group">
-                                      <span class="input-group-text" id="basic-addon1">
-                                        <i class='bx bx-building-house' ></i>
-                                      </span>
-                                      <input type="text" class="form-control" id="sede_legale" name="sede_legale" value="<?php echo $row['sede_legale'];?>"></input>
-                                    </div>
+                                  <!-- Allenatore -->
+                                  <div class="col-12 col-lg-2">
+                                    <label for="allenatore" class="form-label">Allenatore</label>
+                                    <input type="text" class="form-control form-control-sm" id="allenatore" name="allenatore" value="<?php echo $row['allenatore'];?>"></input>
                                   </div>
 
-
-                                  <!-- Campionato attuale -->
-                                  <div class="col-12 col-lg-3">
-                                    <label for="campionato" class="form-label">Campionato attuale</label>
-                                    <select class="form-select" id="campionato" name="campionato" >
-                                      <?php while($stagione = mysqli_fetch_assoc($stagioni)){ ?>
-                                        <option value="<?php echo $stagione['id_stagione'] ?>" <?php if ($stagione['id_stagione']===$row['id_campionato']) { ?>selected="selected"<?php } ?>>
-                                          <?php echo $stagione['descrizione'] .' Girone ' . $stagione['girone'] .' - ' . $stagione['anno_inizio'].'/' .$stagione['anno_fine']   ?>
-                                        </option>
-                                      <?php } ?>
-                                    </select>
-                                  </div>
-
-                                
                                   <!-- Contatto -->
                                   <div class="col-12 col-lg-2">
                                     <label for="contatto_riferimento" class="form-label">Contatto</label>
@@ -221,9 +202,45 @@
                                       <span class="input-group-text" id="basic-addon1">
                                         <i class='bx bxs-user-circle'></i>
                                       </span>
-                                      <input type="text" class="form-control" id="contatto_riferimento" name="contatto_riferimento" value="<?php echo $row['contatto_riferimento'];?>"  />
+                                      <input type="text" class="form-control form-control-sm" id="contatto_riferimento" name="contatto_riferimento" value="<?php echo $row['contatto_riferimento'];?>"  />
                                     </div>
                                   </div>
+
+                                  <!-- Sede legale -->
+                                  <div class="col-12 col-lg-4">
+                                    <label for="sede_legale" class="form-label">Sede legale</label>
+                                    <div class="input-group">
+                                      <span class="input-group-text" id="basic-addon1">
+                                        <i class='bx bx-building-house' ></i>
+                                      </span>
+                                      <input type="text" class="form-control form-control-sm" id="sede_legale" name="sede_legale" value="<?php echo $row['sede_legale'];?>"></input>
+                                    </div>
+                                  </div>
+
+
+                                  <!-- Campionato attuale -->
+                                  <div class="col-12 col-lg-4">
+                                    <label for="campionato" class="form-label">Campionato attuale</label>
+                                    <select class="form-select form-select-sm" id="campionato" name="campionato" >
+                                      <?php while($stagione = mysqli_fetch_assoc($stagioni)){ ?>
+                                        <option value="<?php echo $stagione['id_stagione'] ?>" <?php if ($stagione['id_stagione']===$row['id_campionato']) { ?>selected="selected"<?php } ?>>
+                                          <?php echo $stagione['descrizione'] .' Girone ' . $stagione['girone'] .' - ' . $stagione['anno_inizio'].'/' .$stagione['anno_fine']   ?>
+                                        </option>
+                                      <?php } ?>
+                                    </select>
+                                  </div>
+                                  
+                                  <!-- Email -->
+                                  <div class="col-12 col-lg-4">
+                                    <label for="email" class="form-label">Email</label>
+                                    <div class="input-group">
+                                      <span class="input-group-text" id="basic-addon1">
+                                        <i class="bx bx-at"></i>
+                                      </span>
+                                      <input type="email" class="form-control form-control-sm" id="email" name="email" value="<?php echo $row['email'];?>"></input>
+                                    </div>
+                                  </div>
+                                  
 
                                   <!-- Telefono -->
                                   <div class="col-12 col-lg-2">
@@ -232,21 +249,12 @@
                                       <span class="input-group-text" id="basic-addon1">
                                         <i class='bx bx-phone' ></i>
                                       </span>
-                                      <input type="text" class="form-control" id="telefono" name="telefono" value="<?php echo $row['telefono'];?>"></input>
+                                      <input type="text" class="form-control form-control-sm" id="telefono" name="telefono" value="<?php echo $row['telefono'];?>"></input>
                                       
                                     </div>
                                   </div>
 
-                                  <!-- Email -->
-                                  <div class="col-12 col-lg-2">
-                                    <label for="email" class="form-label">Email</label>
-                                    <div class="input-group">
-                                      <span class="input-group-text" id="basic-addon1">
-                                        @
-                                      </span>
-                                      <input type="email" class="form-control" id="email" name="email" value="<?php echo $row['email'];?>"></input>
-                                    </div>
-                                  </div>
+                                  
 
                                   <!-- Whatsapp -->
                                   <div class="col-6 col-lg-2">
@@ -255,7 +263,7 @@
                                       <span class="input-group-text" id="basic-addon1">
                                         <i class='bx bxl-whatsapp' ></i>
                                       </span>
-                                      <input type="text" class="form-control" id="whatsapp" name="whatsapp" value="<?php echo $row['whatsapp'];?>"></input>
+                                      <input type="text" class="form-control form-control-sm" id="whatsapp" name="whatsapp" value="<?php echo $row['whatsapp'];?>"></input>
                                     </div>
                                   </div>
 
@@ -266,24 +274,24 @@
                                       <span class="input-group-text" id="basic-addon1">
                                         <i class='bx bxl-instagram' ></i>
                                       </span>
-                                      <input type="text" class="form-control" id="instagram" name="instagram" value="<?php echo $row['instagram'];?>"></input>
+                                      <input type="text" class="form-control form-control-sm" id="instagram" name="instagram" value="<?php echo $row['instagram'];?>"></input>
                                     </div>
                                   </div>
 
                                   <!-- Sito web -->
-                                  <div class="col-12 col-lg-2">
+                                  <div class="col-12 col-lg-4">
                                     <label for="sito_web" class="form-label">Sito web</label>
                                     <div class="input-group">
                                       <span class="input-group-text" id="basic-addon1">
                                         <i class='bx bx-link' ></i>
                                       </span>
-                                      <input type="text" class="form-control" id="sito_web" name="sito_web" value="<?php echo $row['sito_web'];?>"></input>
+                                      <input type="text" class="form-control form-control-sm" id="sito_web" name="sito_web" value="<?php echo $row['sito_web'];?>"></input>
                                     </div>
                                   </div>
                                   <!-- Squadra principale -->
-                                  <div class="col-6 col-lg-2 mt-5" id="parentSelectContainer" >
+                                  <div class="col-6 col-lg-2 " id="parentSelectContainer" >
                                     <label for="parent_id" class="form-label">Squadra principale</label>
-                                    <select class="form-select" id="parent_id" name="parent_id" >
+                                    <select class="form-select form-select-sm" id="parent_id" name="parent_id" >
                                       <?php while ($squadra = mysqli_fetch_assoc($squadre)) { ?>
                                         <option value="<?php echo $squadra['id']; ?>" <?php if ($squadra['id']=== $row['id']) { ?>selected="selected"<?php } ?>><?php echo $squadra['nome_societa']; ?></option>
                                       <?php } ?>
@@ -299,7 +307,7 @@
                             
                             <!-- Submit -->
                             <div class="d-flex justify-content-end mt-3">
-                              <button type="submit" class="btn btn-outline-dark">Conferma</button>
+                              <button type="submit" class="btn btn-sm btn-outline-dark">Conferma</button>
                             </div>
                                     
                           </form>

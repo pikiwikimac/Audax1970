@@ -53,12 +53,12 @@
                       <div class="tpl-header--title">
                         <h4>
                           Società
-                        <h4>
+                        </h4>
                         <div class="cta-wrapper">	
-                          <a href="societa.php" type="button" class="btn btn-outline-dark ms-2">
+                          <a href="societa.php" type="button" class="btn btn-sm btn-outline-dark ms-2">
                             Prime squadre
                           </a>
-                          <a href="insert_societa.php" type="button" class="btn btn-outline-dark ms-2">
+                          <a href="insert_societa.php" type="button" class="btn btn-sm btn-outline-dark ms-2">
                             <i class='bx bx-plus '></i>
                           </a>
                         </div>

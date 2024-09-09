@@ -45,7 +45,7 @@
                       <div class="tpl-header--title">
                         <h4>
                           Scheda utente
-                        <h4>
+                        </h4>
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
                          
@@ -115,28 +115,28 @@
                           <div class="row gy-3 ">
                             <!-- Bottone gestione registrazioni -->
                             <div class="col-12">
-                              <a class="btn btn-outline-dark" href="gestore_registrazioni.php" style="width:250px">
+                              <a class="btn btn-sm btn-outline-dark" href="gestore_registrazioni.php" style="width:250px">
                                 <i class='bx bx-user-plus'></i> &nbsp; Gestione registrazioni
                               </a>
                             </div>
 
                             <!-- Bottone -->
                             <div class="col-12">
-                              <a class="btn btn-outline-dark" href="show_societa.php?id=<?php echo $id_societa ?>" style="width:250px">
+                              <a class="btn btn-sm btn-outline-dark" href="show_societa.php?id=<?php echo $id_societa ?>" style="width:250px">
                                 <i class='bx bxs-building-house'></i> &nbsp; Modifica info squadra
                               </a>
                             </div>
 
                             <!-- Bottone -->
                             <div class="col-12">
-                              <a href="edit_user.php?id=<?php echo $user['id'] ?>" type="button" class="btn btn-outline-dark " style="width:250px">
+                              <a href="edit_user.php?id=<?php echo $user['id'] ?>" type="button" class="btn btn-sm btn-outline-dark " style="width:250px">
                                 <i class='bx bx-pencil '></i> &nbsp; Modifica utente
                               </a>
                             </div>
 
                             <!-- Bottone  -->
                             <div class="col-12">
-                              <a href="../login/change_password.php?id=<?php echo $user['id'] ?>" type="button" class="btn btn-outline-dark " style="width:250px">
+                              <a href="../login/change_password.php?id=<?php echo $user['id'] ?>" type="button" class="btn btn-sm btn-outline-dark " style="width:250px">
                                 <i class='bx bxs-lock' ></i> &nbsp; Modifica password
                               </a>
                             </div>

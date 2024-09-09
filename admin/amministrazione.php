@@ -98,7 +98,7 @@
                                                 <a class="text-decoration-none float-end text-dark " data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Le transazioni non possono essere modificate, in caso di errore, eliminare e reinserire.">
                                                     <i class='bx bx-info-circle'></i>
                                                 </a>
-                                            <h4>
+                                            </h4>
                                         </div>
                                     </div>
                                     <!-- END: Intestazione -->
@@ -121,7 +121,7 @@
                                                             </div>
 
                                                             <div class="col-12 mt-3">
-                                                                <a type="button" href="" class="btn  btn-outline-dark" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAggiungiEntrata" aria-controls="offcanvasAggiungiEntrata">
+                                                                <a type="button" href="" class="btn btn-sm btn-outline-dark" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAggiungiEntrata" aria-controls="offcanvasAggiungiEntrata">
                                                                     Aggiungi entrata
                                                                 </a>
                                                             </div>
@@ -146,7 +146,7 @@
                                                             </div>
 
                                                             <div class="col-12 mt-3">
-                                                                <a type="button" href="" class="btn btn-outline-dark" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAggiungiSpesa" aria-controls="offcanvasAggiungiSpesa">
+                                                                <a type="button" href="" class="btn btn-sm btn-outline-dark" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAggiungiSpesa" aria-controls="offcanvasAggiungiSpesa">
                                                                     Aggiungi spesa
                                                                 </a>
                                                             </div>
@@ -191,7 +191,7 @@
                                         <div class="row mt-5 gy-3">
                                             <div class="col-12 col-lg-6">
                                                 <?php if($lista_entrate ->num_rows > 0){ ?>
-                                                    <h4>Registro entrate<h4>
+                                                    <h4>Registro entrate</h4>
                                                     <hr>
 
                                                     <div class="table-responsive">
@@ -241,7 +241,7 @@
 
                                             <div class="col-12 col-lg-6">
                                                 <?php if($lista_uscite ->num_rows > 0){ ?>
-                                                    <h4>Registro uscite<h4>
+                                                    <h4>Registro uscite</h4>
                                                     <hr>
 
                                                     <div class="table-responsive">
@@ -371,7 +371,7 @@
                         </select>
                     </div>
 
-                    <button type="submit" class="btn btn-outline-dark mt-3">Aggiungi</button>
+                    <button type="submit" class="btn btn-sm btn-outline-dark mt-3">Aggiungi</button>
                 </form>
             </div>
 
@@ -434,7 +434,7 @@
                         </select>
                     </div>
 
-                    <button type="submit" class="btn btn-outline-dark mt-3">Aggiungi</button>
+                    <button type="submit" class="btn btn-sm btn-outline-dark mt-3">Aggiungi</button>
                 </form>
 
             </div>

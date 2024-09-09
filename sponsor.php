@@ -36,30 +36,60 @@
       <hr/>
 
       <div class="row gy-3">
-        <!-- Geom. Tiziano Tarsi -->
+        
+        <!-- Fiorini -->
         <div class="col-12 text-center col-sm-6 ">
-          <div class="flip-card mx-auto " >
+          <div class="flip-card mx-auto ">
             <div class="flip-card-inner">
               <!-- Fronte : Immagine -->
               <div class="flip-card-front">
-                <img src="image/sponsor/geom_tarsi.png" alt="" width="300" height="300" class="img-fluid p-2 ">
+                <img src="image/sponsor/fiorini.png" alt="" width="300" height="300" class="img-fluid p-2 ">
               </div>
               <!-- Retro -->
               <div class="flip-card-back">
                 <!-- Nome azienda -->
-                <p class="title">Geom. Tiziano Tarsi</p>
+                <p class="title">Fiorini</p>
                 <!-- Sede azienda -->
                 <p class="location">
                   <i class='bx bxs-map'></i> 
-                  Viale P. Bonòpera, 2 - Senigallia
+                  Via Giambattista Fiorini,25 - 60019 Senigallia (AN)
                 </p>
-                <!-- Link a sito web 
-                <a href="https://www.allservicetrasporti.com/" class="text-decoration-none text-dark "><i class='bx bx-globe align-middle'></i> Sito web</a>
-                -->
+                <!-- Link a sito web -->
+                <p class="sito_web">
+                  <a href="https://www.fiorini.biz" class="text-decoration-none text-dark "><i class='bx bx-globe align-middle'></i> Sito web</a>
+                </p>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- Francesconi costruzioni -->
+        <div class="col-12 text-center col-sm-6 ">
+          <div class="flip-card mx-auto ">
+            <div class="flip-card-inner">
+              <!-- Fronte : Immagine -->
+              <div class="flip-card-front">
+                <img src="image/sponsor/francesconi.jpg" alt="" width="300" height="300" class="img-fluid p-2 ">
+              </div>
+              <!-- Retro -->
+              <div class="flip-card-back">
+                <!-- Nome azienda -->
+                <p class="title">Francesconi costruzioni</p>
+                <!-- Sede azienda -->
+                <p class="location">
+                  <i class='bx bxs-map'></i> 
+                  Via del Buzzo, 4, 61037 Mondolfo PU
+                </p>
+                <!-- Link a sito web -->
+                <p class="sito_web">
+                  <a href="https://www.francesconicostruzioni.it/" class="text-decoration-none text-dark "><i class='bx bx-globe align-middle'></i> Sito web</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+          
         
         <!-- Si con te -->
         <div class="col-12 text-center col-sm-6 ">
@@ -86,6 +116,32 @@
             </div>
           </div>
         </div>
+
+        <!-- Geom. Tiziano Tarsi -->
+        <div class="col-12 text-center col-sm-6 ">
+          <div class="flip-card mx-auto " >
+            <div class="flip-card-inner">
+              <!-- Fronte : Immagine -->
+              <div class="flip-card-front">
+                <img src="image/sponsor/geom_tarsi.png" alt="" width="300" height="300" class="img-fluid p-2 ">
+              </div>
+              <!-- Retro -->
+              <div class="flip-card-back">
+                <!-- Nome azienda -->
+                <p class="title">Geom. Tiziano Tarsi</p>
+                <!-- Sede azienda -->
+                <p class="location">
+                  <i class='bx bxs-map'></i> 
+                  Viale P. Bonòpera, 2 - Senigallia
+                </p>
+                <!-- Link a sito web 
+                <a href="https://www.allservicetrasporti.com/" class="text-decoration-none text-dark "><i class='bx bx-globe align-middle'></i> Sito web</a>
+                -->
+              </div>
+            </div>
+          </div>
+        </div>
+        
 
         <!-- La collina sul lago -->
         <div class="col-12 text-center col-sm-6 ">
@@ -139,33 +195,7 @@
           </div>
         </div>
 
-        <!-- Francesconi costruzioni -->
-        <div class="col-12 text-center col-sm-6 ">
-            <div class="flip-card mx-auto ">
-              <div class="flip-card-inner">
-                <!-- Fronte : Immagine -->
-                <div class="flip-card-front">
-                  <img src="image/sponsor/francesconi.jpg" alt="" width="300" height="300" class="img-fluid p-2 ">
-                </div>
-                <!-- Retro -->
-                <div class="flip-card-back">
-                  <!-- Nome azienda -->
-                  <p class="title">Francesconi costruzioni</p>
-                  <!-- Sede azienda -->
-                  <p class="location">
-                    <i class='bx bxs-map'></i> 
-                    Via del Buzzo, 4, 61037 Mondolfo PU
-                  </p>
-                  <!-- Link a sito web -->
-                  <p class="sito_web">
-                    <a href="https://www.francesconicostruzioni.it/" class="text-decoration-none text-dark "><i class='bx bx-globe align-middle'></i> Sito web</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          
 
           <!-- TMS -->
           <div class="col-12 text-center col-sm-6 ">

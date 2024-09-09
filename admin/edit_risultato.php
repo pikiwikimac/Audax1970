@@ -120,7 +120,7 @@
                         <h4>Giornata <?php echo $partita['giornata'] ?> </h4>
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
-                          <button type="button" class="btn btn-outline-dark float-end me-2"  onclick="window.location.href='edit_risultato_massivo.php?id=<?php echo $partita["id"]; ?>'">
+                          <button type="button" class="btn btn-sm btn-outline-dark float-end me-2"  onclick="window.location.href='edit_risultato_massivo.php?id=<?php echo $partita["id"]; ?>'">
                             Massiva
                           </button>
                         </div>

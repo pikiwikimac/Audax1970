@@ -58,10 +58,10 @@
                 <div class="tpl-header--title">
                   <h4>
                     Indisponibili
-                  <h4>
+                  </h4>
                   <!-- Bottoni a destra -->
                   <div class="cta-wrapper">
-                    <a type="button" class="btn btn-outline-dark float-end"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModal">
+                    <a type="button" class="btn btn-sm btn-outline-dark float-end"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModal">
                       <i class='bx bx-plus '></i> 
                     </a>
                   </div>
@@ -76,7 +76,7 @@
                 <?php if ($result->num_rows >0 ){ ?>
                   <div class="row">
                     <div class="col-12 table-responsive">
-                      <h4>Attuali<h4>
+                      <h4>Attuali</h4>
                       <table class="table  table-hover table-striped table-rounded">
                         <thead class="table-dark">
 
@@ -155,7 +155,7 @@
                 <?php if ($result_old->num_rows >0 ){ ?>
                   <div class="row mt-5">
                     <div class="col-12 table-responsive">
-                      <h4 id="toggleOldIndisponibili" style="cursor: pointer;" >Vecchie indisponibilità <span class="badge bg-danger float-end" ><?php echo $old_indisponibili_count; ?></span><h4>
+                      <h4 id="toggleOldIndisponibili" style="cursor: pointer;" >Vecchie indisponibilità <span class="badge bg-danger float-end" ><?php echo $old_indisponibili_count; ?></span></h4>
                       <table class="table  table-hover table-striped  table-rounded" id="oldIndisponibiliTable" >
                         <thead class="table-dark">
 
@@ -304,8 +304,8 @@
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-            <button type="button" class="btn btn-primary" onclick="submitEditForm()">Salva</button>
+            <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Annulla</button>
+            <button type="button" class="btn btn-sm btn-primary" onclick="submitEditForm()">Salva</button>
           </div>
         </div>
       </div>
@@ -371,8 +371,8 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-            <button type="button" class="btn btn-primary" onclick="submitInsertForm()">Inserisci</button>
+            <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Annulla</button>
+            <button type="button" class="btn btn-sm btn-primary" onclick="submitInsertForm()">Inserisci</button>
           </div>
         </div>
       </div>

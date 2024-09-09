@@ -223,7 +223,7 @@
                         <h4>
                           <?php echo $row['nome']. ' ' . $row['cognome'] ?>
                           
-                        <h4>
+                        </h4>
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
                           <?php if($row['capitano'] != 'Giocatore' ){ ?>
@@ -241,7 +241,7 @@
                               	
                           <!-- Edit button -->    
                           <?php if($_SESSION['superuser'] === 1 ){?>      
-                          <a type="button" href="edit_player.php?id=<?php echo $id; ?>" class="btn btn-outline-dark float-end" >
+                          <a type="button" href="edit_player.php?id=<?php echo $id; ?>" class="btn btn-sm btn-outline-dark float-end" >
                             <i class='bx bx-pencil'></i>
                           </a>                             
                           <?php } ?>                             

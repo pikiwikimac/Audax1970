@@ -46,7 +46,7 @@
   <body>
     <!-- Navbar -->
     <div class="mb-5" id="navbar-orange">
-      <?php include 'elements/navbar_orange.php'; ?>
+      <?php include 'elements/navbar_red.php'; ?>
     </div>
         
     <!-- Carousel di sfondo  -->
@@ -58,212 +58,261 @@
       <!-- Società -->
       <div class="row gy-3 ">
         <h1 id="font_diverso">
-          <?php echo $info['nome_societa'] ?>
-        <h4>
-        <hr id="separatore" />
+          <img src="image/loghi/<?php echo $info['logo'] ?>" class="img-fluid rounded-circle" width="80" height="80"/> &nbsp; <?php echo $info['nome_societa'] ?>
+        </h1>
 
         <!-- Info squadra -->
         <div class="row mb-3">
-          <div class="col-12 col-md-2">
-            <img src="image/loghi/<?php echo $info['logo'] ?>" class="img-thumbnail"/>
-          </div>
-          <div class="col-12 col-md-10">
-            <div class="row gy-2 mt-3">
-              <!-- Sede -->
-              <div class="col-12 col-md-12">
-                <div class="form-floating mb-3">
-                  <input type="text" readonly class="form-control-plaintext" id="floatingPlaintextInput" placeholder="<?php echo $info['sede']  ?>" value="<?php echo $info['sede']  ?>">
-                  <label for="floatingPlaintextInput">Sede:</label>
-                </div>
-              </div>
+          
+          <div class="col-12">
+            <!-- Sede e città  -->
+            <span class="text-muted" style="font-size:12px">
+              <i class='bx bxs-map-pin'></i> &nbsp;
+              <a href="https://www.google.com/maps/search/<?php echo urlencode($info['sede'] . ' ' . $info['citta']); ?>" class="text-decoration-none text-dark" target="_blank">
+                <?php echo $info['sede'] ?> - <?php echo $info['citta'] ?>
+              </a>
+            </span>
+            <br/>
 
-              <!-- Città -->
-              <div class="col-12 col-lg-4 ">
-                <div class="form-floating mb-3">
-                  <input type="text" readonly class="form-control-plaintext" id="floatingPlaintextInput" placeholder="<?php echo $info['citta']  ?>" value="<?php echo $info['citta']  ?>">
-                  <label for="floatingPlaintextInput" >Città:</label>
-                </div>
-              </div>
-              
-              <!-- Giorno settimana -->
-              <div class="col-12 col-lg-4">
-                <div class="form-floating mb-3">
-                  <input type="text" readonly class="form-control-plaintext" id="floatingPlaintextInput" placeholder="<?php echo $info['giorno_settimana']  ?>" value="<?php echo $info['giorno_settimana']  ?>">
-                  <label for="floatingPlaintextInput">Giorno settimana:</label>
-                </div>
-              </div>
-              
-              <!-- Orario match -->
-              <div class="col-12 col-lg-4">
-                <div class="form-floating mb-3">
-                  <input type="text" readonly class="form-control-plaintext" id="floatingPlaintextInput" placeholder="<?php echo $info['ora_match']  ?> " value="<?php echo $info['ora_match']  ?>"> 
-                  <label for="floatingPlaintextInput">Orario match:</label>
-                </div>
-              </div>
-              <!-- Presidente -->
-              <?php if($info['presidente'] != null){ ?>
-              <div class="col-4 ">
-                <div class="form-floating mb-3">
-                  <input type="text" readonly class="form-control-plaintext" id="floatingPlaintextInput" placeholder="<?php echo $info['presidente']  ?> " value="<?php echo $info['presidente']  ?>"> 
-                  <label for="floatingPlaintextInput">Presidente:</label>
-                </div>
-              </div>
-              <?php } ?>
-              <!-- VicePresidente -->
-              <?php if($info['vicepresidente'] != null){ ?>
-              <div class="col-4 ">
-                <div class="form-floating mb-3">
-                  <input type="text" readonly class="form-control-plaintext" id="floatingPlaintextInput" placeholder="<?php echo $info['vicepresidente']  ?> " value="<?php echo $info['vicepresidente']  ?>"> 
-                  <label for="floatingPlaintextInput">Vice Presidente:</label>
-                </div>
-              </div>
-              <?php } ?>
-            </div>
+            
+            <!-- Giorno e ora  -->
+            <span class="text-muted mt-0" style="font-size:12px">
+              <i class='bx bx-calendar' ></i> &nbsp; Giorno e ora partita: <?php echo $info['giorno_settimana']  ?> - <?php echo $info['ora_match']  ?>
+            </span>
+            
+            <br/>
+            <!-- Instagram -->
+            <?php if($info['instagram'] != null){ ?>
+              <span class="text-muted mt-0" style="font-size:12px">
+                <i class='bx bxl-instagram'></i> &nbsp; 
+                Instagram :&nbsp;<a href="https://www.instagram.com/<?php echo $info['instagram']; ?>" class="text-decoration-none text-dark" target="_blank">
+                  <?php echo $info['instagram']; ?>
+                </a>
+              </span>
+              <br/>
+            <?php } ?>
+
+
+            <!-- Sito web -->
+            <?php if($info['sito_web'] != null){ ?>
+              <span class="text-muted mt-0" style="font-size:12px">
+                <i class='bx bx-link'></i> &nbsp; Sito web :&nbsp;<a class="text-decoration-none text-dark" href="<?php echo $info['sito_web']?> "><?php echo $info['sito_web']?> </a>
+              </span>
+              <br/>
+            <?php } ?>
+                
+            <!-- Presidente -->
+            <?php if($info['presidente'] != null){ ?>
+              <span class="text-muted mt-3" style="font-size:12px">
+                Presidente :&nbsp;<?php echo $info['presidente']  ?>
+              </span>
+              <br/>
+            <?php } ?>
+                  
+            <!-- VicePresidente -->
+            <?php if($info['vicepresidente'] != null){ ?>
+              <span class="text-muted mt-0" style="font-size:12px">
+                Vicepresidente :&nbsp;<?php echo $info['vicepresidente']  ?>
+              </span>
+              <br/>
+            <?php } ?>
+
+            <!-- Allenatore -->
+            <?php if($info['allenatore'] != null){ ?>
+              <span class="text-muted mt-3" style="font-size:12px">
+              Allenatore :&nbsp;<?php echo $info['allenatore']  ?>
+              </span>
+              <br/>
+            <?php } ?>
           </div>
+
+          
         </div>
-
-          <?php if($giocatori->num_rows >0){ ?>
-          <!-- Giocatori -->
-          <div class="row mb-3">
-            <div class="col-12 table-responsive">
-              <table class="table table-sm table-striped table-hover">
-                <thead class="table-dark text-white">
-                  <tr>
-                    <th></th>
-                    <th>Nome</th>
-                    <th>Anno</th>
-                    <th>Ruolo</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php while($row = mysqli_fetch_assoc($giocatori)){?>
-                  <tr>
-                     <!-- Immagine -->
-                     <td class="text-center">
-                      <?php if ($row['image_path']) { ?>
-                        <img src="image/player/<?php echo $row['image_path'];?>" class="rounded-circle image-clickable" alt="<?php echo $row['cognome'].' '.$row['nome'];?>" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>" width="30" height="30"/>
-                      <?php } else { ?>
-                        <img src="image/player/user.jpg" class="rounded-circle" alt="Immagine di default" data-player-name="<?php echo $row['player_name'];?>" width="30" height="30" />
-                      <?php } ?>
-                    </td>
-
-                    <!-- Nome e Cognome -->
-                    <td onclick="window.location='giocatore.php?id=<?php echo $row['id']; ?>';" style="cursor:pointer" >
-                      <?php echo $row['cognome'] .' '. $row['nome']?>
-                    </td>
-
-                    <!-- Data di nascita -->
-                    <td>
-                      <?php if($row['data_nascita']==='1970-01-01'){
-                        echo '&nbsp; &nbsp; &nbsp; &nbsp;  - ';
-                      }else{
-                        echo date('d/m/y',strtotime($row['data_nascita']));
-                      } ?>
-                    </td>
-
-                    <!-- Ruolo -->
-                    <td>
-                      <?php if($row['ruolo']==='Portiere'){
-                          echo '
-                          <span class="badge bg-warning text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Portiere">
-                            P'
-                          .'</span>';
-                        }elseif($row['ruolo']==='Centrale'){
-                          echo '
-                          <span class="badge bg-success text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Centrale">
-                            C'
-                          .'</span>';
-                        }elseif($row['ruolo']==='Laterale'){
-                          echo '
-                          <span class="badge bg-primary text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Laterale">
-                            L'
-                          .'</span>';
-                        }elseif($row['ruolo']==='Pivot'){
-                          echo '
-                          <span class="badge bg-danger text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Pivot">
-                            P'
-                          .'</span>';
-                        }else{
-                          echo '
-                          <span class="badge bg-info text-light" style="width:30px;"  data-bs-toggle="tooltip" data-bs-title="Universale ">
-                            U'
-                          .'</span>';
-                        } ?>
-                          
-                    </td>
-                    
-                  </tr>
-                  <?php } ?>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <?php } ?>
-                        
-          <!-- Calendario -->
-          <div class="row mb-3">
-            <div class="col-12 table-responsive">
-              <table class="table table-striped table-hover">
-                <thead class="table-dark text-white">
-                  <tr>
-                    <th class="text-center"></th>
-                    <th class="text-center"></th>
-                    <th class="text-end">Casa</th>
-                    <th class="text-center"></th>
-                    <th class="text-center"></th>
-                    <th class=""> Ospite</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php while($partita = mysqli_fetch_assoc($calendario)){?>
-                  <tr>
-                    <!-- Numero giornata -->
-                    <td class="text-center">
-                      <small class="text-center">
-                        &nbsp;<?php echo $partita['giornata'] ?>° 
-                      </small>
-                    </td>
-                    
-                    <!-- Data -->
-                    <td class="text-center">
-                      <small class="">
-                        <?php echo date('d/m/y',strtotime( $partita['data'])) ?>
-                        <br/>
-                        <?php 
-                          setlocale(LC_TIME, 'it_IT.utf8');
-                          $dayOfWeek = strftime('%A', strtotime($partita['data']));
-                          $abbreviatedDay = substr($dayOfWeek, 0, 3);
-                          echo $abbreviatedDay;
-                        ?>
-                      </small>
-                    </td>
-                    <!-- Squadra casa -->
-                    <td class="text-end">
-                      <div >  <?php echo $partita['casa'] ?></div>
-                    </td>
-                    <!-- Gol casa -->
-                    <td class="text-center">
-                      <?php echo $partita['golCasa'] ?>
-                    </td>
-
-                    <!-- Gol ospite -->
-                    <td class="text-center">
-                      <?php echo $partita['golOspiti'] ?>
-                    </td>
-                    <!-- Squadra ospite -->
-                    <td class="">
-                      <div class="">   <?php echo $partita['ospite'] ?></div>
-                    </td>
-                    
-                  </tr>
-                  <?php } ?>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
+        <hr id="separatore" />
 
         
+
+        
+        <!-- Giocatori -->
+        <div class="row mb-3">
+          <?php if($giocatori->num_rows >0){ ?>
+          <div class="col-12 col-md-6 table-responsive">
+            <table class="table table-sm table-striped table-hover table-rounded ">
+              <thead class="table-dark text-white">
+                <tr>
+                  <th></th>
+                  <th>Nome</th>
+                  <th class="text-center">Anno</th>
+                  <th class="text-center">Ruolo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php while($row = mysqli_fetch_assoc($giocatori)){?>
+                <tr class="align-middle">
+                  <!-- Immagine -->
+                  <td class="text-center">
+                    <?php if ($row['image_path']) { ?>
+                      <img src="image/player/<?php echo $row['image_path'];?>" class="rounded-circle image-clickable" alt="<?php echo $row['cognome'].' '.$row['nome'];?>" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>" width="30" height="30"/>
+                    <?php } else { ?>
+                      <img src="image/default_user.jpg" class="rounded-circle" alt="Immagine di default" data-player-name="<?php echo $row['player_name'];?>" width="30" height="30" />
+                    <?php } ?>
+                  </td>
+
+                  <!-- Nome e Cognome -->
+                  <td onclick="window.location='giocatore.php?id=<?php echo $row['id']; ?>';" style="cursor:pointer" >
+                    <?php echo $row['cognome'] .' '. $row['nome']?>
+                  </td>
+
+                  <!-- Data di nascita -->
+                  <td class="text-center">
+                    <?php 
+                      if($row['data_nascita'] === '1970-01-01' || $row['data_nascita'] == NULL){
+                        echo '&nbsp; &nbsp; &nbsp; &nbsp;  - ';
+                      }else{
+                        echo date('d/m/Y', strtotime($row['data_nascita']));
+                      } 
+                    ?>
+                  </td>
+
+                  <!-- Ruolo -->
+                  <td class="text-center">
+                    <?php if($row['ruolo']==='Portiere'){
+                        echo '
+                        <span class="badge bg-warning text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Portiere">
+                          P'
+                        .'</span>';
+                      }elseif($row['ruolo']==='Centrale'){
+                        echo '
+                        <span class="badge bg-success text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Centrale">
+                          C'
+                        .'</span>';
+                      }elseif($row['ruolo']==='Laterale'){
+                        echo '
+                        <span class="badge bg-primary text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Laterale">
+                          L'
+                        .'</span>';
+                      }elseif($row['ruolo']==='Pivot'){
+                        echo '
+                        <span class="badge bg-danger text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Pivot">
+                          P'
+                        .'</span>';
+                      }else{
+                        echo '
+                        <span class="badge bg-info text-light" style="width:30px;"  data-bs-toggle="tooltip" data-bs-title="Universale ">
+                          U'
+                        .'</span>';
+                      } ?>
+                        
+                  </td>
+                  
+                </tr>
+                <?php } ?>
+              </tbody>
+            </table>
+          </div>
+          <?php } ?>
+           
+          <!-- Calendario -->
+          <div class="col-12 col-md-6 table-responsive">
+            <table class="table table-sm table-striped table-hover table-rounded ">
+              <thead class="table-dark text-white">
+                <tr>
+                  <th class="text-center"></th>
+                  <th class="text-center"></th>
+                  <th class="text-end">Casa</th>
+                  <th class="text-center"></th>
+                  <th class="text-center"></th>
+                  <th class=""> Ospite</th>
+                </tr>
+              </thead>
+              <tbody class="align-middle">
+                <?php while($partita = mysqli_fetch_assoc($calendario)){?>
+                <tr style="height:39px">
+                  
+                  <!-- Data -->
+                  <td class="text-center">
+                    <small class="">
+                      <?php echo $partita['giornata'] ?>° 
+                      &nbsp;
+                      <?php 
+                        setlocale(LC_TIME, 'it_IT.utf8');
+                        $dayOfWeek = strftime('%A', strtotime($partita['data']));
+                        $abbreviatedDay = substr($dayOfWeek, 0, 3);
+                        echo $abbreviatedDay;
+                      ?>
+                    </small>
+                  </td>
+
+                  <td class="text-center">
+                    <small class="">
+                      <?php echo date('d/m/y',strtotime( $partita['data'])) ?>
+                    </small>
+                  </td>
+                  <!-- Squadra casa -->
+                  <td class="text-end">
+                    <div class="
+                      <?php 
+                        // Verifica se la squadra ospite è quella dell'utente e assegna 'fw-bold'
+                        if ($partita['casa'] == $info['nome_societa']) {
+                          echo 'fw-bold ';
+                        }
+
+                        // Verifica il risultato per assegnare il colore
+                        if ($partita['risultato'] === '1' && $partita['casa'] == $info['nome_societa']) {
+                          echo 'text-danger';
+                        } elseif ($partita['risultato'] === 'X') {
+                          echo 'text-primary';
+                        } elseif ($partita['risultato'] === '2' && $partita['casa'] == $info['nome_societa']) {
+                          echo 'text-success';
+                        } else {
+                          echo 'text-dark';
+                        }
+                      ?>
+                      ">
+                      <?php echo $partita['casa'] ?>
+                    </div>
+                  </td>
+                  <!-- Gol casa -->
+                  <td class="text-center">
+                    <?php echo $partita['golCasa'] ?>
+                  </td>
+
+                  <!-- Gol ospite -->
+                  <td class="text-center">
+                    <?php echo $partita['golOspiti'] ?>
+                  </td>
+                  <!-- Squadra ospite -->
+                  <td class="">
+                       
+                      <div class="
+                        <?php 
+                          // Verifica se la squadra ospite è quella dell'utente e assegna 'fw-bold'
+                          if ($partita['ospite'] == $info['nome_societa']) {
+                            echo 'fw-bold ';
+                          }
+
+                          // Verifica il risultato per assegnare il colore
+                          if ($partita['risultato'] === '1' && $partita['ospite'] == $info['nome_societa']) {
+                            echo 'text-danger';
+                          } elseif ($partita['risultato'] === 'X') {
+                            echo 'text-primary';
+                          } elseif ($partita['risultato'] === '2' && $partita['ospite'] == $info['nome_societa']) {
+                            echo 'text-success';
+                          } else {
+                            echo 'text-dark';
+                          }
+                        ?>
+                      ">
+                        <?php echo $partita['ospite'] ?>
+                    </div>
+                  </td>
+                  
+                </tr>
+                <?php } ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
 
       </div>
       

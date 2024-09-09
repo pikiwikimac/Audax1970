@@ -47,10 +47,10 @@
                       <div class="tpl-header--title">
                         <h4>
                           Dirigenti
-                        <h4>
+                        </h4>
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
-                          <a type="button" class="btn btn-outline-dark float-end"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModal">
+                          <a type="button" class="btn btn-sm btn-outline-dark float-end"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModal">
                             <i class='bx bx-plus '></i>
                           </a>
                         </div>
@@ -204,8 +204,8 @@
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-            <button type="button" class="btn btn-primary" onclick="submitEditForm()">Salva</button>
+            <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Annulla</button>
+            <button type="button" class="btn btn-sm btn-primary" onclick="submitEditForm()">Salva</button>
           </div>
         </div>
       </div>
@@ -251,8 +251,8 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-            <button type="button" class="btn btn-primary" onclick="submitInsertForm()">Inserisci</button>
+            <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Annulla</button>
+            <button type="button" class="btn btn-sm btn-primary" onclick="submitInsertForm()">Inserisci</button>
           </div>
         </div>
       </div>

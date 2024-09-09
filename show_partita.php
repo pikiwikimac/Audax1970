@@ -104,7 +104,7 @@
               <span class="float-end">
                 <?php echo $row['golCasa'] ?>
               </span>
-            <h4>
+            </h4>
 
             <hr/>
             
@@ -220,7 +220,7 @@
               <span class="float-end">
                 <?php echo $row['golOspiti'] ?>
               </span> 
-            <h4>
+            </h4>
             <hr/>
 
             <?php

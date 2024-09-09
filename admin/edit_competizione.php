@@ -62,11 +62,11 @@
                       <div class="tpl-header--title">
                         <h4>
                           Modifica competizione  
-                        <h4>
+                        </h4>
 
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">	
-                          <a type="button" href="competizioni.php" class="btn btn-outline-dark float-end">
+                          <a type="button" href="competizioni.php" class="btn btn-sm btn-outline-dark float-end">
                             <i class='bx bx-arrow-back'></i>
                           </a>
                         </div>
@@ -142,7 +142,7 @@
                             </div>
                             <!-- Submit -->
                             <div class="d-flex justify-content-end">
-                              <button type="submit" class="btn btn-outline-dark mt-3">Conferma</button>
+                              <button type="submit" class="btn btn-sm btn-outline-dark mt-3">Conferma</button>
                             </div>
                           </form>
                         </div>

@@ -14,6 +14,7 @@
     $ora_match = isset($_POST['ora_match']) ? $_POST['ora_match'] : null;
     $presidente = isset($_POST['presidente']) ? $_POST['presidente'] : null;
     $vicepresidente = isset($_POST['vicepresidente']) ? $_POST['vicepresidente'] : null;
+    $allenatore = isset($_POST['allenatore']) ? $_POST['allenatore'] : null;
     $campionato = isset($_POST['campionato']) ? $_POST['campionato'] : null;
     $logo = isset($_POST['logo']) ? $_POST['logo'] : null;
     $contatto_riferimento = isset($_POST['contatto_riferimento']) ? $_POST['contatto_riferimento'] : null;
@@ -54,6 +55,9 @@
   }
   if ($vicepresidente !== null) {
       $updates[] = "vicepresidente='$vicepresidente'";
+  }
+  if ($allenatore !== null) {
+      $updates[] = "allenatore='$allenatore'";
   }
   if ($campionato !== null) {
       $updates[] = "id_campionato='$campionato'";
@@ -113,8 +117,4 @@ if(mysqli_query($con, $query)){
 
 // Close connection
 mysqli_close($con);
-
 ?>
-
-
-

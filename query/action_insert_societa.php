@@ -13,6 +13,7 @@ $giorno_settimana = isset($_POST['giorno_settimana']) ? $_POST['giorno_settimana
 $ora_match = isset($_POST['ora_match']) ? $_POST['ora_match'] : null;
 $presidente = isset($_POST['presidente']) ? $_POST['presidente'] : null;
 $vicepresidente = isset($_POST['vicepresidente']) ? $_POST['vicepresidente'] : null;
+$allenatore = isset($_POST['allenatore']) ? $_POST['allenatore'] : null;
 $campionato = isset($_POST['campionato']) ? $_POST['campionato'] : null;
 $contatto_riferimento = isset($_POST['contatto_riferimento']) ? $_POST['contatto_riferimento'] : null;
 $telefono = isset($_POST['telefono']) ? $_POST['telefono'] : null;
@@ -62,6 +63,10 @@ if (!is_null($presidente)) {
 if (!is_null($vicepresidente)) {
     $columns[] = 'vicepresidente';
     $values[] = "'$vicepresidente'";
+}
+if (!is_null($allenatore)) {
+    $columns[] = 'allenatore';
+    $values[] = "'$allenatore'";
 }
 
 if (!is_null($campionato)) {

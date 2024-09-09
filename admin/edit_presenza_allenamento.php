@@ -83,16 +83,16 @@
                       <div class="tpl-header--title">
                         <h4>
                           <?php echo $all['tipologia'] ?>
-                        <h4>
+                        </h4>
 
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">	
                           
-                          <a href="indisponibili_admin.php " class="btn btn-outline-dark float-end" type="button">
+                          <a href="indisponibili_admin.php " class="btn btn-sm btn-outline-dark float-end" type="button">
                             <i class='bx bxs-ambulance' ></i>
                           </a>
                           
-                          <a type="button" href="allenamenti_admin.php" class="btn btn-outline-dark float-end me-2" >
+                          <a type="button" href="allenamenti_admin.php" class="btn btn-sm btn-outline-dark float-end me-2" >
                             <i class='bx bx-left-arrow-alt bx-xs' ></i>
                           </a>
                                            
@@ -178,7 +178,7 @@
                                   </div>
                                 <?php } ?>
                               </div>
-                              <button type="submit" class="btn btn-primary mt-2 mb-2 float-end me-2">Conferma</button>
+                              <button type="submit" class="btn btn-sm btn-primary mt-2 mb-2 float-end me-2">Conferma</button>
                             </form>
                           </div>
                         </div>
@@ -212,7 +212,7 @@
                                         <label for="file_allegato" class="form-label">Allega un file</label>
                                         <input class="form-control" type="file" id="file_allegato" name="file_allegato">
                                       </div>
-                                      <button type="submit" class="btn btn-outline-dark mt-2 float-end">
+                                      <button type="submit" class="btn btn-sm btn-outline-dark mt-2 float-end">
                                         Carica Allegato
                                       </button>
                                     </form>
@@ -262,7 +262,7 @@
                             <label for="note_allenamento">Note allenamento</label>
                             <textarea class="form-control" placeholder="" id="note_allenamento" name="note_allenamento" style="height: 100px"></textarea>
 
-                            <button type="submit" class="btn btn-outline-dark mt-2 float-end">
+                            <button type="submit" class="btn btn-sm btn-outline-dark mt-2 float-end">
                               Inserisci
                             </button>
                           </form>

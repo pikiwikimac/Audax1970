@@ -169,11 +169,8 @@
                                         <div class="tpl-header">
                                             <div class="tpl-header--title">
                                                 <h4 class="">
-                                                    Ciao  <?php echo $username ?> !
-                                                <h4>
-                                                
-                                                <span class="badge fs-6 bg-secondary text-white"><?php echo $tipo['tipo'] ?></span>
-                                                
+                                                    Ciao  <?php echo $username ?> ! &nbsp; <span class="badge bg-secondary text-white" style="font-size:12px"><?php echo $tipo['tipo'] ?></span>
+                                                </h4>
                                             </div>
                                         </div>
                                     </div>
@@ -369,7 +366,7 @@
                                             <div class="col-12">
                                                 <!-- Gestione registrazioni -->
                                                 <?php if($_SESSION['superuser']==1 && $numero_richieste['numero_richieste']>0){ ?>
-                                                <a href="gestore_registrazioni.php" type="button" class="btn btn-outline-dark me-2 position-relative" data-bs-toggle="tooltip" data-bs-title="Richieste registrazioni" data-bs-placement="bottom">
+                                                <a href="gestore_registrazioni.php" type="button" class="btn btn-sm btn-outline-dark me-2 position-relative" data-bs-toggle="tooltip" data-bs-title="Richieste registrazioni" data-bs-placement="bottom">
                                                     <i class='bx bx-user-plus'></i> 
                                                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                                         <?php echo $numero_richieste['numero_richieste'] ?>
@@ -377,27 +374,27 @@
                                                 </a>
                                                 <?php } ?>
                                                 <!-- Comunicazioni telegram -->
-                                                <a role="button" class="btn  btn-outline-dark me-2" data-bs-toggle="modal"  data-bs-title="Comunicazione telegram"  
+                                                <a role="button" class="btn btn-sm btn-outline-dark me-2" data-bs-toggle="modal"  data-bs-title="Comunicazione telegram"  
                                                     data-bs-target="#insertModal" href="comunicazione_telegram.php" data-bs-placement="bottom">
                                                     <i class='bx bxl-telegram'></i>  
                                                 </a>
                                                 <!-- Calendario -->
-                                                <a role="button" class="btn  btn-outline-dark me-2" href="google_calendar.php" data-bs-toggle="tooltip" data-bs-title="Google calendar" data-bs-placement="bottom">
+                                                <a role="button" class="btn btn-sm btn-outline-dark me-2" href="google_calendar.php" data-bs-toggle="tooltip" data-bs-title="Google calendar" data-bs-placement="bottom">
                                                     <i class='bx bxs-calendar'></i> 
                                                 </a>
                                                 <!-- Vai ai comunicati calcio a 5 marche -->
-                                                <a type="button" href="https://www.figcmarche.it/categoria-comunicati/calcio-a-5" class="btn  btn-outline-dark  me-2" data-bs-toggle="tooltip" data-bs-title="Comunicati LND" data-bs-placement="bottom" target="blank">
+                                                <a type="button" href="https://www.figcmarche.it/categoria-comunicati/calcio-a-5" class="btn btn-sm btn-outline-dark  me-2" data-bs-toggle="tooltip" data-bs-title="Comunicati LND" data-bs-placement="bottom" target="blank">
                                                     <i class='bx bx-archive'></i>
                                                 </a>
                                                 <!-- Link mercato -->
                                                 <?php if($_SESSION['superuser']==1 ){ ?>
-                                                    <a href="mercato.php" type="button" class="btn btn-outline-dark  me-2 position-relative" data-bs-toggle="tooltip" data-bs-title="Mercato" data-bs-placement="bottom">
+                                                    <a href="mercato.php" type="button" class="btn btn-sm btn-outline-dark  me-2 position-relative" data-bs-toggle="tooltip" data-bs-title="Mercato" data-bs-placement="bottom">
                                                         <i class='bx bx-store'></i> 
                                                     </a>
                                                 <?php } ?>
                                                 <!-- Link a gallery -->
                                                 <?php if($_SESSION['superuser']==1 ){ ?>
-                                                    <a href="create_gallery.php" type="button" class="btn  btn-outline-dark me-2 position-relative" data-bs-toggle="tooltip" data-bs-title="Gallery" data-bs-placement="bottom">
+                                                    <a href="create_gallery.php" type="button" class="btn btn-sm btn-outline-dark me-2 position-relative" data-bs-toggle="tooltip" data-bs-title="Gallery" data-bs-placement="bottom">
                                                         <i class='bx bx-photo-album'></i>
                                                     </a>
                                                 <?php } ?>
@@ -415,12 +412,12 @@
                                                         <thead class="table-dark">
 
                                                             <tr>
-                                                                <th width="3%"></th>
+                                                                <th width="5%"></th>
                                                                 <th>Nome</th>
                                                                 <th class="text-center" width="8%">Ruolo</th>
                                                                 <th class="text-center" width="8%">Anno</th>
                                                                 <th class="text-center" width="5%">N.</th>
-                                                                <th class="text-center" width="5%"><span data-bs-toggle="tooltip" data-bs-title="Allenamento" data-bs-placement="bottom">A</span></th>
+                                                                <th class="text-center" width="5%"><span data-bs-toggle="tooltip" data-bs-title="Allenamenti svolti" data-bs-placement="bottom">A</span></th>
                                                                 <th class="text-center" width="5%"><span data-bs-toggle="tooltip" data-bs-title="Partite" data-bs-placement="bottom">P</span></th>
                                                             </tr>
 
@@ -431,7 +428,7 @@
 
                                                             <tr onclick="window.location='player.php?id=<?php echo $row['id']; ?>';" style="cursor:pointer" class="align-middle">
                                                                 <!-- Immagine -->
-                                                                <td>
+                                                                <td class="text-center">
                                                                     <?php if ($row['image_path']) { ?>
                                                                         <img src="../image/player/<?php echo $row['image_path'];?>" class="rounded-circle " alt="<?php echo $row['cognome'].' '.$row['nome'];?>" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>" width="30" height="30"/>
                                                                     <?php } else { ?>
@@ -439,7 +436,7 @@
                                                                     <?php } ?>
                                                                 </td>
                                                                 <!-- Nome e cognome -->
-                                                                <td class="" >
+                                                                <td class="fw-semibold" >
                                                                     <?php echo $row['cognome'] . '  ' .$row['nome']   ?> 
                                                                     <?php
                                                                         if ($row['capitano'] == 'C' && $row['squadra_madre'] == $id_societa) {
@@ -546,8 +543,8 @@
                                                     </form>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-                                                    <button type="button" class="btn btn-primary" onclick="submitInsertForm()">Inserisci</button>
+                                                    <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                                                    <button type="button" class="btn btn-sm btn-primary" onclick="submitInsertForm()">Inserisci</button>
                                                 </div>
                                             </div>
                                         </div>

@@ -146,7 +146,7 @@
                       <div class="tpl-header--title">
                         <h4>
                           Multe
-                        <h4>
+                        </h4>
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
                           <a class="text-decoration-none text-dark"  data-bs-toggle="offcanvas"   href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
@@ -220,14 +220,14 @@
                         <div class="col-12 col-md-6 table-responsive">
                           <h4>
                             Multe giocatori
-                            <a type="button" class="btn btn-outline-dark float-end me-2"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModalPagamento" data-bs-info="dirigenza">
+                            <a type="button" class="btn btn-sm btn-outline-dark float-end me-2"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModalPagamento" data-bs-info="dirigenza">
                               <i class='bx bx-plus '></i> Pagamento
                             </a>
                               
-                            <a type="button" class="btn btn-outline-dark float-end me-2"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModal" data-bs-info="dirigenza">
+                            <a type="button" class="btn btn-sm btn-outline-dark float-end me-2"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModal" data-bs-info="dirigenza">
                               <i class='bx bx-plus '></i> Multa
                             </a>
-                          <h4> 
+                          </h4>
                           <table class="table table-sm table-hover table-striped table-rounded mt-3 " >
                             
                             <thead class="table-dark">
@@ -276,14 +276,14 @@
                         <div class="col-12 col-md-6 table-responsive">
                           <h4> 
                             Multe dirigenti 
-                            <a type="button" class="btn btn-outline-dark float-end me-2"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModalPagamentoDirigenza" data-bs-info="dirigenza">
+                            <a type="button" class="btn btn-sm btn-outline-dark float-end me-2"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModalPagamentoDirigenza" data-bs-info="dirigenza">
                               <i class='bx bx-plus '></i> Pagamento
                             </a>
                               
-                            <a type="button" class="btn btn-outline-dark float-end me-2"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModalDirigenza" data-bs-info="dirigenza">
+                            <a type="button" class="btn btn-sm btn-outline-dark float-end me-2"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModalDirigenza" data-bs-info="dirigenza">
                               <i class='bx bx-plus '></i> Multa
                             </a>
-                          <h4>
+                          </h4>
                           
                           <table class="table table-sm table-hover table-striped table-rounded mt-3 " >
                             
@@ -393,8 +393,8 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-            <button type="button" class="btn btn-primary" onclick="submitMulta()">Inserisci</button>
+            <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Annulla</button>
+            <button type="button" class="btn btn-sm btn-primary" onclick="submitMulta()">Inserisci</button>
           </div>
         </div>
       </div>
@@ -450,8 +450,8 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-            <button type="button" class="btn btn-primary" onclick="submitPagamento()">Inserisci</button>
+            <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Annulla</button>
+            <button type="button" class="btn btn-sm btn-primary" onclick="submitPagamento()">Inserisci</button>
           </div>
         </div>
       </div>
@@ -506,8 +506,8 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-            <button type="button" class="btn btn-primary" onclick="submitMultaDirigenza()">Inserisci</button>
+            <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Annulla</button>
+            <button type="button" class="btn btn-sm btn-primary" onclick="submitMultaDirigenza()">Inserisci</button>
           </div>
         </div>
       </div>
@@ -561,8 +561,8 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-            <button type="button" class="btn btn-primary" onclick="submitPagamentoDirigenza()">Inserisci</button>
+            <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Annulla</button>
+            <button type="button" class="btn btn-sm btn-primary" onclick="submitPagamentoDirigenza()">Inserisci</button>
           </div>
         </div>
       </div>

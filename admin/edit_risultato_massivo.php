@@ -122,7 +122,7 @@
 
                           <!-- Bottoni a destra -->
                           <div class="cta-wrapper">	
-                            <a type="button" class="btn btn-outline-dark float-end me-2"  href="edit_risultato.php?id=<?php echo $partita["id"]; ?>">
+                            <a type="button" class="btn btn-sm btn-outline-dark float-end me-2"  href="edit_risultato.php?id=<?php echo $partita["id"]; ?>">
                               Live
                             </a>           
                           </div>
@@ -236,7 +236,7 @@
                                 <?php } ?>
                               </tbody>
                             </table>
-                            <button type="submit" class="btn btn-outline-dark float-end">Salva</button>
+                            <button type="submit" class="btn btn-sm btn-outline-dark float-end">Salva</button>
                           </form>
                         </div>
                         <!-- Colonna OSPITE  -->
@@ -341,7 +341,7 @@
                                 <?php } ?>
                               </tbody>
                             </table>
-                            <button type="submit" class="btn btn-outline-dark float-end">Salva</button>
+                            <button type="submit" class="btn btn-sm btn-outline-dark float-end">Salva</button>
                           </form>
                         </div>
                         

@@ -74,13 +74,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['photoFile'])) {
                     <div class="tpl-header--title">
                       <h4>
                         <?php echo $folder ?>
-                      <h4>
+                      </h4>
                       <!-- Bottoni a destra -->
                       <div class="cta-wrapper">
                         <?php
                         // Mostra il pulsante Aggiungi Foto
                         echo '<form action="" method="post" enctype="multipart/form-data">
-                          <label for="photoFileInput" class="btn btn-outline-dark ">
+                          <label for="photoFileInput" class="btn btn-sm btn-outline-dark ">
                           Aggiungi Foto
                           </label>
                           <input type="file" id="photoFileInput" name="photoFile[]" accept="image/*" style="display:none;" multiple onchange="showSelectedFiles(this)">

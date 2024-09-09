@@ -174,16 +174,16 @@ SELECT g.*,
                       <div class="tpl-header--title">
                         <h4>
                           Rosa
-                        <h4>
+                        </h4>
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
                           <?php if($_SESSION['superuser'] == 1 ){ ?>
-                          <a href="insert_player.php" type="button" class="btn  btn-outline-dark ">
+                          <a href="insert_player.php" type="button" class="btn btn-sm btn-outline-dark ">
                             <i class='bx bx-plus '></i> 
                           </a>
                           <?php } ?>
                           
-                          <button onclick="window.location.href='rose_campionati.php'" type="button" class="btn btn-outline-dark me-2">
+                          <button onclick="window.location.href='rose_campionati.php'" type="button" class="btn btn-sm btn-outline-dark me-2">
                             Rose campionati
                           </button>
 

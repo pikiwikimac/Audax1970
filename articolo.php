@@ -99,7 +99,7 @@
     <div class="container my-5 px-4">
       <div class="row g-3 margin-mobile">
         <div class="col-12 align-middle">
-          <h2 id="font_diverso">
+          <h2 id="font_diverso" class="mt-md-5">
             <?php echo htmlspecialchars($row['titolo']); ?>
             <?php if($row['intestazione'] !== null ){ ?>
               <div class="float-end">
@@ -151,14 +151,27 @@
               <?php echo htmlspecialchars($row['autore']); ?>
             </span>
           </div>
-          <div>
-            <?php
-              // Cicliamo su ciascun tag e lo stampiamo in un badge separato
-              foreach ($tags as $tag) {
-                echo '<span class="badge bg-secondary text-white" style="font-size:12px;font-weight:400">#' . htmlspecialchars(trim($tag)) . '</span> ';
-              }
+          <?php
+            // Verifica se l'array $tags non è vuoto
+            if (!empty($tags)) {
+                // Filtra i tag per rimuovere quelli vuoti
+                $filteredTags = array_filter($tags, function($tag) {
+                    return !empty(trim($tag));
+                });
+
+                // Verifica se ci sono tag validi dopo il filtro
+                if (!empty($filteredTags)) {
+                    echo '<div>';
+                    // Cicliamo su ciascun tag e lo stampiamo in un badge separato
+                    foreach ($filteredTags as $tag) {
+                        echo '<span class="badge bg-secondary text-white" style="font-size:12px;font-weight:400">#' . htmlspecialchars(trim($tag)) . '</span> ';
+                    }
+                    echo '</div>';
+                }
+            }
             ?>
-          </div>
+
+
         </div>
         
         <div class="col-12 col-lg-4">

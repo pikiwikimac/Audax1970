@@ -53,10 +53,10 @@
                       <div class="tpl-header--title">
                         <h4>
                           Settore giovanile
-                        <h4>
+                        </h4>
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
-                          <a href="show_societa.php?id=<?php echo $id ?>" type="button" class="btn btn-outline-dark float-end">
+                          <a href="show_societa.php?id=<?php echo $id ?>" type="button" class="btn btn-sm btn-outline-dark float-end">
                             Prima squadra
                           </a>
                         </div>

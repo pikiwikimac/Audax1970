@@ -105,16 +105,16 @@
                           <?php } ?>
                           <div class="mt-3">
                             <!-- Aggiungi il nuovo bottone -->
-                            <a href="insert_player.php?id_squadra=<?php echo ($info['id']); ?>" type="button" class="btn btn-outline-dark  me-2">
+                            <a href="insert_player.php?id_squadra=<?php echo ($info['id']); ?>" type="button" class="btn btn-sm btn-outline-dark  me-2">
                               <i class='bx bx-user-plus' ></i>
                             </a>  
                           
                           
-                            <a href="edit_societa.php?id=<?php echo $info['id'] ?>" type="button" class="btn btn-outline-dark  me-2">
+                            <a href="edit_societa.php?id=<?php echo $info['id'] ?>" type="button" class="btn btn-sm btn-outline-dark  me-2">
                               <i class='bx bx-pencil '></i> 
                             </a>
                             
-                            <a href="societa.php" type="button" class="btn btn-outline-dark ">
+                            <a href="societa.php" type="button" class="btn btn-sm btn-outline-dark ">
                               <i class='bx bx-arrow-back '></i> 
                             </a>
                           </div>
@@ -191,6 +191,14 @@
                               <span class="text-muted mt-0">
                                 Vicepresidente :&nbsp;<?php echo $info['vicepresidente']  ?>
                               </span>
+                            <?php } ?>
+
+                            <!-- Allenatore -->
+                            <?php if($info['allenatore'] != null){ ?>
+                              <span class="text-muted mt-0">
+                              Allenatore :&nbsp;<?php echo $info['allenatore']  ?>
+                              </span>
+                              <br/>
                             <?php } ?>
                             
                             

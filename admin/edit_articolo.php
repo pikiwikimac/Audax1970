@@ -66,14 +66,14 @@
                       <div class="tpl-header--title">
                         <h4>
                           Modifica articolo  
-                        <h4>
+                        </h4>
 
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
-                          <button class="btn btn-outline-dark float-end" data-bs-toggle="offcanvas"   href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                          <button class="btn btn-sm btn-outline-dark float-end" data-bs-toggle="offcanvas"   href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
                             <i class='bx bx-plus'></i>
                           </button>	
-                          <a type="button" href="articoli.php" class="btn btn-outline-dark float-end me-2">
+                          <a type="button" href="articoli.php" class="btn btn-sm btn-outline-dark float-end me-2">
                             <i class='bx bx-arrow-back'></i>
                           </a>
                         </div>
@@ -97,9 +97,9 @@
                           <form action="../query/upload_image_articolo.php" method="post" enctype="multipart/form-data" class="mt-3">
                             
                             <label for="formFile" class="form-label">Immagine dell'articolo</label>
-                            <input class="form-control form-control-md" type="file" id="formFile" name="playerImage">
+                            <input class="form-control form-control-sm form-control form-control-sm-md" type="file" id="formFile" name="playerImage">
                             <input type="hidden"  id="id" name="id" value="<?php echo $id?>" />
-                            <input type="submit" value="Carica" class="btn btn-outline-dark float-end mt-3" name="submit">
+                            <input type="submit" value="Carica" class="btn btn-sm btn-outline-dark float-end mt-3" name="submit">
                             
                           </form>
                         </div>
@@ -108,32 +108,32 @@
                           <form action="../query/action_edit_articolo.php" method="POST" enctype="multipart/form-data">
                             <div class="card">
                               <div class="card-body">
-                                <h4>Info di base<h4>
+                                <h4>Info di base</h4>
                                 
                                 <div class="row my-3 g-3">
                                   <!-- Titolo -->
                                   <div class="col-12 col-sm-6 col-lg-12">
                                     <label for="titolo" class="form-label">Titolo</label>
-                                    <input typer="text" class="form-control" id="titolo" name="titolo" required value="<?php echo $row['titolo'] ?>"></input>
+                                    <input typer="text" class="form-control form-control-sm" id="titolo" name="titolo" required value="<?php echo $row['titolo'] ?>"></input>
                                   </div>
 
 
                                   <!-- Data pubblicazione -->
                                   <div class="col-12 col-sm-6 col-lg-2">
                                     <label for="data_pubblicazione" class="form-label">Data pubblicazione</label>
-                                    <input type="datetime" class="form-control" id="data_pubblicazione" name="data_pubblicazione" value="<?php echo $row['data_pubblicazione'] ?>"></input>
+                                    <input type="datetime" class="form-control form-control-sm" id="data_pubblicazione" name="data_pubblicazione" value="<?php echo $row['data_pubblicazione'] ?>"></input>
                                   </div>
 
                                   <!-- Squadra -->
-                                  <div class="col-12 col-sm-6 col-lg-2">
+                                  <div class="col-6 col-lg-2">
                                     <label for="autore" class="form-label">Autore</label>
-                                    <input type="text" class="form-control" id="autore" name="autore" value="<?php echo $row['autore'] ?>"></input>
+                                    <input type="text" class="form-control form-control-sm" id="autore" name="autore" value="<?php echo $row['autore'] ?>"></input>
                                   </div>
 
                                   <!-- Stagione -->
-                                  <div class="col-6 col-sm-6 col-lg-2 ">
+                                  <div class="col-6 col-lg-2 ">
                                     <label for="intestazione" class="form-label">Intestazione</label>
-                                    <select class="form-select" id="intestazione" name="intestazione">
+                                    <select class="form-select form-select-sm" id="intestazione" name="intestazione">
                                       <!-- Opzioni per la squadra ospite -->
                                       <?php
                                         $sql = "SELECT * FROM `articoli_intestazioni` ORDER BY id ";
@@ -151,13 +151,13 @@
                                   <!-- Tags -->
                                   <div class="col-12 col-sm-6 col-lg-3">
                                     <label for="tags" class="form-label">Tags</label>
-                                    <input type="text" class="form-control" id="tags" name="tags" value="<?php echo $row['tags'] ?>"></input>
+                                    <input type="text" class="form-control form-control-sm" id="tags" name="tags" value="<?php echo $row['tags'] ?>"></input>
                                   </div>
                                     
                                   <!-- Contenuto -->
                                   <div class="col-12">
                                     <label for="contenuto" class="form-label">Contenuto</label>
-                                    <textarea class="form-control" id="contenuto" name="contenuto" rows="15" required><?php echo $row['contenuto']; ?></textarea>
+                                    <textarea class="form-control form-control-sm" id="contenuto" name="contenuto" rows="15" required><?php echo $row['contenuto']; ?></textarea>
                                   </div>
                                   
                                   <input type="hidden"  id="id" name="id" value="<?php echo $row['id'] ?>"></input>
@@ -166,7 +166,7 @@
                             </div>
                             <!-- Submit -->
                             <div class="d-flex justify-content-end">
-                              <button type="submit" class="btn btn-outline-dark mt-2">Conferma</button>
+                              <button type="submit" class="btn btn-sm btn-outline-dark mt-2">Conferma</button>
                             </div>
                           </form>
                         </div>
@@ -210,15 +210,15 @@
                 <!-- Nome materiale -->
                 <div class="col-12 mb-3">
                   <label for="intestazione" class="form-label">Descrizione</label>
-                  <input type="text" class="form-control" id="intestazione" name="intestazione"/>
+                  <input type="text" class="form-control form-control-sm" id="intestazione" name="intestazione"/>
                 </div>
               </div>
             </form>
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-            <button type="button" class="btn btn-primary" onclick="submitInsertForm()">Salva</button>
+            <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Annulla</button>
+            <button type="button" class="btn btn-sm btn-primary" onclick="submitInsertForm()">Salva</button>
           </div>
         </div>
       </div>

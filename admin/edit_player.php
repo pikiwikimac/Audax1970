@@ -97,15 +97,15 @@
                       <div class="tpl-header--title">
                         <h4>
                           <?php echo $row['nome'].' '.$row['cognome'];?>
-                        <h4>
+                        </h4>
 
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">	
-                        <a type="button" href="<?php echo $previous_url; ?>" class="btn btn-outline-dark float-end">
+                        <a type="button" href="<?php echo $previous_url; ?>" class="btn btn-sm btn-outline-dark float-end">
                           <i class='bx bx-arrow-back'></i>
                         </a>
 
-                          <button class="btn btn-outline-dark float-end me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                          <button class="btn btn-sm btn-outline-dark float-end me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
                             <i class='bx bx-folder-open' ></i>
                           </button>                          
                         </div>
@@ -135,7 +135,7 @@
                               <label for="formFile" class="form-label">Immagine</label>
                               <input class="form-control form-control-sm" type="file" id="formFile" name="playerImage">
                               <input type="hidden"  id="id" name="id" value="<?php echo $id?>" />
-                              <input type="submit" value="Carica" class="btn btn-outline-dark float-end mt-2" name="submit">
+                              <input type="submit" value="Carica" class="btn btn-sm btn-outline-dark float-end mt-2" name="submit">
                             </div>
                           </form>
 
@@ -378,7 +378,7 @@
                             
                             <!-- Submit -->
                             <div class="d-flex justify-content-end mt-3">
-                              <button type="submit" class="btn btn-outline-dark">Conferma</button>
+                              <button type="submit" class="btn btn-sm btn-outline-dark">Conferma</button>
                             </div>
                           
                           </form>
@@ -413,7 +413,7 @@
               <input class="form-control form-control-sm" type="file" id="formFile" name="formFile">
             </div>
             <input type="hidden"  id="id" name="id" value="<?php echo $id?>" />
-            <input type="submit" value="Carica" class="btn btn-outline-dark " name="submit">
+            <input type="submit" value="Carica" class="btn btn-sm btn-outline-dark " name="submit">
           </form>
         </div>  
       </div>

@@ -68,14 +68,14 @@
                       <div class="tpl-header--title">
                         <h4>
                           Società
-                        <h4>
+                        </h4>
                         
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
-                          <a href="settore_giovanile.php" type="button" class="btn btn-outline-dark ms-2 ">
+                          <a href="settore_giovanile.php" type="button" class="btn btn-sm btn-outline-dark ms-2 ">
                             Settori giovanili
                           </a>	
-                          <a href="insert_societa.php" type="button" class="btn btn-outline-dark ms-2 ">
+                          <a href="insert_societa.php" type="button" class="btn btn-sm btn-outline-dark ms-2 ">
                             <i class='bx bx-plus '></i>
                           </a>
                         </div>
@@ -87,7 +87,7 @@
                     <div class="">
                       <h4>
                         Serie A2 
-                      <h4>
+                      </h4>
                       <div class="row mb-3">
                         <div class="col-12 table-responsive">
                           <table class="table table-striped table-hover table-rounded">
@@ -104,34 +104,40 @@
                             </thead>
                             <tbody>
                               <?php while($row = mysqli_fetch_assoc($squadre_campionato)){?>
-                              <tr class="align-middle">
-                                <td><?php if ($row['logo']) { ?>
-                                    <img src="../image/loghi/<?php echo $row['logo'];?>" class="rounded-circle image-clickable" width="30" height="30"/>
-                                  <?php } else { ?>
-                                    <img src="../image/default_user.jpg" class="rounded-circle image-clickable" width="30" height="30"/>
-                                  <?php } ?>
-                                </td>
-                                <td>
-                                  <a href="show_societa.php?id=<?php echo $row['id'] ?>" class="text-decoration-none text-dark text-nowrap">
-                                    <?php echo $row['nome_societa'] ?>
-                                  </a>
-                                </td>
-                                <td class="text-nowrap"><?php echo $row['citta'] ?></td>
-                                <td><?php echo $row['giorno_settimana'] ?></td>
-                                <td><?php echo $row['ora_match'] ?></td>
-                                <td class="text-nowrap"><?php echo $row['sede'] ?></td>
-                                <!-- Pulsante Edit -->
-                                <td class="text-center">
-                                  <!-- Duplica -->
-                                  <a class="text-decoration-none" href="../query/action_duplicate_societa.php?id=<?php echo $row["id"]; ?>" >
-                                    <i class='bx bx-copy text-dark ms-2' ></i>
-                                  </a> 
-                                  <!-- Edit -->
-                                  <a class="text-decoration-none" href="edit_societa.php?id=<?php echo $row["id"]; ?>" >
-                                    <i class='bx bx-pencil text-dark ms-2'></i>
-                                  </a>
-                                </td>
-                              </tr>
+                                <tr class="align-middle">
+                                  <td class="text-center"><?php if ($row['logo']) { ?>
+                                      <img src="../image/loghi/<?php echo $row['logo'];?>" class="rounded-circle image-clickable"  width="20" height="20"/>
+                                    <?php } else { ?>
+                                      <img src="../image/default_societa.png" class="rounded-circle image-clickable"  width="20" height="20"/>
+                                    <?php } ?>
+                                  </td>
+                                  <td>
+                                    <a href="show_societa.php?id=<?php echo $row['id'] ?>" class="text-decoration-none text-dark text-nowrap fw-semibold">
+                                      <?php echo $row['nome_societa'] ?>
+                                    </a>
+                                  </td>
+                                  <td class="text-nowrap"><?php echo $row['citta'] ?></td>
+                                  <td><?php echo substr($row['giorno_settimana'], 0, 3); ?></td>
+                                  <td><?php echo date('H:i', strtotime($row['ora_match'])); ?></td>
+                                  <td class="text-nowrap">
+                                    <a href="https://www.google.com/maps/search/<?php echo urlencode($row['sede']); ?>"  class="text-decoration-none text-dark" target="_blank">
+                                      <i class='bx bx-map-pin'></i> &nbsp; <?php echo $row['sede']; ?>
+                                    </a>
+                                  </td>
+
+
+                                  <!-- Pulsante Edit -->
+                                  <td class="text-center">
+                                    <!-- Duplica -->
+                                    <a class="text-decoration-none" href="../query/action_duplicate_societa.php?id=<?php echo $row["id"]; ?>" >
+                                      <i class='bx bx-copy text-dark ms-2' ></i>
+                                    </a> 
+                                    <!-- Edit -->
+                                    <a class="text-decoration-none" href="edit_societa.php?id=<?php echo $row["id"]; ?>" >
+                                      <i class='bx bx-pencil text-dark ms-2'></i>
+                                    </a>
+                                  </td>
+                                </tr>
                               <?php } ?>
                             </tbody>
                           </table>
@@ -140,7 +146,7 @@
                       <?php if($squadre_altre->num_rows > 0){?>
                       <h4>
                         Altri campionati 
-                      <h4>
+                      </h4>
                       <div class="row mb-3">
                         <div class="col-12">
                           <table class="table table-striped table-hover table-rounded">
@@ -158,21 +164,26 @@
                             <tbody>
                               <?php while($row = mysqli_fetch_assoc($squadre_altre)){?>
                               <tr class="align-middle">
-                                <td><?php if ($row['logo']) { ?>
-                                    <img src="../image/loghi/<?php echo $row['logo'];?>" class="rounded-circle image-clickable"  width="30" height="30"/>
+                                <td class="text-center"><?php if ($row['logo']) { ?>
+                                    <img src="../image/loghi/<?php echo $row['logo'];?>" class="rounded-circle image-clickable"  width="20" height="20"/>
                                   <?php } else { ?>
-                                    <img src="../image/default_societa.png" class="rounded-circle image-clickable"  width="30" height="30"/>
+                                    <img src="../image/default_societa.png" class="rounded-circle image-clickable"  width="20" height="20"/>
                                   <?php } ?>
                                 </td>
                                 <td>
-                                  <a href="show_societa.php?id=<?php echo $row['id'] ?>" class="text-decoration-none text-dark text-nowrap">
+                                  <a href="show_societa.php?id=<?php echo $row['id'] ?>" class="text-decoration-none text-dark text-nowrap fw-semibold">
                                     <?php echo $row['nome_societa'] ?>
                                   </a>
                                 </td>
                                 <td class="text-nowrap"><?php echo $row['citta'] ?></td>
-                                <td><?php echo $row['giorno_settimana'] ?></td>
-                                <td><?php echo $row['ora_match'] ?></td>
-                                <td class="text-nowrap"><?php echo $row['sede'] ?></td>
+                                <td><?php echo substr($row['giorno_settimana'], 0, 3); ?></td>
+                                <td><?php echo date('H:i', strtotime($row['ora_match'])); ?></td>
+                                <td class="text-nowrap">
+                                  <a href="https://www.google.com/maps/search/<?php echo urlencode($row['sede']); ?>"  class="text-decoration-none text-dark" target="_blank">
+                                    <i class='bx bx-map-pin'></i> &nbsp;  <?php echo $row['sede']; ?>
+                                  </a>
+                                </td>
+
 
                                 <!-- Pulsante Edit -->
                                 <td class="text-center">

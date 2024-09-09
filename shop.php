@@ -79,7 +79,7 @@ try {
             <div class="card-body">
               <h5 class="card-title" id="font_diverso">Maglia da gioco</h5>
               <p class="card-text">€29,99</p>
-              <button class="btn btn-primary btn-acquista" data-bs-toggle="modal" data-bs-target="#acquistoModal" data-product="Maglia da gioco">Acquista</button>
+              <button class="btn btn-sm btn-primary btn-acquista" data-bs-toggle="modal" data-bs-target="#acquistoModal" data-product="Maglia da gioco">Acquista</button>
             </div>
           </div>
         </div>
@@ -90,7 +90,7 @@ try {
             <div class="card-body">
               <h5 class="card-title" id="font_diverso">Felpa</h5>
               <p class="card-text">€39,99</p>
-              <button class="btn btn-primary btn-acquista" data-bs-toggle="modal" data-bs-target="#acquistoModal" data-product="Felpa tifosi">Acquista</button>
+              <button class="btn btn-sm btn-primary btn-acquista" data-bs-toggle="modal" data-bs-target="#acquistoModal" data-product="Felpa tifosi">Acquista</button>
             </div>
           </div>
         </div>
@@ -101,7 +101,7 @@ try {
             <div class="card-body">
               <h5 class="card-title" id="font_diverso">Cappellino</h5>
               <p class="card-text">€19,99</p>
-              <button class="btn btn-primary btn-acquista" data-bs-toggle="modal" data-bs-target="#acquistoModal" data-product="Cappello invernale">Acquista</button>
+              <button class="btn btn-sm btn-primary btn-acquista" data-bs-toggle="modal" data-bs-target="#acquistoModal" data-product="Cappello invernale">Acquista</button>
             </div>
           </div>
         </div>
@@ -156,7 +156,7 @@ try {
                   <label for="contattoWhatsapp">Whatsapp</label>
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary">Invia</button>
+              <button type="submit" class="btn btn-sm btn-primary">Invia</button>
             </form>
           </div>
         </div>

@@ -94,7 +94,7 @@ ORDER BY
                       <div class="tpl-header--title">
                         <h4>
                           Tutti i giocatori
-                        <h4>
+                        </h4>
 
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">	

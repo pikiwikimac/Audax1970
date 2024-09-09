@@ -52,7 +52,7 @@
                       <div class="tpl-header--title">
                         <h4>
                           Compleanni
-                        <h4>
+                        </h4>
                       </div>
                     </div>
                     <!-- END:Intestazione -->

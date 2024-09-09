@@ -61,10 +61,10 @@
                       <div class="tpl-header--title">
                         <h4>
                           Nuova societa 
-                        <h4>
+                        </h4>
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
-                          <a type="button" href="societa.php" class="btn btn-outline-dark float-end" >
+                          <a type="button" href="societa.php" class="btn btn-sm btn-outline-dark float-end" >
                             <i class='bx bx-arrow-back '></i>
                           </a>
                         </div>
@@ -86,13 +86,13 @@
                                   <!-- Nome societa -->
                                   <div class="col-12 col-lg-3">
                                     <label for="sede" class="form-label">Società</label>
-                                    <input type="text" class="form-control" id="nome_societa" name="nome_societa"  required/>
+                                    <input type="text" class="form-control form-control-sm" id="nome_societa" name="nome_societa"  required/>
                                   </div>
 
                                   <!-- Tipo -->
                                   <div class="col-12 col-lg-2">
                                     <label for="tipo" class="form-label">Tipo</label>
-                                    <select class="form-select" id="tipo" name="tipo" onchange="toggleParentSelect()">
+                                    <select class="form-select form-select-sm" id="tipo" name="tipo" onchange="toggleParentSelect()">
                                       <option value="Prima squadra">Prima squadra</option>
                                       <option value="Seconda squadra">Seconda squadra</option>
                                       <option value="Under 21">Under 21</option>
@@ -106,13 +106,13 @@
                                   
                                   
                                   <!-- Campo da gioco -->
-                                  <div class="col-12 col-lg-3">
+                                  <div class="col-12 col-lg-5">
                                     <label for="sede" class="form-label">Campo da gioco</label>
                                     <div class="input-group">
                                       <span class="input-group-text" id="basic-addon1">
                                         <i class='bx bxs-map-pin' ></i>
                                       </span>
-                                      <input type="text" class="form-control" id="sede" name="sede" />
+                                      <input type="text" class="form-control form-control-sm" id="sede" name="sede" />
                                     </div>
                                   </div>
 
@@ -123,14 +123,14 @@
                                       <span class="input-group-text" id="basic-addon1">
                                         <i class='bx bx-map' ></i>
                                       </span>
-                                      <input type="text" class="form-control" id="citta" name="citta"/>
+                                      <input type="text" class="form-control form-control-sm" id="citta" name="citta"/>
                                     </div>
                                   </div>
 
                                   <!-- Giorno match -->
                                   <div class="col-6 col-lg-2">
                                     <label for="giorno_settimana" class="form-label">Giorno match</label>
-                                    <select class="form-select" id="giorno_settimana" name="giorno_settimana" >
+                                    <select class="form-select form-select-sm" id="giorno_settimana" name="giorno_settimana" >
                                       <option value="Lunedi">Lunedì</option>
                                       <option value="Martedi">Martedì</option>
                                       <option value="Mercoledi">Mercoledì</option>
@@ -150,41 +150,26 @@
                                       <span class="input-group-text" id="basic-addon1">
                                         <i class='bx bx-time-five' ></i>
                                       </span>
-                                      <input type="time" class="form-control" id="ora_match" name="ora_match"  />
+                                      <input type="time" class="form-control form-control-sm" id="ora_match" name="ora_match"  />
                                     </div>
                                   </div>
 
                                   <!-- Presidente -->
                                   <div class="col-6 col-lg-2">
                                     <label for="citta" class="form-label">Presidente</label>
-                                    <input type="text" class="form-control" id="presidente" name="presidente"   />
+                                    <input type="text" class="form-control form-control-sm" id="presidente" name="presidente"   />
                                   </div>
 
                                   <!-- Vicepresidente -->
                                   <div class="col-6 col-lg-2">
                                     <label for="vicepresidente" class="form-label">Vicepresidente</label>
-                                    <input type="text" class="form-control" id="vicepresidente" name="vicepresidente" ></input>
+                                    <input type="text" class="form-control form-control-sm" id="vicepresidente" name="vicepresidente" ></input>
                                   </div>
-
-                                  <!-- Sede legale -->
-                                  <div class="col-12 col-lg-3">
-                                    <label for="sede_legale" class="form-label">Sede legale</label>
-                                    <div class="input-group">
-                                      <span class="input-group-text" id="basic-addon1">
-                                        <i class='bx bx-building-house' ></i>
-                                      </span>
-                                      <input type="text" class="form-control" id="sede_legale" name="sede_legale" ></input>
-                                    </div>
-                                  </div>
-
-                                  <!-- Campionato attuale -->
-                                  <div class="col-12 col-lg-3 ">
-                                    <label for="campionato" class="form-label">Campionato attuale</label>
-                                    <select class="form-select" id="campionato" name="campionato" >
-                                      <?php while($stagione = mysqli_fetch_assoc($stagioni)){ ?>
-                                        <option value="<?php echo $stagione['id_stagione']?>"><?php echo $stagione['descrizione'] .' Girone ' . $stagione['girone'] .' - ' . $stagione['anno_inizio'].'/' .$stagione['anno_fine']   ?></option>
-                                      <?php } ?>
-                                    </select>
+                                  
+                                  <!-- Allenatore -->
+                                  <div class="col-6 col-lg-2">
+                                    <label for="allenatore" class="form-label">Allenatore</label>
+                                    <input type="text" class="form-control form-control-sm" id="allenatore" name="allenatore" ></input>
                                   </div>
 
                                   <!-- Contatto -->
@@ -194,9 +179,43 @@
                                       <span class="input-group-text" id="basic-addon1">
                                         <i class='bx bxs-user-circle'></i>
                                       </span>
-                                      <input type="text" class="form-control" id="contatto_riferimento" name="contatto_riferimento"  />
+                                      <input type="text" class="form-control form-control-sm" id="contatto_riferimento" name="contatto_riferimento"  />
                                     </div>
                                   </div>
+
+                                  <!-- Sede legale -->
+                                  <div class="col-12 col-lg-4">
+                                    <label for="sede_legale" class="form-label">Sede legale</label>
+                                    <div class="input-group">
+                                      <span class="input-group-text" id="basic-addon1">
+                                        <i class='bx bx-building-house' ></i>
+                                      </span>
+                                      <input type="text" class="form-control form-control-sm" id="sede_legale" name="sede_legale" ></input>
+                                    </div>
+                                  </div>
+
+                                  <!-- Campionato attuale -->
+                                  <div class="col-12 col-lg-4">
+                                    <label for="campionato" class="form-label">Campionato attuale</label>
+                                    <select class="form-select form-select-sm" id="campionato" name="campionato" >
+                                      <?php while($stagione = mysqli_fetch_assoc($stagioni)){ ?>
+                                        <option value="<?php echo $stagione['id_stagione']?>"><?php echo $stagione['descrizione'] .' Girone ' . $stagione['girone'] .' - ' . $stagione['anno_inizio'].'/' .$stagione['anno_fine']   ?></option>
+                                      <?php } ?>
+                                    </select>
+                                  </div>
+                                  
+                                  <!-- Email -->
+                                  <div class="col-12 col-lg-4">
+                                    <label for="email" class="form-label">Email</label>
+                                    <div class="input-group">
+                                      <span class="input-group-text" id="basic-addon1">
+                                        <i class="bx bx-at"></i>
+                                      </span>
+                                      <input type="email" class="form-control form-control-sm" id="email" name="email" ></input>
+                                    </div>
+                                  </div>div>
+
+                                  
 
                                   <!-- Telefono -->
                                   <div class="col-12 col-lg-2">
@@ -205,20 +224,10 @@
                                       <span class="input-group-text" id="basic-addon1">
                                         <i class='bx bx-phone' ></i>
                                       </span>
-                                      <input type="text" class="form-control" id="telefono" name="telefono" ></input>
+                                      <input type="text" class="form-control form-control-sm" id="telefono" name="telefono" ></input>
                                     </div>
                                   </div>
 
-                                  <!-- Email -->
-                                  <div class="col-12 col-lg-2">
-                                    <label for="email" class="form-label">Email</label>
-                                    <div class="input-group">
-                                      <span class="input-group-text" id="basic-addon1">
-                                        @
-                                      </span>
-                                      <input type="email" class="form-control" id="email" name="email" ></input>
-                                    </div>
-                                  </div>
 
                                   <!-- Whatsapp -->
                                   <div class="col-6 col-lg-2">
@@ -227,7 +236,7 @@
                                       <span class="input-group-text" id="basic-addon1">
                                         <i class='bx bxl-whatsapp' ></i>
                                       </span>
-                                      <input type="text" class="form-control" id="whatsapp" name="whatsapp" ></input>
+                                      <input type="text" class="form-control form-control-sm" id="whatsapp" name="whatsapp" ></input>
                                     </div>
                                   </div>
 
@@ -238,26 +247,26 @@
                                       <span class="input-group-text" id="basic-addon1">
                                         <i class='bx bxl-instagram' ></i>
                                       </span>
-                                      <input type="text" class="form-control" id="instagram" name="instagram"></input>
+                                      <input type="text" class="form-control form-control-sm" id="instagram" name="instagram"></input>
                                     </div>
                                   </div>
 
                                   <!-- Sito web -->
-                                  <div class="col-12 col-lg-2">
+                                  <div class="col-12 col-lg-4">
                                     <label for="sito_web" class="form-label">Sito web</label>
                                     <div class="input-group">
                                       <span class="input-group-text" id="basic-addon1">
                                         <i class='bx bx-link' ></i>
                                       </span>
-                                      <input type="text" class="form-control" id="sito_web" name="sito_web" ></input>
+                                      <input type="text" class="form-control form-control-sm" id="sito_web" name="sito_web" ></input>
                                     </div>
                                   </div>
 
 
                                   <!-- Squadra principale -->
-                                  <div class="col-6 col-lg-2 mt-5" id="parentSelectContainer" style="display:none;">
+                                  <div class="col-6 col-lg-2" id="parentSelectContainer" style="display:none;">
                                     <label for="parent_id" class="form-label">Squadra principale</label>
-                                    <select class="form-select" id="parent_id" name="parent_id" >
+                                    <select class="form-select form-select-sm" id="parent_id" name="parent_id" >
                                       <option value="0" selected> - Seleziona prima squadra - </option>
                                       <?php while ($squadra = mysqli_fetch_assoc($squadre)) { ?>
                                         <option value="<?php echo $squadra['id']; ?>"><?php echo $squadra['nome_societa']; ?></option>
@@ -274,7 +283,7 @@
 
                         <!-- Submit -->
                         <div class="d-flex justify-content-end mt-3">
-                          <button type="submit" class="btn btn-outline-dark mt-2">Conferma</button>
+                          <button type="submit" class="btn btn-sm btn-outline-dark mt-2">Conferma</button>
                         </div>
                       </div>
 

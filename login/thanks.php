@@ -27,13 +27,13 @@
     <div class="container d-flex justify-content-center align-items-center vh-100 ">
       <div class="card p-5">
           <div class="card-body">
-            <h4 class="text-center">Grazie per la tua richiesta di iscrizione <h4>
+            <h4 class="text-center">Grazie per la tua richiesta di iscrizione </h4>
 
             <span>La richiesta verrà mandata alla società Audax 1970, attendi di essere accettato per poter accedere alla tua sezione dedicata.</span>
             <br>
 
             <div class="text-center mt-5">
-              <a type="button" class="btn btn-outline-dark" href="../index.php">Home</a>
+              <a type="button" class="btn btn-sm btn-outline-dark" href="../index.php">Home</a>
             </div>
           </div>
       </div>

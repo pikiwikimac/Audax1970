@@ -86,16 +86,16 @@
                       <div class="tpl-header--title">
                         <h4>
                           Tutti i giocatori
-                        <h4>
+                        </h4>
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">	
                           <?php if($_SESSION['superuser'] === 1 ){?>
-                          <a href="insert_player.php" type="button" class="btn btn-outline-dark float-end">
+                          <a href="insert_player.php" type="button" class="btn btn-sm btn-outline-dark float-end">
                             <i class='bx bx-plus '></i>
                           </a>
                           <?php } ?>
                           
-                          <a href="rosa_admin.php?id_societa=<?php echo $id_societa ?>" type="button" class="btn btn-outline-dark float-end me-2">
+                          <a href="rosa_admin.php?id_societa=<?php echo $id_societa ?>" type="button" class="btn btn-sm btn-outline-dark float-end me-2">
                             My team
                           </a>
                         </div>

@@ -58,12 +58,12 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
-                        <h4>Nuovo articolo<h4>
+                        <h4>Nuovo articolo</h4>
                         <div class="cta-wrapper">
-                          <button class="btn btn-outline-dark float-end" data-bs-toggle="offcanvas"   href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-                            <i class='bx bx-plus'></i>
+                          <button class="btn btn-sm btn-outline-dark float-end" data-bs-toggle="offcanvas"   href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                            <i class='bx bx-plus'></i> Aggiungi intestazione 
                           </button>	  
-                          <a type="button" href="articoli.php" class="btn btn-outline-dark float-end me-2">
+                          <a type="button" href="articoli.php" class="btn btn-sm btn-outline-dark float-end me-2">
                             <i class='bx bx-arrow-back'></i>
                           </a>
                         </div>
@@ -76,27 +76,27 @@
                           <div class="col-12">
                             <div class="card">
                               <div class="card-body">
-                                <h4>Info di base<h4>
-                                <div class="row my-3 g-3">
+
+                                <div class="row g-3">
                                   <!-- Titolo -->
                                   <div class="col-12 col-sm-6 col-lg-12">
                                     <label for="titolo" class="form-label">Titolo</label>
-                                    <input type="text" class="form-control" id="titolo" name="titolo" required/>
+                                    <input type="text" class="form-control form-control-sm" id="titolo" name="titolo" required/>
                                   </div>
                                   <!-- Data pubblicazione -->
                                   <div class="col-12 col-sm-6 col-lg-2">
                                     <label for="data_pubblicazione" class="form-label">Data pubblicazione</label>
-                                    <input type="datetime-local" class="form-control" id="data_pubblicazione" name="data_pubblicazione" value="<?php echo $now ?>"></input>
+                                    <input type="datetime-local" class="form-control form-control-sm" id="data_pubblicazione" name="data_pubblicazione" value="<?php echo $now ?>"></input>
                                   </div>
                                   <!-- Squadra -->
                                   <div class="col-12 col-sm-6 col-lg-2">
                                     <label for="autore" class="form-label">Autore</label>
-                                    <input type="text" class="form-control" id="autore" name="autore" value="Redazione"></input>
+                                    <input type="text" class="form-control form-control-sm" id="autore" name="autore" value="Redazione"></input>
                                   </div>
                                   <!-- Intestazione -->
                                   <div class="col-6 col-sm-6 col-lg-2">
                                     <label for="intestazione" class="form-label">Intestazione</label>
-                                    <select class="form-select" id="intestazione" name="intestazione">
+                                    <select class="form-select form-select-sm" id="intestazione" name="intestazione">
                                       <!-- Opzioni per la squadra ospite -->
                                       <?php
                                         foreach ($intestazioni as $intestazione) {
@@ -109,12 +109,12 @@
                                   <!-- Tags -->
                                   <div class="col-12 col-sm-6 col-lg-3">
                                     <label for="tags" class="form-label">Tags</label>
-                                    <input type="text" class="form-control" id="tags" name="tags"></input>
+                                    <input type="text" class="form-control form-control-sm" id="tags" name="tags"></input>
                                   </div>
                                   <!-- Contenuto -->
                                   <div class="col-12">
                                     <label for="contenuto" class="form-label">Contenuto</label>
-                                    <textarea class="form-control" id="contenuto" name="contenuto" rows="15" required></textarea>
+                                    <textarea class="form-control form-control-sm" id="contenuto" name="contenuto" rows="15" required></textarea>
                                   </div>
                                 </div>
                               </div>
@@ -122,7 +122,7 @@
                           </div>
                           <!-- Submit -->
                           <div class="d-flex justify-content-end">
-                            <button type="submit" class="btn btn-outline-dark mt-2">Conferma</button>
+                            <button type="submit" class="btn btn-sm btn-outline-dark mt-2">Conferma</button>
                           </div>
                         </div>
                       </form>
@@ -159,15 +159,15 @@
                 <!-- Nome materiale -->
                 <div class="col-12 mb-3">
                   <label for="intestazione" class="form-label">Descrizione</label>
-                  <input type="text" class="form-control" id="intestazione" name="intestazione"/>
+                  <input type="text" class="form-control form-control-sm" id="intestazione" name="intestazione"/>
                 </div>
               </div>
             </form>
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-            <button type="button" class="btn btn-primary" onclick="submitInsertForm()">Salva</button>
+            <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Annulla</button>
+            <button type="button" class="btn btn-sm btn-primary" onclick="submitInsertForm()">Salva</button>
           </div>
         </div>
       </div>

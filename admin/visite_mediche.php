@@ -49,7 +49,7 @@
                       <div class="tpl-header--title">
                         <h4>
                           Scadenze visite mediche
-                        <h4>
+                        </h4>
                       </div>
                     </div>
                     <!-- END:Intestazione -->

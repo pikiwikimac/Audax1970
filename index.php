@@ -252,51 +252,66 @@ require_once('config/db.php');
       <hr/>
       <div class="row  g-4">
         <?php while ($articolo = mysqli_fetch_assoc($articoli)) { ?>
-          <div class="col-12 col-lg-3">
-            <a href="articolo.php?id=<?php echo $articolo['id'] ?>" class="text-decoration-none">
-              <div class="card h-100">
-                <div class="card-img-wrapper">
+          <div class="col-12 col-sm-6 col-lg-3 p-3">
+              <a href="articolo.php?id=<?php echo $articolo['id'] ?>" class="text-decoration-none">
+                <div class="card mb-2">
                   <?php if($articolo['immagine_url']){ ?>
-                    <img src="image/articoli/<?php echo $articolo['immagine_url'] ?>" class="img-fluid card-img" alt="..." style="max-height:200px">
+                    <img src="image/articoli/<?php echo $articolo['immagine_url'] ?>" class="img-fluid card-img" alt="..." style="max-height:280px">
                   <?php }else{ ?>
-                    <img src="image/lnd_a2.png" class="img-fluid card-img" alt="..." style="max-height:200px">
+                    <img src="image/lnd_a2.png" class="img-fluid card-img" alt="..." style="max-height:280px">
                   <?php } ?>
                 </div>
-
-                <div class="card-body">
-                  <?php if($articolo['intestazione'] !== null ){ ?>
-                    <div class="card-img-overlay">
-                      <span class="badge bg-secondary bebas">
-                        <?php echo $articolo['intestazione'] ?>
-                      </span>
-                    </div>
-                  <?php } ?>
-                  <h4 class="card-title"><?php echo $articolo['titolo'] ?></h4>
-                  <span class="card-text">
-                    <?php 
-                      $content = $articolo['contenuto'];
-                      if (strlen($content) > 160) {
-                          $content = substr($content, 0, 160) . '...';
-                          // Wordwrap the content at 180 characters
-                          $content = wordwrap($content, 160, "\n", true);
-                      }
-                      echo nl2br($content);
-                    ?>
-                  </span>
                   
-                  <div class="card-text-footer">
-                    <small class="text-body-secondary">
-                      <?php 
-                        $data_pubblicazione = $articolo['data_pubblicazione'];
-                        $formatted_date = date("d-m-Y H:i", strtotime($data_pubblicazione));
-                        echo $formatted_date;
-                      ?>
-                    </small>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
+
+                <!-- Intestazione -->
+                <?php if($articolo['intestazione'] !== null ){ ?>
+                  <span class="badge bg-secondary">
+                    <?php echo $articolo['intestazione'] ?>
+                  </span>
+                <?php } ?>
+
+                <br/>
+                    
+                <h4 class="card-title text-dark mt-2">
+                  <?php echo $articolo['titolo'] ?>
+                </h4>
+                                     
+               
+                  
+                <!-- Contenuto dell'articolo -->
+                <span class="text-muted mb-2 text-justify" style="font-size:12px;">
+                  <?php 
+                      $content = $articolo['contenuto'];
+                      
+                      // Rimuovi spazi bianchi in eccesso e ritorni a capo
+                      $content = preg_replace('/\s+/', ' ', trim($content));
+                      
+                      // Se il contenuto è più lungo di 132 caratteri, troncalo e aggiungi "..."
+                      if (strlen($content) > 132) {
+                          $content = substr($content, 0, 132) . '...';
+                      }
+                      
+                      // Mostra il contenuto con i ritorni a capo convertiti in <br>
+                      echo nl2br(htmlspecialchars($content));
+                  ?>
+                </span>
+                
+                <br/>
+
+                <!-- Data pubblicazione -->
+                <small class="text-muted float-end">
+                  <?php
+                  $data_pubblicazione = $articolo['data_pubblicazione'];
+                  $formatted_date = date("d-m-Y H:i", strtotime($data_pubblicazione));
+                  echo $formatted_date;
+                  ?>
+                </small>
+                
+                
+                      
+
+              </a>
+            </div>
         <?php } ?>
       </div>
     </div>

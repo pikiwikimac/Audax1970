@@ -43,10 +43,10 @@
                       <div class="tpl-header--title">
                         <h4>
                           Gallery
-                        <h4>
+                        </h4>
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
-                          <a type="button" class="btn btn-outline-dark float-end"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModal" onclick="showCreateFolderModal()">
+                          <a type="button" class="btn btn-sm btn-outline-dark float-end"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModal" onclick="showCreateFolderModal()">
                             <i class='bx bx-plus '></i>
                           </a>
                         </div>
@@ -115,8 +115,8 @@
                 <input type="text" class="form-control" name="newFolderName" id="newFolderName" required>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-                <button type="submit" class="btn btn-primary">Crea</button>
+                <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                <button type="submit" class="btn btn-sm btn-primary">Crea</button>
             </div>
           </form>
         </div>

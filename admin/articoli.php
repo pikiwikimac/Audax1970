@@ -47,11 +47,11 @@
                       <div class="tpl-header--title">
                         <h4>
                           Articoli 
-                        <h4>
+                        </h4>
 
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">	
-                          <a type="button" href="new_articolo.php" class="btn btn-outline-dark float-end">
+                          <a type="button" href="new_articolo.php" class="btn btn-sm btn-outline-dark float-end">
                             <i class='bx bx-plus'></i>
                           </a>
                         </div>
