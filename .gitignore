@@ -28,6 +28,7 @@ uploads/
 pdf/
 image/
 font/
+config/
 
 # Miscellaneous
 *.class
