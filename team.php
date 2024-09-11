@@ -20,7 +20,8 @@
   SELECT g.*
   FROM giocatori g
   INNER JOIN societa s on s.id=g.id_squadra
-  WHERE s.id=$id
+  INNER JOIN affiliazioni_giocatori ag on ag.id_giocatore=g.id
+  WHERE ag.id_societa='$id'
   ORDER BY g.ruolo,g.cognome,g.nome";
 
   $giocatori = mysqli_query($con,$query2);
@@ -126,7 +127,6 @@
             <?php } ?>
           </div>
 
-          
         </div>
         <hr id="separatore" />
 
@@ -134,10 +134,11 @@
 
         
         <!-- Giocatori -->
-        <div class="row mb-3">
+        
           <?php if($giocatori->num_rows >0){ ?>
-          <div class="col-12 col-md-6 table-responsive">
-            <table class="table table-sm table-striped table-hover table-rounded ">
+          <div class="table-responsive col-12 col-md-6">
+          
+            <table class="table table-sm table-striped table-hover table-rounded w-100">
               <thead class="table-dark text-white">
                 <tr>
                   <th></th>
@@ -210,10 +211,11 @@
               </tbody>
             </table>
           </div>
+          
           <?php } ?>
            
           <!-- Calendario -->
-          <div class="col-12 col-md-6 table-responsive">
+          <div class="table-responsive col-12 col-md-6">
             <table class="table table-sm table-striped table-hover table-rounded ">
               <thead class="table-dark text-white">
                 <tr>
@@ -312,7 +314,7 @@
               </tbody>
             </table>
           </div>
-        </div>
+        
 
       </div>
       

@@ -71,8 +71,8 @@
 
                 <div class="col-12 col-xl-6 table-responsive">
 
-                    <table class="table table-sm table-hover table-striped caption-top table-rounded" >
-                        <caption class="fs-3 text-dark"><?php echo $giornata_numero ?> ° giornata </caption>
+                    <table class="table table-sm table-hover table-striped caption-top table-rounded" style="font-size:14px">
+                        <caption class="fs-5 bebas text-dark"><?php echo $giornata_numero ?> ° giornata </caption>
                         <thead class="table-dark">
 
                             <tr>

@@ -74,10 +74,14 @@
       
       <!-- Descrizione iniziale -->
       <div class="container my-5 px-4">
-        <h4 id="font-diverso">
-          <?php echo $row['nome']. ' ' . $row['cognome'] ?>          
-        </h4>
-
+        <h1 id="font_diverso">
+          <?php echo $row['nome']. ' ' . $row['cognome'] ?>
+          <div class="float-end">
+            <span class="badge bg-dark text-light" >
+              <?php echo $row['maglia']  ?>
+            </span>
+          </div>
+        </h1>
 
         <hr/>
         <!-- Visualizzazione a card -->
@@ -87,7 +91,7 @@
             <div class="row gy-3">
               <div class="col-12">
                 <?php if ($row['image_path']) { ?>
-                  <img src="image/player/<?php echo $row['image_path'];?>" class="rounded-circle img-fluid p-3" alt="<?php echo $row['cognome'].' '.$row['nome'];?>" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>" width="400" height="400"/>
+                  <img src="image/player/<?php echo $row['image_path'];?>" class="img-fluid" alt="<?php echo $row['cognome'].' '.$row['nome'];?>" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>" width="400" height="400"/>
                 <?php } else { ?>
                   <img src="image/default_user.jpg" class="rounded-circle img-fluid p-3" alt="Immagine di default" data-player-name="<?php echo $row['player_name'];?>" width="400" height="400" />
                 <?php } ?>

@@ -72,10 +72,10 @@
                         
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
-                          <a href="settore_giovanile.php" type="button" class="btn btn-sm btn-outline-dark ms-2 ">
+                          <a href="settore_giovanile.php" type="button" class="btn btn-sm btn-outline-dark float-end me-2 ">
                             Settori giovanili
                           </a>	
-                          <a href="insert_societa.php" type="button" class="btn btn-sm btn-outline-dark ms-2 ">
+                          <a href="insert_societa.php" type="button" class="btn btn-sm btn-outline-dark float-end me-2 ">
                             <i class='bx bx-plus '></i>
                           </a>
                         </div>

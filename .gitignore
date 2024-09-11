@@ -26,6 +26,8 @@ config/*.local
 # Uploaded files
 uploads/
 pdf/
+image/
+font/
 
 # Miscellaneous
 *.class

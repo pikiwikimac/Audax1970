@@ -99,7 +99,6 @@
                                       <option value="Under 19">Under 19</option>
                                       <option value="Under 17">Under 17</option>
                                       <option value="Under 15">Under 15</option>
-                                      <option value="Altro">Altro</option>
                                     </select>
                                   </div>
 
@@ -155,19 +154,19 @@
                                   </div>
 
                                   <!-- Presidente -->
-                                  <div class="col-6 col-lg-2">
+                                  <div class="col-12 col-lg-2">
                                     <label for="citta" class="form-label">Presidente</label>
                                     <input type="text" class="form-control form-control-sm" id="presidente" name="presidente"   />
                                   </div>
 
                                   <!-- Vicepresidente -->
-                                  <div class="col-6 col-lg-2">
+                                  <div class="col-12 col-lg-2">
                                     <label for="vicepresidente" class="form-label">Vicepresidente</label>
                                     <input type="text" class="form-control form-control-sm" id="vicepresidente" name="vicepresidente" ></input>
                                   </div>
                                   
                                   <!-- Allenatore -->
-                                  <div class="col-6 col-lg-2">
+                                  <div class="col-12 col-lg-2">
                                     <label for="allenatore" class="form-label">Allenatore</label>
                                     <input type="text" class="form-control form-control-sm" id="allenatore" name="allenatore" ></input>
                                   </div>
@@ -213,9 +212,8 @@
                                       </span>
                                       <input type="email" class="form-control form-control-sm" id="email" name="email" ></input>
                                     </div>
-                                  </div>div>
+                                  </div>
 
-                                  
 
                                   <!-- Telefono -->
                                   <div class="col-12 col-lg-2">

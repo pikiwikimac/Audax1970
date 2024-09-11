@@ -51,7 +51,12 @@ require_once('config/db.php');
     # QUERY
     $query_ultimo_match=
       "
-      SELECT s.*,soc.nome_societa as casa, soc2.nome_societa as ospite,soc.sede,soc.citta,soc.logo as logo_casa,soc2.logo as logo_ospiti,stag.descrizione
+      SELECT s.*,
+      soc.nome_societa as casa, 
+      soc2.nome_societa as ospite,
+      soc.logo as logo_casa, 
+      soc2.logo as logo_ospite,
+      soc.sede,soc.citta,soc.logo as logo_casa,soc2.logo as logo_ospiti,stag.descrizione
       FROM `partite` s
       INNER JOIN societa soc on soc.id=s.squadraCasa
       INNER JOIN societa soc2 on soc2.id=s.squadraOspite
@@ -85,7 +90,9 @@ require_once('config/db.php');
     SELECT
     s.*,
     soc.nome_societa AS casa,
+    soc.logo AS logo_casa,
     soc2.nome_societa AS ospite,
+    soc2.logo AS logo_ospite,
     soc.sede,
     soc.citta,
     s.data,
@@ -111,8 +118,9 @@ require_once('config/db.php');
     WHERE
         (
             s.squadraCasa = '1' OR s.squadraOspite = '1'
-        ) AND s.played = 0 
-   
+        ) 
+    AND s.played = 0
+    AND s.giornata < 500 
     ORDER BY data
     LIMIT 1
     ";
@@ -162,12 +170,6 @@ require_once('config/db.php');
 
 
 <style>
-  .bebas{
-    font-size: 14px!important;
-    font-weight: 300;
-    font-family: 'Bebas Neue';
-    letter-spacing:1px;
-  }
   
   .card {
     display: flex;
@@ -206,9 +208,22 @@ require_once('config/db.php');
   }
 
   .card-title {
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 1.25rem; /* Regola la dimensione del font come preferisci */
+    line-height: 1.5; /* Regola l'altezza della linea per migliorare la leggibilità */
+    overflow: hidden; /* Nasconde il testo in eccesso */
+    text-overflow: ellipsis; /* Mostra i puntini di sospensione per il testo troncato */
+    white-space: nowrap; /* Impedisce il ritorno a capo */
+    display: block;
+    width: 100%; /* Assicura che l'elemento occupi tutto lo spazio disponibile */
     font-family: 'Bebas Neue';
+  }
+
+  .card-title-container {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limita il numero di righe */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .card-text {
@@ -222,7 +237,13 @@ require_once('config/db.php');
     margin-top: auto;
   }
 
+  .table {
+    --bs-table-bg: unset!important; /* o 'initial' per il valore predefinito */
+  }
 
+  .card{
+    --bs-card-bg: unset!important;
+  }
 
    
 </style>
@@ -246,11 +267,11 @@ require_once('config/db.php');
     
     <!-- Articoli  -->
     <div class="container my-5 px-4">
-      
       <h1 id="font_diverso">Articoli</h1>
       
       <hr/>
-      <div class="row  g-4">
+
+      <div class="row g-4">
         <?php while ($articolo = mysqli_fetch_assoc($articoli)) { ?>
           <div class="col-12 col-sm-6 col-lg-3 p-3">
               <a href="articolo.php?id=<?php echo $articolo['id'] ?>" class="text-decoration-none">
@@ -272,14 +293,16 @@ require_once('config/db.php');
 
                 <br/>
                     
-                <h4 class="card-title text-dark mt-2">
-                  <?php echo $articolo['titolo'] ?>
-                </h4>
+                <div class="card-title-container">
+                  <h4 class="card-title text-dark mt-2">
+                    <?php echo $articolo['titolo'] ?>
+                  </h4>
+                </div>
                                      
                
                   
                 <!-- Contenuto dell'articolo -->
-                <span class="text-muted mb-2 text-justify" style="font-size:12px;">
+                <p class="text-dark" style="font-size:12px;">
                   <?php 
                       $content = $articolo['contenuto'];
                       
@@ -294,21 +317,16 @@ require_once('config/db.php');
                       // Mostra il contenuto con i ritorni a capo convertiti in <br>
                       echo nl2br(htmlspecialchars($content));
                   ?>
-                </span>
-                
-                <br/>
+                </p>
 
                 <!-- Data pubblicazione -->
-                <small class="text-muted float-end">
+                <span class="text-muted float-end" style="font-size:12px;">
                   <?php
                   $data_pubblicazione = $articolo['data_pubblicazione'];
                   $formatted_date = date("d-m-Y H:i", strtotime($data_pubblicazione));
                   echo $formatted_date;
                   ?>
-                </small>
-                
-                
-                      
+                </span>
 
               </a>
             </div>
@@ -323,28 +341,19 @@ require_once('config/db.php');
         <!-- Prossima partita -->
         <div class="col">
           <a class="text-decoration-none" href="show_partita.php?id=<?php echo $row2['id'] ?>">
-            <div class="card h-100 card-wrapper">
+            <div class="card h-100 card-wrapper bebas">
+               
               <div class="card-header bg-dark text-light">
-                Giornata <?php echo $row2['giornata'] ?>° - <?php echo $row2['descrizione'] ?>
+                Giornata <?php echo $row2['giornata'] ?>° 
                 <span class="float-end">
-                  <i class='bx bx-calendar'></i>
-                  <span>
-                    <?php 
-                      if (isset($row2['data'], $row2['orario_partita'])) {
-                        $formatted_date = date("d/m/y", strtotime($row2['data']));
-                        $formatted_time = date('H:i', strtotime($row2['orario_partita']));
-                      } else {
-                        $formatted_date = '';
-                        $formatted_time = '';
-                      }
-                    ?>
-                    <?php echo $formatted_date; ?> <?php echo $formatted_time; ?>
-                  </span>
+                  <?php echo $row2['descrizione'] ?>
                 </span>
               </div>
-              <div class="card-body card-content">
+             
+
+              <div class="card-body mt-3 card-content">
                 <!-- Luogo partita prossimo match-->
-                <div class="row">
+                <div class="row ">
                   <div class="col-12 text-center">
                     <span class="text-muted" id="luogo_match"><?php echo $row2['sede'] .' - ' .$row2['citta']?></span>
                   </div>
@@ -353,29 +362,58 @@ require_once('config/db.php');
                 <!-- Team casa vs team fuori casa prossimo match -->
                 <div class="row">
                   <!-- Team casa prossimo match-->
-                  <div class="col-6 text-center">
-                    <div class="row">
+                  <div class="col-4 text-center">
+                    <div class="row gy-3">
+                      <div class="col-12" >
+                        <img src="image/loghi/<?php echo $row2['logo_casa'] ?>" class="img-fluid rounded-circle" width="70" height="70"/>
+                      </div>
                       <div class="col-12">
-                        <span class="fw-bold fs-3" id="font_diverso"><?php echo $row2['casa'] ?></span>
+                        <span class="fw-bold fs-4" id="font_diverso"><?php echo $row2['casa'] ?></span>
+                      </div>
+                    
+                    </div>
+                    <div class="row mt-3">
+                      <div class="col-12">
                       </div>
                     </div>
-                    <div class="row">
+                  </div>
+
+                  <div class="col-4 text-center">
+                    <div class="row gy-3">
                       <div class="col-12">
-                        <span class="fw-bold fs-4">-</span>
+                        <span class="fw-bold fs-1"> - </span>
+                      </div>
+                      <div class="col-12" >
+                        <small class="text-muted">
+                          <?php 
+                            if (isset($row2['data'], $row2['orario_partita'])) {
+                              $formatted_date = date("d/m/y", strtotime($row2['data']));
+                              $formatted_time = date('H:i', strtotime($row2['orario_partita']));
+                            } else {
+                              $formatted_date = '';
+                              $formatted_time = '';
+                            }
+                          ?>
+                          <?php echo $formatted_date; ?> <?php echo $formatted_time; ?>
+                        </small>
                       </div>
                     </div>
                   </div>
 
                   <!-- Team ospite prossimo match -->
-                  <div class="col-6 text-center">
-                    <div class="row">
-                      <div class="col-12">
-                        <span class="fw-bold fs-3" id="font_diverso"><?php echo $row2['ospite'] ?></span>
+                  <div class="col-4 text-center">
+                    <div class="row gy-3">
+                      <div class="col-12" >
+                        <img src="image/loghi/<?php echo $row2['logo_ospite'] ?>" class="img-fluid rounded-circle" width="70" height="70"/>
                       </div>
-                    </div>
-                    <div class="row">
                       <div class="col-12">
-                        <span class="fw-bold fs-4">-</span>
+                        <span class="fw-bold fs-4" id="font_diverso"><?php echo $row2['ospite'] ?></span>
+                      </div>
+                    
+                    </div>
+
+                    <div class="row mt-3">
+                      <div class="col-12">
                       </div>
                     </div>
                   </div>
@@ -389,25 +427,19 @@ require_once('config/db.php');
         <!-- Ultimo match -->
         <div class="col">
           <a class="text-decoration-none" href="show_partita.php?id=<?php echo $row['id'] ?>">
-            <div class="card h-100 card-wrapper">
+            <div class="card h-100 card-wrapper bebas">
+
               <div class="card-header bg-dark text-light">
-                <?php if($row['giornata']>500) {
-                  echo 'Amichevole' .'<span class="float-end">
-                  <i class="bx bx-calendar"></i>
-                  <span>' .date("d/m/y", strtotime($row['data'])) .'</span>
-                </span>';
-                } else { ?>
-                  Giornata <?php echo $row['giornata'] ?>° - <?php echo $row['descrizione'] ?>
-                  <span class="float-end">
-                    <i class='bx bx-calendar'></i>
-                    <span><?php echo  date("d/m/y", strtotime($row['data'])); ?></span>
-                  </span>
-                <?php } ?>
+                Giornata <?php echo $row['giornata'] ?>° 
+                <span class="float-end">
+                  <?php echo $row['descrizione'] ?>
+                </span>
               </div>
-              <div class="card-body card-content">
+
+              <div class="card-body mt-3 card-content">
                 <!-- Luogo partita -->
-                <div class="row">
-                  <div class="col-12">
+                <div class="row ">
+                  <div class="col-12 text-center">
                     <div class="text-center" id="luogo_match">
                       <span class="text-muted"><?php echo $row['sede'] .' - '  .$row['citta'] ?></span>
                     </div>
@@ -416,17 +448,16 @@ require_once('config/db.php');
 
                 <div class="row">
                   <!-- Team casa -->
-                  <div class="col-6">
-                    <div class="row text-center">
+                  <div class="col-4 text-center">
+                    <div class="row gy-3">
+                      <div class="col-12" >
+                        <img src="image/loghi/<?php echo $row['logo_casa'] ?>" class="img-fluid rounded-circle" width="70" height="70"/>
+                      </div>
                       <div class="col-12">
-                        <span class="fw-bold fs-3" id="font_diverso"><?php echo $row['casa'] ?></span>
+                        <span class="fw-bold fs-4" id="font_diverso"><?php echo $row['casa'] ?></span>
                       </div>
                     </div>
-                    <div class="row text-center">
-                      <div class="col-12">
-                        <span class="fw-bold fs-4"><?php echo $row['golCasa'] ?></span>
-                      </div>
-                    </div>
+                    
                     <div class="row mt-3">
                       <div class="col-12">
                         <?php while ($marcatore = mysqli_fetch_assoc($marcatori_casa_ultima_partita)) { ?>
@@ -453,18 +484,39 @@ require_once('config/db.php');
                   </div>
                   <!-- END: Team casa -->
 
+                  <div class="col-4 text-center">
+                    <div class="row gy-3">
+                      <div class="col-12">
+                        <span class="fw-bold fs-1"><?php echo $row['golCasa'] ?> - <?php echo $row['golOspiti'] ?></span>
+                      </div>
+                      <div class="col-12">
+                        <small class="text-muted">
+                          <?php 
+                            if (isset($row2['data'], $row2['orario_partita'])) {
+                              $formatted_date = date("d/m/y", strtotime($row['data']));
+                              $formatted_time = date('H:i', strtotime($row['orario_partita']));
+                            } else {
+                              $formatted_date = '';
+                              $formatted_time = '';
+                            }
+                          ?>
+                          <?php echo $formatted_date; ?> <?php echo $formatted_time; ?>
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+
                   <!-- Team ospite -->
-                  <div class="col-6">
-                    <div class="row text-center">
+                  <div class="col-4 text-center">
+                    <div class="row gy-3">
+                      <div class="col-12" >
+                        <img src="image/loghi/<?php echo $row['logo_ospite'] ?>" class="img-fluid rounded-circle" width="70" height="70"/>
+                      </div>
                       <div class="col-12">
-                        <span class="fw-bold fs-3" id="font_diverso"><?php echo $row['ospite'] ?></span>
+                        <span class="fw-bold fs-4" id="font_diverso"><?php echo $row['ospite'] ?></span>
                       </div>
                     </div>
-                    <div class="row text-center">
-                      <div class="col-12">
-                        <span class="fw-bold fs-4"><?php echo $row['golOspiti'] ?></span>
-                      </div>
-                    </div>
+                  
                     <div class="row mt-3">
                       <div class="col-12">
                         <?php while ($marcatore = mysqli_fetch_assoc($marcatori_ospite_ultima_partita)) { ?>
@@ -505,7 +557,7 @@ require_once('config/db.php');
       <div class="row gy-3">
         <!-- Tabella rosa -->
         <div class="col-12 col-lg-6 table-responsive">
-          <table class="table table-sm table-hover table-rounded " >
+          <table class="table table-sm table-hover table-rounded">
 
             <thead class="table-dark">
               <tr>
@@ -538,11 +590,13 @@ require_once('config/db.php');
                 <tr>
                   <!-- Maglia --> 
                   <td class="text-center">
-                    <?php echo $row['maglia'] ?>
+                    <span class="badge text-dark border border-dark" style="width:3rem">
+                      # <?php echo $row['maglia'] ?>
+                    </span>
                   </td>
                   <!-- Nome e cognome -->
                   <td>
-                    <a class="text-decoration-none text-dark" href="giocatore.php?id=<?php echo $row['id'] ?>">
+                    <a class="text-decoration-none text-dark fw-semibold" href="giocatore.php?id=<?php echo $row['id'] ?>">
                       <?php echo $row['nome'] .' '.$row['cognome']  ?>
                     </a>
                   </td>
@@ -643,7 +697,7 @@ require_once('config/db.php');
                             <span class="bg-opacity-50 ' . $rowClass . ' rounded-circle d-inline-block" style="width: 15px; height: 15px;"></span>
                           </span>';
               ?>
-                <tr>
+                <tr >
                   <!-- Posizione in classifica -->
                   <td class="text-center">
                     <?php echo $posizione ?>°
@@ -653,7 +707,7 @@ require_once('config/db.php');
                     <?php echo $circle; ?>
                   </td>
                   <!-- Nome società -->
-                  <td class="<?php if($row['societa'] === 'AUDAX 1970'){ echo 'fw-bold'; }?> ">
+                  <td class="<?php if($row['societa'] === 'Audax 1970'){ echo 'fw-semibold'; }?> ">
                     <a href="team.php?id=<?php echo $row['id'] ?>" class="text-decoration-none text-dark d-none d-md-block">
                       <?php echo $row['societa'] ?>
                     </a>

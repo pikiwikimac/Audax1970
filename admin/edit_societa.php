@@ -125,7 +125,6 @@
                                       <option value="Under 19" <?php if ($row['tipo']==='Under 19') { ?>selected="selected"<?php } ?>>Under 19</option>
                                       <option value="Under 17" <?php if ($row['tipo']==='Under 17') { ?>selected="selected"<?php } ?>>Under 17</option>
                                       <option value="Under 15" <?php if ($row['tipo']==='Under 15') { ?>selected="selected"<?php } ?>>Under 15</option>
-                                      <option value="Altro" <?php if ($row['tipo']==='Altro') { ?>selected="selected"<?php } ?>>Altro</option>
                                     </select>
                                   </div>
                                   

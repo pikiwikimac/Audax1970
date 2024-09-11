@@ -42,7 +42,7 @@
             <div class="row">
 
                 <div class="col-12 table-responsive">
-                    <table class="table table-striped table-hover table-rounded">
+                    <table class="table table-striped table-hover table-rounded bebas" style="font-size:18px;">
                         <thead class="table-dark ">
                             <tr>
                             <th></th>
@@ -78,12 +78,12 @@
 
                             <tr class="bg-opacity-25 <?php echo $rowClass; ?>">
                                 <!-- Posizione in classifica -->
-                                <td class="text-center fw-bold ">
+                                <td class="text-center">
                                 <?php echo $posizione ?>°
                                 </td>
 
                                 <!-- Nome squadra -->
-                                <td class="fw-bold text-nowrap " style="cursor:pointer" onclick="window.location='show_societa.php?id=<?php echo $row['id']; ?>';">
+                                <td class=" text-nowrap " style="cursor:pointer;" onclick="window.location='show_societa.php?id=<?php echo $row['id']; ?>';">
                                 <?php echo $row['societa'] ?>
                                 </td>
 

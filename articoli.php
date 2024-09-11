@@ -18,10 +18,24 @@
   <?php include 'elements/head_base.php'; ?>
 
 <style>
-    .card-title {
-    font-size: 20px;
-    font-weight: 600;
+
+.card-title {
+    font-size: 1.25rem; /* Regola la dimensione del font come preferisci */
+    line-height: 1.5; /* Regola l'altezza della linea per migliorare la leggibilità */
+    overflow: hidden; /* Nasconde il testo in eccesso */
+    text-overflow: ellipsis; /* Mostra i puntini di sospensione per il testo troncato */
+    white-space: nowrap; /* Impedisce il ritorno a capo */
+    display: block;
+    width: 100%; /* Assicura che l'elemento occupi tutto lo spazio disponibile */
     font-family: 'Bebas Neue';
+  }
+
+  .card-title-container {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limita il numero di righe */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 </style>
 
@@ -42,7 +56,7 @@
       </h1>
       <hr id="separatore" />
       
-      <div class="row g-5">
+      <div class="row g-4">
         
         <?php if(mysqli_num_rows($articoli) > 0){ ?>
           <?php while($articolo = mysqli_fetch_assoc($articoli)) { ?>
@@ -66,14 +80,16 @@
 
                 <br/>
                     
-                <h4 class="card-title text-dark mt-2">
-                  <?php echo $articolo['titolo'] ?>
-                </h4>
+                <div class="card-title-container">
+                  <h4 class="card-title text-dark mt-2">
+                    <?php echo $articolo['titolo'] ?>
+                  </h4>
+                </div>
                                      
                
                   
                 <!-- Contenuto dell'articolo -->
-                <span class="text-muted mb-2 text-justify" style="font-size:12px;">
+                <p class="text-muted" style="font-size:12px;">
                   <?php 
                       $content = $articolo['contenuto'];
                       
@@ -88,18 +104,16 @@
                       // Mostra il contenuto con i ritorni a capo convertiti in <br>
                       echo nl2br(htmlspecialchars($content));
                   ?>
-                </span>
+                </p>
                 
-                <br/>
-
                 <!-- Data pubblicazione -->
-                <small class="text-muted float-end">
+                <span class="text-muted float-end" style="font-size:12px">
                   <?php
                   $data_pubblicazione = $articolo['data_pubblicazione'];
                   $formatted_date = date("d-m-Y H:i", strtotime($data_pubblicazione));
                   echo $formatted_date;
                   ?>
-                </small>
+                </span>
                 
                 
                       

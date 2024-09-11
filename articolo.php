@@ -34,7 +34,7 @@
 
     <meta name="description" content="Serie A2 Nazionale">
     <meta name="google-site-verification" content="+nxGUDJ4QpAZ5l9Bsjdi102tLVC21AIh5d1Nl23908vVuFHs34=">
-    <meta name="robots" content="nofollow">
+    <meta name="robots" content="index, follow">
     
     <!-- Meta tag Open Graph -->
     <meta property="og:title" content="<?php echo htmlspecialchars($row['titolo']); ?>">
@@ -96,18 +96,11 @@
     <?php include 'elements/carousel_audax.php'; ?>
 
     <!-- Descrizione iniziale -->
-    <div class="container my-5 px-4">
-      <div class="row g-3 margin-mobile">
+    <div class="container" style="margin-top:7rem!important">
+      <div class="row g-3 ">
         <div class="col-12 align-middle">
-          <h2 id="font_diverso" class="mt-md-5">
+          <h2 id="font_diverso">
             <?php echo htmlspecialchars($row['titolo']); ?>
-            <?php if($row['intestazione'] !== null ){ ?>
-              <div class="float-end">
-                <span class="badge bg-secondary bebas">
-                  <?php echo htmlspecialchars($row['intestazione']); ?>
-                </span>
-              </div>
-            <?php } ?>
           </h2>
 
           <!-- Data pubblicazione -->
@@ -119,6 +112,14 @@
                 echo $formatted_date;
               ?>
             </small>
+
+            <?php if($row['intestazione'] !== null ){ ?>
+              <div class="float-end">
+                <span class="badge bg-secondary " >
+                  <?php echo htmlspecialchars($row['intestazione']); ?>
+                </span>
+              </div>
+            <?php } ?>
           </div>
 
         </div>
@@ -127,9 +128,9 @@
       <hr/>
       
       <div class="row g-3">
-        <div class="col-12 col-lg-8">
+        <div class="col-12 col-lg-8 pe-5">
           <!-- Contenuto articolo -->
-          <p class="" style="font-size:14px">
+          <p class="" >
             <?php echo nl2br(htmlspecialchars($row['contenuto'])); ?>
           </p>
 

@@ -403,7 +403,7 @@
                                             <!-- Tabella -->
                                             <div class="col-12">
                                                 <div class="table-responsive">
-                                                    <table class="table table-hover table-striped table-rounded " >
+                                                    <table class="table table-sm table-hover table-striped table-rounded " >
 
                                                         <caption>
                                                             <?php echo $numero_giocatori['numero_giocatori'] ?> giocatori totali

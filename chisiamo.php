@@ -24,12 +24,14 @@
     <!-- Descrizione iniziale -->
     <div class="container my-5 px-4">
 
-      <div class="row gy-3 ">
-        
+      <div class="row">
         <div class="col-12">
           <h1 id="font_diverso">Chi siamo</h1>
         </div>
-     
+      </div>
+      <hr/>
+
+      <div class="row gy-3 ">
         <div class="col-12 col-lg-8">
           <span class="" >
             La Società Sportiva AUDAX 1970 è nata nel giugno del 1970 grazie all'iniziativa del Presidente Sandro Mantovani, insieme a un gruppo di amici appassionati di calcio. 
