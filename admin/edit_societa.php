@@ -277,6 +277,17 @@
                                     </div>
                                   </div>
 
+                                  <!-- Facebook -->
+                                  <div class="col-6 col-lg-2">
+                                    <label for="facebook" class="form-label">Facebook</label>
+                                    <div class="input-group">
+                                      <span class="input-group-text" id="basic-addon1">
+                                        <i class='bx bxl-facebook' ></i>
+                                      </span>
+                                      <input type="text" class="form-control form-control-sm" id="facebook" name="facebook" value="<?php echo $row['facebook'];?>"></input>
+                                    </div>
+                                  </div>
+
                                   <!-- Sito web -->
                                   <div class="col-12 col-lg-4">
                                     <label for="sito_web" class="form-label">Sito web</label>

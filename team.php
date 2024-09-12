@@ -50,81 +50,110 @@
       <?php include 'elements/navbar_red.php'; ?>
     </div>
         
-    <!-- Carousel di sfondo  -->
-    <?php include 'elements/carousel.php'; ?>
-
     <!-- Descrizione iniziale -->
-    <div class="container my-5 px-4">
+    <div class="container" style="margin-top:6rem!important">
       
       <!-- Società -->
       <div class="row gy-3 ">
         <h1 id="font_diverso">
           <img src="image/loghi/<?php echo $info['logo'] ?>" class="img-fluid rounded-circle" width="80" height="80"/> &nbsp; <?php echo $info['nome_societa'] ?>
+          
+            <!-- Instagram -->
+            <?php if($info['instagram'] != null){ ?>
+              &nbsp; 
+              <a href="https://www.instagram.com/<?php echo $info['instagram']; ?>" class="text-decoration-none text-dark" target="_blank">
+                <span class="">
+                  <i class='bx bxl-instagram' style="font-size:1.2rem"></i>
+                </span>
+              </a>
+            <?php } ?>
+            
+            <!-- Facebook -->
+            <?php if($info['facebook'] != null){ ?>
+              <a href="https://www.facebook.com/<?php echo $info['facebook']; ?>" class="text-decoration-none text-dark" target="_blank">
+                <span class="">
+                <i class='bx bxl-facebook' style="font-size:1.2rem"></i>
+                </span>
+              </a>
+            <?php } ?>
+          
         </h1>
 
         <!-- Info squadra -->
         <div class="row mb-3">
           
+            
+          
           <div class="col-12">
             <!-- Sede e città  -->
-            <span class="text-muted" style="font-size:12px">
-              <i class='bx bxs-map-pin'></i> &nbsp;
-              <a href="https://www.google.com/maps/search/<?php echo urlencode($info['sede'] . ' ' . $info['citta']); ?>" class="text-decoration-none text-dark" target="_blank">
-                <?php echo $info['sede'] ?> - <?php echo $info['citta'] ?>
-              </a>
-            </span>
-            <br/>
+            <div class="">
+              <span class="text-muted" style="font-size:14px">
+                <i class='bx bxs-map-pin'></i> &nbsp;
+                <a href="https://www.google.com/maps/search/<?php echo urlencode($info['sede'] . ' ' . $info['citta']); ?>" class="text-decoration-none text-dark" target="_blank">
+                  <?php echo $info['sede'] ?> - <?php echo $info['citta'] ?>
+                </a>
+              </span>
+              <!-- Link a Futsalmarche e tuttocampo -->
+              <div class="float-end">
+
+                <a class="btn btn-sm btn-outline-dark " href="https://www.google.com/search?q=<?php echo urlencode($info['nome_societa']  . ' Futsalmarche'); ?>" target="_blank">
+                  <img src="image/loghi/favicon_fm.ico" class="rounded-circle" width="18px" height="18px" /> &nbsp; Futsalmarche
+                </a>
+
+                <a class="btn btn-sm btn-outline-dark" href="https://www.google.com/search?q=<?php echo urlencode($info['nome_societa']  . ' Tuttocampo'); ?>" target="_blank">
+                  <img src="image/loghi/favicon_tt.ico" class="rounded-circle" width="18px" height="18px" /> &nbsp;Tuttocampo
+                </a>
+
+              </div>
+            </div>
 
             
             <!-- Giorno e ora  -->
-            <span class="text-muted mt-0" style="font-size:12px">
-              <i class='bx bx-calendar' ></i> &nbsp; Giorno e ora partita: <?php echo $info['giorno_settimana']  ?> - <?php echo $info['ora_match']  ?>
-            </span>
-            
-            <br/>
-            <!-- Instagram -->
-            <?php if($info['instagram'] != null){ ?>
-              <span class="text-muted mt-0" style="font-size:12px">
-                <i class='bx bxl-instagram'></i> &nbsp; 
-                Instagram :&nbsp;<a href="https://www.instagram.com/<?php echo $info['instagram']; ?>" class="text-decoration-none text-dark" target="_blank">
-                  <?php echo $info['instagram']; ?>
-                </a>
+            <div class="">
+              <span class="" style="font-size:14px">
+                <i class='bx bx-calendar' ></i> &nbsp; <?php echo $info['giorno_settimana']  ?> - <?php echo $info['ora_match']  ?>
               </span>
-              <br/>
-            <?php } ?>
+            </div>
+
+            
 
 
             <!-- Sito web -->
             <?php if($info['sito_web'] != null){ ?>
-              <span class="text-muted mt-0" style="font-size:12px">
-                <i class='bx bx-link'></i> &nbsp; Sito web :&nbsp;<a class="text-decoration-none text-dark" href="<?php echo $info['sito_web']?> "><?php echo $info['sito_web']?> </a>
-              </span>
-              <br/>
+              <div class="">
+                <span class="" style="font-size:14px">
+                  <i class='bx bx-link'></i> &nbsp; Sito web :&nbsp;<a class="text-decoration-none text-dark" href="<?php echo $info['sito_web']?> "><?php echo $info['sito_web']?> </a>
+                </span>
+              </div>
             <?php } ?>
-                
+
             <!-- Presidente -->
             <?php if($info['presidente'] != null){ ?>
-              <span class="text-muted mt-3" style="font-size:12px">
-                Presidente :&nbsp;<?php echo $info['presidente']  ?>
-              </span>
-              <br/>
+              <div class="">
+                <span class="" style="font-size:14px">
+                  Presidente :&nbsp;<?php echo $info['presidente']  ?>
+                </span>
+            </div>
             <?php } ?>
-                  
             <!-- VicePresidente -->
             <?php if($info['vicepresidente'] != null){ ?>
-              <span class="text-muted mt-0" style="font-size:12px">
-                Vicepresidente :&nbsp;<?php echo $info['vicepresidente']  ?>
-              </span>
-              <br/>
+              <div class="">
+                <span class="" style="font-size:14px">
+                  Vicepresidente :&nbsp;<?php echo $info['vicepresidente']  ?>
+                </span>
+            </div>
             <?php } ?>
 
             <!-- Allenatore -->
             <?php if($info['allenatore'] != null){ ?>
-              <span class="text-muted mt-3" style="font-size:12px">
-              Allenatore :&nbsp;<?php echo $info['allenatore']  ?>
-              </span>
-              <br/>
+              <div class="">
+                <span class="" style="font-size:14px">
+                Allenatore :&nbsp;<?php echo $info['allenatore']  ?>
+                </span>
+            </div>
             <?php } ?>
+            
+            
           </div>
 
         </div>
@@ -166,13 +195,16 @@
 
                   <!-- Data di nascita -->
                   <td class="text-center">
-                    <?php 
+                    <small>
+
+                      <?php 
                       if($row['data_nascita'] === '1970-01-01' || $row['data_nascita'] == NULL){
                         echo '&nbsp; &nbsp; &nbsp; &nbsp;  - ';
                       }else{
-                        echo date('d/m/Y', strtotime($row['data_nascita']));
+                        echo date('Y', strtotime($row['data_nascita']));
                       } 
-                    ?>
+                      ?>
+                    </small>
                   </td>
 
                   <!-- Ruolo -->

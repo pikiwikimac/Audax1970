@@ -22,6 +22,7 @@
     $email = isset($_POST['email']) ? $_POST['email'] : null;
     $whatsapp = isset($_POST['whatsapp']) ? $_POST['whatsapp'] : null;
     $instagram = isset($_POST['instagram']) ? $_POST['instagram'] : null;
+    $facebook = isset($_POST['facebook']) ? $_POST['facebook'] : null;
     $sito_web = isset($_POST['sito_web']) ? $_POST['sito_web'] : null;
     $parent_id = isset($_POST['parent_id']) ? $_POST['parent_id'] : null;
   
@@ -84,6 +85,10 @@
   
   if ($instagram !== null) {
       $updates[] = "instagram='$instagram'";
+  }  
+
+  if ($facebook !== null) {
+      $updates[] = "facebook='$facebook'";
   }
   
   if ($sito_web !== null) {

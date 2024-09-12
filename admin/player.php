@@ -220,30 +220,43 @@
                     <!-- Intestazione -->
                     <div class="tpl-header">
                       <div class="tpl-header--title">
+                        <!-- Titolo  -->
                         <h4>
                           <?php echo $row['nome']. ' ' . $row['cognome'] ?>
-                          
                         </h4>
+                        
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
+
+                          <!-- FutsalMarche -->
+                          <a class="btn btn-sm btn-outline-dark " href="https://www.google.com/search?q=<?php echo urlencode($row['nome'] . ' ' . $row['cognome'] . ' Futsalmarche'); ?>" target="_blank">
+                            <img src="../image/loghi/favicon_fm.ico" class="rounded-circle" width="18px" height="18px" /> &nbsp; Futsalmarche
+                          </a>
+
+                          <!-- Tuttocampo -->
+                          <a class="btn btn-sm btn-outline-dark me-2" href="https://www.google.com/search?q=<?php echo urlencode($row['nome'] . ' ' . $row['cognome'] . ' Tuttocampo'); ?>" target="_blank">
+                            <img src="../image/loghi/favicon_tt.ico" class="rounded-circle" width="18px" height="18px" /> &nbsp;Tuttocampo
+                          </a>
+
+                          <!-- Capitano -->
                           <?php if($row['capitano'] != 'Giocatore' ){ ?>
-                            <!-- Capitano -->
                             <span class="badge bg-danger text-light fw-bold p-2 me-2 fs-6" style="width:50px" >
                               &nbsp; <?php echo $row['capitano']  ?> &nbsp; 
                             </span>
                           <?php }?>
+
+                          <!-- Maglia -->
                           <?php if($row['maglia'] != null ){ ?>
-                              <!-- Maglia -->
-                              <span class="badge bg-dark  text-light fw-bold p-2 me-2 fs-6" style="width:50px" >
-                                <?php echo $row['maglia']  ?>
-                              </span>
+                            <span class="badge bg-dark  text-light fw-bold p-2 me-2 fs-6" style="width:50px" >
+                              <?php echo $row['maglia']  ?>
+                            </span>
                           <?php }?>
-                              	
+                          
                           <!-- Edit button -->    
                           <?php if($_SESSION['superuser'] === 1 ){?>      
-                          <a type="button" href="edit_player.php?id=<?php echo $id; ?>" class="btn btn-sm btn-outline-dark float-end" >
-                            <i class='bx bx-pencil'></i>
-                          </a>                             
+                            <a type="button" href="edit_player.php?id=<?php echo $id; ?>" class="btn btn-sm btn-outline-dark float-end" >
+                              <i class='bx bx-pencil'></i>
+                            </a>                             
                           <?php } ?>                             
                         </div>
                       </div>
@@ -281,7 +294,7 @@
                                 </a>
                               
                             </div>
-                            <!--  -->
+                            <!-- Squadre attive  -->
                             <?php if(mysqli_num_rows($squadre_giocatore )>1)  { ?>
                             <div class="col-6 col-md-12">
                               <label class="fw-bold text-muted">Squadre attive:</label>
@@ -294,21 +307,24 @@
                               <?php } ?>
                             </div>
                             <?php } ?>
-                            <!--  -->
+
+                            <!-- Ruolo -->
                             <div class="col-6 col-md-12">
                               <label class="fw-bold text-muted">Ruolo:</label>
                               <span>
                                 <?php echo $row['ruolo'] ?> 
                               </span>
                             </div>
-                            <!--  -->
+
+                            <!-- Piede -->
                             <div class="col-6 col-md-12">
                               <label class="fw-bold text-muted">Piede:</label>
                               <span>
                                 <?php echo $row['piede_preferito'] ?> 
                               </span>
                             </div>
-                            <!--  -->
+
+                            <!-- Altezza -->
                             <?php if($row['altezza'] != null ){?>
                             <div class="col-6 col-md-12">
                               <label class="fw-bold text-muted">Altezza:</label>
@@ -317,7 +333,8 @@
                               </span>
                             </div>
                             <?php } ?>
-                            <!--  -->
+
+                            <!-- Peso  -->
                             <?php if($row['peso'] != null ){?>
                             <div class="col-6 col-md-12">
                               <label class="fw-bold text-muted">Peso:</label>
@@ -326,7 +343,8 @@
                               </span>
                             </div>
                             <?php } ?>
-                            <!--  -->
+
+                            <!-- Data di nascita -->
                             <div class="col-6 col-md-12">
                               <label class="fw-bold text-muted">Data di nascita:</label>
                               <span>
@@ -337,49 +355,63 @@
                               } ?>
                               </span>
                             </div>
-                            <!--  -->
-                            <?php if($row['visita_medica'] != null ){?>
+
+                            <!-- Visita medica -->
+                            <?php if($row['id_squadra'] == $id ){?>
+                              <?php if($row['visita_medica'] != null ){?>
+                                <div class="col-6 col-md-12">
+                                  <label class="fw-bold text-muted">Visita medica:</label>
+                                  <span>
+                                    <?php if($row['visita_medica']==='1970-01-01'){
+                                      echo 'da definire';
+                                    }else{
+                                      echo date('d/m/y',strtotime($row['visita_medica']));
+                                    } ?>
+                                  </span>
+                                </div>
+                              <?php } ?>
+                            <?php } ?>
+
+                            <!-- Tipo contratto  -->
+                            <?php if($row['id_squadra'] == $id ){?>
                               <div class="col-6 col-md-12">
-                                <label class="fw-bold text-muted">Visita medica:</label>
+                                <label class="fw-bold text-muted">Tipo contratto:</label>
                                 <span>
-                                  <?php if($row['visita_medica']==='1970-01-01'){
-                                    echo 'da definire';
-                                  }else{
-                                    echo date('d/m/y',strtotime($row['visita_medica']));
-                                  } ?>
+                                  <?php echo $row['tipo_contratto'] ?> 
                                 </span>
                               </div>
                             <?php } ?>
-                            <!--  -->
-                            <div class="col-6 col-md-12">
-                              <label class="fw-bold text-muted">Tipo contratto:</label>
-                              <span>
-                                <?php echo $row['tipo_contratto'] ?> 
-                              </span>
-                            </div>
-                            <!--  -->
-                            <div class="col-6 col-md-12">
-                              <label class="fw-bold text-muted">Documento:</label>
-                              <span>
-                                <?php echo $row['documento'] ?> 
-                              </span>
-                            </div>
-                            <!--  -->
-                            <div class="col-6 col-md-12">
-                              <label class="fw-bold text-muted">Matricola:</label>
-                              <span>
-                                <?php echo $row['matricola'] ?> 
-                              </span>
-                            </div>
-                            
-                            
-                            
+
+                            <!-- Documento -->
+                            <?php if($row['id_squadra'] == $id ){?>
+                              <div class="col-6 col-md-12">
+                                <label class="fw-bold text-muted">Documento:</label>
+                                <span>
+                                  <?php echo $row['documento'] ?> 
+                                </span>
+                              </div>
+                            <?php } ?>
+
+                            <!-- Matricola -->
+                            <?php if($row['id_squadra'] == $id ){?>
+                              <div class="col-6 col-md-12">
+                                <label class="fw-bold text-muted">Matricola:</label>
+                                <span>
+                                  <?php echo $row['matricola'] ?> 
+                                </span>
+                              </div>
+                            <?php } ?>
 
                           </div>
                         </div>
                         <!-- % Presenza - Allenamenti -->
                         <div class="col-6 col-md-3 col-xxl-2">
                           <div class="row gy-3">
+                            <div class="col-12">
+                              
+
+                            </div>
+
                             <?php if($row['nome_societa']==='Audax 1970'){?>
                               <!-- Grafico -->
                               <div class="col-12">

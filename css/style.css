@@ -9,8 +9,8 @@
 }
 
 body {
-  background: var(--bg-body);
-  font-family: "Reddit Sans Condensed", sans-serif;
+  background: var(--bg-body)!important;
+  font-family: "Reddit Sans Condensed", sans-serif!important;
 }
   
 .table {
@@ -39,6 +39,10 @@ ul li a{
   background-color: var(--bg-color);
 }
 
+.bg-orange{
+  background-color: #d24e01;
+  opacity:50%;
+}
 /* Testo arancio */
 .text-orange {
   color: var(--bg-color)!important;

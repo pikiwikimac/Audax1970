@@ -67,8 +67,11 @@
     $affiliated_player[] = $row_aff['id'];
   }
 
-  $previous_url = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'show_societa.php?id=' . $row['id_squadra'];
-
+  $current_url = "https://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+  $previous_url = isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] !== $current_url 
+                  ? $_SERVER['HTTP_REFERER'] 
+                  : 'show_societa.php?id=' . $row['id_squadra'];
+  
 ?>
 
 
@@ -155,25 +158,33 @@
                                     <div class="row my-3 g-3">
                                       <!-- Nome -->
                                       <div class="col-12 col-sm-6 col-lg-4 ">
-                                        <label for="nome" class="form-label">Nome</label>
+                                        <label for="nome" class="form-label">
+                                          Nome*
+                                        </label>
                                         <input typer="text" class="form-control form-control-sm" id="nome" name="nome" value="<?php echo $row['nome'];?>" required/>
                                       </div>
 
                                       <!-- Cognome -->
                                       <div class="col-12 col-sm-6 col-lg-4 ">
-                                        <label for="cognome" class="form-label">Cognome</label>
+                                        <label for="cognome" class="form-label">
+                                          Cognome*
+                                        </label>
                                         <input typer="text" class="form-control form-control-sm " id="cognome" name="cognome" value="<?php echo $row['cognome'];?>" required/>
                                       </div>
 
                                       <!-- Data di nascita -->
                                       <div class="col-12 col-sm-6 col-lg-4 ">
-                                        <label for="data_nascita" class="form-label">Data di nascita</label>
+                                        <label for="data_nascita" class="form-label"  data-bs-toggle="tooltip" data-bs-title="Non obbligatorio, consigliato inserire">
+                                          Data di nascita
+                                        </label>
                                         <input type="date" class="form-control form-control-sm" id="data_nascita" name="data_nascita" value="<?php echo $row['data_nascita'];?>"></input>
                                       </div>
 
                                       <!-- Squadra -->
                                       <div class="col-12 col-sm-6 col-lg-4">
-                                        <label for="squadra" class="form-label">Squadra</label>
+                                        <label for="squadra" class="form-label">
+                                          Squadra *
+                                        </label>
                                         <select class="form-select form-select-sm" aria-label="Default select example" name="squadra" id="squadra" >
                                           <option disabled selected>-- Seleziona --</option>
                                           <?php
@@ -189,7 +200,9 @@
 
                                       <!-- Ruolo -->
                                       <div class="col-12 col-sm-6 col-lg-4 ">
-                                        <label for="ruolo" class="form-label">Ruolo</label>
+                                        <label for="ruolo" class="form-label">
+                                          Ruolo *
+                                        </label>
                                         <select class="form-select form-select-sm" id="ruolo" name="ruolo">
                                           <option <?php if ($row['ruolo']=='Portiere') { ?>selected="selected"<?php } ?> value="Portiere">
                                             Portiere
@@ -214,8 +227,10 @@
                                       </div>
 
                                       <!-- Codice fiscale -->
-                                      <div class="col-12 col-sm-4">
-                                        <label for="codice_fiscale" class="form-label">Codice fiscale</label>
+                                      <div class="col-12 col-sm-6 col-lg-4">
+                                        <label for="codice_fiscale" class="form-label">
+                                          Codice fiscale
+                                        </label>
                                         <input type="text"  class="form-control form-control-sm" id="codice_fiscale" name="codice_fiscale" value="<?php echo $row['codice_fiscale'];?>"/>
                                       </div>
 
@@ -232,7 +247,9 @@
                                     <div class="row my-3 g-3">
                                       <!-- Piede -->
                                       <div class="col-6">
-                                        <label for="piede_preferito" class="form-label">Piede:</label>
+                                        <label for="piede_preferito" class="form-label"  data-bs-toggle="tooltip" data-bs-title="Se non inserito di DEFAULT prende DX">
+                                          Piede
+                                        </label>
                                         <select class="form-select form-select-sm" aria-label="Default select example" name="piede_preferito" id="piede_preferito" >
                                           <option value="DX" <?php if($row['piede_preferito'] == 'DX') echo 'selected'; ?> >DX</option>
                                           <option value="SX" <?php if($row['piede_preferito'] == 'SX') echo 'selected'; ?>>SX</option>
@@ -242,7 +259,9 @@
 
                                       <!-- Taglia -->
                                       <div class="col-6 ">
-                                        <label for="taglia" class="form-label">Taglia</label>
+                                        <label for="taglia" class="form-label">
+                                          Taglia
+                                        </label>
                                         <select class="form-select form-select-sm " id="taglia" name="taglia">
                                           <option value="XS" <?php if ($row['taglia']=='XS') { ?>selected="selected"<?php } ?> >XS</option>
                                           <option value="S" <?php if ($row['taglia']=='S') { ?>selected="selected"<?php } ?> >S</option>
@@ -254,14 +273,14 @@
                                       </div>
 
                                       <!-- Altezza -->
-                                      <div class="col-6 ">
-                                        <label for="altezza" class="form-label">Altezza:</label>
+                                      <div class="col-6">
+                                        <label for="altezza" class="form-label">Altezza</label>
                                         <input type="number" class="form-control form-control-sm" id="altezza" name="altezza" value="<?php echo $row['altezza'];?>" />
                                       </div>
                                       
                                       <!-- Peso -->
-                                      <div class="col-6 ">
-                                        <label for="peso" class="form-label">Peso:</label>
+                                      <div class="col-6">
+                                        <label for="peso" class="form-label">Peso</label>
                                         <input type="number" class="form-control form-control-sm" id="peso" name="peso" value="<?php echo $row['peso'];?>"/>
                                       </div>
                                       
@@ -279,14 +298,18 @@
 
                                     <div class="row my-3 g-3">
                                       <!-- Visita medica -->
-                                      <div class="col-6 col-md-3 col-lg-2">
-                                        <label for="visita_medica" class="form-label">Visita medica:</label>
+                                      <div class="col-6 col-lg-3">
+                                        <label for="visita_medica" class="form-label"  data-bs-toggle="tooltip" data-bs-title="Non obbligatorio, ma consigliato per controllo visite mediche scadute">
+                                          Visita medica
+                                        </label>
                                         <input type="date" class="form-control form-control-sm" id="visita_medica" name="visita_medica" value="" />
                                       </div>
                                     
                                       <!-- Tipo contratto -->
-                                      <div class="col-6 col-md-3 col-lg-2 ">
-                                        <label for="tipo_contratto" class="form-label">Tipo contratto:</label>
+                                      <div class="col-6 col-lg-3">
+                                        <label for="tipo_contratto" class="form-label"  data-bs-toggle="tooltip" data-bs-title="Non obbligatorio, inserire se il giocatore è in prestito">
+                                          Tipo contratto
+                                        </label>
                                         <select class="form-select form-select-sm" aria-label="Default select example" name="tipo_contratto" id="tipo_contratto" >
                                           <option value="Proprietari" <?php if ($row['tipo_contratto']=='Proprietari') { ?>selected="selected"<?php } ?> >Propietari</option>
                                           <option value="Prestito" <?php if ($row['tipo_contratto']=='Prestito') { ?>selected="selected"<?php } ?> >Prestito</option>
@@ -294,32 +317,42 @@
                                       </div>
 
                                       <!-- Matricola tesseramento -->
-                                      <div class="col-6 col-md-3 col-lg-2">
-                                        <label for="matricola" class="form-label">Matricola</label>
+                                      <div class="col-6 col-lg-3">
+                                        <label for="matricola" class="form-label"  data-bs-toggle="tooltip" data-bs-title="Non obbligatorio, importante per le distinte generate">
+                                          Matricola
+                                        </label>
                                         <input type="text" class="form-control form-control-sm"  id="matricola" name="matricola" value="<?php echo $row['matricola'];?>" />
                                       </div>
 
                                       <!-- Data tesseramento -->
-                                      <div class="col-6 col-md-3 col-lg-2">
-                                        <label for="data_tesseramento" class="form-label">Data tesseraemento</label>
+                                      <div class="col-6 col-lg-3">
+                                        <label for="data_tesseramento" class="form-label"  data-bs-toggle="tooltip" data-bs-title="Giorno di inizio prestazioni">
+                                          Data tesseraemento
+                                        </label>
                                         <input type="date"  class="form-control form-control-sm" id="data_tesseramento" name="data_tesseramento"  value="<?php if ($row['data_tesseramento'] != '1970-01-01') { echo $row['data_tesseramento']; } ?>"/>
                                       </div>
                                       
                                       <!-- Scadenza -->
-                                      <div class="col-6 col-md-3 col-lg-2">
-                                        <label for="anno_scadenza_tesseramento" class="form-label">Anno scadenza</label>
+                                      <div class="col-6 col-lg-3">
+                                        <label for="anno_scadenza_tesseramento" class="form-label">
+                                          Anno scadenza
+                                        </label>
                                         <input type="text"  class="form-control form-control-sm" id="anno_scadenza_tesseramento" name="anno_scadenza_tesseramento" value="<?php if ($row['anno_scadenza_tesseramento'] != 0) { echo $row['anno_scadenza_tesseramento']; } ?>" />
                                       </div>
 
                                       <!-- Numero di maglia -->
-                                      <div class="col-3 col-md-2 col-lg">
-                                        <label for="maglia" class="form-label">N:</label>
+                                      <div class="col-3 col-lg-2">
+                                        <label for="maglia" class="form-label"  data-bs-toggle="tooltip" data-bs-title="Non obbligatorio, inserire numero maglia">
+                                          N
+                                        </label>
                                         <input typer="text" class="form-control form-control-sm" id="maglia" name="maglia" value="<?php echo $row['maglia'];?>"/>
                                       </div>
 
                                       <!-- Capitano -->
-                                      <div class="col-3 col-md-2 col-lg">
-                                        <label for="capitano" class="form-label">Capitano:</label>
+                                      <div class="col-3 col-lg-2">
+                                        <label for="capitano" class="form-label">
+                                          Capitano
+                                        </label>
                                         <select class="form-select form-select-sm" aria-label="Default select example" name="capitano" id="capitano" >
                                           <option <?php if ($row['capitano']=='Giocatore') { ?>selected="selected"<?php } ?> value="Giocatore">
                                             -
@@ -431,8 +464,14 @@
           // Effettua la richiesta di eliminazione al server
           window.location.href = "../query/action_delete_immagine.php?id=" + recordId;
         }
-      }
-  </script>
+      }      
+    </script>
     
+    <!-- Tooltip Initialization -->
+    <script>
+            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+            const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+        </script>
+
   </body>
 </html>

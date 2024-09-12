@@ -22,7 +22,9 @@ $societa_id = $_REQUEST['id_societa'];
 $sql = "
 SELECT
   soc.nome_societa AS casa,                  -- Alias for home team name
-  soc2.nome_societa AS ospite,               -- Alias for away team name
+  soc2.nome_societa AS ospite,
+  soc.id AS id_casa,                  -- Alias for home team name
+  soc2.id AS id_ospite,               -- Alias for away team name
   s.golCasa,                                 -- Home team goals
   s.golOspiti,                               -- Away team goals
   CAST(s.giornata AS UNSIGNED) AS giornata_, -- Match day as unsigned integer
@@ -176,21 +178,23 @@ $campionato = mysqli_query($con, $sql);
                                   
                                   <!-- Squadra casa -->
                                   <td class="text-end text-nowrap">
-                                    <div class="<?= $row['casa'] === 'Audax 1970' ? 'fw-bold' : 'text-dark'?>
-                                        <?php
-                                        if ($row['risultato'] === '1') {
-                                            echo 'text-success';
-                                        } elseif ($row['risultato'] === 'X') {
-                                            echo 'text-primary';
-                                        } elseif ($row['risultato'] === '2') {
-                                            echo 'text-danger';
-                                        } else {
-                                            echo 'text-dark';
-                                        }
-                                        ?>
-                                    ">
+                                    <a href="show_societa.php?id=<?php echo $row['id_casa'] ?>" class="text-decoration-none">
+                                      <div class="<?= $row['casa'] === 'Audax 1970' ? 'fw-bold' : 'text-dark'?>
+                                          <?php
+                                          if ($row['risultato'] === '1') {
+                                              echo 'text-success';
+                                          } elseif ($row['risultato'] === 'X') {
+                                              echo 'text-primary';
+                                          } elseif ($row['risultato'] === '2') {
+                                              echo 'text-danger';
+                                          } else {
+                                              echo 'text-dark';
+                                          }
+                                          ?>
+                                      ">
                                         <?php echo $row['casa'] ?>
-                                    </div>
+                                      </div>
+                                    </a>
                                 </td>
 
                                   <!-- Gol casa -->
@@ -204,7 +208,9 @@ $campionato = mysqli_query($con, $sql);
                                   </td>
                                   <!-- Squadra ospite -->
                                   <td class="text-nowrap">
-                                    <div class="<?= $row['ospite'] === 'Audax 1970' ? 'fw-bold' : 'text-dark'?>
+                                    <a href="show_societa.php?id=<?php echo $row['id_ospite'] ?>" class="text-decoration-none">
+                                      <div class="<?= $row['ospite'] === 'Audax 1970' ? 'fw-bold' : 'text-dark'?>
+                                        
                                         <?php
                                         if ($row['risultato'] === '2') {
                                             echo 'text-success';
@@ -216,10 +222,12 @@ $campionato = mysqli_query($con, $sql);
                                             echo 'text-dark';
                                         }
                                         ?>
-                                    ">
+                                      ">
+                                        
                                         <?php echo $row['ospite'] ?>
-                                    </div>
-                                </td>
+                                      </div>
+                                    </a>
+                                  </td>
 
                                   
                                   <?php if($_SESSION['superuser'] == 1 ){ ?>

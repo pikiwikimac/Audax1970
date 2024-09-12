@@ -52,6 +52,14 @@
   ORDER BY ruolo,cognome,nome asc;";
   $giocatore = mysqli_query($con,$query);
   $row = mysqli_fetch_assoc($giocatore);
+
+  $query="
+  SELECT s.nome_societa, s.tipo, s.id
+  FROM societa s
+  INNER JOIN affiliazioni_giocatori ag ON ag.id_societa = s.id
+  WHERE ag.id_giocatore = $id
+  ";
+  $squadre_giocatore = mysqli_query($con,$query);
 ?>
 
 
@@ -68,19 +76,19 @@
       <?php include 'elements/navbar_red.php'; ?>
     </div>
 
-    <!-- Carousel di sfondo  -->
-    <?php include 'elements/carousel.php'; ?>
     <main class="d-flex flex-nowrap">
       
       <!-- Descrizione iniziale -->
-      <div class="container my-5 px-4">
+      <div class="container" style="margin-top:3rem!important">
         <h1 id="font_diverso">
           <?php echo $row['nome']. ' ' . $row['cognome'] ?>
-          <div class="float-end">
-            <span class="badge bg-dark text-light" >
-              <?php echo $row['maglia']  ?>
-            </span>
-          </div>
+          <?php if($row['maglia']===null){ ?>
+            <div class="float-end">
+              <span class="badge bg-dark text-light" >
+                # <?php echo $row['maglia']  ?>
+              </span>
+            </div>
+          <?php } ?>
         </h1>
 
         <hr/>
@@ -88,60 +96,74 @@
         <div class="row  ">
 
           <div class="col-12 col-lg-4  ">
-            <div class="row gy-3">
-              <div class="col-12">
-                <?php if ($row['image_path']) { ?>
-                  <img src="image/player/<?php echo $row['image_path'];?>" class="img-fluid" alt="<?php echo $row['cognome'].' '.$row['nome'];?>" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>" width="400" height="400"/>
-                <?php } else { ?>
-                  <img src="image/default_user.jpg" class="rounded-circle img-fluid p-3" alt="Immagine di default" data-player-name="<?php echo $row['player_name'];?>" width="400" height="400" />
-                <?php } ?>
-              </div>
-            </div>
+            
+            <?php if ($row['image_path']) { ?>
+              <img src="image/player/<?php echo $row['image_path'];?>" class="img-fluid rounded" alt="<?php echo $row['cognome'].' '.$row['nome'];?>" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>"/>
+            <?php } else { ?>
+              <img src="image/default_user.jpg" class="img-fluid rounded" alt="Immagine di default" data-player-name="<?php echo $row['player_name'];?>" />
+            <?php } ?>
+             
           </div>
 
           <div class="col-12 col-lg-8 ps-lg-3 ">
-            <div class="row gy-2 mt-3">
-              <!-- Ruolo -->
-              <div class="col-6 col-md-3">
-                <div class="form-floating mb-3">
-                  <input type="text" readonly class="form-control-plaintext" id="floatingPlaintextInput" placeholder="<?php echo $row['ruolo']  ?>" value="<?php echo $row['ruolo']  ?>">
-                  <label> Ruolo:</label>
-                </div>
+            <div class="row gy-2 ">
+              
+              <!-- Squadra -->
+              <div class="col-6 col-md-12">
+                <label class="fw-bold text-muted">Squadra:</label>
+                <a class="text-decoration-none text-dark" href="show_societa.php?id=<?php echo $row['id_squadra'] ?>">
+                  <?php echo $row['nome_societa'] ?>                     
+                </a>
+              </div>
+              <!-- Squadre attive -->
+              <?php if(mysqli_num_rows($squadre_giocatore )>1)  { ?>
+              <div class="col-6 col-md-12">
+                <label class="fw-bold text-muted">Squadre attive:</label>
+                <?php while($squadra = mysqli_fetch_assoc($squadre_giocatore)) {  ?>
+                  <span class="badge bg-secondary">
+                    <?php echo $squadra['tipo'] ?> 
+                  </span> 
+                <?php } ?>
+              </div>
+              <?php } ?>
+              <!-- Ruolo  -->
+              <div class="col-6 col-md-12">
+                <label class="fw-bold text-muted">Ruolo:</label>
+                <span>
+                  <?php echo $row['ruolo'] ?> 
+                </span>
+              </div>
+              <!-- Piede  -->
+              <div class="col-6 col-md-12">
+                <label class="fw-bold text-muted">Piede:</label>
+                <span>
+                  <?php echo $row['piede_preferito'] ?> 
+                </span>
+              </div>
+              
+              <!-- Data di nascita -->
+              <div class="col-6 col-md-12">
+                <label class="fw-bold text-muted">Data di nascita:</label>
+                <span>
+                <?php if($row['data_nascita']==='1970-01-01'){
+                  echo '-';
+                }else{
+                  echo date('d/m/y',strtotime($row['data_nascita']));
+                } ?>
+                </span>
               </div>
 
-              <!-- Piede -->
-              <div class="col-6 col-md-3">
-                <div class="form-floating mb-3">
-                  <input type="text" readonly class="form-control-plaintext" id="floatingPlaintextInput" placeholder="<?php echo $row['piede_preferito']  ?>" value="<?php echo $row['piede_preferito']  ?>">
-                  <label>Piede:</label>
-                </div>
+              <div class="col-12">
+                <!-- Futsalmarche -->
+                <a class="btn btn-sm btn-outline-dark " href="https://www.google.com/search?q=<?php echo urlencode($row['nome'] . ' ' . $row['cognome'] . ' Futsalmarche'); ?>" target="_blank">
+                  <img src="image/loghi/favicon_fm.ico" class="rounded-circle" width="18px" height="18px" /> &nbsp; Futsalmarche
+                </a>
+                <!-- Tuttocampo -->
+                <a class="btn btn-sm btn-outline-dark " href="https://www.google.com/search?q=<?php echo urlencode($row['nome'] . ' ' . $row['cognome'] . ' Tuttocampo'); ?>" target="_blank">
+                  <img src="image/loghi/favicon_tt.ico" class="rounded-circle" width="18px" height="18px" /> &nbsp;Tuttocampo
+                </a>
               </div>
               
-              <!-- Numero maglia -->
-              <div class="col-6 col-md-3">
-                <div class="form-floating mb-3">
-                  <input type="text" readonly class="form-control-plaintext" id="floatingPlaintextInput" placeholder="<?php echo $row['maglia']  ?>" value="<?php echo $row['maglia']  ?>">
-                  <label>Maglia:</label>
-                </div>
-              </div>
-              
-              <!-- Data nascita -->
-              <div class="col-6 col-md-3">
-                <div class="form-floating mb-3">
-                  <input type="text" readonly class="form-control-plaintext" id="floatingPlaintextInput" 
-                  placeholder="<?php if($row['data_nascita']==='0000-00-00'){
-                        echo '-';
-                      }else{
-                        echo date('d/m/y',strtotime($row['data_nascita']));
-                      } ?>" 
-                  value="<?php if($row['data_nascita']==='0000-00-00'){
-                        echo '-';
-                      }else{
-                        echo date('d/m/y',strtotime($row['data_nascita']));
-                      } ?>">
-                  <label for="floatingPlaintextInput">Data nascita:</label>
-                </div>
-              </div>
               
               <div class="col-12 table-responsive mt-5">
                 <h4><?php echo $row['competizione']  ?></h4>

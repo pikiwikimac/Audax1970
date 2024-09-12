@@ -20,6 +20,7 @@ $telefono = isset($_POST['telefono']) ? $_POST['telefono'] : null;
 $email = isset($_POST['email']) ? $_POST['email'] : null;
 $whatsapp = isset($_POST['whatsapp']) ? $_POST['whatsapp'] : null;
 $instagram = isset($_POST['instagram']) ? $_POST['instagram'] : null;
+$facebook = isset($_POST['facebook']) ? $_POST['facebook'] : null;
 $sito_web = isset($_POST['sito_web']) ? $_POST['sito_web'] : null;
 $parent_id = isset($_POST['parent_id']) ? $_POST['parent_id'] : null;
 
@@ -94,6 +95,10 @@ if (!is_null($whatsapp)) {
 if (!is_null($instagram)) {
     $columns[] = 'instagram';
     $values[] = "'$instagram'";
+}
+if (!is_null($facebook)) {
+    $columns[] = 'facebook';
+    $values[] = "'$facebook'";
 }
 if (!is_null($sito_web)) {
     $columns[] = 'sito_web';

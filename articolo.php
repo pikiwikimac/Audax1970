@@ -32,7 +32,7 @@
     <!-- TITLE -->
     <title>Audax 1970</title>
 
-    <meta name="description" content="Serie A2 Nazionale">
+    
     <meta name="google-site-verification" content="+nxGUDJ4QpAZ5l9Bsjdi102tLVC21AIh5d1Nl23908vVuFHs34=">
     <meta name="robots" content="index, follow">
     
@@ -44,6 +44,7 @@
     <meta property="og:type" content="article">
 
     <!-- Altri meta tag per SEO -->
+    <meta name="title" content="<?php echo htmlspecialchars(substr(strip_tags($row['titolo']), 0, 150)); ?>...">
     <meta name="description" content="<?php echo htmlspecialchars(substr(strip_tags($row['contenuto']), 0, 150)); ?>...">
     <meta name="keywords" content="<?php echo htmlspecialchars(implode(", ", $tags)); ?>">
     <meta name="author" content="<?php echo htmlspecialchars($row['autore']); ?>">
@@ -92,9 +93,6 @@
         <?php include 'elements/navbar_red.php'; ?>
     </div>
     
-    <!-- Carousel di sfondo  -->
-    <?php include 'elements/carousel_audax.php'; ?>
-
     <!-- Descrizione iniziale -->
     <div class="container" style="margin-top:7rem!important">
       <div class="row g-3 ">
@@ -203,5 +201,28 @@
         });
       });
     </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "<?php echo htmlspecialchars($row['titolo']); ?>",
+        "image": "https://example.com/image/articoli/<?php echo htmlspecialchars($row['immagine_url']); ?>",
+        "datePublished": "<?php echo htmlspecialchars($row['data_pubblicazione']); ?>",
+        "author": {
+          "@type": "Person",
+          "name": "<?php echo htmlspecialchars($row['autore']); ?>"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Audax 1970",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://example.com/image/loghi/logo.png"
+          }
+        },
+        "articleBody": "<?php echo htmlspecialchars(substr(strip_tags($row['contenuto']), 0, 300)); ?>"
+      }
+    </script>
+
   </body>
 </html>

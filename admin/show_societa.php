@@ -125,6 +125,18 @@
                             <!-- Nome società  -->
                             <h4>
                               <?php echo $info['nome_societa'] ?>
+                              <!-- Link a Futsalmarche e tuttocampo -->
+                              <div class="float-end">
+
+                                <a class="btn btn-sm btn-outline-dark " href="https://www.google.com/search?q=<?php echo urlencode($info['nome_societa']  . ' Futsalmarche'); ?>" target="_blank">
+                                  <img src="../image/loghi/favicon_fm.ico" class="rounded-circle" width="18px" height="18px" /> &nbsp; Futsalmarche
+                                </a>
+
+                                <a class="btn btn-sm btn-outline-dark" href="https://www.google.com/search?q=<?php echo urlencode($info['nome_societa']  . ' Tuttocampo'); ?>" target="_blank">
+                                  <img src="../image/loghi/favicon_tt.ico" class="rounded-circle" width="18px" height="18px" /> &nbsp;Tuttocampo
+                                </a>
+
+                              </div>
                             </h4>
 
                             <!-- Elenco società  -->
@@ -167,6 +179,12 @@
                                 <i class='bx bxl-instagram'></i> &nbsp; Instagram :&nbsp;<?php echo $info['instagram']  ?>
                               </span>
                             <?php } ?>
+                            <!-- Facebook -->
+                            <?php if($info['facebook'] != null){ ?>
+                              <span class="text-muted mt-0">
+                                <i class='bx bxl-facebook'></i> &nbsp; Facebook :&nbsp;<?php echo $info['facebook']  ?>
+                              </span>
+                            <?php } ?>
                             <!-- Whatsapp -->
                             <?php if($info['whatsapp'] != null){ ?>
                               <span class="text-muted mt-0">
@@ -195,10 +213,11 @@
 
                             <!-- Allenatore -->
                             <?php if($info['allenatore'] != null){ ?>
-                              <span class="text-muted mt-0">
-                              Allenatore :&nbsp;<?php echo $info['allenatore']  ?>
-                              </span>
-                              <br/>
+                              <a class="text-decoration-none mt-0 text-muted" href="https://www.google.com/search?q=<?php echo $info['allenatore'] . ' Futsalmarche' ?>" target="_blank">
+                                <span class="">
+                                Allenatore :&nbsp;<?php echo $info['allenatore']  ?>
+                                </span>
+                              </a>
                             <?php } ?>
                             
                             
@@ -251,11 +270,13 @@
 
                                   <!-- Data di nascita -->
                                   <td class="text-center" >
-                                    <?php if($row['data_nascita']==='1970-01-01'){
-                                      echo '&nbsp; &nbsp; &nbsp; &nbsp;  - ';
-                                    }else{
-                                      echo date('Y',strtotime($row['data_nascita']));
-                                    } ?>
+                                    <small>
+                                      <?php if($row['data_nascita']==='1970-01-01'){
+                                        echo '&nbsp; &nbsp; &nbsp; &nbsp;  - ';
+                                      }else{
+                                        echo date('Y',strtotime($row['data_nascita']));
+                                      } ?>
+                                    </small>
                                   </td>
 
                                   <!-- Ruolo -->
@@ -291,7 +312,9 @@
                                   
                                   <!-- Piede -->
                                   <td class="text-center">
-                                    <?php echo $row['piede_preferito'] ?>
+                                    <small>
+                                      <?php echo $row['piede_preferito'] ?>
+                                    </small>
                                   </td>
 
                                   <!-- Pulsante Edit -->

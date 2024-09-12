@@ -189,8 +189,8 @@ require_once('config/db.php');
   }
 
   .card-img {
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center; /* Centra l'immagine */
   }
@@ -265,74 +265,81 @@ require_once('config/db.php');
 
     <!-- Corpo del testo -->
     
-    <!-- Articoli  -->
-    <div class="container my-5 px-4">
-      <h1 id="font_diverso">Articoli</h1>
-      
-      <hr/>
+    <!-- Articoli -->
+<div class="container my-5 px-4">
+  <h1 id="font_diverso">Articoli</h1>
 
-      <div class="row g-4">
-        <?php while ($articolo = mysqli_fetch_assoc($articoli)) { ?>
-          <div class="col-12 col-sm-6 col-lg-3 p-3">
-              <a href="articolo.php?id=<?php echo $articolo['id'] ?>" class="text-decoration-none">
-                <div class="card mb-2">
-                  <?php if($articolo['immagine_url']){ ?>
-                    <img src="image/articoli/<?php echo $articolo['immagine_url'] ?>" class="img-fluid card-img" alt="..." style="max-height:280px">
-                  <?php }else{ ?>
-                    <img src="image/lnd_a2.png" class="img-fluid card-img" alt="..." style="max-height:280px">
-                  <?php } ?>
-                </div>
-                  
+  <hr/>
 
-                <!-- Intestazione -->
-                <?php if($articolo['intestazione'] !== null ){ ?>
-                  <span class="badge bg-secondary">
-                    <?php echo $articolo['intestazione'] ?>
-                  </span>
-                <?php } ?>
+  <div class="row g-4">
+    <!-- Ultimi 4 Articoli -->
+    <?php while ($articolo = mysqli_fetch_assoc($articoli)) { ?>
+      <link rel="preload" href="image/articoli/<?php echo htmlspecialchars($articolo['immagine_url']); ?>" as="image">
 
-                <br/>
-                    
-                <div class="card-title-container">
-                  <h4 class="card-title text-dark mt-2">
-                    <?php echo $articolo['titolo'] ?>
-                  </h4>
-                </div>
-                                     
-               
-                  
-                <!-- Contenuto dell'articolo -->
-                <p class="text-dark" style="font-size:12px;">
-                  <?php 
-                      $content = $articolo['contenuto'];
-                      
-                      // Rimuovi spazi bianchi in eccesso e ritorni a capo
-                      $content = preg_replace('/\s+/', ' ', trim($content));
-                      
-                      // Se il contenuto è più lungo di 132 caratteri, troncalo e aggiungi "..."
-                      if (strlen($content) > 132) {
-                          $content = substr($content, 0, 132) . '...';
-                      }
-                      
-                      // Mostra il contenuto con i ritorni a capo convertiti in <br>
-                      echo nl2br(htmlspecialchars($content));
-                  ?>
-                </p>
+      <div class="col-12 col-sm-6 col-lg-3 p-3">
+        <a href="articolo.php?id=<?php echo htmlspecialchars($articolo['id']); ?>" class="text-decoration-none">
+          <div class="card mb-2">
+            <?php if($articolo['immagine_url']){ ?>
+              <img 
+                src="image/articoli/<?php echo htmlspecialchars($articolo['immagine_url']); ?>" 
+                class="img-fluid card-img" 
+                alt="<?php echo htmlspecialchars($articolo['titolo']); ?>" 
+                style="max-height:280px"
+                
+              >
+            <?php } else { ?>
+              <img 
+                src="image/lnd_a2.png" 
+                class="img-fluid card-img" 
+                alt="Immagine predefinita" 
+                style="max-height:280px"
+                
+              >
+            <?php } ?>
+          </div>
 
-                <!-- Data pubblicazione -->
-                <span class="text-muted float-end" style="font-size:12px;">
-                  <?php
-                  $data_pubblicazione = $articolo['data_pubblicazione'];
-                  $formatted_date = date("d-m-Y H:i", strtotime($data_pubblicazione));
-                  echo $formatted_date;
-                  ?>
-                </span>
+          <!-- Intestazione -->
+          <?php if($articolo['intestazione']) { ?>
+            <span class="badge bg-secondary">
+              <?php echo htmlspecialchars($articolo['intestazione']); ?>
+            </span>
+          <?php } ?>
 
-              </a>
-            </div>
-        <?php } ?>
+          <br/>
+
+          <div class="card-title-container">
+            <h4 class="card-title text-dark mt-2">
+              <?php echo htmlspecialchars($articolo['titolo']); ?>
+            </h4>
+          </div>
+
+          <!-- Contenuto dell'articolo -->
+          <p class="text-dark" style="font-size:12px;">
+            <?php 
+                $content = trim($articolo['contenuto']);
+                $content = preg_replace('/\s+/', ' ', $content);
+                if (strlen($content) > 132) {
+                    $content = substr($content, 0, 132) . '...';
+                }
+                echo nl2br(htmlspecialchars($content));
+            ?>
+          </p>
+
+          <!-- Data pubblicazione -->
+          <span class="text-muted float-end" style="font-size:12px;">
+            <?php
+            $data_pubblicazione = $articolo['data_pubblicazione'];
+            $formatted_date = date("d-m-Y H:i", strtotime($data_pubblicazione));
+            echo $formatted_date;
+            ?>
+          </span>
+
+        </a>
       </div>
-    </div>
+    <?php } ?>
+  </div>
+</div>
+
 
     <!-- Prossima partita & Ultima partita  -->
     <div class="container my-5 px-4">
@@ -687,6 +694,9 @@ require_once('config/db.php');
                 } elseif ($posizione >= 2 && $posizione <= 5) {
                   $rowClass = 'bg-primary';
                   $tooltip = 'Playoff';
+                } elseif ($posizione >= 8 && $posizione <= 9) {
+                  $rowClass = 'bg-orange';
+                  $tooltip = 'Playout';
                 } elseif ($posizione > mysqli_num_rows($classifica) - 2) {
                   $rowClass = 'bg-danger';
                   $tooltip = 'Retrocessione';
