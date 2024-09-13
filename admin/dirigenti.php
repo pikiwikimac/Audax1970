@@ -74,6 +74,7 @@
                                 <th width="25%">Documento</th>
                                 <th width="1%"></th>
                                 <th width="1%"></th>
+                                <th width="1%"></th>
 
                               </tr>
                             </thead>
@@ -119,7 +120,12 @@
                                   <td>
                                     <?php echo $row['documento']   ?>
                                   </td>
-
+                                  <!-- Inserisci foto -->
+                                  <td>
+                                    <a class="text-decoration-none text-dark" data-bs-toggle="modal" data-bs-target="#cameraModal" data-bs-image="<?php echo $row['image_path']?>">
+                                      <i class='bx bx-camera'></i>
+                                    </a>
+                                  </td>
                                   <td>
                                     <!-- Edit -->
                                     <a href="#" class="text-decoration-none text-dark" 
@@ -152,6 +158,33 @@
       </div>
 
     </main>
+
+    <!-- Modal Camera-->
+    <div class="modal fade" id="cameraModal" tabindex="-1" aria-labelledby="cameraModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="cameraModalLabel">Immagine dirigente</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="card mb-3">
+              <img src="" class="img-fluid  rounded " alt="Immagine attuale">
+            </div>
+              
+            <form action="../query/upload_image_dirigente.php" method="post" enctype="multipart/form-data">
+              <div class="mb-3 p-3">
+                <label for="formFile" class="form-label">Immagine</label>
+                <input class="form-control form-control-sm" type="file" id="formFile" name="playerImage">
+                <input type="hidden"  id="id" name="id" value="<?php echo $id?>" />
+                <input type="submit" value="Carica" class="btn btn-sm btn-outline-dark float-end mt-2" name="submit">
+              </div>
+            </form>
+          </div>
+          
+        </div>
+      </div>
+    </div>
 
     <!-- Modal Edit-->
     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
@@ -298,6 +331,20 @@
         document.getElementById("insertForm").submit();
       }
     </script>
+
+    <script>
+      const cameraModal = document.getElementById('cameraModal');
+      if (cameraModal) {
+        cameraModal.addEventListener('show.bs.modal', event => {
+          const button = event.relatedTarget;
+          const imagePath = button.getAttribute('data-bs-image');
+
+          const modalImage = cameraModal.querySelector('.modal-body img');
+          modalImage.src = imagePath ? '../image/staff/' + imagePath : '../image/default.jpeg';
+        });
+      }
+    </script>
+
 
   </body>
 

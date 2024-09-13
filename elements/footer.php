@@ -25,10 +25,11 @@
             </a>
             
 
-            <!-- Telefono -->
-            <a class="text-decoration-none  me-2 text-light" >
+            <!-- Telefono 
+            <span class=" me-2 text-light" >
                 <i class='bx bxs-phone  bx-tada-hover bx-sm ' ></i> 
-            </a>
+            </span>
+            -->
             
             <br/>
 

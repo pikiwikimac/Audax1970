@@ -372,7 +372,7 @@ require_once('config/db.php');
                   <div class="col-4 text-center">
                     <div class="row gy-3">
                       <div class="col-12" >
-                        <img src="image/loghi/<?php echo $row2['logo_casa'] ?>" class="img-fluid rounded-circle" width="70" height="70"/>
+                        <img src="image/loghi/<?php echo $row2['logo_casa'] ?>" alt="<?php echo $row2['logo_casa'] ?>" class="img-fluid rounded-circle" width="70" height="70"/>
                       </div>
                       <div class="col-12">
                         <span class="fw-bold fs-4" id="font_diverso"><?php echo $row2['casa'] ?></span>
@@ -411,7 +411,7 @@ require_once('config/db.php');
                   <div class="col-4 text-center">
                     <div class="row gy-3">
                       <div class="col-12" >
-                        <img src="image/loghi/<?php echo $row2['logo_ospite'] ?>" class="img-fluid rounded-circle" width="70" height="70"/>
+                        <img src="image/loghi/<?php echo $row2['logo_ospite'] ?>" alt="<?php echo $row2['logo_ospite'] ?>" class="img-fluid rounded-circle" width="70" height="70"/>
                       </div>
                       <div class="col-12">
                         <span class="fw-bold fs-4" id="font_diverso"><?php echo $row2['ospite'] ?></span>
@@ -458,7 +458,7 @@ require_once('config/db.php');
                   <div class="col-4 text-center">
                     <div class="row gy-3">
                       <div class="col-12" >
-                        <img src="image/loghi/<?php echo $row['logo_casa'] ?>" class="img-fluid rounded-circle" width="70" height="70"/>
+                        <img src="image/loghi/<?php echo $row['logo_casa'] ?>" alt="<?php echo $row['logo_casa'] ?>" class="img-fluid rounded-circle" width="70" height="70"/>
                       </div>
                       <div class="col-12">
                         <span class="fw-bold fs-4" id="font_diverso"><?php echo $row['casa'] ?></span>
@@ -517,7 +517,7 @@ require_once('config/db.php');
                   <div class="col-4 text-center">
                     <div class="row gy-3">
                       <div class="col-12" >
-                        <img src="image/loghi/<?php echo $row['logo_ospite'] ?>" class="img-fluid rounded-circle" width="70" height="70"/>
+                        <img src="image/loghi/<?php echo $row['logo_ospite'] ?>" alt="<?php echo $row['logo_ospite'] ?>" class="img-fluid rounded-circle" width="70" height="70"/>
                       </div>
                       <div class="col-12">
                         <span class="fw-bold fs-4" id="font_diverso"><?php echo $row['ospite'] ?></span>
