@@ -45,7 +45,8 @@
                     <table class="table table-striped table-hover table-rounded bebas" style="font-size:18px;">
                         <thead class="table-dark ">
                             <tr>
-                            <th></th>
+                            <th style="width:3%"></th>
+                            <th style="width:3%"></th>
                             <th>Squadra</th>
                             <th class="text-center">G</th>
                             <th class="text-center">V</th>
@@ -60,26 +61,41 @@
 
                         <tbody>
 
-                            <?php while($row = mysqli_fetch_assoc($classifica)) {  ?>
-                            
-                            <?php
-                            // Add different CSS classes based on the position of the row in the table
-                            $rowClass = '';
-                            if ($posizione ==1) {
-                                $rowClass = 'bg-success'; // Green background for top 4 rows
-                            } elseif ($posizione >= 2 && $posizione <=5) {
-                                $rowClass = 'bg-primary'; // Red background for last 4 rows
-                            }elseif ($posizione >= mysqli_num_rows($classifica)) {
-                                $rowClass = 'bg-danger'; // Red background for last 4 rows
-                            }  else {
-                                $rowClass = ''; // Yellow background for the rest
-                            }
+                            <?php 
+                            $posizione = 1;
+                            while($row = mysqli_fetch_assoc($classifica)) {
+                                // Classi CSS e tooltip in base al posizionamento in classifica
+                                $rowClass = '';
+                                $tooltip = '';
+                                if ($posizione == 1) {
+                                $rowClass = 'bg-success';
+                                $tooltip = 'Promozione diretta';
+                                } elseif ($posizione >= 2 && $posizione <= 5) {
+                                $rowClass = 'bg-primary';
+                                $tooltip = 'Playoff';
+                                } elseif ($posizione >= 8 && $posizione <= 9) {
+                                $rowClass = 'bg-orange';
+                                $tooltip = 'Playout';
+                                } elseif ($posizione > mysqli_num_rows($classifica) - 2) {
+                                $rowClass = 'bg-danger';
+                                $tooltip = 'Retrocessione';
+                                }
+
+                                // Codice per mostrare un pallino colorato con tooltip
+                                $circle = '<span class="position-relative d-inline-block" data-bs-toggle="tooltip" data-bs-title="' . $tooltip . '">
+                                            <span class="bg-opacity-50 ' . $rowClass . ' rounded-circle d-inline-block" style="width: 15px; height: 15px;"></span>
+                                        </span>';
                             ?>
 
-                            <tr class="bg-opacity-25 <?php echo $rowClass; ?>">
+                            <tr>
                                 <!-- Posizione in classifica -->
                                 <td class="text-center">
                                 <?php echo $posizione ?>°
+                                </td>
+
+                                <!-- Colonna per il pallino colorato -->
+                                <td class="text-center">
+                                    <?php echo $circle; ?>
                                 </td>
 
                                 <!-- Nome squadra -->

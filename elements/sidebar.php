@@ -323,11 +323,11 @@
 			
 			<li class="user-button">
 				
-				<a href="#" >
+				<a href="edit_user.php?id=<?php echo $user_id ?>">
 					<?php
 						$image = isset($image) && !empty($image) ? $image : 'default_user.jpg';
 					?>
-					<span><img src="../image/username/<?php echo $image; ?>" alt="" width="85%" height="85%" class="rounded-circle mx-auto"></span>
+					<span><img src="../image/username/<?php echo $image; ?>" alt="" width="35" height="35" class="rounded-circle mx-auto"></span>
 
 				</a>
 

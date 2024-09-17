@@ -34,17 +34,17 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <!-- TITLE -->
-    <title>Gestionale - Audax 1970</title>
+    <title>FutsalHub - Audax 1970</title>
 
 
     <!-- Icona title -->
-    <link rel="icon" href="../image/loghi/logo.png" type ="image/x-icon">
+    <link rel="icon" href="../image/futsalhub.jpg" type ="image/x-icon">
 
     <!-- Icona per dispositivi Apple -->
-    <link rel="apple-touch-icon" sizes="180x180" href="../image/loghi/logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../image/futsalhub.jpg">
     
     <!-- Icona per dispositivi Android -->
-    <link rel="icon" type="image/png" sizes="192x192" href="../image/loghi/logo.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../image/futsalhub.jpg">
     
 
 </head>

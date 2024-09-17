@@ -93,52 +93,27 @@
               <div class="row pe-3">
                 <div class="col-12 ">            
                   <div class="container-fluid">
+
+                    <!-- Intestazione -->
+                    <div class="tpl-header">
+                      <div class="tpl-header--title">
+                        <h4>
+                          <?php if ($info['logo']) { ?>
+                            <img src="../image/loghi/<?php echo $info['logo'];?>" class="img-fluid" width="30px" height="30px"/>
+                            &nbsp; 
+                          <?php } ?>
+                          <?php echo $info['nome_societa'] ?>
+                        </h4>
+                      </div>
+                    </div>
+                    <!-- END:Intestazione -->
+
                     <!-- Core della pagina -->
                     <div class="">
                       <!-- Info squadra -->
                       <div class="row mb-3">
-                        <div class="col-12 col-md-2">
-                          <?php if ($info['logo']) { ?>
-                            <img src="../image/loghi/<?php echo $info['logo'];?>" class="img-thumbnail"  />
-                          <?php } else { ?>
-                            <img src="../image/default_societa.png" class="img-thumbnail"  />
-                          <?php } ?>
-                          <div class="mt-3">
-                            <!-- Aggiungi il nuovo bottone -->
-                            <a href="insert_player.php?id_squadra=<?php echo ($info['id']); ?>" type="button" class="btn btn-sm btn-outline-dark  me-2">
-                              <i class='bx bx-user-plus' ></i>
-                            </a>  
-                          
-                          
-                            <a href="edit_societa.php?id=<?php echo $info['id'] ?>" type="button" class="btn btn-sm btn-outline-dark  me-2">
-                              <i class='bx bx-pencil '></i> 
-                            </a>
-                            
-                            <a href="societa.php" type="button" class="btn btn-sm btn-outline-dark ">
-                              <i class='bx bx-arrow-back '></i> 
-                            </a>
-                          </div>
-                        </div>
-                        <div class="col-12 col-md-10">
+                        <div class="col-12">
                           <div class="row gy-2">
-
-                            <!-- Nome società  -->
-                            <h4>
-                              <?php echo $info['nome_societa'] ?>
-                              <!-- Link a Futsalmarche e tuttocampo -->
-                              <div class="float-end">
-
-                                <a class="btn btn-sm btn-outline-dark " href="https://www.google.com/search?q=<?php echo urlencode($info['nome_societa']  . ' Futsalmarche'); ?>" target="_blank">
-                                  <img src="../image/loghi/favicon_fm.ico" class="rounded-circle" width="18px" height="18px" /> &nbsp; Futsalmarche
-                                </a>
-
-                                <a class="btn btn-sm btn-outline-dark" href="https://www.google.com/search?q=<?php echo urlencode($info['nome_societa']  . ' Tuttocampo'); ?>" target="_blank">
-                                  <img src="../image/loghi/favicon_tt.ico" class="rounded-circle" width="18px" height="18px" /> &nbsp;Tuttocampo
-                                </a>
-
-                              </div>
-                            </h4>
-
                             <!-- Elenco società  -->
                             <span class="text-muted">
                               <?php while($row = mysqli_fetch_assoc($squadre_correlate)){?>
@@ -149,7 +124,7 @@
                                 </a>
                               <?php } ?>
                             </span>
-                            
+
                             <!-- Sede e città  -->
                             <span class="text-muted">
                               <i class='bx bxs-map-pin'></i> &nbsp; <?php echo $info['sede']  ?> - <?php echo $info['citta']  ?>
@@ -219,7 +194,29 @@
                                 </span>
                               </a>
                             <?php } ?>
-                            
+
+                            <div class="">
+                              <!-- Futsalmarche -->
+                              <a class="btn btn-sm btn-outline-dark " href="https://www.google.com/search?q=<?php echo urlencode($info['nome_societa']  . ' Futsalmarche'); ?>" target="_blank">
+                                <img src="../image/loghi/favicon_fm.ico" class="rounded-circle" width="18px" height="18px" /> &nbsp; Futsalmarche
+                              </a>
+                              <!-- Tuttocampo  -->
+                              <a class="btn btn-sm btn-outline-dark" href="https://www.google.com/search?q=<?php echo urlencode($info['nome_societa']  . ' Tuttocampo'); ?>" target="_blank">
+                                <img src="../image/loghi/favicon_tt.ico" class="rounded-circle" width="18px" height="18px" /> &nbsp;Tuttocampo
+                              </a>
+                              <!-- Aggiungi il nuovo giocatore -->
+                              <a href="insert_player.php?id_squadra=<?php echo ($info['id']); ?>" type="button" class="btn btn-sm btn-outline-dark">
+                                <i class='bx bx-user-plus' ></i>
+                              </a>  
+                              <!-- Modifica societa -->
+                              <a href="edit_societa.php?id=<?php echo $info['id'] ?>" type="button" class="btn btn-sm btn-outline-dark">
+                                <i class='bx bx-pencil '></i> 
+                              </a>
+                              <!-- Go back -->
+                              <a href="societa.php" type="button" class="btn btn-sm btn-outline-dark ">
+                                <i class='bx bx-arrow-back '></i> 
+                              </a>
+                            </div>
                             
                           </div>
                         </div>
@@ -231,118 +228,117 @@
                       <?php } ?>
 
                       <?php if($giocatori->num_rows >0){ ?>
-                      <!-- Giocatori -->
-                      <div class="row mb-3">
-                      <?php if ($giocatori->num_rows > 0 && $calendario->num_rows > 0): ?>
-                          <div class="col-12 col-xl-6">
-                        <?php elseif ($giocatori->num_rows > 0 && $calendario->num_rows === 0): ?>
-                          <div class="col-12 col-xl-12">
-                        <?php endif; ?>
-                            <table class="table table-sm table-striped table-hover table-rounded">
-                              <thead class="table-dark">
-                                <tr>
-                                  <th width="3%"></th>
-                                  <th>Nome</th>
-                                  <th class="text-center" width="5%">Anno</th>
-                                  <th class="text-center" width="5%">Ruolo</th>
-                                  <th class="text-center" width="3%">Piede</th>
-                                  <th class="text-center" width="3%"></th>
-                                  <th class="text-center" width="3%"></th>
-                                  
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <?php while($row = mysqli_fetch_assoc($giocatori)){?>
-                                <tr class="align-middle">
-                                  <!-- Immagine -->
-                                  <td class="text-center">
-                                    <?php if ($row['image_path']) { ?>
-                                      <img src="../image/player/<?php echo $row['image_path'];?>" class="rounded-circle image-clickable" alt="<?php echo $row['cognome'].' '.$row['nome'];?>" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>" width="20" height="20"/>
-                                    <?php } else { ?>
-                                      <img src="../image/default_user.jpg" class="rounded-circle" alt="Immagine di default" data-player-name="<?php echo $row['player_name'];?>" width="15" height="15" />
-                                    <?php } ?>
-                                  </td>
+                        <!-- Giocatori -->
+                        <div class="row mb-3">
+                          <?php if ($giocatori->num_rows > 0 && $calendario->num_rows > 0): ?>
+                              <div class="col-12 col-xl-6">
+                            <?php elseif ($giocatori->num_rows > 0 && $calendario->num_rows === 0): ?>
+                              <div class="col-12 col-xl-12">
+                          <?php endif; ?>
+                          <table class="table table-sm table-striped table-hover table-rounded">
+                            <thead class="table-dark">
+                              <tr>
+                                <th width="3%"></th>
+                                <th>Nome</th>
+                                <th class="text-center" width="5%">Anno</th>
+                                <th class="text-center" width="5%">Ruolo</th>
+                                <th class="text-center" width="3%">Piede</th>
+                                <th class="text-center" width="3%"></th>
+                                <th class="text-center" width="3%"></th>
+                                
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <?php while($row = mysqli_fetch_assoc($giocatori)){?>
+                              <tr class="align-middle">
+                                <!-- Immagine -->
+                                <td class="text-center">
+                                  <?php if ($row['image_path']) { ?>
+                                    <img src="../image/player/<?php echo $row['image_path'];?>" class="rounded-circle image-clickable" alt="<?php echo $row['cognome'].' '.$row['nome'];?>" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>" width="20" height="20"/>
+                                  <?php } else { ?>
+                                    <img src="../image/default_user.jpg" class="rounded-circle" alt="Immagine di default" data-player-name="<?php echo $row['player_name'];?>" width="15" height="15" />
+                                  <?php } ?>
+                                </td>
 
-                                  <!-- Nome e Cognome -->
-                                  <td onclick="window.location='player.php?id=<?php echo $row['id']; ?>';" style="cursor:pointer" >
-                                    <?php echo $row['cognome'] .' '. $row['nome']?>
-                                  </td>
+                                <!-- Nome e Cognome -->
+                                <td onclick="window.location='player.php?id=<?php echo $row['id']; ?>';" style="cursor:pointer" >
+                                  <?php echo $row['cognome'] .' '. $row['nome']?>
+                                </td>
 
-                                  <!-- Data di nascita -->
-                                  <td class="text-center" >
-                                    <small>
-                                      <?php if($row['data_nascita']==='1970-01-01'){
-                                        echo '&nbsp; &nbsp; &nbsp; &nbsp;  - ';
-                                      }else{
-                                        echo date('Y',strtotime($row['data_nascita']));
-                                      } ?>
-                                    </small>
-                                  </td>
+                                <!-- Data di nascita -->
+                                <td class="text-center" >
+                                  <small>
+                                    <?php if($row['data_nascita']==='1970-01-01'){
+                                      echo '&nbsp; &nbsp; &nbsp; &nbsp;  - ';
+                                    }else{
+                                      echo date('Y',strtotime($row['data_nascita']));
+                                    } ?>
+                                  </small>
+                                </td>
 
-                                  <!-- Ruolo -->
-                                  <td class="text-center">
-                                    <?php if($row['ruolo']==='Portiere'){
-                                        echo '
-                                        <span class="badge bg-warning text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Portiere">
-                                          P'
-                                        .'</span>';
-                                      }elseif($row['ruolo']==='Centrale'){
-                                        echo '
-                                        <span class="badge bg-success text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Centrale">
-                                          C'
-                                        .'</span>';
-                                      }elseif($row['ruolo']==='Laterale'){
-                                        echo '
-                                        <span class="badge bg-primary text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Laterale">
-                                          L'
-                                        .'</span>';
-                                      }elseif($row['ruolo']==='Pivot'){
-                                        echo '
-                                        <span class="badge bg-danger text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Pivot">
-                                          P'
-                                        .'</span>';
-                                      }else{
-                                        echo '
-                                        <span class="badge bg-info text-light" style="width:30px;"  data-bs-toggle="tooltip" data-bs-title="Universale ">
-                                          U'
-                                        .'</span>';
-                                      } ?>
-                                        
-                                  </td>
-                                  
-                                  <!-- Piede -->
-                                  <td class="text-center">
-                                    <small>
-                                      <?php echo $row['piede_preferito'] ?>
-                                    </small>
-                                  </td>
+                                <!-- Ruolo -->
+                                <td class="text-center">
+                                  <?php if($row['ruolo']==='Portiere'){
+                                      echo '
+                                      <span class="badge bg-warning text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Portiere">
+                                        P'
+                                      .'</span>';
+                                    }elseif($row['ruolo']==='Centrale'){
+                                      echo '
+                                      <span class="badge bg-success text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Centrale">
+                                        C'
+                                      .'</span>';
+                                    }elseif($row['ruolo']==='Laterale'){
+                                      echo '
+                                      <span class="badge bg-primary text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Laterale">
+                                        L'
+                                      .'</span>';
+                                    }elseif($row['ruolo']==='Pivot'){
+                                      echo '
+                                      <span class="badge bg-danger text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Pivot">
+                                        P'
+                                      .'</span>';
+                                    }else{
+                                      echo '
+                                      <span class="badge bg-info text-light" style="width:30px;"  data-bs-toggle="tooltip" data-bs-title="Universale ">
+                                        U'
+                                      .'</span>';
+                                    } ?>
+                                      
+                                </td>
+                                
+                                <!-- Piede -->
+                                <td class="text-center">
+                                  <small>
+                                    <?php echo $row['piede_preferito'] ?>
+                                  </small>
+                                </td>
 
-                                  <!-- Pulsante Edit -->
-                                  <td class="text-center">
-                                    <!-- Edit -->
-                                    <a class="text-decoration-none" href="edit_player.php?id=<?php echo $row["id"]; ?>" >
-                                      <i class='bx bx-pencil text-dark ms-2'></i>
-                                    </a>
-                                  </td>
-                                  
-                                  <!-- Pulsante Delete  -->
-                                  <td class="text-center">
-                                    <!-- Delete -->
-                                    <a class="text-decoration-none" onclick="confirmDelete('<?php echo $row["id"]; ?>')">
-                                      <i class='bx bx-trash text-danger'></i>
-                                    </a>
-                                  </td>
-                                  
-                                </tr>
-                                <?php } ?>
-                              </tbody>
-                            </table>
-                          </div>           
-                        
+                                <!-- Pulsante Edit -->
+                                <td class="text-center">
+                                  <!-- Edit -->
+                                  <a class="text-decoration-none" href="edit_player.php?id=<?php echo $row["id"]; ?>" >
+                                    <i class='bx bx-pencil text-dark ms-2'></i>
+                                  </a>
+                                </td>
+                                
+                                <!-- Pulsante Delete  -->
+                                <td class="text-center">
+                                  <!-- Delete -->
+                                  <a class="text-decoration-none" onclick="confirmDelete('<?php echo $row["id"]; ?>')">
+                                    <i class='bx bx-trash text-danger'></i>
+                                  </a>
+                                </td>
+                                
+                              </tr>
+                              <?php } ?>
+                            </tbody>
+                          </table>
+                        </div>           
                       <?php } ?>
+
                       <?php if($calendario->num_rows >0){ ?>              
-                      <!-- Calendario -->
-                      
+                        <!-- Calendario -->
                         <div class="col-12 col-xl-6">
                           <table class="table table-sm table-striped table-hover table-rounded">
                             <thead class="table-dark ">
@@ -444,6 +440,7 @@
                         </div>
                       </div>
                       <?php } ?>
+                      
                       <?php if($calendario->num_rows === 0){ ?>   
                         <span class="text-muted">Nessuna partita registrata</span>
                         <br/>

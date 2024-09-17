@@ -4,30 +4,30 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- TITLE -->
-    <title>Audax 1970</title>
+    <title>Audax Senigallia 1970</title>
 
     <meta name="robots" content="index,follow">
     <meta name="description" content="Serie A2 Nazionale">
+    <meta name="author" content="Audax Senigallia 1970" />
+    <meta name="language" content="Italian" />
+    <meta name="copyright" content="© 2024 Audax Senigallia 1970" />
     
     <!-- Meta tags -->
-    <meta property="og:title" content="Audax 1970 - Campionato Serie A2">
+    <meta property="og:title" content="Audax Senigallia 1970 - Campionato Serie A2">
     <meta property="og:description" content="Campioni Serie B 2023/2024">
     <meta property="og:image" content="../image/loghi/logo.png">
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.audax1970.it" />
-    <meta property="og:site_name" content="Audax 1970" />
+    <meta property="og:site_name" content="Audax Senigallia 1970" />
     
-    <meta name="author" content="Audax 1970" />
-    <meta name="language" content="Italian" />
-    <meta name="copyright" content="© 2024 Audax 1970" />
     <!-- Meta tag per Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Audax 1970 - Campionato Serie A2" />
+    <meta name="twitter:title" content="Audax Senigallia 1970 - Campionato Serie A2" />
     <meta name="twitter:description" content="Campioni Serie B 2023/2024" />
     <meta name="twitter:image" content="../image/loghi/logo.png" />
 
     <!-- Indirizzo canonico -->
-    <link rel="canonical" href="https://audax1970.it/index.php">
+    <link rel="canonical" href="https://audax1970.it">
     
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">

@@ -85,30 +85,32 @@
 
                     <!-- Core della pagina -->
                     <div class="">
-                      <h4>
+                      <h6>
                         Serie A2 
-                      </h4>
+                      </h6>
                       <div class="row mb-3">
                         <div class="col-12 table-responsive">
-                          <table class="table table-striped table-hover table-rounded">
+                          <table class="table table-sm table-striped table-hover table-rounded">
                             <thead class="table-dark">
                               <tr>
-                                <th width="5%"></th>
+                                <th width="7%"></th>
                                 <th width="25%">Nome</th>
-                                <th width="25%">Citta</th>
+                                <th width="15%">Citta</th>
                                 <th width="8%">Giorno</th>
                                 <th width="8%">Orario</th>
-                                <th width="47%">Sede</th>
+                                <th width="33%">Sede</th>
+                                <th width="2%"></th>
                                 <th width="2%"></th>
                               </tr>
                             </thead>
                             <tbody>
                               <?php while($row = mysqli_fetch_assoc($squadre_campionato)){?>
                                 <tr class="align-middle">
-                                  <td class="text-center"><?php if ($row['logo']) { ?>
-                                      <img src="../image/loghi/<?php echo $row['logo'];?>" class="rounded-circle image-clickable"  width="20" height="20"/>
+                                  <td class="text-center">
+                                    <?php if ($row['logo']) { ?>
+                                      <img src="../image/loghi/<?php echo $row['logo'];?>" class="rounded-circle image-clickable"  width="25" height="25"/>
                                     <?php } else { ?>
-                                      <img src="../image/default_societa.png" class="rounded-circle image-clickable"  width="20" height="20"/>
+                                      <img src="../image/default_societa.png" class="rounded-circle image-clickable"  width="25" height="25"/>
                                     <?php } ?>
                                   </td>
                                   <td>
@@ -126,13 +128,15 @@
                                   </td>
 
 
-                                  <!-- Pulsante Edit -->
+                                  <!-- Duplica -->
                                   <td class="text-center">
-                                    <!-- Duplica -->
                                     <a class="text-decoration-none" href="../query/action_duplicate_societa.php?id=<?php echo $row["id"]; ?>" >
                                       <i class='bx bx-copy text-dark ms-2' ></i>
                                     </a> 
-                                    <!-- Edit -->
+                                  </td> 
+
+                                  <!-- Edit -->
+                                  <td class="text-center">
                                     <a class="text-decoration-none" href="edit_societa.php?id=<?php echo $row["id"]; ?>" >
                                       <i class='bx bx-pencil text-dark ms-2'></i>
                                     </a>
@@ -144,20 +148,21 @@
                         </div>
                       </div>
                       <?php if($squadre_altre->num_rows > 0){?>
-                      <h4>
+                      <h6>
                         Altri campionati 
-                      </h4>
+                      </h6>
                       <div class="row mb-3">
-                        <div class="col-12">
-                          <table class="table table-striped table-hover table-rounded">
+                        <div class="col-12 table-responsive">
+                          <table class="table table-sm table-striped table-hover table-rounded">
                             <thead class="table-dark">
                               <tr>
-                                <th width="5%"></th>
+                                <th width="7%"></th>
                                 <th width="25%">Nome</th>
-                                <th width="25%">Citta</th>
+                                <th width="15%">Citta</th>
                                 <th width="8%">Giorno</th>
                                 <th width="8%">Orario</th>
-                                <th width="47%">Sede</th>
+                                <th width="33%">Sede</th>
+                                <th width="2%"></th>
                                 <th width="2%"></th>
                               </tr>
                             </thead>
@@ -165,9 +170,9 @@
                               <?php while($row = mysqli_fetch_assoc($squadre_altre)){?>
                               <tr class="align-middle">
                                 <td class="text-center"><?php if ($row['logo']) { ?>
-                                    <img src="../image/loghi/<?php echo $row['logo'];?>" class="rounded-circle image-clickable"  width="20" height="20"/>
+                                    <img src="../image/loghi/<?php echo $row['logo'];?>" class="rounded-circle image-clickable"  width="25" height="25"/>
                                   <?php } else { ?>
-                                    <img src="../image/default_societa.png" class="rounded-circle image-clickable"  width="20" height="20"/>
+                                    <img src="../image/default_societa.png" class="rounded-circle image-clickable"  width="25" height="25"/>
                                   <?php } ?>
                                 </td>
                                 <td>
@@ -185,13 +190,15 @@
                                 </td>
 
 
-                                <!-- Pulsante Edit -->
+                                <!-- Duplica -->
                                 <td class="text-center">
-                                  <!-- Duplica -->
                                   <a class="text-decoration-none" href="../query/action_duplicate_societa.php?id=<?php echo $row["id"]; ?>" >
                                     <i class='bx bx-copy text-dark ms-2' ></i>
                                   </a> 
-                                  <!-- Edit -->
+                                </td> 
+                                
+                                <!-- Edit -->
+                                <td class="text-center">
                                   <a class="text-decoration-none" href="edit_societa.php?id=<?php echo $row["id"]; ?>" >
                                     <i class='bx bx-pencil text-dark ms-2'></i>
                                   </a>

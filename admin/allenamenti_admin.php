@@ -120,7 +120,7 @@
                               <tr>
                                 <th class="text-center" width="10%">Giorno</th>
                                 <th width="">Tipo</th>
-                                <th width="40%">Note</th>
+                                
                                 <th  class="text-center" width="5%">Stato</th>
                                 <th width="1%"></th>
                                 <?php if($_SESSION['superuser'] === 1 ){ ?>
@@ -135,7 +135,7 @@
 
                               <?php while($row = mysqli_fetch_assoc($allenamentiProssimi)) {  ?>
 
-                                <tr class="">
+                                <tr class=""  data-bs-toggle="tooltip" data-bs-title="<?php echo $row['note'] ?>">
                                   <td class="text-center">
                                     <!-- Data -->
                                     <small class="fw-semibold">
@@ -157,7 +157,7 @@
                                   
                                   
                                   <!-- Tipologia -->
-                                  <td>
+                                  <td class="text-nowrap" >
                                     <strong>
                                       <?php echo $row['tipologia'] ?>
                                     </strong>
@@ -168,25 +168,21 @@
                                   </td>
 
                                   
-                                  <!-- Note -->
-                                  <td class="align-middle">
-                                    <?php echo $row['note'] ?>
-                                  </td>
                                   
                                   <!-- Stato -->
                                   <td class="text-center align-middle">
                                     <?php switch($row['stato']){
                                       case 'Fissato':  
-                                        echo "<span class='badge bg-secondary bg-opacity-25 border border-2 border-opacity-50 text-secondary border-secondary'>F</span>";
+                                        echo "<span class='badge bg-secondary bg-opacity-25 border border-2 border-opacity-50 text-secondary border-secondary' data-bs-toggle='tooltip' data-bs-title='Fissato'>F</span>";
                                         break;
                                       case 'Svolto':  
-                                        echo "<span class='badge bg-success bg-opacity-25 border border-2 border-opacity-50 text-success border-success'>S</span>";
+                                        echo "<span class='badge bg-success bg-opacity-25 border border-2 border-opacity-50 text-success border-success' data-bs-toggle='tooltip' data-bs-title='Svolto'>S</span>";
                                         break;
                                       case 'Rimandato':  
-                                        echo "<span class='badge bg-warning bg-opacity-25 border border-2 border-opacity-50 text-warning border-warning'>R</span>";
+                                        echo "<span class='badge bg-warning bg-opacity-25 border border-2 border-opacity-50 text-warning border-warning' data-bs-toggle='tooltip' data-bs-title='Rimandato'>R</span>";
                                         break;
                                       case 'Cancellato':
-                                        echo "<span class='badge bg-danger bg-opacity-25 border border-2 border-opacity-50 text-danger border-danger'>C</span>";
+                                        echo "<span class='badge bg-danger bg-opacity-25 border border-2 border-opacity-50 text-danger border-danger' data-bs-toggle='tooltip' data-bs-title='Cancellato'>C</span>";
                                         break;
                                       }?>
                                       
@@ -304,16 +300,16 @@
                                   <td class="text-center align-middle">
                                     <?php switch($row['stato']){
                                       case 'Fissato':  
-                                        echo "<span class='badge bg-secondary bg-opacity-25 border border-2 border-opacity-50 text-secondary border-secondary'>F</span>";
+                                        echo "<span class='badge bg-secondary bg-opacity-25 border border-2 border-opacity-50 text-secondary border-secondary' data-bs-toggle='tooltip' data-bs-title='Fissato'>F</span>";
                                         break;
                                       case 'Svolto':  
-                                        echo "<span class='badge bg-success bg-opacity-25 border border-2 border-opacity-50 text-success border-success'>S</span>";
+                                        echo "<span class='badge bg-success bg-opacity-25 border border-2 border-opacity-50 text-success border-success' data-bs-toggle='tooltip' data-bs-title='Svolto'>S</span>";
                                         break;
                                       case 'Rimandato':  
-                                        echo "<span class='badge bg-warning bg-opacity-25 border border-2 border-opacity-50 text-warning border-warning'>R</span>";
+                                        echo "<span class='badge bg-warning bg-opacity-25 border border-2 border-opacity-50 text-warning border-warning' data-bs-toggle='tooltip' data-bs-title='Rimandato'>R</span>";
                                         break;
                                       case 'Cancellato':
-                                        echo "<span class='badge bg-danger bg-opacity-25 border border-2 border-opacity-50 text-danger border-danger'>C</span>";
+                                        echo "<span class='badge bg-danger bg-opacity-25 border border-2 border-opacity-50 text-danger border-danger' data-bs-toggle='tooltip' data-bs-title='Cancellato'>C</span>";
                                         break;
                                     }?>
                                       

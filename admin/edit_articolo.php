@@ -121,7 +121,7 @@
                                   <!-- Data pubblicazione -->
                                   <div class="col-12 col-sm-6 col-lg-2">
                                     <label for="data_pubblicazione" class="form-label">Data pubblicazione</label>
-                                    <input type="datetime" class="form-control form-control-sm" id="data_pubblicazione" name="data_pubblicazione" value="<?php echo $row['data_pubblicazione'] ?>"></input>
+                                    <input type="datetime-local" class="form-control form-control-sm" id="data_pubblicazione" name="data_pubblicazione" value="<?php echo $row['data_pubblicazione'] ?>"></input>
                                   </div>
 
                                   <!-- Squadra -->

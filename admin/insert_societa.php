@@ -228,7 +228,7 @@
 
 
                                   <!-- Whatsapp -->
-                                  <div class="col-6 col-lg-2">
+                                  <div class="col-12 col-lg-2">
                                     <label for="whatsapp" class="form-label">Whatsapp</label>
                                     <div class="input-group">
                                       <span class="input-group-text" id="basic-addon1">
@@ -239,7 +239,7 @@
                                   </div>
 
                                   <!-- Instagram -->
-                                  <div class="col-6 col-lg-2">
+                                  <div class="col-12 col-lg-2">
                                     <label for="instagram" class="form-label">Instagram</label>
                                     <div class="input-group">
                                       <span class="input-group-text" id="basic-addon1">
@@ -250,7 +250,7 @@
                                   </div>
                                   
                                   <!-- Facebook -->
-                                  <div class="col-6 col-lg-2">
+                                  <div class="col-12 col-lg-2">
                                     <label for="facebook" class="form-label">Facebook</label>
                                     <div class="input-group">
                                       <span class="input-group-text" id="basic-addon1">
@@ -273,7 +273,7 @@
 
 
                                   <!-- Squadra principale -->
-                                  <div class="col-6 col-lg-2" id="parentSelectContainer" style="display:none;">
+                                  <div class="col-12 col-lg-2" id="parentSelectContainer" style="display:none;">
                                     <label for="parent_id" class="form-label">Squadra principale</label>
                                     <select class="form-select form-select-sm" id="parent_id" name="parent_id" >
                                       <option value="0" selected> - Seleziona prima squadra - </option>
@@ -291,7 +291,7 @@
                         </div>
 
                         <!-- Submit -->
-                        <div class="d-flex justify-content-end mt-3">
+                        <div class="d-flex justify-content-end my-3">
                           <button type="submit" class="btn btn-sm btn-outline-dark mt-2">Conferma</button>
                         </div>
                       </div>

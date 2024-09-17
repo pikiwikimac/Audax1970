@@ -87,6 +87,8 @@
                               $query_camp = "SELECT 
                                           soc.nome_societa as casa, 
                                           soc2.nome_societa as ospite, 
+                                          soc.logo as logo_casa, 
+                                          soc2.logo as logo_ospite, 
                                           golCasa, 
                                           golOspiti, 
                                           CAST(giornata AS UNSIGNED) AS giornata_numero,
@@ -102,115 +104,130 @@
                                       ORDER BY giornata_numero,s.data,soc.ora_match, casa, ospite";
                               $campionato = mysqli_query($con, $query_camp);
                           ?>
-                        <div class="col-12 col-xl-6 table-responsive"> 
-                          <table class="table table-sm table-hover table-striped table-rounded caption-top ">
-                            <caption class="fs-5 text-dark fw-bold"><?php echo $giornata_numero ?> ° GIORNATA </caption>
+                        <div class="col-12 col-xl-6"> 
+                          <div class="table-responsive"> 
+                            <table class="table table-sm table-hover no-th table-striped table-rounded caption-top ">
+                              <caption class="fs-5 text-dark fw-bold"><?php echo $giornata_numero ?> ° GIORNATA </caption>
+                                      
+                              <tbody class="">
+                                <?php while($row = mysqli_fetch_assoc($campionato)) {  ?>
+                                  <tr class="<?php echo $rowClass; ?> align-middle">
                                     
-                            <tbody class="">
-                              <?php while($row = mysqli_fetch_assoc($campionato)) {  ?>
-                                <tr class="<?php echo $rowClass; ?> align-middle">
-                                  
-                                  <!-- Data -->
-                                  <td class="text-center">
-                                    <small class="">
-                                      <?php echo date('d/m/y',strtotime( $row['data'])) ?>
-                                    </small>
-                                    &nbsp;
-                                    <small class="">
-                                      <?php 
-                                        setlocale(LC_TIME, 'it_IT.utf8');
-                                        $dayOfWeek = strftime('%A', strtotime($row['data']));
-                                        $abbreviatedDay = substr($dayOfWeek, 0, 3);
-                                        echo $abbreviatedDay;
+                                    <!-- Risultato -->
+                                    <td class="text-center">
+                                      <!-- Gol casa -->
+                                      <?php echo isset($row['golCasa']) && $row['golCasa'] !== '' ? $row['golCasa'] : '-'; ?>
+                                      <br/>
+                                      <!-- Gol ospite -->
+                                      <?php echo isset($row['golOspiti']) && $row['golOspiti'] !== '' ? $row['golOspiti'] : '-'; ?>
+                                    </td>
+                                    
+                                    <!-- Squadre -->
+                                    <td>
+                                      <!-- Squadra casa -->
+                                      <div class="<?= $row['casa'] === 'Audax 1970' ? 'fw-bold' : 'text-dark'?>">
+                                        <?php if ($row['logo_casa']) { ?>
+                                          <img src="../image/loghi/<?php echo $row['logo_casa'];?>" class="rounded-circle"  width="15" height="15"/>
+                                        <?php } else { ?>
+                                          <img src="../image/default_societa.png" class="rounded-circle"  width="15" height="15"/>
+                                        <?php } ?>
+                                        &nbsp;
+                                        <?php echo $row['casa']; ?>
+                                      </div>
+                                      
+                                      <!-- Squadra ospite -->
+                                      <div class="<?= $row['ospite'] === 'Audax 1970' ? 'fw-bold' : 'text-dark'?>">
+                                        <?php if ($row['logo_ospite']) { ?>
+                                          <img src="../image/loghi/<?php echo $row['logo_ospite'];?>" class="rounded-circle"  width="15" height="15"/>
+                                        <?php } else { ?>
+                                          <img src="../image/default_societa.png" class="rounded-circle"  width="15" height="15"/>
+                                        <?php } ?>
+                                        &nbsp;
+                                        <?php echo $row['ospite']; ?>
+                                      </div>
+                                    </td>
+                                    
+                                    <!-- Data -->
+                                    <td class="text-end" >
+                                      <small class="d-block">
+                                        <?php echo date('d/m/y',strtotime( $row['data'])) ?> &nbsp;
+                                      </small>
+                                      
+                                      <small class="d-block">
+                                        <?php 
+                                          setlocale(LC_TIME, 'it_IT.utf8');
+                                          $dayOfWeek = strftime('%A', strtotime($row['data']));
+                                          $abbreviatedDay = substr($dayOfWeek, 0, 3);
+                                          echo $abbreviatedDay;
+                                        ?> &nbsp;
+                                      </small>
+                                    </td>
+
+                                    
+                                    <?php if($_SESSION['superuser'] == 1 ){ ?>
+                                    <!-- Bottoni modifica stato match -->
+                                    <td class="text-center d-print-none" style="width:4%">
+                                      <?php
+                                        if ($row['played'] == 1) {
+                                            // Se played è uguale a 1, aggiungi la classe text-success
+                                            echo '<a href="../query/action_played.php?id=' . $row["id"] . '&played=1&page=calendario_completo_admin"
+                                                    class="text-decoration-none text-dark"
+                                                    data-bs-toggle="tooltip"
+                                                    data-bs-title="Played">
+                                                    <i class="bx bx-check-double text-danger"></i>
+                                                  </a>';
+                                        } else {
+                                            // Altrimenti, lascia la classe vuota
+                                            echo '<a href="../query/action_played.php?id=' . $row["id"] . '&played=0&page=calendario_completo_admin"
+                                                    class="text-decoration-none text-dark"
+                                                    data-bs-toggle="tooltip"
+                                                    data-bs-title="NOT Played">
+                                                    <i class="bx bx-check"></i>
+                                                  </a>';
+                                        }
+
                                       ?>
-                                    </small>
-                                  </td>
-                                  
-                                  <!-- Squadra casa -->
-                                  <td class="text-end">
-                                    <div class="<?= $row['casa'] === 'Audax 1970' ? 'fw-bold' : 'text-dark'?>">
-                                      <?php echo strlen($row['casa']) > 15 ? substr($row['casa'], 0, 15) . '...' : $row['casa']; ?>
-                                    </div>
-                                  </td>
-                                  <!-- Gol casa -->
-                                  <td class="text-center">
-                                    <?php echo $row['golCasa'] ?>
-                                  </td>
-
-                                  <!-- Gol ospite -->
-                                  <td class="text-center">
-                                    <?php echo $row['golOspiti'] ?>
-                                  </td>
-                                  <!-- Squadra ospite -->
-                                  <td class="">
-                                    <div class="<?= $row['ospite'] === 'Audax 1970' ? 'fw-bold' : 'text-dark'?>">
-                                      <?php echo strlen($row['ospite']) > 15 ? substr($row['ospite'], 0, 15) . '...' : $row['ospite']; ?>
-                                    </div>
-                                  </td>
-                                  
-                                  <?php if($_SESSION['superuser'] == 1 ){ ?>
-                                  <!-- Bottoni modifica stato match -->
-                                  <td class="text-center d-print-none">
-                                    <?php
-                                      if ($row['played'] == 1) {
-                                          // Se played è uguale a 1, aggiungi la classe text-success
-                                          echo '<a href="../query/action_played.php?id=' . $row["id"] . '&played=1&page=calendario_completo_admin"
-                                                  class="text-decoration-none text-dark"
-                                                  data-bs-toggle="tooltip"
-                                                  data-bs-title="Played">
-                                                  <i class="bx bx-check-double text-danger"></i>
-                                                </a>';
-                                      } else {
-                                          // Altrimenti, lascia la classe vuota
-                                          echo '<a href="../query/action_played.php?id=' . $row["id"] . '&played=0&page=calendario_completo_admin"
-                                                  class="text-decoration-none text-dark"
-                                                  data-bs-toggle="tooltip"
-                                                  data-bs-title="NOT Played">
-                                                  <i class="bx bx-check"></i>
-                                                </a>';
-                                      }
-
-                                    ?>
-                                  </td>
-                                  
-                                  
-                                  <!-- Bottoni modifica -->
-                                  <td class="text-center d-print-none">
-                                  <a href="edit_risultato_massivo.php?id=<?php echo $row["id"]; ?>"
-                                      class="text-decoration-none text-dark"
-                                      data-bs-toggle="tooltip"
-                                      data-bs-title="Marcatori">
-                                      <i class='bx bx-football'   ></i>
-                                    </a>
-                                  </td>
-                                  
+                                    </td>
+                                    
+                                    
+                                    <!-- Bottoni modifica -->
+                                    <td class="text-center d-print-none" style="width:4%">
+                                    <a href="edit_risultato_massivo.php?id=<?php echo $row["id"]; ?>"
+                                        class="text-decoration-none text-dark"
+                                        data-bs-toggle="tooltip"
+                                        data-bs-title="Marcatori">
+                                        <i class='bx bx-football'   ></i>
+                                      </a>
+                                    </td>
+                                    
 
 
-                                  <td class="text-center d-print-none">
-                                    <!-- Aggiungi il link per aprire il modal -->
-                                    <a href="#" class="text-decoration-none text-dark" 
-                                    onclick="showEditModal('<?php echo $row["id"]; ?>', '<?php echo $row["casa"]; ?>', '<?php echo $row["ospite"]; ?>', '<?php echo $row["golCasa"]; ?>', '<?php echo $row["golOspiti"]; ?>', '<?php echo $row["data"]; ?>', '<?php echo $row["giornata_numero"]; ?>')" data-bs-toggle="tooltip" data-bs-title="Modifica">
-                                      <i class='bx bx-pencil '></i>
-                                    </a>
-                                  </td>
+                                    <td class="text-center d-print-none" style="width:4%">
+                                      <!-- Aggiungi il link per aprire il modal -->
+                                      <a href="#" class="text-decoration-none text-dark" 
+                                      onclick="showEditModal('<?php echo $row["id"]; ?>', '<?php echo $row["casa"]; ?>', '<?php echo $row["ospite"]; ?>', '<?php echo $row["golCasa"]; ?>', '<?php echo $row["golOspiti"]; ?>', '<?php echo $row["data"]; ?>', '<?php echo $row["giornata_numero"]; ?>')" data-bs-toggle="tooltip" data-bs-title="Modifica">
+                                        <i class='bx bx-pencil '></i>
+                                      </a>
+                                    </td>
 
-                                  <td class="text-center d-print-none">
-                                    <a class="text-decoration-none text-dark"
-                                      data-bs-toggle="tooltip"
-                                      data-bs-title="Elimina"
-                                      onclick="confirmDelete('<?php echo $row["id"]; ?>')">
-                                      <i class='bx bx-trash text-danger' ></i>
-                                    </a>
-                                  </td>
+                                    <td class="text-center d-print-none" style="width:4%">
+                                      <a class="text-decoration-none text-dark"
+                                        data-bs-toggle="tooltip"
+                                        data-bs-title="Elimina"
+                                        onclick="confirmDelete('<?php echo $row["id"]; ?>')">
+                                        <i class='bx bx-trash text-danger' ></i>
+                                      </a>
+                                    </td>
 
-                                  <?php } ?>
-                                  
+                                    <?php } ?>
+                                    
 
-                                </tr>
-                              <?php } ?>
-                            </tbody>
+                                  </tr>
+                                <?php } ?>
+                              </tbody>
 
-                          </table>
+                            </table>
+                          </div>
                         </div>
                         <?php } ?>
                       </div>

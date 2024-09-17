@@ -239,7 +239,7 @@ ORDER BY ruolo, cognome, nome ASC;
                         <div class="col-12">
                           <?php while($row = mysqli_fetch_assoc($societa_collegate)) { ?>
                             <a class="text-decoration-none text-white" href="rosa_admin.php?id_societa=<?php echo $row['id'] ?>">
-                              <span class="badge bg-secondary" style="font-size:10px;padding:6px">
+                              <span class="badge bg-secondary" >
                                 <?php echo $row['tipo'] ?>
                               </span>  
                             </a>
@@ -277,18 +277,18 @@ ORDER BY ruolo, cognome, nome ASC;
                                 <!-- Immagine -->
                                 <td class="text-center">
                                   <?php if ($row['image_path']) { ?>
-                                    <img src="../image/player/<?php echo $row['image_path'];?>" class="rounded-circle image-clickable" alt="<?php echo $row['cognome'].' '.$row['nome'];?>" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>" width="30" height="30"/>
+                                    <img src="../image/player/<?php echo $row['image_path'];?>" class="rounded-circle image-clickable" alt="<?php echo $row['cognome'].' '.$row['nome'];?>" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>" width="20" height="20"/>
                                   <?php } else { ?>
-                                    <img src="../image/default_user.jpg" class="rounded-circle" alt="Immagine di default" data-player-name="<?php echo $row['player_name'];?>" width="30" height="30" />
+                                    <img src="../image/default_user.jpg" class="rounded-circle" alt="Immagine di default" data-player-name="<?php echo $row['player_name'];?>" width="20" height="20" />
                                   <?php } ?>
                                 </td>
                                 <!-- Nome e Cognome -->
-                                <td class="fw-semibold">
+                                <td class="fw-semibold text-nowrap">
                                   <?php echo $row['nome'] . " " . $row['cognome']; ?>
                                 </td>
 
                                 <!-- Data di nascita -->
-                                <td>
+                                <td >
                                   <?php if($row['data_nascita']==='0000-00-00'){
                                     echo '&nbsp; &nbsp; &nbsp; &nbsp;  - ';
                                   }else{

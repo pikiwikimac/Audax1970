@@ -69,7 +69,7 @@
             <div class="flip-card-inner">
               <!-- Fronte : Immagine -->
               <div class="flip-card-front">
-                <img src="image/sponsor/francesconi.jpg" alt="" width="300" height="300" class="img-fluid p-2 ">
+                <img src="image/sponsor/francesconi.png" alt="" width="300" height="300" class="img-fluid p-2 ">
               </div>
               <!-- Retro -->
               <div class="flip-card-back">
@@ -174,7 +174,7 @@
             <div class="flip-card-inner">
               <!-- Fronte : Immagine -->
               <div class="flip-card-front">
-                <img src="image/sponsor/mariotti.jpg" alt="" width="300" height="300" class="img-fluid p-2 ">
+                <img src="image/sponsor/mariotti.png" alt="" width="300" height="300" class="img-fluid p-2 ">
               </div>
               <!-- Retro -->
               <div class="flip-card-back">
@@ -200,7 +200,7 @@
             <div class="flip-card-inner">
               <!-- Fronte : Immagine -->
               <div class="flip-card-front">
-                <img src="image/sponsor/tms.jpg" alt="" width="300" height="300" class="img-fluid p-2 ">
+                <img src="image/sponsor/tms.png" alt="" width="300" height="300" class="img-fluid p-2 ">
               </div>
               <!-- Retro -->
               <div class="flip-card-back">
@@ -252,7 +252,7 @@
             <div class="flip-card-inner">
               <!-- Fronte : Immagine -->
               <div class="flip-card-front">
-                <img src="image/sponsor/verdemare.jpg" alt="" width="300" height="300" class="img-fluid p-2 ">
+                <img src="image/sponsor/verdemare.png" alt="" width="300" height="300" class="img-fluid p-2 ">
               </div>
               <!-- Retro -->
               <div class="flip-card-back">
@@ -266,6 +266,58 @@
                 <!-- Link a sito web -->
                 <p class="sito_web">
                   <a href="https://www.verdemarecountryhouse.it/" class="text-decoration-none text-dark "><i class='bx bx-globe align-middle'></i> Sito web</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Vetreria Misa -->
+        <div class="col-12 text-center col-sm-6 ">
+          <div class="flip-card mx-auto ">
+            <div class="flip-card-inner">
+              <!-- Fronte : Immagine -->
+              <div class="flip-card-front">
+                <img src="image/sponsor/vetreria_misa.png" alt="" width="300" height="300" class="img-fluid p-2 ">
+              </div>
+              <!-- Retro -->
+              <div class="flip-card-back">
+                <!-- Nome azienda -->
+                <p class="title">Vetreria Misa</p>
+                <!-- Sede azienda -->
+                <p class="location">
+                  <i class='bx bxs-map'></i> 
+                  Via Veronese, 36, 60019 Senigallia AN
+                </p>
+                <!-- Link a sito web -->
+                <p class="sito_web">
+                  <a href="https://www.vetreriamisa.it/" class="text-decoration-none text-dark "><i class='bx bx-globe align-middle'></i> Sito web</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Laprogema -->
+        <div class="col-12 text-center col-sm-6 ">
+          <div class="flip-card mx-auto ">
+            <div class="flip-card-inner">
+              <!-- Fronte : Immagine -->
+              <div class="flip-card-front">
+                <img src="image/sponsor/laprogema.png" alt="" width="300" height="300" class="img-fluid p-2 ">
+              </div>
+              <!-- Retro -->
+              <div class="flip-card-back">
+                <!-- Nome azienda -->
+                <p class="title">Laprogema S.r.l</p>
+                <!-- Sede azienda -->
+                <p class="location">
+                  <i class='bx bxs-map'></i> 
+                  Via dell'Industria, 60012 Brugnetto AN
+                </p>
+                <!-- Link a sito web -->
+                <p class="sito_web">
+                  <a href="https://laprogemasrl.com/" class="text-decoration-none text-dark "><i class='bx bx-globe align-middle'></i> Sito web</a>
                 </p>
               </div>
             </div>

@@ -159,7 +159,7 @@
                                   </div>
 
                                   <!-- Codice fiscale -->
-                                  <div class="col-12 col-sm-4">
+                                  <div class="col-12 col-sm-6 col-lg-4">
                                     <label for="codice_fiscale" class="form-label">Codice fiscale</label>
                                     <input type="text"  class="form-control" id="codice_fiscale" name="codice_fiscale" />
                                   </div>

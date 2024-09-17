@@ -116,7 +116,7 @@
                                   </div>
 
                                   <!-- Tipo -->
-                                  <div class="col-6 col-lg-2">
+                                  <div class="col-12 col-lg-2">
                                     <label for="tipo" class="form-label">Tipo</label>
                                     <select class="form-select form-select-sm" id="tipo" name="tipo" onchange="toggleParentSelect()">
                                       <option value="Prima squadra" <?php if ($row['tipo']==='Prima squadra') { ?>selected="selected"<?php } ?>>Prima squadra</option>
@@ -256,7 +256,7 @@
                                   
 
                                   <!-- Whatsapp -->
-                                  <div class="col-6 col-lg-2">
+                                  <div class="col-12 col-lg-2">
                                     <label for="whatsapp" class="form-label">Whatsapp</label>
                                     <div class="input-group">
                                       <span class="input-group-text" id="basic-addon1">
@@ -267,7 +267,7 @@
                                   </div>
 
                                   <!-- Instagram -->
-                                  <div class="col-6 col-lg-2">
+                                  <div class="col-12 col-lg-2">
                                     <label for="instagram" class="form-label">Instagram</label>
                                     <div class="input-group">
                                       <span class="input-group-text" id="basic-addon1">
@@ -278,7 +278,7 @@
                                   </div>
 
                                   <!-- Facebook -->
-                                  <div class="col-6 col-lg-2">
+                                  <div class="col-12 col-lg-2">
                                     <label for="facebook" class="form-label">Facebook</label>
                                     <div class="input-group">
                                       <span class="input-group-text" id="basic-addon1">
@@ -299,7 +299,7 @@
                                     </div>
                                   </div>
                                   <!-- Squadra principale -->
-                                  <div class="col-6 col-lg-2 " id="parentSelectContainer" >
+                                  <div class="col-12 col-lg-2 " id="parentSelectContainer" >
                                     <label for="parent_id" class="form-label">Squadra principale</label>
                                     <select class="form-select form-select-sm" id="parent_id" name="parent_id" >
                                       <?php while ($squadra = mysqli_fetch_assoc($squadre)) { ?>
@@ -316,7 +316,7 @@
                             <input type="hidden"  id="id" name="id" value="<?php echo $row['id'];?>" />
                             
                             <!-- Submit -->
-                            <div class="d-flex justify-content-end mt-3">
+                            <div class="d-flex justify-content-end my-3">
                               <button type="submit" class="btn btn-sm btn-outline-dark">Conferma</button>
                             </div>
                                     
