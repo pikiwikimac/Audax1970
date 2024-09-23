@@ -19,14 +19,20 @@
   LEFT JOIN stagioni c ON c.id_stagione = s.id_campionato
   WHERE s.id != 99
     AND (s.tipo IS NULL OR s.tipo != 'Prima squadra')
-  ORDER BY s.id_campionato DESC, c.descrizione, c.girone, s.nome_societa;
+  ORDER BY s.id_campionato DESC,c.girone, c.descrizione, c.girone, s.nome_societa;
   ";
 
   $squadre = mysqli_query($con,$query);
 
-
+  $campionati_query = "
+  SELECT DISTINCT c.descrizione
+  FROM stagioni c
+  JOIN societa s ON c.id_stagione = s.id_campionato
+  WHERE s.id != 99 AND (s.tipo IS NULL OR s.tipo != 'Prima squadra')
+  ORDER BY c.descrizione;
+  ";
+  $campionati_result = mysqli_query($con, $campionati_query);
 ?>
-
 
 
 <!doctype html>
@@ -68,15 +74,25 @@
 
                     <!-- Core della pagina -->
                     <div class="">
-            
+                      <!-- Badge per i tipi di campionato -->
+                      <div class="mb-3">
+                        <span class="badge bg-secondary text-white me-2" onclick="filterTable('all')">Tutti</span>
+                        <?php while ($campionato = mysqli_fetch_assoc($campionati_result)) { ?>
+                          <span class="badge bg-secondary text-white me-2" data-campionato="<?php echo $campionato['descrizione']; ?>" onclick="filterTable('<?php echo $campionato['descrizione']; ?>')">
+                            <?php echo $campionato['descrizione']; ?>
+                          </span>
+                        <?php } ?>
+                      </div>
+
                       <div class="row mb-3">
                         <div class="col-12 table-responsive">
-                          <table class="table table-striped table-hover table-rounded">
+                          <table class="table table-sm table-striped table-hover table-rounded">
                             <thead class="table-dark">
                               <tr>
                                 <th width="5%"></th>
                                 <th width="25%">Nome</th>
-                                <th width="25%">Citta</th>
+                                <th width="15%">Campionato</th>
+                                <th width="10%">Citta</th>
                                 <th width="8%">Giorno</th>
                                 <th width="8%">Orario</th>
                                 <th width="47%">Sede</th>
@@ -84,12 +100,13 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <?php while($row = mysqli_fetch_assoc($squadre)){?>
-                              <tr class="align-middle">
-                                <td><?php if ($row['logo']) { ?>
-                                    <img src="../image/loghi/<?php echo $row['logo'];?>" class="rounded-circle image-clickable" width="30" height="30"/>
+                              <?php while($row = mysqli_fetch_assoc($squadre)){ ?>
+                              <tr class="align-middle" data-campionato="<?php echo $row['descrizione']; ?>">
+                                <td>
+                                  <?php if ($row['logo']) { ?>
+                                    <img src="../image/loghi/<?php echo $row['logo'];?>" class="rounded-circle image-clickable"  width="25" height="25"/>
                                   <?php } else { ?>
-                                    - 
+                                    <img src="../image/default_societa.png" class="rounded-circle image-clickable"  width="25" height="25"/>
                                   <?php } ?>
                                 </td>
                                 <td>
@@ -97,13 +114,16 @@
                                     <?php echo $row['nome_societa'] ?>
                                   </a>
                                 </td>
-                                <td class="text-nowrap"><?php echo $row['citta'] ?></td>
-                                <td><?php echo $row['giorno_settimana'] ?></td>
-                                <td><?php echo $row['ora_match'] ?></td>
+                                <td>
+                                  <a href="show_societa.php?id=<?php echo $row['id'] ?>" class="text-decoration-none text-dark text-nowrap">
+                                    <?php echo $row['descrizione'] .' - ' .$row['girone'] ?>
+                                  </a>
+                                </td>
+                                <td class="text-nowrap"><i class='bx bx-map-pin'></i> &nbsp;  <?php echo $row['citta'] ?></td>
+                                <td><?php echo substr($row['giorno_settimana'], 0, 3); ?></td>
+                                <td><?php echo date('H:i', strtotime($row['ora_match'])); ?></td>
                                 <td class="text-nowrap"><?php echo $row['sede'] ?></td>
-                                <!-- Pulsante Edit -->
                                 <td class="text-center">
-                                  <!-- Edit -->
                                   <a class="text-decoration-none" href="edit_societa.php?id=<?php echo $row["id"]; ?>" >
                                     <i class='bx bx-pencil text-dark ms-2'></i>
                                   </a>
@@ -111,6 +131,7 @@
                               </tr>
                               <?php } ?>
                             </tbody>
+
                           </table>
                         </div>
                       </div>
@@ -136,5 +157,22 @@
       const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
       const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     </script>
+
+    <script>
+      function filterTable(campionato) {
+        const rows = document.querySelectorAll('tbody tr');
+        
+        rows.forEach(row => {
+          const rowCampionato = row.getAttribute('data-campionato');
+          
+          if (campionato === 'all' || rowCampionato === campionato) {
+            row.style.display = '';
+          } else {
+            row.style.display = 'none';
+          }
+        });
+      }
+    </script>
+
   </body>
 </html> 

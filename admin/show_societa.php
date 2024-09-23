@@ -22,6 +22,7 @@
 
   $squadra = mysqli_query($con,$query);
   $info = mysqli_fetch_assoc($squadra);
+  $stagione_squadra = $info['id_campionato'];
 
   $query2 = "
   SELECT g.*
@@ -44,7 +45,7 @@
   FROM `partite` s
   INNER JOIN societa soc on soc.id=s.squadraCasa
   INNER JOIN societa soc2 on soc2.id=s.squadraOspite
-  WHERE  s.id_stagione = 1
+  WHERE  s.id_stagione = $stagione_squadra
   AND (squadraCasa=$id or squadraOspite=$id OR squadraCasa=$id or squadraOspite=$id)
   ORDER BY giornata_,casa,ospite";
 

@@ -169,7 +169,8 @@
                             <tbody>
                               <?php while($row = mysqli_fetch_assoc($squadre_altre)){?>
                               <tr class="align-middle">
-                                <td class="text-center"><?php if ($row['logo']) { ?>
+                                <td class="text-center">
+                                  <?php if ($row['logo']) { ?>
                                     <img src="../image/loghi/<?php echo $row['logo'];?>" class="rounded-circle image-clickable"  width="25" height="25"/>
                                   <?php } else { ?>
                                     <img src="../image/default_societa.png" class="rounded-circle image-clickable"  width="25" height="25"/>

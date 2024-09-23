@@ -24,7 +24,7 @@
   FROM `partite` s
   INNER JOIN societa soc on soc.id=s.squadraCasa
   INNER JOIN societa soc2 on soc2.id=s.squadraOspite
-  WHERE s.id_stagione=2
+  WHERE s.id_stagione=$stagione_id
   ORDER BY data,ora_match
   ";
 
@@ -99,7 +99,7 @@
                                       FROM `partite` s
                                       LEFT JOIN societa soc on soc.id=s.squadraCasa
                                       LEFT JOIN societa soc2 on soc2.id=s.squadraOspite
-                                      WHERE s.id_stagione = 1
+                                      WHERE s.id_stagione = $stagione_id
                                       AND giornata = '$giornata_numero'
                                       ORDER BY giornata_numero,s.data,soc.ora_match, casa, ospite";
                               $campionato = mysqli_query($con, $query_camp);

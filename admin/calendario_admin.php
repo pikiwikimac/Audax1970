@@ -60,6 +60,7 @@ ORDER BY
 
 
 $campionato = mysqli_query($con, $sql);
+
 ?>
 
 
@@ -110,9 +111,7 @@ $campionato = mysqli_query($con, $sql);
 
                       <div class="row g-3 mb-3">
                         <div class="col-12 table-responsive">
-                          <span class="fs-5 mb-2 ">
-                            Serie A2
-                          </span>
+                          
                           
                           <table class="table  table-hover table-striped table-rounded caption-top">
                             <!-- <caption>Giornate di riposo: 8° e 21° </caption> -->

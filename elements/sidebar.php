@@ -124,6 +124,14 @@
 							<li class="sub-menu-voice">
 								<a href="calendario_completo_admin.php?id_stagione=<?php echo $stagione ?>">Girone</a>
 							</li>
+
+							<li class="sub-menu-voice">
+								<a href="calendario_admin.php?id_stagione=7&id_societa=4">Under 17</a>
+							</li>
+							
+							<li class="sub-menu-voice">
+								<a href="calendario_admin.php?id_stagione=8&id_societa=6">Under 15</a>
+							</li>
 							
 						</ul>
 					</div>
