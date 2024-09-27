@@ -120,7 +120,8 @@ ORDER BY
                                 <th>Campionato</th>
                                 <th>Anno</th>
                                 <th>Ruolo</th>
-                                <th class="text-center"><i class='bx bx-football align-middle'></i></th>
+                                <th class="text-center"><img src="/image/icon/calcio.svg" alt="Gol">
+</th>
                                 <?php if($_SESSION['superuser'] === 1 ){ ?>
                                 <th class="text-center"></th>
                                 <th class="text-center"></th>
@@ -182,7 +183,7 @@ ORDER BY
                                 <td class="text-center">
                                   <!-- Edit -->
                                   <a class="text-decoration-none" href="edit_player.php?id=<?php echo $row["id"]; ?>" >
-                                    <i class='bx bx-pencil text-dark ms-2'></i>
+                                    <i class='bi bi-pencil text-dark ms-2'></i>
                                   </a>
                                   
                                 </td> 
@@ -190,7 +191,7 @@ ORDER BY
                                 <td class="text-center">
                                   <!-- Delete -->
                                   <a class="text-decoration-none" onclick="confirmDelete('<?php echo $row["id"]; ?>')">
-                                    <i class='bx bx-trash text-danger'></i>
+                                    <i class='bi bi-trash text-danger'></i>
                                   </a>
                                 </td>
                                 <?php } ?>

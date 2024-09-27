@@ -66,7 +66,7 @@
                         <div class="cta-wrapper">
                           <?php if($_SESSION['superuser'] == 1 ){ ?>
                           <a type="button" class="btn btn-sm btn-outline-dark float-end"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModal">
-                            <i class='bx bx-plus '></i>
+                            <i class="bi bi-plus"></i>
                           </a>
                           <?php } ?>
                           <button onclick="window.location.href='calendario_admin.php?id_stagione=<?php echo $stagione_id ?>&id_societa=<?php echo $id_societa ?>'"  class="btn btn-sm btn-outline-dark float-end me-2" >
@@ -174,7 +174,7 @@
                                                     class="text-decoration-none text-dark"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-title="Played">
-                                                    <i class="bx bx-check-double text-danger"></i>
+                                                    <i class="bi bi-check-all text-danger"></i>
                                                   </a>';
                                         } else {
                                             // Altrimenti, lascia la classe vuota
@@ -182,7 +182,7 @@
                                                     class="text-decoration-none text-dark"
                                                     data-bs-toggle="tooltip"
                                                     data-bs-title="NOT Played">
-                                                    <i class="bx bx-check"></i>
+                                                    <i class="bi bi-check"></i>
                                                   </a>';
                                         }
 
@@ -196,7 +196,8 @@
                                         class="text-decoration-none text-dark"
                                         data-bs-toggle="tooltip"
                                         data-bs-title="Marcatori">
-                                        <i class='bx bx-football'   ></i>
+                                        <img src="/image/icon/calcio.svg" alt="Gol">
+
                                       </a>
                                     </td>
                                     
@@ -206,7 +207,7 @@
                                       <!-- Aggiungi il link per aprire il modal -->
                                       <a href="#" class="text-decoration-none text-dark" 
                                       onclick="showEditModal('<?php echo $row["id"]; ?>', '<?php echo $row["casa"]; ?>', '<?php echo $row["ospite"]; ?>', '<?php echo $row["golCasa"]; ?>', '<?php echo $row["golOspiti"]; ?>', '<?php echo $row["data"]; ?>', '<?php echo $row["giornata_numero"]; ?>')" data-bs-toggle="tooltip" data-bs-title="Modifica">
-                                        <i class='bx bx-pencil '></i>
+                                        <i class="bi bi-pencil"></i>
                                       </a>
                                     </td>
 
@@ -215,7 +216,7 @@
                                         data-bs-toggle="tooltip"
                                         data-bs-title="Elimina"
                                         onclick="confirmDelete('<?php echo $row["id"]; ?>')">
-                                        <i class='bx bx-trash text-danger' ></i>
+                                        <i class='bi bi-trash text-danger' ></i>
                                       </a>
                                     </td>
 
@@ -272,8 +273,8 @@
                                   <td class="text-center">
                                     <small class="">
                                       <?php if($row['casa']=='Audax 1970' || $row['ospite']=='Audax 1970'){ ?>
-                                        <?php if($row['casa']!='Audax 1970'){?><i class='bx bxs-plane-alt'></i> <?php } ?>
-                                        <?php if($row['casa']=='Audax 1970'){?><i class='bx bxs-home'></i> <?php } ?>
+                                        <?php if($row['casa']!='Audax 1970'){?><i class='bi bi-airplane-fill'></i> <?php } ?>
+                                        <?php if($row['casa']=='Audax 1970'){?><i class='bi bi-house-door-fill'></i> <?php } ?>
                                       <?php } ?>
                                     </small>
                                   </td>
@@ -313,7 +314,7 @@
                                                   class="text-decoration-none text-dark"
                                                   data-bs-toggle="tooltip"
                                                   data-bs-title="Played">
-                                                  <i class="bx bx-check-double text-danger"></i>
+                                                  <i class="bi bi-check-all text-danger"></i>
                                                 </a>';
                                       } else {
                                           // Altrimenti, lascia la classe vuota
@@ -321,7 +322,7 @@
                                                   class="text-decoration-none text-dark"
                                                   data-bs-toggle="tooltip"
                                                   data-bs-title="NOT Played">
-                                                  <i class="bx bx-check"></i>
+                                                  <i class="bi bi-check"></i>
                                                 </a>';
                                       }
 
@@ -334,7 +335,8 @@
                                       class="text-decoration-none text-dark"
                                       data-bs-toggle="tooltip"
                                       data-bs-title="Marcatori">
-                                      <i class='bx bx-football'   ></i>
+                                      <img src="/image/icon/calcio.svg" alt="Gol">
+
                                     </a>
                                   </td>
                                   
@@ -344,7 +346,7 @@
                                       class="text-decoration-none text-dark"
                                       data-bs-toggle="tooltip"
                                       data-bs-title="Convocazioni">
-                                      <i class='bx bx-list-ol'></i>
+                                      <i class='bi bi-list-ol'></i>
                                     </a>
                                   </td>
 
@@ -352,7 +354,7 @@
                                     <!-- Aggiungi il link per aprire il modal -->
                                     <a href="#" class="text-decoration-none text-dark" 
                                     onclick="showEditModal('<?php echo $row["id"]; ?>', '<?php echo $row["casa"]; ?>', '<?php echo $row["ospite"]; ?>', '<?php echo $row["golCasa"]; ?>', '<?php echo $row["golOspiti"]; ?>', '<?php echo $row["data"]; ?>', '<?php echo $row["giornata"]; ?>')" data-bs-toggle="tooltip" data-bs-title="Modifica">
-                                      <i class='bx bx-pencil '></i>
+                                      <i class="bi bi-pencil"></i>
                                     </a>
                                   </td>
 
@@ -361,7 +363,7 @@
                                       data-bs-toggle="tooltip"
                                       data-bs-title="Elimina"
                                       onclick="confirmDelete('<?php echo $row["id"]; ?>')">
-                                      <i class='bx bx-trash text-danger' ></i>
+                                      <i class='bi bi-trash text-danger' ></i>
                                     </a>
                                   </td>
 

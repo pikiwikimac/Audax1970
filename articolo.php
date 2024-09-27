@@ -86,7 +86,7 @@
     <div class="container" style="margin-top:7rem!important">
       <div class="row g-3 ">
         <div class="col-12 align-middle">
-          <h2 id="font_diverso">
+          <h2 class="bebas">
             <?php echo htmlspecialchars($row['titolo']); ?>
           </h2>
 

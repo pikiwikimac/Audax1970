@@ -105,11 +105,11 @@
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">	
                         <a type="button" href="<?php echo $previous_url; ?>" class="btn btn-sm btn-outline-dark float-end">
-                          <i class='bx bx-arrow-back'></i>
+                          <i class='bi bi-arrow-left'></i>
                         </a>
 
                           <button class="btn btn-sm btn-outline-dark float-end me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-                            <i class='bx bx-folder-open' ></i>
+                            <i class='bi bi-folder2-open' ></i>
                           </button>                          
                         </div>
                       </div>

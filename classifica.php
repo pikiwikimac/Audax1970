@@ -33,7 +33,7 @@
 
             <div class="row">
                 <div class="col-12">
-                    <h1 id="font_diverso">Classifica Serie A2</h1>
+                    <h1 class="bebas">Classifica Serie A2</h1>
                 </div>
             </div>
 

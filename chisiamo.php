@@ -26,7 +26,7 @@
 
       <div class="row">
         <div class="col-12">
-          <h1 id="font_diverso">Chi siamo</h1>
+          <h1 class="bebas">Chi siamo</h1>
         </div>
       </div>
       <hr/>

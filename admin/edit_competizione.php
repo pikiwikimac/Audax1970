@@ -67,7 +67,7 @@
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">	
                           <a type="button" href="competizioni.php" class="btn btn-sm btn-outline-dark float-end">
-                            <i class='bx bx-arrow-back'></i>
+                            <i class='bi bi-arrow-left'></i>
                           </a>
                         </div>
                       </div>
@@ -131,8 +131,8 @@
                                   <div class="col-12 col-sm-6 col-lg-2">
                                     <label for="prima_squadra" class="form-label">Squadra</label>
                                     <select class="form-select" id="prima_squadra" name="prima_squadra">
-                                      <option value="1">Prima squadra</option>
-                                      <option value="0">Settore giovanile</option>
+                                      <option value="1" <?php if ($row['prima_squadra']==1) { ?>selected="selected"<?php } ?>>Prima squadra</option>
+                                      <option value="2" <?php if ($row['prima_squadra']==2) { ?>selected="selected"<?php } ?>>Settore giovanile</option>
                                     </select>
                                   </div>
                                     

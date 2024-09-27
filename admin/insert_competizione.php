@@ -49,7 +49,7 @@
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">	
                           <a type="button" href="competizioni.php" class="btn btn-sm btn-outline-dark float-end">
-                            <i class='bx bx-arrow-back'></i>
+                            <i class='bi bi-arrow-left'></i>
                           </a>
                         </div>
                       </div>

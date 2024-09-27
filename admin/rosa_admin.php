@@ -220,7 +220,7 @@ ORDER BY ruolo, cognome, nome ASC;
                         <div class="cta-wrapper">
                           <?php if($_SESSION['superuser'] === 1 ){ ?>
                           <a href="insert_player.php" type="button" class="btn btn-sm btn-outline-dark">
-                            <i class='bx bx-plus'></i> 
+                            <i class='bi bi-plus'></i> 
                           </a>
                           <?php } ?>
                           
@@ -261,10 +261,11 @@ ORDER BY ruolo, cognome, nome ASC;
                                 <th class="text-center">Maglia</th>
                                 <th class="text-center">Piede</th>
                                 <th class="text-center">Allenamenti</th>
-                                <th class="text-center"><i class='bx bxs-t-shirt align-middle'></i></th>
-                                <th class="text-center"><i class='bx bx-football align-middle'></i></th>
-                                <th class="text-center"><i class='bx bxs-card align-middle' style='color:#ffb900'></i></th>
-                                <th class="text-center"><i class='bx bxs-card align-middle' style='color:#FF0000'></i></th>
+                                <th class="text-center"><i class='bi bi-123 align-middle'></i></th>
+                                <th class="text-center"><img src="/image/icon/calcio.svg" alt="Gol">
+                                </th>
+                                <th class="text-center"><i class='bi bi-square-fill align-middle' style='color:#ffb900'></i></th>
+                                <th class="text-center"><i class='bi bi-square-fill align-middle' style='color:#FF0000'></i></th>
                                 <?php if($_SESSION['superuser'] === 1 ){ ?>
                                 <th class="text-center"></th>
                                 <?php } ?>
@@ -284,7 +285,9 @@ ORDER BY ruolo, cognome, nome ASC;
                                 </td>
                                 <!-- Nome e Cognome -->
                                 <td class="fw-semibold text-nowrap">
-                                  <?php echo $row['nome'] . " " . $row['cognome']; ?>
+                                  <a class="text-decoration-none text-dark" href="player.php?id=<?php echo $row['id']?>">
+                                    <?php echo $row['nome'] . " " . $row['cognome']; ?>
+                                  </a>
                                 </td>
 
                                 <!-- Data di nascita -->
@@ -346,7 +349,7 @@ ORDER BY ruolo, cognome, nome ASC;
                                 <?php if($_SESSION['superuser'] === 1 ){ ?>
                                 <td class="text-center">
                                   <a class="text-decoration-none text-dark" href="edit_player.php?id=<?php echo $row['id'] ?>">
-                                    <i class='bx bx-pencil'></i>
+                                    <i class="bi bi-pencil"></i>
                                   </a>
                                 </td>
                                 <?php } ?>

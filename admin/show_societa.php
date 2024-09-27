@@ -128,49 +128,49 @@
 
                             <!-- Sede e città  -->
                             <span class="text-muted">
-                              <i class='bx bxs-map-pin'></i> &nbsp; <?php echo $info['sede']  ?> - <?php echo $info['citta']  ?>
+                              <i class='bi bi-pin-map-fill'></i> &nbsp; <?php echo $info['sede']  ?> - <?php echo $info['citta']  ?>
                             </span>
 
                             <!-- Giorno e ora  -->
                             <span class="text-muted mt-0">
-                              <i class='bx bx-calendar' ></i> &nbsp; <?php echo $info['giorno_settimana']  ?> - <?php echo $info['ora_match']  ?>
+                              <i class='bi bi-calendar' ></i> &nbsp; <?php echo $info['giorno_settimana']  ?> - <?php echo $info['ora_match']  ?>
                             </span>
                             
 
                             <!-- Contatto di riferimento -->
                             <?php if($info['contatto_riferimento'] != null){ ?>
                               <span class="text-muted mt-0">
-                                <i class='bx bxs-contact' ></i> &nbsp; Referente :&nbsp;<?php echo $info['contatto_riferimento'] .' ' .$info['telefono'] ?>
+                                <i class='bi bi-person-rolodex' ></i> &nbsp; Referente :&nbsp;<?php echo $info['contatto_riferimento'] .' ' .$info['telefono'] ?>
                               </span>
                             <?php } ?>
                             <!-- Email -->
                             <?php if($info['email'] != null){ ?>
                               <span class="text-muted mt-0">
-                                <i class='bx bx-envelope' ></i> &nbsp; Email :&nbsp;<?php echo $info['email']  ?>
+                                <i class='bi bi-envelope' ></i> &nbsp; Email :&nbsp;<?php echo $info['email']  ?>
                               </span>
                             <?php } ?>
                             <!-- Instagram -->
                             <?php if($info['instagram'] != null){ ?>
                               <span class="text-muted mt-0">
-                                <i class='bx bxl-instagram'></i> &nbsp; Instagram :&nbsp;<?php echo $info['instagram']  ?>
+                                <i class='bi bi-instagram'></i> &nbsp; Instagram :&nbsp;<?php echo $info['instagram']  ?>
                               </span>
                             <?php } ?>
                             <!-- Facebook -->
                             <?php if($info['facebook'] != null){ ?>
                               <span class="text-muted mt-0">
-                                <i class='bx bxl-facebook'></i> &nbsp; Facebook :&nbsp;<?php echo $info['facebook']  ?>
+                                <i class='bi bi-facebook'></i> &nbsp; Facebook :&nbsp;<?php echo $info['facebook']  ?>
                               </span>
                             <?php } ?>
                             <!-- Whatsapp -->
                             <?php if($info['whatsapp'] != null){ ?>
                               <span class="text-muted mt-0">
-                                <i class='bx bxl-whatsapp'></i> &nbsp; Whatsapp :&nbsp;<?php echo $info['whatsapp']  ?>
+                                <i class='bi bi-whatsapp'></i> &nbsp; Whatsapp :&nbsp;<?php echo $info['whatsapp']  ?>
                               </span>
                             <?php } ?>
                             <!-- Sito web -->
                             <?php if($info['sito_web'] != null){ ?>
                               <span class="text-muted mt-0">
-                                <i class='bx bx-link'></i> &nbsp; Sito web :&nbsp;<a class="text-decoration-none text-dark" href="<?php echo $info['sito_web']?> "><?php echo $info['sito_web']?> </a>
+                                <i class='bi bi-link-45deg'></i> &nbsp; Sito web :&nbsp;<a class="text-decoration-none text-dark" href="<?php echo $info['sito_web']?> "><?php echo $info['sito_web']?> </a>
                               </span>
                             <?php } ?>
 
@@ -207,15 +207,15 @@
                               </a>
                               <!-- Aggiungi il nuovo giocatore -->
                               <a href="insert_player.php?id_squadra=<?php echo ($info['id']); ?>" type="button" class="btn btn-sm btn-outline-dark">
-                                <i class='bx bx-user-plus' ></i>
+                                <i class='bi bi-person-add' ></i>
                               </a>  
                               <!-- Modifica societa -->
                               <a href="edit_societa.php?id=<?php echo $info['id'] ?>" type="button" class="btn btn-sm btn-outline-dark">
-                                <i class='bx bx-pencil '></i> 
+                                <i class="bi bi-pencil"></i> 
                               </a>
                               <!-- Go back -->
                               <a href="societa.php" type="button" class="btn btn-sm btn-outline-dark ">
-                                <i class='bx bx-arrow-back '></i> 
+                                <i class='bi bi-arrow-left '></i> 
                               </a>
                             </div>
                             
@@ -319,7 +319,7 @@
                                 <td class="text-center">
                                   <!-- Edit -->
                                   <a class="text-decoration-none" href="edit_player.php?id=<?php echo $row["id"]; ?>" >
-                                    <i class='bx bx-pencil text-dark ms-2'></i>
+                                    <i class='bi bi-pencil text-dark ms-2'></i>
                                   </a>
                                 </td>
                                 
@@ -327,7 +327,7 @@
                                 <td class="text-center">
                                   <!-- Delete -->
                                   <a class="text-decoration-none" onclick="confirmDelete('<?php echo $row["id"]; ?>')">
-                                    <i class='bx bx-trash text-danger'></i>
+                                    <i class='bi bi-trash text-danger'></i>
                                   </a>
                                 </td>
                                 

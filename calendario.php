@@ -28,7 +28,7 @@
 
             <div class="row">
                 <div class="col-12">
-                    <h1 id="font_diverso">Calendario Serie A2 </h1>
+                    <h1 class="bebas">Calendario Serie A2 </h1>
                 </div>
             </div>
 

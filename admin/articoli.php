@@ -52,7 +52,7 @@
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">	
                           <a type="button" href="new_articolo.php" class="btn btn-sm btn-outline-dark float-end">
-                            <i class='bx bx-plus'></i>
+                            <i class='bi bi-plus'></i>
                           </a>
                         </div>
                       </div>
@@ -110,10 +110,10 @@
                                 </td>
                                 <td class="text-end">
                                   <a href="edit_articolo.php?id=<?php echo $row['id'] ?>" class="text-decoration-none">
-                                    <i class='bx bx-pencil'></i>
+                                    <i class="bi bi-pencil"></i>
                                   </a>
                                   <a href="../query/delete_articolo.php?id=<?php echo $row['id']; ?>" class="text-decoration-none">
-                                    <i class='bx bx-trash text-danger'></i>
+                                    <i class='bi bi-trash text-danger'></i>
                                   </a>
                                 </td>
 

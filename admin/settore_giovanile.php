@@ -65,7 +65,7 @@
                             Prime squadre
                           </a>
                           <a href="insert_societa.php" type="button" class="btn btn-sm btn-outline-dark ms-2">
-                            <i class='bx bx-plus '></i>
+                            <i class="bi bi-plus"></i>
                           </a>
                         </div>
                       </div>
@@ -119,13 +119,13 @@
                                     <?php echo $row['descrizione'] .' - ' .$row['girone'] ?>
                                   </a>
                                 </td>
-                                <td class="text-nowrap"><i class='bx bx-map-pin'></i> &nbsp;  <?php echo $row['citta'] ?></td>
+                                <td class="text-nowrap"><i class='bi bi-pin-map'></i> &nbsp;  <?php echo $row['citta'] ?></td>
                                 <td><?php echo substr($row['giorno_settimana'], 0, 3); ?></td>
                                 <td><?php echo date('H:i', strtotime($row['ora_match'])); ?></td>
                                 <td class="text-nowrap"><?php echo $row['sede'] ?></td>
                                 <td class="text-center">
                                   <a class="text-decoration-none" href="edit_societa.php?id=<?php echo $row["id"]; ?>" >
-                                    <i class='bx bx-pencil text-dark ms-2'></i>
+                                    <i class='bi bi-pencil text-dark ms-2'></i>
                                   </a>
                                 </td>
                               </tr>

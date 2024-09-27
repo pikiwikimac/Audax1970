@@ -55,7 +55,7 @@
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
                           <a type="button" class="btn btn-sm btn-outline-dark float-end"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModal">
-                            <i class='bx bx-plus '></i>
+                            <i class="bi bi-plus"></i>
                           </a>
                         </div>
                       </div>
@@ -133,13 +133,13 @@
                                 <!-- Bottone edit-->
                                 <td width="2%">
                                   <a class="text-decoration-none text-dark" onclick="showEditModal('<?php echo $row["id"]; ?>', '<?php echo $row["nome"]; ?>', '<?php echo $row["cognome"]; ?>', '<?php echo $row["realizzazione"]; ?>', '<?php echo $row["note"]; ?>', '<?php echo $row["ruolo"]; ?>')" >
-                                    <i class='bx bx-pencil align-middle '></i>
+                                    <i class='bi bi-pencil align-middle '></i>
                                   </a>
                                 </td>
                                 <!-- Bottone delete -->
                                 <td width="2%">
                                   <a class="text-decoration-none text-dark" onclick="confirmDelete('<?php echo $row["id"]; ?>')">
-                                  <i class='bx bx-trash-alt align-middle '></i>
+                                  <i class='bi bi-trash-alt align-middle '></i>
                                   </a>
                                 </td>
 

@@ -51,7 +51,7 @@
     <!-- Descrizione iniziale -->
     <div class="container my-5 px-4">
       <!-- Articoli -->
-      <h1 id="font_diverso">
+      <h1 class="bebas">
         Articoli
       </h1>
       <hr id="separatore" />

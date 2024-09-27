@@ -80,7 +80,7 @@
       
       <!-- Descrizione iniziale -->
       <div class="container" style="margin-top:3rem!important">
-        <h1 id="font_diverso">
+        <h1 class="bebas">
           <?php echo $row['nome']. ' ' . $row['cognome'] ?>
           <?php if($row['maglia']===null){ ?>
             <div class="float-end">

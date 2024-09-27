@@ -77,7 +77,7 @@
 
     <!-- Descrizione iniziale -->
     <div class="container my-5 px-4">
-      <h1 id="font_diverso">
+      <h1 class="bebas">
         <?php echo $tipo['tipo'] ?>
       </h1>
         
@@ -89,11 +89,7 @@
       <!-- Portieri -->
       <?php if(mysqli_num_rows($portieri)>0){ ?>
       <div class="row gy-3 ">
-        <!--
-        <span class="fw-bold fs-3" id="font_diverso">
-          Portieri
-        </span>
-        -->
+       
         <hr id="separatore" />
 
         <?php while($row = mysqli_fetch_assoc($portieri)) {  ?>
@@ -133,7 +129,7 @@
       <!-- Centrali -->
       <?php if(mysqli_num_rows($centrali)>0){ ?>
       <div class="row mt-5 gy-3">
-        <!-- <span class="fw-bold fs-3" id="font_diverso"> Centrali </span> -->
+        
         <hr id="separatore" />
 
         <?php while($row = mysqli_fetch_assoc($centrali)) {  ?>
@@ -172,7 +168,7 @@
       <?php if(mysqli_num_rows($laterali)>0){ ?>
       <div class="row mt-5 gy-3">
 
-        <!-- <span class="fw-bold fs-3" id="font_diverso"> Laterali </span> -->
+        
 
         <hr id="separatore" />
 
@@ -212,7 +208,7 @@
       <?php if(mysqli_num_rows($universali)>0){ ?>
       <div class="row mt-5 gy-3">
 
-        <!-- <span class="fw-bold fs-3" id="font_diverso"> Universali </span> -->
+        
 
         <hr id="separatore" />
         <?php while($row = mysqli_fetch_assoc($universali)) {  ?>
@@ -250,7 +246,7 @@
       <!-- Pivot -->
       <?php if(mysqli_num_rows($pivot)>0){ ?>
       <div class="row mt-5 gy-3">
-        <!-- <span class="fw-bold fs-3" class="" id="font_diverso"> Pivot </span> -->
+        
 
         <hr id="separatore"/>
 

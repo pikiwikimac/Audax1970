@@ -68,43 +68,43 @@
                           <div class="row  gy-3">
                             <div class="col-12">
                               <span class="text-muted mt-0">
-                                <i class='bx bxs-contact' ></i> &nbsp;Nome:
+                                <i class='bi bi-person-rolodex' ></i> &nbsp;Nome:
                                 <?php echo $user['firstname'] .' ' .$user['lastname']?> 
                               </span>
                             </div>
                             <div class="col-12">
                               <span class="text-muted mt-0">
-                                <i class='bx bx-envelope' ></i> &nbsp;Email:
+                                <i class='bi bi-envelope' ></i> &nbsp;Email:
                                 <?php echo $user['email'] ?>
                               </span>
                             </div>
                             <div class="col-12">
                               <span class="text-muted mt-0">
-                                <i class='bx bxs-user-circle' ></i> &nbsp; Username:
+                                <i class='bi bi-person-circle' ></i> &nbsp; Username:
                                 <?php echo $user['username'] ?>
                               </span>
                             </div>
                             <div class="col-12">
                               <span class="text-muted mt-0">
-                                <i class='bx bx-lock-alt'></i> &nbsp; Autorizzazioni:
+                                <i class='bi bi-lock-fill'></i> &nbsp; Autorizzazioni:
                                 <?php if($user['superuser']==1){echo 'Admin';}else{echo 'Giocatore';}?>
                               </span>
                             </div>
                             <div class="col-12">
                               <span class="text-muted mt-0">
-                                <i class='bx bxl-instagram'></i> &nbsp; Instagram:
+                                <i class='bi bi-instagram'></i> &nbsp; Instagram:
                                 <?php echo !empty($user['instagram']) ? $user['instagram'] : '-'; ?>
                               </span>
                             </div>
                             <div class="col-12">
                               <span class="text-muted mt-0">
-                                <i class='bx bxl-whatsapp'></i> &nbsp; Whatsapp:
+                                <i class='bi bi-whatsapp'></i> &nbsp; Whatsapp:
                                 <?php echo !empty($user['whatsapp']) ? $user['whatsapp'] : '-'; ?>
                               </span>
                             </div>
                             <div class="col-12">
                               <span class="text-muted mt-0">
-                                <i class='bx bx-desktop'></i> &nbsp; Squadra riferimento:
+                                <i class='bi bi-display'></i> &nbsp; Squadra riferimento:
                                 <?php echo !empty($user['tipo']) ? $user['tipo'] : '-'; ?>
                               </span>
                             </div>    
@@ -116,28 +116,28 @@
                             <!-- Bottone gestione registrazioni -->
                             <div class="col-12">
                               <a class="btn btn-sm btn-outline-dark" href="gestore_registrazioni.php" style="width:250px">
-                                <i class='bx bx-user-plus'></i> &nbsp; Gestione registrazioni
+                                <i class='bi bi-person-add'></i> &nbsp; Gestione registrazioni
                               </a>
                             </div>
 
                             <!-- Bottone -->
                             <div class="col-12">
                               <a class="btn btn-sm btn-outline-dark" href="show_societa.php?id=<?php echo $id_societa ?>" style="width:250px">
-                                <i class='bx bxs-building-house'></i> &nbsp; Modifica info squadra
+                                <i class='bi bi-buildings'></i> &nbsp; Modifica info squadra
                               </a>
                             </div>
 
                             <!-- Bottone -->
                             <div class="col-12">
                               <a href="edit_user.php?id=<?php echo $user['id'] ?>" type="button" class="btn btn-sm btn-outline-dark " style="width:250px">
-                                <i class='bx bx-pencil '></i> &nbsp; Modifica utente
+                                <i class="bi bi-pencil"></i> &nbsp; Modifica utente
                               </a>
                             </div>
 
                             <!-- Bottone  -->
                             <div class="col-12">
                               <a href="../login/change_password.php?id=<?php echo $user['id'] ?>" type="button" class="btn btn-sm btn-outline-dark " style="width:250px">
-                                <i class='bx bxs-lock' ></i> &nbsp; Modifica password
+                                <i class='bi bi-lock-fill' ></i> &nbsp; Modifica password
                               </a>
                             </div>
 

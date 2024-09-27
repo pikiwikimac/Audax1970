@@ -36,7 +36,7 @@
       <!-- Dirigenza -->
       <?php if(mysqli_num_rows($dirigenti)>0){ ?>
       <div class="row gy-3">
-        <h1 id="font_diverso"> Organigramma </h1>
+        <h1 class="bebas"> Organigramma </h1>
 
         <hr id="separatore"/>
 

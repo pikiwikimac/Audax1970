@@ -84,7 +84,7 @@
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
                           <a type="button" href="multe.php" class="btn btn-sm btn-outline-dark float-end" >
-                            <i class='bx bx-arrow-back '></i>
+                            <i class='bi bi-arrow-left '></i>
                           </a>
                         </div>
                       </div>
@@ -129,7 +129,7 @@
                                 <td  class="text-end">
                                   <!-- Delete -->
                                   <a class="text-decoration-none text-dark" onclick="confirmDeleteMulta('<?php echo $row["id"]; ?>')">
-                                    <i class='bx bx-trash'></i>
+                                    <i class='bi bi-trash'></i>
                                   </a>
                                 </td>
                                 
@@ -156,7 +156,7 @@
                                 <td class="text-end">
                                   <!-- Delete -->
                                   <a class="text-decoration-none text-dark" onclick="confirmDeletePagamento('<?php echo $row["id"]; ?>')">
-                                    <i class='bx bx-trash'></i>
+                                    <i class='bi bi-trash'></i>
                                   </a>
                                 </td>
                                 

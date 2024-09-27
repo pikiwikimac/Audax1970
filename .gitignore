@@ -18,6 +18,7 @@ vendor/
 dist/
 build/
 public/
+assets/
 
 # Environment files
 .env

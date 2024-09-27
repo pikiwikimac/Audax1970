@@ -62,7 +62,7 @@
                   <!-- Bottoni a destra -->
                   <div class="cta-wrapper">
                     <a type="button" class="btn btn-sm btn-outline-dark float-end"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModal">
-                      <i class='bx bx-plus '></i> 
+                      <i class="bi bi-plus"></i> 
                     </a>
                   </div>
                 </div>
@@ -126,14 +126,14 @@
                               <td>
                                 <a href="#" class="text-decoration-none text-dark"  data-bs-toggle="tooltip" data-bs-title="Modifica"
                                   onclick="showEditModal('<?php echo $row["id"]; ?>', '<?php echo $row["id_giocatore"]; ?>', '<?php echo $row["motivo"]; ?>', '<?php echo $row["da_data"]; ?>', '<?php echo $row["a_data"]; ?>', '<?php echo $row["note"]; ?>')" data-bs-toggle="tooltip" data-bs-title="Modifica">
-                                  <i class='bx bx-pencil'></i>
+                                  <i class="bi bi-pencil"></i>
                                 </a>
                               </td>
                               <!-- Delete -->
                               <td>
                                 <a class="text-decoration-none text-dark" data-bs-toggle="tooltip" data-bs-title="Elimina"
                                   onclick="confirmDelete('<?php echo $row["id"]; ?>')">
-                                  <i class='bx bx-trash'></i>
+                                  <i class='bi bi-trash'></i>
                                 </a>
                               </td>
 
@@ -205,14 +205,14 @@
                                 <!-- Edit -->
                                 <a href="#" class="text-decoration-none text-dark" data-bs-toggle="tooltip" data-bs-title="Modifica"
                                   onclick="showEditModal('<?php echo $row["id"]; ?>', '<?php echo $row["id_giocatore"]; ?>', '<?php echo $row["motivo"]; ?>', '<?php echo $row["da_data"]; ?>', '<?php echo $row["a_data"]; ?>', '<?php echo $row["note"]; ?>')" data-bs-toggle="tooltip" data-bs-title="Modifica">
-                                  <i class='bx bx-pencil'></i>
+                                  <i class="bi bi-pencil"></i>
                                 </a>
                               </td>
                               <td>
                                 <!-- Delete -->
                                 <a class="text-decoration-none text-dark" data-bs-toggle="tooltip" data-bs-title="Elimina"
                                 onclick="confirmDelete('<?php echo $row["id"]; ?>')">
-                                  <i class='bx bx-trash'></i>
+                                  <i class='bi bi-trash'></i>
                                 </a>
                               </td>
 

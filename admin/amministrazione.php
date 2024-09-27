@@ -96,7 +96,7 @@
                                                 Amministrazione
                                                 <!-- Tootlip di informazione -->
                                                 <a class="text-decoration-none float-end text-dark " data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Le transazioni non possono essere modificate, in caso di errore, eliminare e reinserire.">
-                                                    <i class='bx bx-info-circle'></i>
+                                                    <i class='bi bi-info-circle'></i>
                                                 </a>
                                             </h4>
                                         </div>
@@ -111,7 +111,7 @@
                                             <div class="col-12 col-lg-4">
                                                 <div class="card" style="min-height:12rem;">
                                                     <div class="card-header bg-dark text-light">
-                                                        <i class='bx bx-trending-up'></i> Entrate
+                                                        <i class='bi bi-graph-up-arrow'></i> Entrate
                                                     </div>
 
                                                     <div class="card-body">
@@ -136,7 +136,7 @@
                                             <div class="col-12 col-lg-4">
                                                 <div class="card" style="min-height:12rem;">
                                                     <div class="card-header bg-dark text-light">
-                                                        <i class='bx bx-trending-down'></i> Uscite
+                                                        <i class='bi bi-graph-down-arrow'></i> Uscite
                                                     </div>
 
                                                     <div class="card-body">
@@ -223,7 +223,7 @@
                                                                         <td><?php echo $row['giustificativo'] ?></td>
                                                                         <td>
                                                                             <a class="text-decoration-none" href="#" onclick="confirmDelete('<?php echo $row["id"]; ?>')">
-                                                                                <i class='bx bx-trash text-danger'></i>
+                                                                                <i class='bi bi-trash text-danger'></i>
                                                                             </a>
                                                                         </td>
                                                                     </tr>
@@ -285,7 +285,7 @@
 
                                                                         <td>
                                                                             <a class="text-decoration-none" href="#" onclick="confirmDeleteUscita('<?php echo $row2["id"]; ?>')">
-                                                                                <i class='bx bx-trash text-danger'></i>
+                                                                                <i class='bi bi-trash text-danger'></i>
                                                                             </a>
                                                                         </td>
 
@@ -335,7 +335,7 @@
                     <div class="mb-3">
                         <label for="destinatario" class="form-label">Destinatario</label>
                         <div class="input-group">
-                            <span class="input-group-text" id="basic-addon1"><i class='bx bxs-user-circle'></i></span>
+                            <span class="input-group-text" id="basic-addon1"><i class='bi bi-person-circle'></i></span>
                             <input type="text" class="form-control" id="destinatario" name="destinatario" required>
                         </div>
                     </div>
@@ -350,7 +350,7 @@
                             <!-- Tootlip di informazione -->
                             <a class="text-decoration-none   text-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" 
                                 data-bs-title="Non selezionare nessun mese se è una spesa annuale">
-                                <i class='bx bx-info-circle align-middle '></i>
+                                <i class='bi bi-info-circle align-middle '></i>
                             </a> &nbsp;
                             Mese di competenza
                         </label>
@@ -398,7 +398,7 @@
                     <div class="mb-3">
                         <label for="mittente" class="form-label">Mittente</label>
                         <div class="input-group">
-                            <span class="input-group-text" id="basic-addon1"><i class='bx bxs-user-circle'></i></span>
+                            <span class="input-group-text" id="basic-addon1"><i class='bi bi-person-circle'></i></span>
                             <input type="text" class="form-control" id="mittente" name="mittente" required>
                         </div>
                     </div>
@@ -413,7 +413,7 @@
                             <!-- Tootlip di informazione -->
                             <a class="text-decoration-none   text-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" 
                                 data-bs-title="Non selezionare nessun mese se è un ricavo annuale">
-                                <i class='bx bx-info-circle align-middle '></i>
+                                <i class='bi bi-info-circle align-middle '></i>
                             </a> &nbsp;
                             Mese di competenza
                         </label>

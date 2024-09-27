@@ -262,7 +262,7 @@ if (!empty($materiali_array)) {
             <tr>
               <td><?php echo $mat; ?></td>
               <!-- Aggiungi il listener per l'evento click all'icona del cestino -->
-              <td style="width:20px"><i class='bx bx-trash' onclick="deleteMaterial('<?php echo $mat; ?>')"></i></td>
+              <td style="width:20px"><i class='bi bi-trash' onclick="deleteMaterial('<?php echo $mat; ?>')"></i></td>
 
             </tr>
           <?php } ?>  
@@ -270,7 +270,7 @@ if (!empty($materiali_array)) {
         </table>
 
         <a type="button" class="btn btn-sm btn-outline-dark float-end"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModal">
-          <i class='bx bx-plus '></i>
+          <i class="bi bi-plus"></i>
         </a> 
 
       </div>

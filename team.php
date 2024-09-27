@@ -55,7 +55,7 @@
       
       <!-- Società -->
       <div class="row gy-3 ">
-        <h1 id="font_diverso">
+        <h1 class="bebas">
           <img src="image/loghi/<?php echo $info['logo'] ?>" class="img-fluid rounded-circle" width="80" height="80"/> &nbsp; <?php echo $info['nome_societa'] ?>
           
             <!-- Instagram -->

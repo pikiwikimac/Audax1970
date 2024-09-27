@@ -90,7 +90,7 @@
                         <div class="cta-wrapper">
                           <?php if($_SESSION['superuser'] === 1 ){ ?>
                           <a type="button" class="btn btn-sm btn-outline-dark float-end"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModal">
-                            <i class='bx bx-plus '></i>
+                            <i class="bi bi-plus"></i>
                           </a>
                           <?php } ?>
                         </div>
@@ -163,7 +163,7 @@
                                     </strong>
                                     <br/>
                                     <small class="text-muted">
-                                      <i class='bx bx-map'></i> &nbsp; <?php echo $row['luogo'] ?>
+                                      <i class='bi bi-geo-map'></i> &nbsp; <?php echo $row['luogo'] ?>
                                     </small>
                                   </td>
 
@@ -191,7 +191,7 @@
                                     <!-- Gestione presenze -->
                                     <a class="text-decoration-none text-dark" data-bs-toggle="tooltip" data-bs-title="Gestione presenti" 
                                       href="edit_presenza_allenamento.php?id=<?php echo $row['id'] ?>">
-                                      <i class='bx bx-user'></i>
+                                      <i class='bi bi-person'></i>
                                     </a>
                                   </td>
 
@@ -202,7 +202,7 @@
                                       <a  class="text-decoration-none text-dark" style="cursor:pointer" 
                                         data-bs-toggle="tooltip" data-bs-title="Modifica"
                                         onclick="showEditModal('<?php echo $row["id"]; ?>', '<?php echo $row["data"]; ?>', '<?php echo $row["orario"]; ?>', '<?php echo $row["tipologia"]; ?>', '<?php echo $row["stato"]; ?>', '<?php echo $row["id_squadra"]; ?>', '<?php echo $row["luogo"]; ?>', '<?php echo $row["note"]; ?>')" >
-                                        <i class='bx bx-pencil'></i>
+                                        <i class="bi bi-pencil"></i>
                                       </a>
 
                                     </td>
@@ -211,7 +211,7 @@
                                       <!-- Delete -->
                                       <a class="text-decoration-none text-dark" style="cursor:pointer"
                                         data-bs-toggle="tooltip" data-bs-title="Elimina"  onclick="confirmDelete('<?php echo $row["id"]; ?>')">
-                                        <i class='bx bx-trash'></i>
+                                        <i class='bi bi-trash'></i>
                                       </a> 
                                     </td>
                                   <?php } ?>
@@ -285,7 +285,7 @@
                                     <!-- Luogo -->
                                     <div class="mt-0">
                                       <span class="text-muted" style="font-size:12px" >
-                                        <i class='bx bx-map'></i> <?php echo $row['luogo'] ?>
+                                        <i class='bi bi-geo-map'></i> <?php echo $row['luogo'] ?>
                                       </span>
                                     </div>
                                   </td>
@@ -320,7 +320,7 @@
                                     <!-- Gestione presenze -->
                                     <a class="text-decoration-none text-dark" data-bs-toggle="tooltip" data-bs-title="Gestione presenti"
                                       href="edit_presenza_allenamento.php?id=<?php echo $row['id'] ?>">
-                                      <i class='bx bx-user'></i>
+                                      <i class='bi bi-person'></i>
                                     </a>
                                   </td>
 
@@ -330,7 +330,7 @@
                                     <a  class="text-decoration-none text-dark" style="cursor:pointer" 
                                       data-bs-toggle="tooltip" data-bs-title="Modifica"
                                       onclick="showEditModal('<?php echo $row["id"]; ?>', '<?php echo $row["data"]; ?>', '<?php echo $row["orario"]; ?>', '<?php echo $row["tipologia"]; ?>', '<?php echo $row["stato"]; ?>', '<?php echo $row["id_societa"]; ?>', '<?php echo $row["luogo"]; ?>', '<?php echo $row["note"]; ?>')" >
-                                      <i class='bx bx-pencil'></i>
+                                      <i class="bi bi-pencil"></i>
                                     </a>
 
                                   </td>
@@ -339,7 +339,7 @@
                                       <!-- Delete -->
                                       <a class="text-decoration-none text-dark" style="cursor:pointer" 
                                         data-bs-toggle="tooltip" data-bs-title="Elimina"onclick="confirmDelete('<?php echo $row["id"]; ?>')">
-                                        <i class='bx bx-trash'></i>
+                                        <i class='bi bi-trash'></i>
                                       </a> 
                                     </td>
                                   <?php } ?>

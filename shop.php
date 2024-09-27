@@ -66,7 +66,7 @@ try {
     <div class="container my-5 px-4">
       <div class="row">
         <div class="col-12">
-          <h1 id="font_diverso">Prodotti in vendita</h1>
+          <h1 class="bebas">Prodotti in vendita</h1>
         </div>
       </div>
       
@@ -77,7 +77,7 @@ try {
           <div class="card">
             <img src="image/default.jpeg" class="card-img-top" alt="Maglia da gioco">
             <div class="card-body">
-              <h5 class="card-title" id="font_diverso">Maglia da gioco</h5>
+              <h5 class="card-title bebas" id="">Maglia da gioco</h5>
               <p class="card-text">€29,99</p>
               <button class="btn btn-sm btn-primary btn-acquista" data-bs-toggle="modal" data-bs-target="#acquistoModal" data-product="Maglia da gioco">Acquista</button>
             </div>
@@ -88,7 +88,7 @@ try {
           <div class="card">
             <img src="image/default.jpeg" class="card-img-top" alt="Felpa tifosi">
             <div class="card-body">
-              <h5 class="card-title" id="font_diverso">Felpa</h5>
+              <h5 class="card-title bebas" id="">Felpa</h5>
               <p class="card-text">€39,99</p>
               <button class="btn btn-sm btn-primary btn-acquista" data-bs-toggle="modal" data-bs-target="#acquistoModal" data-product="Felpa tifosi">Acquista</button>
             </div>
@@ -99,7 +99,7 @@ try {
           <div class="card">
             <img src="image/default.jpeg" class="card-img-top" alt="Cappello invernale">
             <div class="card-body">
-              <h5 class="card-title" id="font_diverso">Cappellino</h5>
+              <h5 class="card-title bebas" id="">Cappellino</h5>
               <p class="card-text">€19,99</p>
               <button class="btn btn-sm btn-primary btn-acquista" data-bs-toggle="modal" data-bs-target="#acquistoModal" data-product="Cappello invernale">Acquista</button>
             </div>

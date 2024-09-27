@@ -89,11 +89,11 @@
                         <div class="cta-wrapper">	
                           
                           <a href="indisponibili_admin.php " class="btn btn-sm btn-outline-dark float-end" type="button">
-                            <i class='bx bxs-ambulance' ></i>
+                            <i class='bi bi-bandaid' ></i>
                           </a>
                           
                           <a type="button" href="allenamenti_admin.php" class="btn btn-sm btn-outline-dark float-end me-2" >
-                            <i class='bx bx-left-arrow-alt bx-xs' ></i>
+                            <i class='bi bi-arrow-left' ></i>
                           </a>
                                            
                         </div>
@@ -136,11 +136,11 @@
                                             
                                             // In base al motivo, mostriamo l'icona corrispondente
                                             if ($motivo === 'Lavoro') {
-                                                echo '<i class="bx bx-briefcase " data-bs-toggle="tooltip" data-bs-title="Lavoro"></i>'; // Icona per Lavoro
+                                                echo '<i class="bi bi-briefcase " data-bs-toggle="tooltip" data-bs-title="Lavoro"></i>'; // Icona per Lavoro
                                             } elseif ($motivo === 'Malattia') {
-                                                echo '<i class="bx bxs-ambulance text-danger" data-bs-toggle="tooltip" data-bs-title="Malattia"></i>'; // Icona per Malattia
+                                                echo '<i class="bi bi-bandaid text-danger" data-bs-toggle="tooltip" data-bs-title="Malattia"></i>'; // Icona per Malattia
                                             } elseif ($motivo === 'Viaggio') {
-                                                echo '<i class="bx bxs-plane-alt" data-bs-toggle="tooltip" data-bs-title="Viaggio"></i >'; // Icona per Viaggio
+                                                echo '<i class="bi bi-airplane-fill" data-bs-toggle="tooltip" data-bs-title="Viaggio"></i >'; // Icona per Viaggio
                                             } else {
                                                 // Motivo sconosciuto, puoi gestirlo in modo appropriato
                                             }
@@ -187,19 +187,19 @@
                           <div class="row mb-3">
                             <div class="col-12 col-lg-4">
                               <!-- Luogo allenamento -->
-                              <i class='bx bx-calendar' ></i>
+                              <i class='bi bi-calendar' ></i>
                               <?php echo date("d/m/y", strtotime($all['data'])) .' - ' .date("H:i",strtotime($all['orario'])); ?> 
                               <br/>
                               <!-- Luogo allenamento -->
-                              <i class='bx bx-map' ></i>
+                              <i class='bi bi-geo-map' ></i>
                               <?php echo $all['luogo']  ?>
                               <br/>
                               <!-- Presenti allenamento -->
-                              <i class='bx bx-user'></i>
+                              <i class='bi bi-person'></i>
                               <span class="text-nowrap">Presenti : <span class="card-text" id="contatore-selezione">0</span></span>
                               <br/>
                               <!-- Non presenti allenamento -->
-                              <i class='bx bx-user-x'></i>
+                              <i class='bi bi-person-slash-x'></i>
                               <span class="text-nowrap">Assenti : <span class="card-text" id="contatore-non-selezione">0</span></span>
                             </div>
                             <div class="col-12 col-lg-8">
@@ -245,7 +245,7 @@
                                           <td width="98%"><?php echo $nota['descrizione'] ?> </td>
                                           <td class=" text-end" width="2%">
                                             <a class="text-decoration-none text-dark" onclick="confirmDelete('<?php echo $nota['id']; ?>','<?php echo $nota['id_allenamento']; ?>')">
-                                              <i class='bx bx-trash' ></i>
+                                              <i class='bi bi-trash' ></i>
                                             </a>
                                           </td>
                                         </tr>

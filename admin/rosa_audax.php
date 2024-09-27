@@ -179,7 +179,7 @@ SELECT g.*,
                         <div class="cta-wrapper">
                           <?php if($_SESSION['superuser'] == 1 ){ ?>
                           <a href="insert_player.php" type="button" class="btn btn-sm btn-outline-dark ">
-                            <i class='bx bx-plus '></i> 
+                            <i class="bi bi-plus"></i> 
                           </a>
                           <?php } ?>
                           
@@ -319,7 +319,7 @@ SELECT g.*,
                                   
                                   <div class="dropdown">
                                     <button class="btn dropdown-toggle" style="background-color:transparent" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                      <i class='bx bx-dots-vertical-rounded'></i>
+                                      <i class="bi bi-three-dots-vertical"></i>
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-dark">
                                       <li><a class="dropdown-item" href="edit_player.php?id=<?php echo $row["id"]; ?>">Modifica</a></li>

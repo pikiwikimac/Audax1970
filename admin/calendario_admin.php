@@ -1,68 +1,112 @@
 <?php
 session_start();
+
 // Controlla se l'utente è loggato, altrimenti reindirizza alla pagina di login
 if (!isset($_SESSION['username'])) {
     header('Location: ../login/login.php');
     exit;
 }
+
 require_once('../config/db.php');
 
+// Controlla la connessione al database
 if (!$con) {
-  die('Errore di connessione: ' . mysqli_connect_error());
+    die('Errore di connessione: ' . mysqli_connect_error());
 }
-
 
 $username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
 $image = isset($_SESSION['image']) ? $_SESSION['image'] : null;
-$superuser = $_SESSION['superuser'];
+$superuser = isset($_SESSION['superuser']) ? $_SESSION['superuser'] : 0;
 
-$stagione_id = $_REQUEST['id_stagione'];
-$societa_id = $_REQUEST['id_societa'];
+// Validazione input
+$stagione_id = isset($_REQUEST['id_stagione']) && is_numeric($_REQUEST['id_stagione']) ? intval($_REQUEST['id_stagione']) : null;
+$societa_id = isset($_REQUEST['id_societa']) && is_numeric($_REQUEST['id_societa']) ? intval($_REQUEST['id_societa']) : null;
 
+if (!$stagione_id || !$societa_id) {
+    die('Errore: ID stagione o ID società non valido.');
+}
+
+// Query che seleziona le info della squadra (usando prepared statement)
+$query = "SELECT s.* FROM societa s WHERE s.id = ?";
+$stmt = $con->prepare($query);
+$stmt->bind_param("i", $societa_id);
+$stmt->execute();
+$squadra = $stmt->get_result();
+$info_squadra = $squadra->fetch_assoc();
+
+// Query che seleziona le partite (usando prepared statement)
 $sql = "
 SELECT
-  soc.nome_societa AS casa,                  -- Alias for home team name
+  soc.nome_societa AS casa,                  
   soc2.nome_societa AS ospite,
-  soc.id AS id_casa,                  -- Alias for home team name
-  soc2.id AS id_ospite,               -- Alias for away team name
-  s.golCasa,                                 -- Home team goals
-  s.golOspiti,                               -- Away team goals
-  CAST(s.giornata AS UNSIGNED) AS giornata_, -- Match day as unsigned integer
-  s.giornata,                                -- Match day
-  s.id,                                      -- Match ID
-  s.data,                                    -- Original match date
-  s.played,                                  -- Match played status
+  soc.id AS id_casa,                  
+  soc2.id AS id_ospite,               
+  s.golCasa,                                 
+  s.golOspiti,                               
+  CAST(s.giornata AS UNSIGNED) AS giornata_,
+  s.giornata,                                
+  s.id,                                      
+  s.data,                                    
+  s.played,                                  
   CASE
     WHEN s.orario_modificato IS NOT NULL THEN s.orario_modificato
     ELSE soc.ora_match
-  END AS orario_partita,                     -- Match time (modified or default)
+  END AS orario_partita,                     
   CASE
     WHEN s.data_modificata IS NOT NULL THEN s.data_modificata
     ELSE s.data
-  END AS giornata_partita,                   -- Match date (modified or original)
+  END AS giornata_partita,                   
   CASE
     WHEN s.golCasa > s.golOspiti THEN '1'
     WHEN s.golCasa = s.golOspiti THEN 'X'
     WHEN s.golCasa < s.golOspiti THEN '2'
     ELSE ''
-  END AS risultato                           -- Match result (1, X, 2)
+  END AS risultato                           
 FROM
-  `partite` s                                -- Main table for matches
-INNER JOIN societa soc ON soc.id = s.squadraCasa   -- Join for home team
-INNER JOIN societa soc2 ON soc2.id = s.squadraOspite -- Join for away team
+  partite s                                
+INNER JOIN societa soc ON soc.id = s.squadraCasa   
+INNER JOIN societa soc2 ON soc2.id = s.squadraOspite 
 WHERE
-  s.id_stagione = '$stagione_id'                          -- Condition for season ID
-  AND (s.squadraCasa = '$societa_id' OR s.squadraOspite = '$societa_id') -- Condition for specific teams
+  s.id_stagione = ?                          
+  AND (s.squadraCasa = ? OR s.squadraOspite = ?)
 ORDER BY
-  giornata_, casa, ospite;                   -- Order by match day, home team, away team
-
+  giornata_, casa, ospite;
 ";
+$stmt = $con->prepare($sql);
+$stmt->bind_param("iii", $stagione_id, $societa_id, $societa_id);
+$stmt->execute();
+$campionato = $stmt->get_result();
 
+// Query per ottenere le informazioni sulla stagione
+$query1 = "SELECT * FROM stagioni s WHERE s.id_stagione = ?";
+$stmt = $con->prepare($query1);
+$stmt->bind_param("i", $stagione_id);
+$stmt->execute();
+$info_stagione = $stmt->get_result();
+$info = $info_stagione->fetch_assoc();
 
-$campionato = mysqli_query($con, $sql);
+// Gestione delle squadre correlate
+if ($info_squadra['parent_id'] === NULL) {
+    // Se parent_id è NULL, seleziona le squadre con lo stesso parent_id o ID società
+    $query4 = "
+    SELECT * FROM societa s
+    WHERE parent_id = ? OR id = ?";
+    $stmt = $con->prepare($query4);
+    $stmt->bind_param("ii", $societa_id, $societa_id);
+} else {
+    // Altrimenti, seleziona le squadre con lo stesso parent_id
+    $parent_id = $info_squadra['parent_id'];
+    $query4 = "
+    SELECT * FROM societa s
+    WHERE parent_id = ? OR id = ?";
+    $stmt = $con->prepare($query4);
+    $stmt->bind_param("ii", $parent_id, $parent_id);
+}
+
+$stmt->execute();
+$squadre_correlate = $stmt->get_result();
 
 ?>
-
 
 <!doctype html>
 
@@ -94,7 +138,7 @@ $campionato = mysqli_query($con, $sql);
                         <div class="cta-wrapper">
                           <?php if($_SESSION['superuser'] == 1 ){ ?>
                           <a type="button" class="btn btn-sm btn-outline-dark float-end"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModal">
-                            <i class='bx bx-plus '></i>
+                            <i class="bi bi-plus"></i>
                           </a>
                           <?php } ?>
                           <button onclick="window.location.href='calendario_completo_admin.php?id_stagione=<?php echo $stagione_id ?>'"  class="btn btn-sm btn-outline-dark float-end me-2"  >
@@ -107,9 +151,31 @@ $campionato = mysqli_query($con, $sql);
 
                     <!-- Core della pagina -->
                     <div class="">
-        
-
                       <div class="row g-3 mb-3">
+                        <div class="col-12">
+                          <span class="fs-6 mb-2 ">
+                            <?php echo $info['descrizione'] ?>
+                          </span>
+
+                          <div class="float-end mb-2">
+                            
+                            <?php while($row = mysqli_fetch_assoc($squadre_correlate)){?>
+                              <a class="text-decoration-none text-white" href="calendario_admin.php?id_stagione=<?php echo $row['id_campionato']?>&id_societa=<?php echo $row['id'] ?>">
+                                <span class="badge bg-secondary">
+                                  <?php echo $row['tipo'] ?>
+                                </span>
+                              </a>
+                            <?php } ?>
+                            
+                            <a href="calendario_admin.php?id_stagione=3&id_societa=1">
+                              <span class="badge bg-secondary">
+                                Amichevoli
+                              </span>
+                            </a>
+                            
+                          </div>
+                        </div>
+
                         <div class="col-12 table-responsive">
                           
                           
@@ -148,9 +214,16 @@ $campionato = mysqli_query($con, $sql);
                                     </small>
                                     <br/>
                                     <small class="text-center">
-                                      <?php if($row['casa']!='Audax 1970'){?><i class='bx bxs-plane-alt'></i> <?php } ?>
-                                      <?php if($row['casa']=='Audax 1970'){?><i class='bx bxs-home'></i> <?php } ?>
+                                      <?php 
+                                        if (in_array($row['id_casa'], ['1', '3', '4', '6'])) { 
+                                            echo "<i class='bi bi-house-door-fill'></i>";
+                                        } else { 
+                                            echo "<i class='bi bi-airplane-fill'></i>";
+                                        }
+                                      ?>
                                     </small>
+
+
                                   </td>
                                   
                                   <!-- Data -->
@@ -178,20 +251,26 @@ $campionato = mysqli_query($con, $sql);
                                   <!-- Squadra casa -->
                                   <td class="text-end text-nowrap">
                                     <a href="show_societa.php?id=<?php echo $row['id_casa'] ?>" class="text-decoration-none">
-                                      <div class="<?= $row['casa'] === 'Audax 1970' ? 'fw-bold' : 'text-dark'?>
-                                          <?php
-                                          if ($row['risultato'] === '1') {
-                                              echo 'text-success';
-                                          } elseif ($row['risultato'] === 'X') {
-                                              echo 'text-primary';
-                                          } elseif ($row['risultato'] === '2') {
-                                              echo 'text-danger';
-                                          } else {
-                                              echo 'text-dark';
+                                      <div class="
+                                        <?php 
+                                          if (in_array($row['id_casa'], ['1', '3', '4', '6'])) { 
+                                              echo 'fw-bold'; 
+                                          } else { 
+                                              echo 'text-dark'; 
                                           }
-                                          ?>
-                                      ">
-                                        <?php echo $row['casa'] ?>
+                                          
+                                          if ($row['risultato'] === '1') {
+                                              echo ' text-success'; // Aggiunto uno spazio prima della classe per evitare concatenazione
+                                          } elseif ($row['risultato'] === 'X') {
+                                              echo ' text-primary'; // Aggiunto uno spazio prima della classe per evitare concatenazione
+                                          } elseif ($row['risultato'] === '2') {
+                                              echo ' text-danger'; // Aggiunto uno spazio prima della classe per evitare concatenazione
+                                          } else {
+                                              echo ' text-dark'; // Aggiunto uno spazio prima della classe per evitare concatenazione
+                                          }
+                                        ?>">
+
+                                          <?php echo $row['casa'] ?>
                                       </div>
                                     </a>
                                 </td>
@@ -208,23 +287,28 @@ $campionato = mysqli_query($con, $sql);
                                   <!-- Squadra ospite -->
                                   <td class="text-nowrap">
                                     <a href="show_societa.php?id=<?php echo $row['id_ospite'] ?>" class="text-decoration-none">
-                                      <div class="<?= $row['ospite'] === 'Audax 1970' ? 'fw-bold' : 'text-dark'?>
-                                        
-                                        <?php
-                                        if ($row['risultato'] === '2') {
-                                            echo 'text-success';
-                                        } elseif ($row['risultato'] === 'X') {
-                                            echo 'text-primary';
-                                        } elseif ($row['risultato'] === '1') {
-                                            echo 'text-danger';
-                                        } else {
-                                            echo 'text-dark';
-                                        }
-                                        ?>
-                                      ">
-                                        
+                                      <div class="
+                                        <?php 
+                                          if (in_array($row['id_ospite'], ['1', '3', '4', '6'])) { 
+                                            echo 'fw-bold'; 
+                                          } else { 
+                                            echo 'text-dark'; 
+                                          }
+                                            
+                                          if ($row['risultato'] === '2') {
+                                            echo ' text-success'; 
+                                          } elseif ($row['risultato'] === 'X') {
+                                            echo ' text-primary';
+                                          } elseif ($row['risultato'] === '2') {
+                                            echo ' text-danger'; 
+                                          } else {
+                                            echo ' text-dark'; 
+                                          }
+                                        ?>">
+
                                         <?php echo $row['ospite'] ?>
                                       </div>
+                                      
                                     </a>
                                   </td>
 
@@ -239,7 +323,7 @@ $campionato = mysqli_query($con, $sql);
                                                   class="text-decoration-none text-dark"
                                                   data-bs-toggle="tooltip"
                                                   data-bs-title="Played">
-                                                  <i class="bx bx-check-double text-danger"></i>
+                                                  <i class="bi bi-check-all text-danger"></i>
                                                 </a>';
                                       } else {
                                           // Altrimenti, lascia la classe vuota
@@ -247,7 +331,7 @@ $campionato = mysqli_query($con, $sql);
                                                   class="text-decoration-none text-dark"
                                                   data-bs-toggle="tooltip"
                                                   data-bs-title="NOT Played">
-                                                  <i class="bx bx-check"></i>
+                                                  <i class="bi bi-check"></i>
                                                 </a>';
                                       }
 
@@ -261,7 +345,8 @@ $campionato = mysqli_query($con, $sql);
                                       class="text-decoration-none text-dark"
                                       data-bs-toggle="tooltip"
                                       data-bs-title="Marcatori">
-                                      <i class='bx bx-football'   ></i>
+                                      <img src="/image/icon/calcio.svg" alt="Gol">
+
                                     </a>
                                   </td>
                                   
@@ -271,7 +356,7 @@ $campionato = mysqli_query($con, $sql);
                                       class="text-decoration-none text-dark"
                                       data-bs-toggle="tooltip"
                                       data-bs-title="Convocazioni">
-                                      <i class='bx bx-list-ol'></i>
+                                      <i class='bi bi-list-ol'></i>
                                     </a>
                                   </td>
 
@@ -279,7 +364,7 @@ $campionato = mysqli_query($con, $sql);
                                     <!-- Aggiungi il link per aprire il modal -->
                                     <a href="#" class="text-decoration-none text-dark" 
                                     onclick="showEditModal('<?php echo $row["id"]; ?>', '<?php echo $row["casa"]; ?>', '<?php echo $row["ospite"]; ?>', '<?php echo $row["golCasa"]; ?>', '<?php echo $row["golOspiti"]; ?>', '<?php echo $row["data"]; ?>', '<?php echo $row["giornata"]; ?>', '<?php echo $row["id_stagione"]; ?>', '<?php echo $row["id_societa"]; ?>')" data-bs-toggle="tooltip" data-bs-title="Modifica">
-                                      <i class='bx bx-pencil '></i>
+                                      <i class="bi bi-pencil"></i>
                                     </a>
                                   </td>
 
@@ -288,7 +373,7 @@ $campionato = mysqli_query($con, $sql);
                                       data-bs-toggle="tooltip"
                                       data-bs-title="Elimina"
                                       onclick="confirmDelete('<?php echo $row["id"]; ?>')">
-                                      <i class='bx bx-trash text-danger' ></i>
+                                      <i class='bi bi-trash text-danger' ></i>
                                     </a>
                                   </td>
 
@@ -301,8 +386,9 @@ $campionato = mysqli_query($con, $sql);
 
                           </table>
                         </div>
-                      
                       </div>
+                      
+                      
                     </div>
                     <!-- END:Core della pagina -->
                   </div>

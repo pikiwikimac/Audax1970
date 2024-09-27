@@ -65,7 +65,7 @@
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
                           <a type="button" href="societa.php" class="btn btn-sm btn-outline-dark float-end" >
-                            <i class='bx bx-arrow-back '></i>
+                            <i class='bi bi-arrow-left '></i>
                           </a>
                         </div>
                       </div>
@@ -109,7 +109,7 @@
                                     <label for="sede" class="form-label">Campo da gioco</label>
                                     <div class="input-group">
                                       <span class="input-group-text" id="basic-addon1">
-                                        <i class='bx bxs-map-pin' ></i>
+                                        <i class='bi bi-pin-map-fill' ></i>
                                       </span>
                                       <input type="text" class="form-control form-control-sm" id="sede" name="sede" />
                                     </div>
@@ -120,7 +120,7 @@
                                     <label for="citta" class="form-label">Città</label>
                                     <div class="input-group">
                                       <span class="input-group-text" id="basic-addon1">
-                                        <i class='bx bx-map' ></i>
+                                        <i class='bi bi-geo-map' ></i>
                                       </span>
                                       <input type="text" class="form-control form-control-sm" id="citta" name="citta"/>
                                     </div>
@@ -147,7 +147,7 @@
                                     <label for="ora_match" class="form-label">Ora match</label>
                                     <div class="input-group">
                                       <span class="input-group-text" id="basic-addon1">
-                                        <i class='bx bx-time-five' ></i>
+                                        <i class='bi bi-clock' ></i>
                                       </span>
                                       <input type="time" class="form-control form-control-sm" id="ora_match" name="ora_match"  />
                                     </div>
@@ -176,7 +176,7 @@
                                     <label for="contatto_riferimento" class="form-label">Contatto</label>
                                     <div class="input-group">
                                       <span class="input-group-text" id="basic-addon1">
-                                        <i class='bx bxs-user-circle'></i>
+                                        <i class='bi bi-person-circle'></i>
                                       </span>
                                       <input type="text" class="form-control form-control-sm" id="contatto_riferimento" name="contatto_riferimento"  />
                                     </div>
@@ -187,7 +187,7 @@
                                     <label for="sede_legale" class="form-label">Sede legale</label>
                                     <div class="input-group">
                                       <span class="input-group-text" id="basic-addon1">
-                                        <i class='bx bx-building-house' ></i>
+                                        <i class='bi bi-buildings' ></i>
                                       </span>
                                       <input type="text" class="form-control form-control-sm" id="sede_legale" name="sede_legale" ></input>
                                     </div>
@@ -208,7 +208,7 @@
                                     <label for="email" class="form-label">Email</label>
                                     <div class="input-group">
                                       <span class="input-group-text" id="basic-addon1">
-                                        <i class="bx bx-at"></i>
+                                        <i class="bi bi-at"></i>
                                       </span>
                                       <input type="email" class="form-control form-control-sm" id="email" name="email" ></input>
                                     </div>
@@ -220,7 +220,7 @@
                                     <label for="telefono" class="form-label">Telefono</label>
                                     <div class="input-group">
                                       <span class="input-group-text" id="basic-addon1">
-                                        <i class='bx bx-phone' ></i>
+                                        <i class='bi bi-telephone' ></i>
                                       </span>
                                       <input type="text" class="form-control form-control-sm" id="telefono" name="telefono" ></input>
                                     </div>
@@ -232,7 +232,7 @@
                                     <label for="whatsapp" class="form-label">Whatsapp</label>
                                     <div class="input-group">
                                       <span class="input-group-text" id="basic-addon1">
-                                        <i class='bx bxl-whatsapp' ></i>
+                                        <i class='bi bi-whatsapp' ></i>
                                       </span>
                                       <input type="text" class="form-control form-control-sm" id="whatsapp" name="whatsapp" ></input>
                                     </div>
@@ -243,7 +243,7 @@
                                     <label for="instagram" class="form-label">Instagram</label>
                                     <div class="input-group">
                                       <span class="input-group-text" id="basic-addon1">
-                                        <i class='bx bxl-instagram' ></i>
+                                        <i class='bi bi-instagram' ></i>
                                       </span>
                                       <input type="text" class="form-control form-control-sm" id="instagram" name="instagram"></input>
                                     </div>
@@ -254,7 +254,7 @@
                                     <label for="facebook" class="form-label">Facebook</label>
                                     <div class="input-group">
                                       <span class="input-group-text" id="basic-addon1">
-                                        <i class='bx bxl-facebook' ></i>
+                                        <i class='bi bi-facebook' ></i>
                                       </span>
                                       <input type="text" class="form-control form-control-sm" id="facebook" name="facebook"></input>
                                     </div>
@@ -265,7 +265,7 @@
                                     <label for="sito_web" class="form-label">Sito web</label>
                                     <div class="input-group">
                                       <span class="input-group-text" id="basic-addon1">
-                                        <i class='bx bx-link' ></i>
+                                        <i class='bi bi-link-45deg' ></i>
                                       </span>
                                       <input type="text" class="form-control form-control-sm" id="sito_web" name="sito_web" ></input>
                                     </div>
@@ -319,13 +319,7 @@
       }
     </script>
 
-    <script>
-      // Mostra il toast di successo
-      function showSuccessToast() {
-        var toast = new bootstrap.Toast(document.getElementById('successToast'));
-        toast.show();
-      }
-    </script>
+    
 
     <script>
       function toggleParentSelect() {

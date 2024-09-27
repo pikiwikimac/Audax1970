@@ -185,9 +185,10 @@
                                                 <div class="card equal-height-card" style="min-height:12rem;">
                                                     <div class="card-header bg-dark text-light">  
                                                         <?php if (!empty($row2["id"])) : ?>
-                                                            <i class="bx bx-football align-middle"></i> <?php echo $row2["descrizione"] .' - Giornata ' .$row2["giornata"] .'°' ?>
+                                                            <img src="/image/icon/calcio.svg" alt="Gol">
+                                                            <?php echo $row2["descrizione"] .' - Giornata ' .$row2["giornata"] .'°' ?>
                                                             <a class="text-decoration-none text-light float-end " href="edit_presenza_convocazione.php?id=<?php echo $row2["id"]; ?>" >
-                                                                <i class='bx bx-right-arrow-alt align-middle' ></i>
+                                                                <i class='bi bi-arrow-right align-middle' ></i>
                                                             </a>
                                                         <?php else : ?>
                                                             <span class=""><i class="bx bx-football align-middle"></i> Prossimo match</span>
@@ -209,17 +210,17 @@
 
                                                                     <!-- Data prossimo match -->
                                                                     <div class="fs-7 mt-3">
-                                                                        <i class='bx bx-calendar' ></i>
+                                                                        <i class='bi bi-calendar' ></i>
                                                                         <?php echo  date("d/m/y", strtotime($row2['giornata_partita'])) .' - ' .date("H:i",strtotime($row2['orario_partita'])); ?>
                                                                     </div>
 
                                                                     <!-- Luogo prossimo match -->
                                                                     <div class="fs-7 text-muted">
-                                                                        <i class='bx bx-map-pin' ></i>
+                                                                        <i class='bi bi-pin-map' ></i>
                                                                         <?php echo $row2['sede'] . ' - ' . $row2['citta']; ?>
                                                                     </div>
                                                                     
-                                                                    <span class="text-muted float-end" style="cursor:pointer" onclick="apriGoogleMapsConIndirizzo('<?php echo $row2['sede'] . ', ' . $row2['citta']; ?>')"> Google maps <i class='bx bx-right-arrow-alt align-middle' ></i></span>
+                                                                    <span class="text-muted float-end" style="cursor:pointer" onclick="apriGoogleMapsConIndirizzo('<?php echo $row2['sede'] . ', ' . $row2['citta']; ?>')"> Google maps <i class='bi bi-arrow-right align-middle' ></i></span>
 
                                                                 </div>
                                                             </div>
@@ -236,9 +237,9 @@
                                                 <div class="card equal-height-card" style="min-height:12rem;">
 
                                                     <div class="card-header bg-dark text-light">
-                                                        <i class='bx bx-dumbbell align-middle'></i> Prossimo allenamento
+                                                        <i class='bi bi-lightning-charge align-middle'></i> Prossimo allenamento
                                                         <a class="text-decoration-none text-light float-end " href="allenamenti_admin.php?id_societa=<?php echo $id_societa ?>" >
-                                                            <i class='bx bx-right-arrow-alt align-middle' ></i>
+                                                            <i class='bi bi-arrow-right align-middle' ></i>
                                                         </a>
                                                     </div>
                                                     <div class="card-body">
@@ -256,7 +257,7 @@
                                                                     <br/>
 
                                                                     <div class="fs-7 mt-3">
-                                                                        <i class='bx bx-calendar'></i>
+                                                                        <i class='bi bi-calendar'></i>
                                                                         <?php
                                                                             $dataOggi = date("d/m/y");
                                                                             $dataDaVisualizzare = date("d/m/y", strtotime($row['data']));
@@ -274,7 +275,7 @@
                                                                     
                                                                     <!-- Luogo -->
                                                                     <div class="fs-7 text-muted">
-                                                                        <i class='bx bx-map-pin' ></i> <?php echo $row['luogo'] ?>
+                                                                        <i class='bi bi-pin-map' ></i> <?php echo $row['luogo'] ?>
                                                                     </div>
                                                                     <!-- Note -->
                                                                     <small class="text-muted">
@@ -303,9 +304,9 @@
                                             <div class="col-12 col-md-6 col-lg-4">
                                                 <div class="card equal-height-card" style="min-height:12rem;">
                                                     <div class="card-header bg-dark text-light">
-                                                        <i class="bx bxs-ambulance align-middle"></i> Indisponibili
+                                                        <i class="bi bi-bandaid align-middle"></i> Indisponibili
                                                         <a class="text-decoration-none text-light float-end " href="indisponibili_admin.php" >
-                                                            <i class='bx bx-right-arrow-alt align-middle' ></i>
+                                                            <i class='bi bi-arrow-right align-middle' ></i>
                                                         </a>
                                                     </div>
 
@@ -367,7 +368,7 @@
                                                 <!-- Gestione registrazioni -->
                                                 <?php if($_SESSION['superuser']==1 && $numero_richieste['numero_richieste']>0){ ?>
                                                 <a href="gestore_registrazioni.php" type="button" class="btn btn-sm btn-outline-dark me-2 position-relative" data-bs-toggle="tooltip" data-bs-title="Richieste registrazioni" data-bs-placement="bottom">
-                                                    <i class='bx bx-user-plus'></i> 
+                                                    <i class='bi bi-person-add'></i> 
                                                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                                         <?php echo $numero_richieste['numero_richieste'] ?>
                                                     </span>
@@ -376,26 +377,26 @@
                                                 <!-- Comunicazioni telegram -->
                                                 <a role="button" class="btn btn-sm btn-outline-dark me-2" data-bs-toggle="modal"  data-bs-title="Comunicazione telegram"  
                                                     data-bs-target="#insertModal" href="comunicazione_telegram.php" data-bs-placement="bottom">
-                                                    <i class='bx bxl-telegram'></i>  
+                                                    <i class='bi bi-telegram'></i>  
                                                 </a>
                                                 <!-- Calendario -->
                                                 <a role="button" class="btn btn-sm btn-outline-dark me-2" href="google_calendar.php" data-bs-toggle="tooltip" data-bs-title="Google calendar" data-bs-placement="bottom">
-                                                    <i class='bx bxs-calendar'></i> 
+                                                    <i class='bi bi-calendar'></i> 
                                                 </a>
                                                 <!-- Vai ai comunicati calcio a 5 marche -->
                                                 <a type="button" href="https://www.figcmarche.it/categoria-comunicati/calcio-a-5" class="btn btn-sm btn-outline-dark  me-2" data-bs-toggle="tooltip" data-bs-title="Comunicati LND" data-bs-placement="bottom" target="blank">
-                                                    <i class='bx bx-archive'></i>
+                                                    <i class='bi bi-archive'></i>
                                                 </a>
                                                 <!-- Link mercato -->
                                                 <?php if($_SESSION['superuser']==1 ){ ?>
                                                     <a href="mercato.php" type="button" class="btn btn-sm btn-outline-dark  me-2 position-relative" data-bs-toggle="tooltip" data-bs-title="Mercato" data-bs-placement="bottom">
-                                                        <i class='bx bx-store'></i> 
+                                                        <i class='bi bi-shop'></i> 
                                                     </a>
                                                 <?php } ?>
                                                 <!-- Link a gallery -->
                                                 <?php if($_SESSION['superuser']==1 ){ ?>
                                                     <a href="create_gallery.php" type="button" class="btn btn-sm btn-outline-dark me-2 position-relative" data-bs-toggle="tooltip" data-bs-title="Gallery" data-bs-placement="bottom">
-                                                        <i class='bx bx-photo-album'></i>
+                                                        <i class='bi bi-images'></i>
                                                     </a>
                                                 <?php } ?>
                                             </div>
@@ -440,7 +441,7 @@
                                                                     <?php echo $row['cognome'] . '  ' .$row['nome']   ?> 
                                                                     <?php
                                                                         if ($row['capitano'] == 'C' && $row['squadra_madre'] == $id_societa) {
-                                                                            echo '<i class="bx bx-copyright  float-end"></i>';
+                                                                            echo '<i class="bi bi-copyright  float-end"></i>';
                                                                         } elseif ($row['capitano'] == 'VC' && $row['squadra_madre'] == $id_societa) {
                                                                             echo '<span class="float-end">VC</span>';
                                                                         }
@@ -458,11 +459,11 @@
                                                                             
                                                                             // In base al motivo, mostriamo l'icona corrispondente
                                                                             if ($motivo === 'Lavoro') {
-                                                                                echo '<i class="bx bx-briefcase " data-bs-toggle="tooltip" data-bs-title="Lavoro" data-bs-placement="bottom"></i>'; // Icona per Lavoro
+                                                                                echo '<i class="bi bi-briefcase " data-bs-toggle="tooltip" data-bs-title="Lavoro" data-bs-placement="bottom"></i>'; // Icona per Lavoro
                                                                             } elseif ($motivo === 'Malattia') {
-                                                                                echo '<i class="bx bxs-ambulance text-danger" data-bs-toggle="tooltip" data-bs-title="Malattia" data-bs-placement="bottom"></i>'; // Icona per Malattia
+                                                                                echo '<i class="bi bi-bandaid text-danger" data-bs-toggle="tooltip" data-bs-title="Malattia" data-bs-placement="bottom"></i>'; // Icona per Malattia
                                                                             } elseif ($motivo === 'Viaggio') {
-                                                                                echo '<i class="bx bxs-plane-alt" data-bs-toggle="tooltip" data-bs-title="Viaggio" data-bs-placement="bottom"></i >'; // Icona per Viaggio
+                                                                                echo '<i class="bi bi-airplane-fill" data-bs-toggle="tooltip" data-bs-title="Viaggio" data-bs-placement="bottom"></i >'; // Icona per Viaggio
                                                                             } else {
                                                                                 // Motivo sconosciuto, puoi gestirlo in modo appropriato
                                                                             }

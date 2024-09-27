@@ -76,7 +76,7 @@
                             Settori giovanili
                           </a>	
                           <a href="insert_societa.php" type="button" class="btn btn-sm btn-outline-dark float-end me-2 ">
-                            <i class='bx bx-plus '></i>
+                            <i class="bi bi-plus"></i>
                           </a>
                         </div>
                       </div>
@@ -123,7 +123,7 @@
                                   <td><?php echo date('H:i', strtotime($row['ora_match'])); ?></td>
                                   <td class="text-nowrap">
                                     <a href="https://www.google.com/maps/search/<?php echo urlencode($row['sede']); ?>"  class="text-decoration-none text-dark" target="_blank">
-                                      <i class='bx bx-map-pin'></i> &nbsp; <?php echo $row['sede']; ?>
+                                      <i class='bi bi-pin-map'></i> &nbsp; <?php echo $row['sede']; ?>
                                     </a>
                                   </td>
 
@@ -131,14 +131,14 @@
                                   <!-- Duplica -->
                                   <td class="text-center">
                                     <a class="text-decoration-none" href="../query/action_duplicate_societa.php?id=<?php echo $row["id"]; ?>" >
-                                      <i class='bx bx-copy text-dark ms-2' ></i>
+                                      <i class='bi bi-copy text-dark ms-2' ></i>
                                     </a> 
                                   </td> 
 
                                   <!-- Edit -->
                                   <td class="text-center">
                                     <a class="text-decoration-none" href="edit_societa.php?id=<?php echo $row["id"]; ?>" >
-                                      <i class='bx bx-pencil text-dark ms-2'></i>
+                                      <i class='bi bi-pencil text-dark ms-2'></i>
                                     </a>
                                   </td>
                                 </tr>
@@ -186,7 +186,7 @@
                                 <td><?php echo date('H:i', strtotime($row['ora_match'])); ?></td>
                                 <td class="text-nowrap">
                                   <a href="https://www.google.com/maps/search/<?php echo urlencode($row['sede']); ?>"  class="text-decoration-none text-dark" target="_blank">
-                                    <i class='bx bx-map-pin'></i> &nbsp;  <?php echo $row['sede']; ?>
+                                    <i class='bi bi-pin-map'></i> &nbsp;  <?php echo $row['sede']; ?>
                                   </a>
                                 </td>
 
@@ -194,14 +194,14 @@
                                 <!-- Duplica -->
                                 <td class="text-center">
                                   <a class="text-decoration-none" href="../query/action_duplicate_societa.php?id=<?php echo $row["id"]; ?>" >
-                                    <i class='bx bx-copy text-dark ms-2' ></i>
+                                    <i class='bi bi-copy text-dark ms-2' ></i>
                                   </a> 
                                 </td> 
                                 
                                 <!-- Edit -->
                                 <td class="text-center">
                                   <a class="text-decoration-none" href="edit_societa.php?id=<?php echo $row["id"]; ?>" >
-                                    <i class='bx bx-pencil text-dark ms-2'></i>
+                                    <i class='bi bi-pencil text-dark ms-2'></i>
                                   </a>
                                 </td>
                               </tr>

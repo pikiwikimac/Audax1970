@@ -152,16 +152,17 @@
                               <caption> 
                                 <?php echo $count_gol_squadra_a_giornata['gol_totali_giornata'] ?> segnati su <?php echo $golCasa ?> totali  
                                 <a href="calendario_admin.php?id_stagione=<?php echo $stagione ?>&id_societa=<?php echo $id_societa ?>" class="text-decoration-none text-muted float-end">
-                                  <i class='bx bx-arrow-back '></i>  Indietro
+                                  <i class='bi bi-arrow-left '></i>  Indietro
                                 </a>
                               </caption>
                               <thead class="table-dark">
                                 <tr>
                                   <th>Cognome</th>
                                   <th>Nome</th>
-                                  <th class="text-center"><i class='bx bx-football align-middle'></i></th>
-                                  <th class="text-center"><i class='bx bxs-card align-middle' style='color:#ffb900'></i></th>
-                                  <th class="text-center"><i class='bx bxs-card align-middle' style='color:#FF0000'></i></th>
+                                  <th class="text-center"><img src="/image/icon/calcio.svg" alt="Gol">
+</th>
+                                  <th class="text-center"><i class='bi bi-square-fill align-middle' style='color:#ffb900'></i></th>
+                                  <th class="text-center"><i class='bi bi-square-fill align-middle' style='color:#FF0000'></i></th>
                                 </tr>
                               </thead>
 
@@ -260,16 +261,17 @@
                               <caption> 
                                 <?php echo $count_gol_squadra_b_giornata['gol_totali_giornata'] ?> segnati su <?php echo $golOspiti ?> totali  
                                 <a href="calendario_admin.php?id_stagione=<?php echo $stagione ?>&id_societa=<?php echo $id_societa ?>" class="text-decoration-none text-muted float-end">
-                                  <i class='bx bx-arrow-back '></i>  Indietro
+                                  <i class='bi bi-arrow-left '></i>  Indietro
                                 </a>
                               </caption>
                               <thead class="table-dark">
                                 <tr>
                                   <th>Cognome</th>
                                   <th>Nome</th>
-                                  <th class="text-center"><i class='bx bx-football align-middle'></i></th>
-                                  <th class="text-center"><i class='bx bxs-card align-middle' style='color:#ffb900'></i></th>
-                                  <th class="text-center"><i class='bx bxs-card align-middle' style='color:#FF0000'></i></th>
+                                  <th class="text-center"><img src="/image/icon/calcio.svg" alt="Gol">
+</th>
+                                  <th class="text-center"><i class='bi bi-square-fill align-middle' style='color:#ffb900'></i></th>
+                                  <th class="text-center"><i class='bi bi-square-fill align-middle' style='color:#FF0000'></i></th>
                                 </tr>
                               </thead>
 

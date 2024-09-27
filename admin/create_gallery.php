@@ -47,7 +47,7 @@
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
                           <a type="button" class="btn btn-sm btn-outline-dark float-end"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModal" onclick="showCreateFolderModal()">
-                            <i class='bx bx-plus '></i>
+                            <i class="bi bi-plus"></i>
                           </a>
                         </div>
                       </div>

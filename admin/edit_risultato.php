@@ -148,16 +148,17 @@
                           <caption> 
                             <?php echo $count_gol_squadra_a_giornata['gol_totali_giornata'] ?> segnati su <?php echo $golCasa ?> totali  
                             <a href="calendario_admin.php?id_stagione=<?php echo $stagione ?>&id_societa=<?php echo $id_societa ?>" class="text-decoration-none text-muted float-end">
-                              <i class='bx bx-arrow-back '></i>  Indietro
+                              <i class='bi bi-arrow-left '></i>  Indietro
                             </a>
                           </caption>
                           <thead class="table-dark">
                             <tr>
                               <th>Cognome</th>
                               <th>Nome</th>
-                              <th class="text-center"><i class='bx bx-football align-middle'></i></th>
-                              <th class="text-center"><i class='bx bxs-card align-middle' style='color:#ffb900'></i></th>
-                              <th class="text-center"><i class='bx bxs-card align-middle' style='color:#FF0000'></i></th>
+                              <th class="text-center"><img src="/image/icon/calcio.svg" alt="Gol">
+</th>
+                              <th class="text-center"><i class='bi bi-square-fill align-middle' style='color:#ffb900'></i></th>
+                              <th class="text-center"><i class='bi bi-square-fill align-middle' style='color:#FF0000'></i></th>
                             </tr>
                           </thead>
 
@@ -170,7 +171,7 @@
                               <td class="text-center">
                                 <!-- Diminuisci gol -->
                                 <a href="../query/delete_gol.php?id_giocatore=<?php echo $row['id']; ?>&match=<?php echo $id_partita; ?>&societa=<?php echo $casa?>" class="text-decoration-none">
-                                  <i class='bx bx-minus align-middle'></i>
+                                  <i class='bi bi-dash align-middle'></i>
                                 </a>
                                 
                                   <?php
@@ -192,7 +193,7 @@
                                   
                                   <!-- Aumenta gol -->
                                   <a href="../query/add_gol.php?id_giocatore=<?php echo $row['id']; ?>&match=<?php echo $id_partita; ?>&societa=<?php echo $casa?>" class="text-decoration-none">
-                                    <i class='bx bx-plus align-middle'></i>
+                                    <i class='bi bi-plus align-middle'></i>
                                   </a>
                               </td>
                               <!-- Cartellino giallo -->
@@ -211,13 +212,13 @@
                                   ?>
                                   <!-- Diminuisci cartellino giallo-->
                                   <a href="../query/delete_yellow_card.php?id_giocatore=<?php echo $row['id']; ?>&match=<?php echo $id_partita; ?>&societa=<?php echo $casa?>" class="text-decoration-none">
-                                    <i class='bx bx-minus align-middle'></i>
+                                    <i class='bi bi-dash align-middle'></i>
                                   </a> 
                                   <?php echo $count_ammonito['ammoniti'] ;?>
                                   
                                   <!-- Aumenta cartellino giallo -->
                                   <a href="../query/add_yellow_card.php?id_giocatore=<?php echo $row['id']; ?>&match=<?php echo $id_partita; ?>&societa=<?php echo $casa?>" class="text-decoration-none">
-                                    <i class='bx bx-plus align-middle'></i>
+                                    <i class='bi bi-plus align-middle'></i>
                                   </a>
                               </td>
                               <!-- Cartellino rosso -->
@@ -236,13 +237,13 @@
                                 ?>
                                 <!-- Diminuisci cartellino rosso -->
                                 <a href="../query/delete_red_card.php?id_giocatore=<?php echo $row['id']; ?>&match=<?php echo $id_partita; ?>&societa=<?php echo $casa?>" class="text-decoration-none">
-                                  <i class='bx bx-minus align-middle'></i>
+                                  <i class='bi bi-dash align-middle'></i>
                                 </a>
                                 <?php echo $count_rossi['rossi'] ;?>
                                 
                                 <!-- Aumenta cartellino rosso -->
                                 <a href="../query/add_red_card.php?id_giocatore=<?php echo $row['id']; ?>&match=<?php echo $id_partita; ?>&societa=<?php echo $casa?>" class="text-decoration-none">
-                                  <i class='bx bx-plus align-middle'></i>
+                                  <i class='bi bi-plus align-middle'></i>
                                 </a>
                               </td>
 
@@ -271,16 +272,17 @@
                           <caption> 
                             <?php echo $count_gol_squadra_b_giornata['gol_totali_giornata'] ?> segnati su <?php echo $golOspiti ?> totali  
                             <a href="calendario_admin.php?id_stagione=<?php echo $stagione ?>&id_societa=<?php echo $id_societa ?>" class="text-decoration-none text-muted float-end">
-                              <i class='bx bx-arrow-back '></i>  Indietro
+                              <i class='bi bi-arrow-left '></i>  Indietro
                             </a>
                           </caption>
                           <thead class="table-dark">
                             <tr>
                               <th>Cognome</th>
                               <th>Nome</th>
-                              <th class="text-center"><i class='bx bx-football align-middle'></i></th>
-                              <th class="text-center"><i class='bx bxs-card align-middle' style='color:#ffb900'></i></th>
-                              <th class="text-center"><i class='bx bxs-card align-middle' style='color:#FF0000'></i></th>
+                              <th class="text-center"><img src="/image/icon/calcio.svg" alt="Gol">
+</th>
+                              <th class="text-center"><i class='bi bi-square-fill align-middle' style='color:#ffb900'></i></th>
+                              <th class="text-center"><i class='bi bi-square-fill align-middle' style='color:#FF0000'></i></th>
                             </tr>
                           </thead>
 
@@ -293,7 +295,7 @@
                               <td class="text-center">
                                 <!-- Diminuisci gol -->
                                 <a href="../query/delete_gol.php?id_giocatore=<?php echo $row2['id']; ?>&match=<?php echo $id_partita; ?>&societa=<?php echo $ospite?>" class="text-decoration-none">
-                                  <i class='bx bx-minus align-middle'></i>
+                                  <i class='bi bi-dash align-middle'></i>
                                 </a>
 
                                 <?php
@@ -313,7 +315,7 @@
                                 
                                 <!-- Aumenta gol -->
                                 <a href="../query/add_gol.php?id_giocatore=<?php echo $row2['id']; ?>&match=<?php echo $id_partita; ?>&societa=<?php echo $ospite?>" class="text-decoration-none">
-                                  <i class='bx bx-plus align-middle'></i>
+                                  <i class='bi bi-plus align-middle'></i>
                                 </a>
 
                               </td>
@@ -333,12 +335,12 @@
                                   ?>
                                   <!-- Diminuisci cartellino giallo -->
                                   <a href="../query/delete_yellow_card.php?id_giocatore=<?php echo $row2['id']; ?>&match=<?php echo $id_partita; ?>&societa=<?php echo $ospite?>" class="text-decoration-none">
-                                    <i class='bx bx-minus align-middle'></i>
+                                    <i class='bi bi-dash align-middle'></i>
                                   </a>
                                   <?php echo $count_ammonito['ammoniti'] ;?>
                                   <!-- Aumenta cartellino giallo -->
                                   <a href="../query/add_yellow_card.php?id_giocatore=<?php echo $row2['id']; ?>&match=<?php echo $id_partita; ?>&societa=<?php echo $ospite?>" class="text-decoration-none">
-                                    <i class='bx bx-plus align-middle'></i>
+                                    <i class='bi bi-plus align-middle'></i>
                                   </a>
                               </td>
                               <!-- Cartellino rosso -->
@@ -357,14 +359,14 @@
                                 ?>
                                 <!-- Diminuisci cartellino rosso -->
                                 <a href="../query/delete_red_card.php?id_giocatore=<?php echo $row2['id']; ?>&match=<?php echo $id_partita; ?>&societa=<?php echo $ospite?>" class="text-decoration-none">
-                                  <i class='bx bx-minus align-middle'></i>
+                                  <i class='bi bi-dash align-middle'></i>
                                 </a>
                                 
                                 <?php echo $count_rossi['rossi'] ;?>
                                   
                                 <!-- Aumenta cartellino rosso -->
                                 <a href="../query/add_red_card.php?id_giocatore=<?php echo $row2['id']; ?>&match=<?php echo $id_partita; ?>&societa=<?php echo $ospite?>" class="text-decoration-none">
-                                  <i class='bx bx-plus align-middle'></i>
+                                  <i class='bi bi-plus align-middle'></i>
                                 </a>
                               </td>
                             </tr>

@@ -275,7 +275,7 @@
                                     <input class="form-control form-control-sm"  name="dirigente_1" id="dirigente_1" value=""></input>
                                     <input type="hidden"  name="dirigente_1_doc" id="dirigente_1_doc" value=""></input>
                                     <span class="input-group-text dirigenti"  data-bs-toggle="offcanvas" data-bs-target="#dirigenteOffcanvas" data-bs-dirigente="1">
-                                      <i class="bx bx-plus align-middle"></i>
+                                      <i class="bi bi-plus align-middle"></i>
                                     </span>
                                   </div>
                                 </div>
@@ -285,7 +285,7 @@
                                   <div class="input-group">
                                     <input class="form-control form-control-sm"  name="dirigente_2" id="dirigente_2" value=""></input>
                                     <span class="input-group-text dirigenti"  data-bs-toggle="offcanvas" data-bs-target="#dirigenteOffcanvas" data-bs-dirigente="2">
-                                      <i class="bx bx-plus align-middle"></i>
+                                      <i class="bi bi-plus align-middle"></i>
                                     </span>
                                   </div>
                                 </div>
@@ -295,7 +295,7 @@
                                   <div class="input-group">
                                     <input class="form-control form-control-sm"  name="dirigente_3" id="dirigente_3" value=""></input>
                                     <span class="input-group-text dirigenti"  data-bs-toggle="offcanvas" data-bs-target="#dirigenteOffcanvas" data-bs-dirigente="3">
-                                      <i class="bx bx-plus align-middle"></i>
+                                      <i class="bi bi-plus align-middle"></i>
                                     </span>
                                   </div>
                                 </div>
@@ -305,7 +305,7 @@
                                   <div class="input-group">
                                     <input class="form-control form-control-sm"  name="dirigente_4" id="dirigente_4" value=""></input>
                                     <span class="input-group-text dirigenti"  data-bs-toggle="offcanvas" data-bs-target="#dirigenteOffcanvas" data-bs-dirigente="4">
-                                      <i class="bx bx-plus align-middle"></i>
+                                      <i class="bi bi-plus align-middle"></i>
                                     </span>
                                   </div>
                                 </div>
@@ -326,13 +326,13 @@
                           
                           <span class="float-end">
                             <button type="submit" class="btn btn-sm btn-outline-dark mb-3 float-end" target="_blank">
-                              <i class='bx bxs-file-pdf' ></i> Genera PDF
+                              <i class='bi bi-file-pdf' ></i> Genera PDF
                             </button>
                           </span>
 
                           <span class="float-end me-2">
                           <a role="button" class="btn btn-sm btn-outline-dark" onclick="inviaTelegram()">
-                            <i class="bx bxl-telegram"></i> Telegram
+                            <i class="bi bi-telegram"></i> Telegram
                           </a>
 
                           </span>

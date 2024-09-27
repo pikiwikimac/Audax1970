@@ -29,7 +29,7 @@
       <!-- Top sponsor -->
       <div class="row">
         <div class="col-12">
-          <h1 id="font_diverso">Sponsor</h1>
+          <h1 class="bebas">Sponsor</h1>
         </div>
       </div>
 

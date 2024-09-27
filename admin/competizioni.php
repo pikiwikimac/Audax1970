@@ -21,7 +21,7 @@
   
   $query = "select *
   from stagioni
-  order by anno_inizio desc ,anno_fine desc, nome_stagione desc,descrizione,girone";
+  order by anno_inizio desc ,anno_fine desc,priorita desc, nome_stagione desc,descrizione,girone";
   $competizioni = mysqli_query($con,$query);
 ?>
 
@@ -57,7 +57,7 @@
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">	
                           <a type="button" href="insert_competizione.php" class="btn btn-sm btn-outline-dark float-end">
-                            <i class='bx bx-plus'></i>
+                            <i class='bi bi-plus'></i>
                           </a>
                         </div>
                       </div>
@@ -116,10 +116,10 @@
                                 
                                 <td class="text-end">
                                   <a href="edit_competizione.php?id_stagione=<?php echo $row['id_stagione'] ?>" class="text-decoration-none">
-                                    <i class='bx bx-pencil'></i>
+                                    <i class="bi bi-pencil"></i>
                                   </a>
                                   <a href="../query/action_delete_competizione.php?id_stagione=<?php echo $row['id_stagione']; ?>" class="text-decoration-none">
-                                    <i class='bx bx-trash text-danger'></i>
+                                    <i class='bi bi-trash text-danger'></i>
                                   </a>
                                 </td>
 

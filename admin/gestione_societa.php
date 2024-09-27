@@ -58,7 +58,7 @@
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
                           <a href="edit_societa.php?id=<?php echo $row['id']; ?>" type="button" class="btn btn-sm btn-outline-dark float-end ">
-                            <i class='bx bx-pencil'></i>
+                            <i class="bi bi-pencil"></i>
                           </a>
                         </div>
                       </div>

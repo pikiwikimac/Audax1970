@@ -51,7 +51,7 @@
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
                           <a type="button" class="btn btn-sm btn-outline-dark float-end"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModal">
-                            <i class='bx bx-plus '></i>
+                            <i class="bi bi-plus"></i>
                           </a>
                         </div>
                       </div>
@@ -123,20 +123,20 @@
                                   <!-- Inserisci foto -->
                                   <td>
                                     <a class="text-decoration-none text-dark" data-bs-toggle="modal" data-bs-target="#cameraModal" data-bs-image="<?php echo $row['image_path']?>">
-                                      <i class='bx bx-camera'></i>
+                                      <i class='bi bi-camera'></i>
                                     </a>
                                   </td>
                                   <td>
                                     <!-- Edit -->
                                     <a href="#" class="text-decoration-none text-dark" 
                                       onclick="showEditModal('<?php echo $row["id"]; ?>', '<?php echo $row["nome"]; ?>', '<?php echo $row["data_nascita"]; ?>', '<?php echo $row["ruolo"]; ?>','<?php echo $row["ordinamento"]; ?>', '<?php echo $row["documento"]; ?>')" data-bs-toggle="tooltip" data-bs-title="Modifica">
-                                      <i class='bx bx-pencil'></i>
+                                      <i class="bi bi-pencil"></i>
                                     </a>
                                   </td>
                                   <td>
                                     <!-- Delete -->
                                     <a class="text-decoration-none text-dark" onclick="confirmDelete('<?php echo $row["id"]; ?>')">
-                                      <i class='bx bx-trash'></i>
+                                      <i class='bi bi-trash'></i>
                                     </a>
                                   </td>
 

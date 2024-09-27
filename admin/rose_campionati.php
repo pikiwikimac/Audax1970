@@ -91,7 +91,7 @@
                         <div class="cta-wrapper">	
                           <?php if($_SESSION['superuser'] === 1 ){?>
                           <a href="insert_player.php" type="button" class="btn btn-sm btn-outline-dark float-end">
-                            <i class='bx bx-plus '></i>
+                            <i class="bi bi-plus"></i>
                           </a>
                           <?php } ?>
                           
@@ -122,7 +122,8 @@
                                 <th>Ruolo</th>
                                 <th class="text-center">Maglia</th>
                                 <th class="text-center">Piede</th>
-                                <th class="text-center"><i class='bx bx-football align-middle'></i></th>
+                                <th class="text-center"><img src="/image/icon/calcio.svg" alt="Gol">
+</th>
                                 <?php if($_SESSION['superuser'] === 1 ){ ?>
                                 <th class="text-center"></th>
                                 <th class="text-center"></th>
@@ -185,7 +186,7 @@
                                 <td class="text-center">
                                   <!-- Edit -->
                                   <a class="text-decoration-none" href="edit_player.php?id=<?php echo $row["id"]; ?>" >
-                                    <i class='bx bx-pencil text-dark ms-2'></i>
+                                    <i class='bi bi-pencil text-dark ms-2'></i>
                                   </a>
                                   
                                 </td> 
@@ -193,7 +194,7 @@
                                 <td class="text-center">
                                   <!-- Delete -->
                                   <a class="text-decoration-none" onclick="confirmDelete('<?php echo $row["id"]; ?>')">
-                                    <i class='bx bx-trash text-danger'></i>
+                                    <i class='bi bi-trash text-danger'></i>
                                   </a>
                                 </td>
                                 <?php } ?>

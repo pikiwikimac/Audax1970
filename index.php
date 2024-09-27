@@ -267,7 +267,7 @@ require_once('config/db.php');
     
     <!-- Articoli -->
 <div class="container my-5 px-4">
-  <h1 id="font_diverso">Articoli</h1>
+  <h1 class="bebas">Articoli</h1>
 
   <hr/>
 
@@ -375,7 +375,7 @@ require_once('config/db.php');
                         <img src="image/loghi/<?php echo $row2['logo_casa'] ?>" alt="<?php echo $row2['logo_casa'] ?>" class="img-fluid rounded-circle" width="70" height="70"/>
                       </div>
                       <div class="col-12">
-                        <span class="fw-bold fs-4" id="font_diverso"><?php echo $row2['casa'] ?></span>
+                        <span class="bebas fw-bold fs-4" id=""><?php echo $row2['casa'] ?></span>
                       </div>
                     
                     </div>
@@ -414,7 +414,7 @@ require_once('config/db.php');
                         <img src="image/loghi/<?php echo $row2['logo_ospite'] ?>" alt="<?php echo $row2['logo_ospite'] ?>" class="img-fluid rounded-circle" width="70" height="70"/>
                       </div>
                       <div class="col-12">
-                        <span class="fw-bold fs-4" id="font_diverso"><?php echo $row2['ospite'] ?></span>
+                        <span class="bebas fw-bold fs-4" id=""><?php echo $row2['ospite'] ?></span>
                       </div>
                     
                     </div>
@@ -461,7 +461,7 @@ require_once('config/db.php');
                         <img src="image/loghi/<?php echo $row['logo_casa'] ?>" alt="<?php echo $row['logo_casa'] ?>" class="img-fluid rounded-circle" width="70" height="70"/>
                       </div>
                       <div class="col-12">
-                        <span class="fw-bold fs-4" id="font_diverso"><?php echo $row['casa'] ?></span>
+                        <span class="bebas fw-bold fs-4" id=""><?php echo $row['casa'] ?></span>
                       </div>
                     </div>
                     
@@ -520,7 +520,7 @@ require_once('config/db.php');
                         <img src="image/loghi/<?php echo $row['logo_ospite'] ?>" alt="<?php echo $row['logo_ospite'] ?>" class="img-fluid rounded-circle" width="70" height="70"/>
                       </div>
                       <div class="col-12">
-                        <span class="fw-bold fs-4" id="font_diverso"><?php echo $row['ospite'] ?></span>
+                        <span class="bebas fw-bold fs-4" id=""><?php echo $row['ospite'] ?></span>
                       </div>
                     </div>
                   

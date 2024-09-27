@@ -92,11 +92,11 @@
                                     <td><?php if($row['superuser']===1){ echo 'Admin';}else{ echo 'Giocatore';}; ?></td>
                                     <td>
                                       <a href="../query/accettazione_user.php?id=<?php echo $row['id']; ?>" class="text-decoration-none">
-                                        <i class='bx bx-check text-success'></i>
+                                        <i class='bi bi-check text-success'></i>
                                       </a>
 
                                       <a href="../query/rifiuto_user.php?id=<?php echo $row['id']; ?>" class="text-decoration-none">
-                                        <i class='bx bx-x text-danger'></i>
+                                        <i class='bi bi-x text-danger'></i>
                                       </a>
                                     </td>
 
@@ -139,7 +139,7 @@
                                     <td><?php echo $user['email'] ?></td>
                                     <td class="text-end">
                                       <?php if($user['superuser']== 1){ ?>
-                                        <i class="bx bx-check text-success"></i>
+                                        <i class="bi bi-check text-success"></i>
                                       <?php } ?>
                                     </td>
 

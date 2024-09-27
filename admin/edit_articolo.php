@@ -71,10 +71,10 @@
                         <!-- Bottoni a destra -->
                         <div class="cta-wrapper">
                           <button class="btn btn-sm btn-outline-dark float-end" data-bs-toggle="offcanvas"   href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-                            <i class='bx bx-plus'></i>
+                            <i class='bi bi-plus'></i>
                           </button>	
                           <a type="button" href="articoli.php" class="btn btn-sm btn-outline-dark float-end me-2">
-                            <i class='bx bx-arrow-back'></i>
+                            <i class='bi bi-arrow-left'></i>
                           </a>
                         </div>
                       </div>
@@ -244,7 +244,7 @@
             <tr>
               <td><?php echo $int; ?></td>
               <!-- Aggiungi il listener per l'evento click all'icona del cestino -->
-              <td style="width:20px"><i class='bx bx-trash' onclick="deleteIntestazione('<?php echo $int['id']; ?>')"></i></td>
+              <td style="width:20px"><i class='bi bi-trash' onclick="deleteIntestazione('<?php echo $int['id']; ?>')"></i></td>
 
             </tr>
           <?php } ?>  
@@ -252,7 +252,7 @@
         </table>
 
         <a type="button" class="btn btn-sm btn-outline-dark float-end"  data-bs-toggle="modal" data-bs-title="Insert"  data-bs-target="#insertModal">
-          <i class='bx bx-plus '></i>
+          <i class="bi bi-plus"></i>
         </a> 
 
       </div>
@@ -270,40 +270,32 @@
       }
     </script>
 
+    
     <script>
-
-      // Mostra il toast di successo
-      function showSuccessToast() {
-        var toast = new bootstrap.Toast(document.getElementById('successToast'));
-        toast.show();
+      function deleteIntestazione(intestazioneID) {
+      // Conferma con l'utente prima di procedere con l'eliminazione
+      if (confirm("Sei sicuro di voler eliminare questa intestazione per gli articoli?")) {
+          // Invia una richiesta AJAX al server per eliminare il materiale
+          var xhr = new XMLHttpRequest();
+          xhr.open('POST', '../query/delete_intestazione.php', true);
+          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+          xhr.onreadystatechange = function() {
+              if (xhr.readyState === 4) {
+                  if (xhr.status === 200) {
+                      // Gestisci la risposta dal server, se necessario
+                      console.log(xhr.responseText);
+                      // Ricarica la pagina o aggiorna la tabella HTML, se necessario
+                      location.reload(); // Ricarica la pagina dopo l'eliminazione
+                  } else {
+                      console.error('Errore durante l\'eliminazione: ' + xhr.responseText);
+                  }
+              }
+          };
+          xhr.send('intestazioneID=' + encodeURIComponent(intestazioneID));
       }
-    </script>
-
-<script>
-    function deleteIntestazione(intestazioneID) {
-    // Conferma con l'utente prima di procedere con l'eliminazione
-    if (confirm("Sei sicuro di voler eliminare questa intestazione per gli articoli?")) {
-        // Invia una richiesta AJAX al server per eliminare il materiale
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', '../query/delete_intestazione.php', true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4) {
-                if (xhr.status === 200) {
-                    // Gestisci la risposta dal server, se necessario
-                    console.log(xhr.responseText);
-                    // Ricarica la pagina o aggiorna la tabella HTML, se necessario
-                    location.reload(); // Ricarica la pagina dopo l'eliminazione
-                } else {
-                    console.error('Errore durante l\'eliminazione: ' + xhr.responseText);
-                }
-            }
-        };
-        xhr.send('intestazioneID=' + encodeURIComponent(intestazioneID));
     }
-}
 
-  </script>
+    </script>
 
     
 
