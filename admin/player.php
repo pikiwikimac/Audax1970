@@ -234,27 +234,27 @@
                           </a>
 
                           <!-- Tuttocampo -->
-                          <a class="btn btn-sm btn-outline-dark me-2" href="https://www.google.com/search?q=<?php echo urlencode($row['nome'] . ' ' . $row['cognome'] . ' Tuttocampo'); ?>" target="_blank">
+                          <a class="btn btn-sm btn-outline-dark " href="https://www.google.com/search?q=<?php echo urlencode($row['nome'] . ' ' . $row['cognome'] . ' Tuttocampo'); ?>" target="_blank">
                             <img src="../image/loghi/favicon_tt.ico" class="rounded-circle" width="18px" height="18px" /> &nbsp;Tuttocampo
                           </a>
 
                           <!-- Capitano -->
                           <?php if($row['capitano'] != 'Giocatore' ){ ?>
-                            <span class="badge bg-danger text-light fw-bold p-2 me-2 fs-6" style="width:50px" >
+                            <span class="badge bg-danger text-light fw-bold p-2 fs-6" style="width:50px" >
                               &nbsp; <?php echo $row['capitano']  ?> &nbsp; 
                             </span>
                           <?php }?>
 
                           <!-- Maglia -->
                           <?php if($row['maglia'] != null ){ ?>
-                            <span class="badge bg-dark  text-light fw-bold p-2 me-2 fs-6" style="width:50px" >
+                            <span class="badge bg-dark  text-light fw-bold p-2 fs-6" style="width:50px" >
                               <?php echo $row['maglia']  ?>
                             </span>
                           <?php }?>
                           
                           <!-- Edit button -->    
                           <?php if($_SESSION['superuser'] === 1 ){?>      
-                            <a type="button" href="edit_player.php?id=<?php echo $id; ?>" class="btn btn-sm btn-outline-dark float-end" >
+                            <a type="button" href="edit_player.php?id=<?php echo $id; ?>" class="btn btn-sm btn-outline-dark " >
                               <i class="bi bi-pencil"></i>
                             </a>                             
                           <?php } ?>                             
@@ -266,11 +266,12 @@
                     <!-- Core della pagina -->
                     <div class="">
                       <!-- Visualizzazione a card -->
-                      <div class="row g-3">
-                        <div class="col-12 col-md-3 col-xxl-2  ">
+                      <div class="row mt-3" >
+                        <!-- Immagine -->
+                        <div class="col-12 col-md-8 col-lg-4 col-xxl-2">
                           <div class="row gy-3">
                             <!-- Foto -->
-                            <div class="col-12 col-sm-8 col-lg-12">
+                            <div class="col-12">
                               <?php if ($row['image_path']) { ?>
                                 <img src="../image/player/<?php echo $row['image_path'];?>" class="rounded img-fluid "  width="500" height="500" alt="<?php echo $row['cognome'].' '.$row['nome'];?>" data-player-name="<?php echo $row['cognome'].' '.$row['nome'];?>" />
                               <?php } else { ?>
@@ -279,12 +280,12 @@
                             </div>
                           </div>
                         </div>
-                        
-                        <div class="col-12 col-md-9 col-xxl-10  ">
+                        <!-- Info giocatore -->
+                        <div class="col-12 col-md-4 col-lg-8 col-xxl-10">
                           <div class="row">
                             <!-- Info Giocatore -->
-                            <div class="col-12 col-md-8 col-xxl-8 ">
-                              <div class="row gy-3 ">
+                            <div class="col-12 col-lg-8 col-xxl-10 ">
+                              <div class="row gy-3 mt-3 mt-lg-0">
                                 <!--  -->
                                 <div class="col-6 col-md-12">
                                   <label class="fw-bold text-muted">Squadra:</label>
@@ -407,17 +408,13 @@
                               </div>
                             </div>
                             <!-- % Presenza - Allenamenti -->
-                            <div class="col-12 col-md-4 col-xxl-2">
-                              <div class="row gy-3">
-                                <div class="col-12">
-                                  
-
-                                </div>
+                            <div class="col-12 col-lg-4 col-xxl-2">
+                              <div class="row mt-3 mt-lg-0">
 
                                 <?php if($row['nome_societa']==='Audax 1970'){?>
                                   <!-- Grafico -->
                                   <div class="col-12">
-                                    <div class="card" >
+                                    <div class="card " >
                                       <div class="card-header bg-dark text-white">
                                         % Presenze
                                       </div>
@@ -428,12 +425,12 @@
                                             <h6 class="my-auto text-nowrap">
                                               Allenamenti 
                                             </h6>
-                                            <span class="">
+                                            <small class="">
                                               <?php echo $tot_allenamenti_svolti_player['tot_player'] ?> 
-                                            </span>
-                                            <span class="text-muted">
+                                            </small>
+                                            <small class="text-muted">
                                               su <?php echo $tot_allenamenti_svolti['tot_allenamenti'] ?> totali
-                                            </span>
+                                            </small>
                                           </div>
                                           <div class="col-6">
                                             <canvas id="myChart"></canvas>
@@ -453,8 +450,7 @@
                                 <tr>
                                   <th class="">Competizione</th>
                                   <th class="text-center"><i class='bi bi-123 align-middle'></i></th>
-                                  <th class="text-center"><img src="/image/icon/calcio.svg" alt="Gol">
-</th>
+                                  <th class="text-center"><i class="bi bi-trophy"></i></th>
                                   <th class="text-center"><i class='bi bi-square-fill align-middle' style='color:#ffb900'  ></i></th>
                                   <th class="text-center"><i class='bi bi-square-fill align-middle' style='color:#FF0000'  ></i></th>
                                 </tr>
@@ -641,7 +637,6 @@
                         </div>
                       </div>
 
-                      
                     </div>
                   </div>
                 </div>

@@ -1,10 +1,22 @@
 <!-- Calendario partite per utente semplice -->
 <?php
-  session_start();
-  require_once('config/db.php');
-  include('admin/check_user_logged.php');  
-  $query = "SELECT DISTINCT CAST(giornata AS UNSIGNED) AS giornata_numero  FROM `partite` p WHERE p.id_stagione = 1 ORDER BY giornata_numero";
-  $result = mysqli_query($con, $query);
+    session_start();
+    require_once('config/db.php');
+    include('admin/check_user_logged.php'); 
+
+    $societa_id=$_REQUEST['id_squadra'];
+    $stagione_id=$_REQUEST['id_stagione'];
+
+    // Query per ottenere le informazioni sulla stagione
+    $query1 = "SELECT * FROM stagioni s WHERE s.id_stagione = ?";
+    $stmt = $con->prepare($query1);
+    $stmt->bind_param("i", $stagione_id);
+    $stmt->execute();
+    $info_stagione = $stmt->get_result();
+    $info = $info_stagione->fetch_assoc();
+  
+    $query = "SELECT DISTINCT CAST(giornata AS UNSIGNED) AS giornata_numero  FROM `partite` p WHERE p.id_stagione = $stagione_id ORDER BY giornata_numero";
+    $result = mysqli_query($con, $query);
 ?>
 
 
@@ -28,7 +40,7 @@
 
             <div class="row">
                 <div class="col-12">
-                    <h1 class="bebas">Calendario Serie A2 </h1>
+                    <h1 class="bebas"><?php echo $info['descrizione'] ?></h1>
                 </div>
             </div>
 
@@ -44,6 +56,8 @@
                 $query = "SELECT 
                             soc.nome_societa as casa, 
                             soc2.nome_societa as ospite, 
+                            soc.id as id_casa, 
+                            soc2.id as id_ospite, 
                             golCasa, 
                             golOspiti, 
                             CAST(giornata AS UNSIGNED) AS giornata_numero,
@@ -62,7 +76,7 @@
                         FROM `partite` s
                         LEFT JOIN societa soc on soc.id=s.squadraCasa
                         LEFT JOIN societa soc2 on soc2.id=s.squadraOspite
-                        WHERE s.id_stagione = 1
+                        WHERE s.id_stagione = '$stagione_id'
                         AND giornata = '$giornata_numero'
                         ORDER BY giornata_numero,s.data,ora_match, casa, ospite";
                 $campionato = mysqli_query($con, $query);
@@ -102,16 +116,24 @@
 
                                 <!-- Squadra casa -->
                                 <td class="align-middle">
-                                    <div class="<?= $row['casa'] === 'Audax 1970' ? 'fw-bold' : 'text-dark'?>">
-                                        <?php echo $row['casa'] ?>
-                                    </div>
+                                    <?php 
+                                        if (in_array($row['id_casa'], ['1', '3', '4', '6'])) { 
+                                            echo "<span class='fw-bold'>" .$row['casa'] . "</span>";
+                                        } else { 
+                                            echo "<span class='text-dark'>" .$row['casa'] . "</span>";
+                                        }
+                                    ?>
                                 </td>
 
                                 <!-- Squadra ospite -->
                                 <td class="align-middle">
-                                    <div class="<?= $row['ospite'] === 'Audax 1970' ? 'fw-bold' : 'text-dark'?>">
-                                        <?php echo $row['ospite'] ?>
-                                    </div>
+                                    <?php 
+                                        if (in_array($row['id_ospite'], ['1', '3', '4', '6'])) { 
+                                            echo "<span class='fw-bold'>" .$row['ospite'] . "</span>";
+                                        } else { 
+                                            echo "<span class='text-dark'>" .$row['ospite'] . "</span>";
+                                        }
+                                    ?>
                                 </td>
 
                                 <!-- Gol casa -->

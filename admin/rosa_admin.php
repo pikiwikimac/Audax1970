@@ -224,10 +224,6 @@ ORDER BY ruolo, cognome, nome ASC;
                           </a>
                           <?php } ?>
                           
-                          <button onclick="window.location.href='rose_campionati.php'" type="button" class="btn btn-sm btn-outline-dark me-2">
-                            Rose campionati
-                          </button>
-
                         </div>
                       </div>
                     </div>
@@ -262,7 +258,7 @@ ORDER BY ruolo, cognome, nome ASC;
                                 <th class="text-center">Piede</th>
                                 <th class="text-center">Allenamenti</th>
                                 <th class="text-center"><i class='bi bi-123 align-middle'></i></th>
-                                <th class="text-center"><img src="/image/icon/calcio.svg" alt="Gol">
+                                <th class="text-center"><img src="/image/icon/calcio.svg" alt="Gol" width="15" height="15" >
                                 </th>
                                 <th class="text-center"><i class='bi bi-square-fill align-middle' style='color:#ffb900'></i></th>
                                 <th class="text-center"><i class='bi bi-square-fill align-middle' style='color:#FF0000'></i></th>

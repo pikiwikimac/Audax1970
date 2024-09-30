@@ -120,8 +120,7 @@ ORDER BY
                                 <th>Campionato</th>
                                 <th>Anno</th>
                                 <th>Ruolo</th>
-                                <th class="text-center"><img src="/image/icon/calcio.svg" alt="Gol">
-</th>
+                                <th class="text-center"><img src="/image/icon/calcio.svg" alt="Gol" width="15" height="15"></th>
                                 <?php if($_SESSION['superuser'] === 1 ){ ?>
                                 <th class="text-center"></th>
                                 <th class="text-center"></th>

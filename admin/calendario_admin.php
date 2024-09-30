@@ -45,6 +45,7 @@ SELECT
   s.golOspiti,                               
   CAST(s.giornata AS UNSIGNED) AS giornata_,
   s.giornata,                                
+  s.id_stagione,                                
   s.id,                                      
   s.data,                                    
   s.played,                                  
@@ -167,6 +168,7 @@ $squadre_correlate = $stmt->get_result();
                               </a>
                             <?php } ?>
                             
+                            
                             <a href="calendario_admin.php?id_stagione=3&id_societa=1">
                               <span class="badge bg-secondary">
                                 Amichevoli
@@ -254,9 +256,9 @@ $squadre_correlate = $stmt->get_result();
                                       <div class="
                                         <?php 
                                           if (in_array($row['id_casa'], ['1', '3', '4', '6'])) { 
-                                              echo 'fw-bold'; 
+                                            echo 'fw-bold'; 
                                           } else { 
-                                              echo 'text-dark'; 
+                                            echo 'text-dark'; 
                                           }
                                           
                                           if ($row['risultato'] === '1') {
@@ -294,15 +296,15 @@ $squadre_correlate = $stmt->get_result();
                                           } else { 
                                             echo 'text-dark'; 
                                           }
-                                            
-                                          if ($row['risultato'] === '2') {
-                                            echo ' text-success'; 
+                                          
+                                          if ($row['risultato'] === '1') {
+                                            echo ' text-danger'; // Aggiunto uno spazio prima della classe per evitare concatenazione
                                           } elseif ($row['risultato'] === 'X') {
-                                            echo ' text-primary';
+                                              echo ' text-primary'; // Aggiunto uno spazio prima della classe per evitare concatenazione
                                           } elseif ($row['risultato'] === '2') {
-                                            echo ' text-danger'; 
+                                              echo ' text-success'; // Aggiunto uno spazio prima della classe per evitare concatenazione
                                           } else {
-                                            echo ' text-dark'; 
+                                              echo ' text-dark'; // Aggiunto uno spazio prima della classe per evitare concatenazione
                                           }
                                         ?>">
 
@@ -341,18 +343,17 @@ $squadre_correlate = $stmt->get_result();
                                   
                                   <!-- Bottoni modifica -->
                                   <td class="text-center d-print-none">
-                                  <a href="edit_risultato_massivo.php?id=<?php echo $row["id"]; ?>"
+                                  <a href="edit_risultato_massivo.php?id=<?php echo $row["id"]; ?>&id_stagione=<?php echo $_REQUEST["id_stagione"]; ?>&f=0"
                                       class="text-decoration-none text-dark"
                                       data-bs-toggle="tooltip"
                                       data-bs-title="Marcatori">
-                                      <img src="/image/icon/calcio.svg" alt="Gol">
-
+                                      <i class="bi bi-table"></i>
                                     </a>
                                   </td>
                                   
                                   <!-- Bottoni  -->
                                   <td class="text-center  d-print-none">
-                                    <a href="edit_presenza_convocazione.php?id=<?php echo $row["id"]; ?>"
+                                    <a href="edit_presenza_convocazione.php?id=<?php echo $row["id"]; ?>&id_stagione=<?php echo $_REQUEST["id_stagione"]; ?>&id_societa=<?php echo $_REQUEST["id_societa"]; ?>"
                                       class="text-decoration-none text-dark"
                                       data-bs-toggle="tooltip"
                                       data-bs-title="Convocazioni">

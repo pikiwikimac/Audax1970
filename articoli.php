@@ -64,9 +64,9 @@
               <a href="articolo.php?id=<?php echo $articolo['id'] ?>" class="text-decoration-none">
                 <div class="card mb-2">
                   <?php if($articolo['immagine_url']){ ?>
-                    <img src="image/articoli/<?php echo $articolo['immagine_url'] ?>" class="img-fluid card-img" alt="..." style="max-height:280px">
+                    <img src="image/articoli/<?php echo $articolo['immagine_url'] ?>" class="img-fluid card-img" alt="..." style="max-height:280px" >
                   <?php }else{ ?>
-                    <img src="image/lnd_a2.png" class="img-fluid card-img" alt="..." style="max-height:280px">
+                    <img src="image/lnd_a2.webp" class="img-fluid card-img" alt="..." style="max-height:280px">
                   <?php } ?>
                 </div>
                   

@@ -224,13 +224,13 @@
 
                                   <div class="row my-3 g-3">
                                     <!-- Visita medica -->
-                                    <div class="col-6 col-md-3 col-lg-2">
+                                    <div class="col-6 col-lg-2">
                                       <label for="visita_medica" class="form-label">Visita medica:</label>
                                       <input type="date" class="form-control" id="visita_medica" name="visita_medica" value="" />
                                     </div>
                                   
                                     <!-- Tipo contratto -->
-                                    <div class="col-6 col-md-3 col-lg-2 ">
+                                    <div class="col-6 col-lg-2 ">
                                       <label for="tipo_contratto" class="form-label">Tipo contratto:</label>
                                       <select class="form-select" aria-label="Default select example" name="tipo_contratto" id="tipo_contratto" >
                                         <option value="Proprietari">Proprietari</option>
@@ -239,31 +239,31 @@
                                     </div>
 
                                     <!-- Matricola tesseramento -->
-                                    <div class="col-6 col-md-3 col-lg-2">
+                                    <div class="col-6 col-lg-2">
                                       <label for="matricola" class="form-label">Matricola</label>
                                       <input type="text" class="form-control"  id="matricola" name="matricola" />
                                     </div>
 
                                     <!-- Data tesseramento -->
-                                    <div class="col-6 col-md-3 col-lg-2">
+                                    <div class="col-6 col-lg-2">
                                       <label for="data_tesseramento" class="form-label">Data tesseraemento</label>
                                       <input type="date"  class="form-control" id="data_tesseramento" name="data_tesseramento" />
                                     </div>
                                     
                                     <!-- Scadenza -->
-                                    <div class="col-6 col-md-3 col-lg-2">
+                                    <div class="col-6 col-lg-2">
                                       <label for="anno_scadenza_tesseramento" class="form-label">Anno scadenza</label>
                                       <input type="text"  class="form-control" id="anno_scadenza_tesseramento" name="anno_scadenza_tesseramento" />
                                     </div>
 
                                     <!-- Numero di maglia -->
-                                    <div class="col-3 col-md-2 col-lg">
+                                    <div class="col-3 col-lg">
                                       <label for="maglia" class="form-label">N:</label>
                                       <input typer="text" class="form-control" id="maglia" name="maglia"/>
                                     </div>
 
                                     <!-- Capitano -->
-                                    <div class="col-3 col-md-2 col-lg">
+                                    <div class="col-3 col-lg">
                                       <label for="capitano" class="form-label">Capitano:</label>
                                       <select class="form-select" aria-label="Default select example" name="capitano" id="capitano" >
                                         <option value="Giocatore">-</option>

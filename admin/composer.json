@@ -1,7 +1,0 @@
-{
-    "require": {
-        "google/apiclient": "2.0",
-        "telegram-bot/api": "*",
-        "phpmailer/phpmailer": "^6.5"
-    }
-}

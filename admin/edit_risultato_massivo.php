@@ -11,13 +11,19 @@
   $username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
   $image = isset($_SESSION['image']) ? $_SESSION['image'] : null; 
   $superuser=  $_SESSION['superuser'];
+  
   if ($superuser === 0) {
     header('Location: ../error_page/access_denied.php');
     exit;
   }
 
   
-  $id=  $_REQUEST['id'];
+  $id= $_REQUEST['id'];
+  $stagione_request= $_REQUEST['id_stagione'];
+
+  $flag_provenienza = $_REQUEST['f'];
+  $link_indietro = ($flag_provenienza == 0) ? 'calendario_admin.php?' : 'calendario_completo_admin.php?';
+  
 
   $query =
   "
@@ -124,7 +130,12 @@
                           <div class="cta-wrapper">	
                             <a type="button" class="btn btn-sm btn-outline-dark float-end me-2"  href="edit_risultato.php?id=<?php echo $partita["id"]; ?>">
                               Live
-                            </a>           
+                            </a>   
+                            
+                            <a href="<?php echo $link_indietro .'&id_stagione=' .$stagione_request .'&id_societa=' .$id_societa ?>" type="button" class="btn btn-sm btn-outline-dark float-end me-2">
+                              <i class='bi bi-arrow-left '></i>  Indietro
+                            </a>
+                                       
                           </div>
                         </div>
                       </div>
@@ -151,16 +162,13 @@
                             <table class="table table-sm table-hover table-striped table-rounded">
                               <caption> 
                                 <?php echo $count_gol_squadra_a_giornata['gol_totali_giornata'] ?> segnati su <?php echo $golCasa ?> totali  
-                                <a href="calendario_admin.php?id_stagione=<?php echo $stagione ?>&id_societa=<?php echo $id_societa ?>" class="text-decoration-none text-muted float-end">
-                                  <i class='bi bi-arrow-left '></i>  Indietro
-                                </a>
+                                
                               </caption>
                               <thead class="table-dark">
                                 <tr>
                                   <th>Cognome</th>
                                   <th>Nome</th>
-                                  <th class="text-center"><img src="/image/icon/calcio.svg" alt="Gol">
-</th>
+                                  <th class="text-center"><img src="/image/icon/calcio.svg" width="15" height="15" alt="Gol"></th>
                                   <th class="text-center"><i class='bi bi-square-fill align-middle' style='color:#ffb900'></i></th>
                                   <th class="text-center"><i class='bi bi-square-fill align-middle' style='color:#FF0000'></i></th>
                                 </tr>
@@ -190,7 +198,7 @@
                                         $count_gol_giornata = mysqli_fetch_assoc($result);
                                       ?>
 
-                                      <input value="<?php echo $count_gol_giornata['gol_fatti'] ;?>" class="form-control form-control-sm p-1" style="font-size:10px;width:40px" id="gol-<?php echo $row['id'] ?>" name="gol-<?php echo $row['id'] ?>"></input>
+                                      <input value="<?php echo $count_gol_giornata['gol_fatti'] ;?>" class="form-control form-control-sm p-1 text-center" style="font-size:10px;width:30px;border:none;background-color:transparent" id="gol-<?php echo $row['id'] ?>" name="gol-<?php echo $row['id'] ?>"></input>
                                       
                                       
                                   </td>
@@ -208,7 +216,7 @@
                                         $result = mysqli_query($con,$sql);
                                         $count_ammonito = mysqli_fetch_assoc($result);
                                       ?>
-                                      <input value="<?php echo $count_ammonito['ammoniti'] ;?>" class="form-control form-control-sm p-1" style="font-size:10px;width:40px" id="giallo-<?php echo $row['id'] ?>" name="giallo-<?php echo $row['id'] ?>"></input>
+                                      <input value="<?php echo $count_ammonito['ammoniti'] ;?>" class="form-control form-control-sm p-1 text-center" style="font-size:10px;width:30px;border:none;background-color:transparent" id="giallo-<?php echo $row['id'] ?>" name="giallo-<?php echo $row['id'] ?>"></input>
 
                                       
                                     
@@ -227,7 +235,7 @@
                                       $result = mysqli_query($con,$sql);
                                       $count_rossi = mysqli_fetch_assoc($result);
                                     ?>
-                                    <input value="<?php echo $count_rossi['rossi'] ;?>" class="form-control form-control-sm p-1" style="font-size:10px;width:40px" id="rosso-<?php echo $row['id'] ?>" name="rosso-<?php echo $row['id'] ?>"></input>
+                                    <input value="<?php echo $count_rossi['rossi'] ;?>" class="form-control form-control-sm p-1 text-center" style="font-size:10px;width:30px;border:none;background-color:transparent" id="rosso-<?php echo $row['id'] ?>" name="rosso-<?php echo $row['id'] ?>"></input>
                                     
                                     
                                     
@@ -260,16 +268,13 @@
                             <table class="table table-sm table-hover table-striped table-rounded">
                               <caption> 
                                 <?php echo $count_gol_squadra_b_giornata['gol_totali_giornata'] ?> segnati su <?php echo $golOspiti ?> totali  
-                                <a href="calendario_admin.php?id_stagione=<?php echo $stagione ?>&id_societa=<?php echo $id_societa ?>" class="text-decoration-none text-muted float-end">
-                                  <i class='bi bi-arrow-left '></i>  Indietro
-                                </a>
+                                
                               </caption>
                               <thead class="table-dark">
                                 <tr>
                                   <th>Cognome</th>
                                   <th>Nome</th>
-                                  <th class="text-center"><img src="/image/icon/calcio.svg" alt="Gol">
-</th>
+                                  <th class="text-center"><img src="/image/icon/calcio.svg" width="15" height="15" alt="Gol"></th>
                                   <th class="text-center"><i class='bi bi-square-fill align-middle' style='color:#ffb900'></i></th>
                                   <th class="text-center"><i class='bi bi-square-fill align-middle' style='color:#FF0000'></i></th>
                                 </tr>
@@ -297,7 +302,7 @@
                                       $result = mysqli_query($con,$sql);
                                       $count_gol_giornata = mysqli_fetch_assoc($result);
                                     ?>
-                                    <input value="<?php echo $count_gol_giornata['gol_fatti'] ;?>" class="form-control form-control-sm" style="font-size:10px;width:40px" id="golF-<?php echo $row2['id'] ?>" name="golF-<?php echo $row2['id'] ?>"></input>
+                                    <input value="<?php echo $count_gol_giornata['gol_fatti'] ;?>" class="form-control form-control-sm p-1 text-center" style="font-size:10px;width:30px;border:none;background-color:transparent" id="golF-<?php echo $row2['id'] ?>" name="golF-<?php echo $row2['id'] ?>"></input>
                                     
                                     
 
@@ -316,7 +321,7 @@
                                         $result = mysqli_query($con,$sql);
                                         $count_ammonito = mysqli_fetch_assoc($result);
                                       ?>
-                                      <input value="<?php echo $count_ammonito['ammoniti'] ;?>" class="form-control form-control-sm" style="font-size:10px;width:40px" id="gialloF-<?php echo $row2['id'] ?>" name="gialloF-<?php echo $row2['id'] ?>"></input>
+                                      <input value="<?php echo $count_ammonito['ammoniti'] ;?>" class="form-control form-control-sm p-1 text-center" style="font-size:10px;width:30px;border:none;background-color:transparent" id="gialloF-<?php echo $row2['id'] ?>" name="gialloF-<?php echo $row2['id'] ?>"></input>
                                       
                                   </td>
                                   <!-- Cartellino rosso -->
@@ -334,7 +339,7 @@
                                       $count_rossi = mysqli_fetch_assoc($result);
                                     ?>
                                     
-                                    <input value="<?php echo $count_rossi['rossi'] ;?>" class="form-control form-control-sm" style="font-size:10px;width:40px" id="rossoF-<?php echo $row2['id'] ?>" name="rossoF-<?php echo $row2['id'] ?>"></input>
+                                    <input value="<?php echo $count_rossi['rossi'] ;?>" class="form-control form-control-sm p-1 text-center" style="font-size:10px;width:30px;border:none;background-color:transparent" id="rossoF-<?php echo $row2['id'] ?>" name="rossoF-<?php echo $row2['id'] ?>"></input>
                                     
                                       
                                   

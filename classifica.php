@@ -1,14 +1,15 @@
 <!-- Calendario partite per utente semplice -->
 <?php
-  session_start();
-  require_once('config/db.php');
+    session_start();
+    require_once('config/db.php');
+    $nome_vista=$_REQUEST['view'];
+    $nome_squadra=$_REQUEST['squadra'];
+    
+    $query = " SELECT * FROM vista_classifica_" .$nome_vista;
 
-  $query = "
-  SELECT * FROM vista_classifica_A2_2024_2025
-  ";
+    $classifica = mysqli_query($con,$query);
+    $posizione=1;
 
-  $classifica = mysqli_query($con,$query);
-  $posizione=1;
 ?>
 
 
@@ -33,7 +34,7 @@
 
             <div class="row">
                 <div class="col-12">
-                    <h1 class="bebas">Classifica Serie A2</h1>
+                    <h1 class="bebas">Classifica <?php echo $nome_squadra ?></h1>
                 </div>
             </div>
 
@@ -42,7 +43,7 @@
             <div class="row">
 
                 <div class="col-12 table-responsive">
-                    <table class="table table-striped table-hover table-rounded bebas" style="font-size:18px;">
+                    <table class="table table-striped table-hover table-rounded " style="font-size:18px;">
                         <thead class="table-dark ">
                             <tr>
                             <th style="width:3%"></th>
@@ -73,10 +74,10 @@
                                 } elseif ($posizione >= 2 && $posizione <= 5) {
                                 $rowClass = 'bg-primary';
                                 $tooltip = 'Playoff';
-                                } elseif ($posizione >= 8 && $posizione <= 9) {
+                                } elseif ($posizione >= 8 && $posizione <= 9 && $nome_vista=='A2_2024_2025') {
                                 $rowClass = 'bg-orange';
                                 $tooltip = 'Playout';
-                                } elseif ($posizione > mysqli_num_rows($classifica) - 2) {
+                                } elseif ($posizione > mysqli_num_rows($classifica) - 2 && $nome_vista=='A2_2024_2025') {
                                 $rowClass = 'bg-danger';
                                 $tooltip = 'Retrocessione';
                                 }

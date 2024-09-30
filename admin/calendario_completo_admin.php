@@ -20,7 +20,7 @@
   $societa_id = $_REQUEST['id_societa'];
 
   $query = "
-  SELECT soc.nome_societa as casa, soc2.nome_societa as ospite, s.golCasa,s.golOspiti,s.giornata,s.id,s.data,s.played,soc.ora_match
+  SELECT soc.nome_societa as casa, soc2.nome_societa as ospite, s.golCasa,s.golOspiti,s.giornata,s.id,s.data,s.played,soc.ora_match,s.id_stagione
   FROM `partite` s
   INNER JOIN societa soc on soc.id=s.squadraCasa
   INNER JOIN societa soc2 on soc2.id=s.squadraOspite
@@ -192,11 +192,11 @@
                                     
                                     <!-- Bottoni modifica -->
                                     <td class="text-center d-print-none" style="width:4%">
-                                    <a href="edit_risultato_massivo.php?id=<?php echo $row["id"]; ?>"
+                                    <a href="edit_risultato_massivo.php?id=<?php echo $row["id"]; ?>&id_stagione=<?php echo $_REQUEST["id_stagione"]; ?>&f=1"
                                         class="text-decoration-none text-dark"
                                         data-bs-toggle="tooltip"
                                         data-bs-title="Marcatori">
-                                        <img src="/image/icon/calcio.svg" alt="Gol">
+                                        <i class="bi bi-table"></i>
 
                                       </a>
                                     </td>
@@ -216,7 +216,7 @@
                                         data-bs-toggle="tooltip"
                                         data-bs-title="Elimina"
                                         onclick="confirmDelete('<?php echo $row["id"]; ?>')">
-                                        <i class='bi bi-trash text-danger' ></i>
+                                        <i class='bi bi-trash text-danger'></i>
                                       </a>
                                     </td>
 
@@ -342,7 +342,7 @@
                                   
                                   <!-- Bottoni  -->
                                   <td class="text-center ">
-                                    <a href="edit_presenza_convocazione.php?id=<?php echo $row["id"]; ?>"
+                                    <a href="edit_presenza_convocazione.php?id=<?php echo $row["id"]; ?>&id_stagione=<?php echo $row["id_stagione"]; ?>"
                                       class="text-decoration-none text-dark"
                                       data-bs-toggle="tooltip"
                                       data-bs-title="Convocazioni">

@@ -57,8 +57,8 @@
           </a>
           <ul class="dropdown-menu" >
             <li><a class="dropdown-item" href="squadra.php?id_squadra=1" id="rosa" name="rosa">Rosa</a></li>
-            <li><a class="dropdown-item" href="calendario.php" id="calendario" name="calendario">Calendario</a></li>
-            <li><a class="dropdown-item" href="classifica.php" id="classifica" name="classifica">Classifica</a></li>
+            <li><a class="dropdown-item" href="calendario.php?id_squadra=1&id_stagione=1" id="calendario" name="calendario">Calendario</a></li>
+            <li><a class="dropdown-item" href="classifica.php?view=A2_2024_2025" id="classifica" name="classifica">Classifica</a></li>
           </ul>
         </li>
         <!--  -->
@@ -69,24 +69,24 @@
               <a class="dropdown-item dropdown-toggle" href="#">Under 19</a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="squadra.php?id_squadra=3">Rosa</a></li>
-                <li><a class="dropdown-item" href="#">Calendario</a></li>
-                <li><a class="dropdown-item" href="#">Classifica</a></li>
+                <li><a class="dropdown-item" href="calendario.php?id_squadra=3&id_stagione=6">Calendario</a></li>
+                <li><a class="dropdown-item" href="classifica.php?view=U19_2024_2025&squadra=U19">Classifica</a></li>
               </ul>
             </li>
             <li class="dropdown-submenu">
               <a class="dropdown-item dropdown-toggle" href="#">Under 17</a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="squadra.php?id_squadra=4">Rosa</a></li>
-                <li><a class="dropdown-item" href="#">Calendario</a></li>
-                <li><a class="dropdown-item" href="#">Classifica</a></li>
+                <li><a class="dropdown-item" href="calendario.php?id_squadra=4&id_stagione=7">Calendario</a></li>
+                <li><a class="dropdown-item" href="classifica.php?view=U17_2024_2025&squadra=U17">Classifica</a></li>
               </ul>
             </li>
             <li class="dropdown-submenu">
               <a class="dropdown-item dropdown-toggle" href="#">Under 15</a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="squadra.php?id_squadra=6">Rosa</a></li>
-                <li><a class="dropdown-item" href="#">Calendario</a></li>
-                <li><a class="dropdown-item" href="#">Classifica</a></li>
+                <li><a class="dropdown-item" href="calendario.php?id_squadra=6&id_stagione=8">Calendario</a></li>
+                <li><a class="dropdown-item" href="classifica.php?view=U15_2024_2025&squadra=U15">Classifica</a></li>
               </ul>
             </li>
           </ul>

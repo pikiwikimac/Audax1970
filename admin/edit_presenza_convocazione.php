@@ -5,28 +5,28 @@
     header('Location: ../login/login.php');
     exit;
   }
-
-
-  
   require_once('../config/db.php');
-
-  $username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
-  $image = isset($_SESSION['image']) ? $_SESSION['image'] : null; 
-  $superuser=  $_SESSION['superuser'];
-  $id_societa=  $_SESSION['id_societa_riferimento'];
   
   if ($superuser === 0) {
     header('Location: ../error_page/access_denied.php');
     exit;
   }
 
-  $id=  $_REQUEST['id'];
+  $username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
+  $image = isset($_SESSION['image']) ? $_SESSION['image'] : null; 
+  $superuser=  $_SESSION['superuser'];
+
+  $id_societa_user =  $_SESSION['id_societa_riferimento'];
+  $id_partita =  $_REQUEST['id'];
+  $stagione_request =  intval($_REQUEST['id_stagione']);
+  $societa_request =  $_REQUEST['id_societa'];
+
 
   $query="
   SELECT *
   FROM giocatori g
   INNER JOIN affiliazioni_giocatori ag on ag.id_giocatore=g.id
-  WHERE ag.id_societa = '$id_societa'
+  WHERE ag.id_societa = '$societa_request'
   AND ag.data_fine is NULL
   ORDER BY g.ruolo,g.cognome,g.nome
   ";
@@ -35,7 +35,7 @@
 
   // Ottenere l'elenco dei giocatori registrati per quell'allenamento dal database
   
-  $query = "SELECT id_giocatore FROM convocazioni WHERE id_partita = $id";
+  $query = "SELECT id_giocatore FROM convocazioni WHERE id_partita = $id_partita";
   $result = mysqli_query($con, $query);
 
   // Creare un array vuoto per memorizzare gli ID dei giocatori selezionati
@@ -52,7 +52,7 @@
   FROM `partite` s
   INNER JOIN societa soc on soc.id=s.squadraCasa
   INNER JOIN societa soc2 on soc2.id=s.squadraOspite
-  WHERE s.id='$id'
+  WHERE s.id='$id_partita'
   ";
 
   $result = mysqli_query($con,$query2);
@@ -67,7 +67,7 @@
   SELECT g.*
   FROM giocatori g
   INNER JOIN affiliazioni_giocatori ag on ag.id_giocatore=g.id
-  WHERE ag.id_societa = '$id_societa'
+  WHERE ag.id_societa = '$societa_request'
   AND ag.data_fine is NULL
   AND g.id not in (SELECT i.id
                     FROM indisponibili i
@@ -85,7 +85,7 @@
   SELECT count(*) as numero_giocatori
   FROM giocatori g
   INNER JOIN affiliazioni_giocatori ag on ag.id_giocatore=g.id
-  WHERE ag.id_societa = '$id_societa'
+  WHERE ag.id_societa = '$societa_request'
   AND ag.data_fine is NULL
   AND g.id not in (SELECT i.id
                     FROM indisponibili i
@@ -124,6 +124,12 @@
                         <h4>
                           Convocazione
                         </h4>
+                        <!-- Bottoni a destra -->
+                        <div class="cta-wrapper">	
+                          <a type="button" href="calendario_admin.php?id_stagione=<?php echo $stagione_request ?>&id_societa=<?php echo $societa_request ?>" class="btn btn-sm btn-outline-dark float-end me-2">
+                            <i class='bi bi-arrow-left'></i>
+                          </a>           
+                        </div>
                       </div>
                     </div>
                     <!-- END:Intestazione -->
@@ -140,9 +146,9 @@
 
                     <!-- Core della pagina -->
                     <div class="">
-                      <div class="row mt-3 gy-3">
+                      <div class="row mt-1 gy-3">
                         <div class="col-12 col-lg-3">
-                          <form action="../query/action_insert_convocati.php?id=<?php echo $id; ?>" method="POST">
+                          <form action="../query/action_insert_convocati.php?id=<?php echo $id_partita; ?>" method="POST">
                             <!-- Card convocabili -->
                             <div class="card">
 
@@ -203,11 +209,11 @@
                           
 
                       <!-- Luogo, Giorno e Dirigenza -->
-                      <div class="col-12 col-lg-7" id="info-match" name="info-match" >
+                      <div class="col-12 col-lg-9" id="info-match" name="info-match" >
                         <form action="genera_pdf.php?id=<?php echo $partita['id'] ?>" method="POST">
                           <div class="card mb-3">
                             <div class="card-header bg-dark">
-                              <h4 class="text-white">Info partita</h4>
+                              <h6 class="text-white">Info partita</h6>
                             </div>
                             <div class="card-body">
                               
@@ -455,7 +461,7 @@
 
     <script>
       function inviaTelegram() {
-          var id = "<?php echo $id ?>";
+          var id = "<?php echo $id_partita ?>";
           var luogo_convocazione = document.getElementById('luogo_convocazione').value;
           var orario_convocazione = document.getElementById('orario_convocazione').value;
           

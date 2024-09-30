@@ -185,13 +185,13 @@
                                                 <div class="card equal-height-card" style="min-height:12rem;">
                                                     <div class="card-header bg-dark text-light">  
                                                         <?php if (!empty($row2["id"])) : ?>
-                                                            <img src="/image/icon/calcio.svg" alt="Gol">
+                                                            <i class="bi bi-trophy"></i>
                                                             <?php echo $row2["descrizione"] .' - Giornata ' .$row2["giornata"] .'°' ?>
                                                             <a class="text-decoration-none text-light float-end " href="edit_presenza_convocazione.php?id=<?php echo $row2["id"]; ?>" >
                                                                 <i class='bi bi-arrow-right align-middle' ></i>
                                                             </a>
                                                         <?php else : ?>
-                                                            <span class=""><i class="bx bx-football align-middle"></i> Prossimo match</span>
+                                                            <span class=""><i class="bi bi-trophy"></i> Prossimo match</span>
                                                         <?php endif; ?>
                                                     </div>
                                                                 

@@ -1,6 +1,7 @@
 {
     "require": {
-        "phpmailer/phpmailer": "^6.5",
-        "telegram-bot/api": "^2.5"
+        "google/apiclient": "2.0",
+        "telegram-bot/api": "*",
+        "phpmailer/phpmailer": "^6.5"
     }
 }

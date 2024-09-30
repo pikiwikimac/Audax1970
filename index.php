@@ -284,16 +284,16 @@ require_once('config/db.php');
                 src="image/articoli/<?php echo htmlspecialchars($articolo['immagine_url']); ?>" 
                 class="img-fluid card-img" 
                 alt="<?php echo htmlspecialchars($articolo['titolo']); ?>" 
-                style="max-height:280px"
+                style="max-height:280px;width:auto"
                 
               >
             <?php } else { ?>
               <img 
-                src="image/lnd_a2.png" 
+                src="image/lnd_a2.webp" 
                 class="img-fluid card-img" 
                 alt="Immagine predefinita" 
-                style="max-height:280px"
-                
+                style="max-height:280px;width:auto"
+
               >
             <?php } ?>
           </div>
@@ -351,18 +351,20 @@ require_once('config/db.php');
             <div class="card h-100 card-wrapper bebas">
                
               <div class="card-header bg-dark text-light">
-                Giornata <?php echo $row2['giornata'] ?>° 
-                <span class="float-end">
-                  <?php echo $row2['descrizione'] ?>
-                </span>
+                <?php echo $row2['descrizione'] ?>
+                <?php if ($row2['giornata'] < 900){ ?> 
+                  <span class="float-end">
+                    Giornata <?php echo $row2['giornata'] ?>° 
+                  </span>
+                <?php } ?>
               </div>
              
 
-              <div class="card-body mt-3 card-content">
+              <div class="card-body card-content">
                 <!-- Luogo partita prossimo match-->
                 <div class="row ">
                   <div class="col-12 text-center">
-                    <span class="text-muted" id="luogo_match"><?php echo $row2['sede'] .' - ' .$row2['citta']?></span>
+                    <small class="text-muted" id="luogo_match"><?php echo $row2['sede'] .' - ' .$row2['citta']?></small>
                   </div>
                 </div>
 
@@ -437,18 +439,20 @@ require_once('config/db.php');
             <div class="card h-100 card-wrapper bebas">
 
               <div class="card-header bg-dark text-light">
-                Giornata <?php echo $row['giornata'] ?>° 
-                <span class="float-end">
-                  <?php echo $row['descrizione'] ?>
-                </span>
+                <?php echo $row['descrizione'] ?>
+                <?php if ($row['giornata'] < 900){ ?> 
+                  <span class="float-end">
+                    Giornata <?php echo $row['giornata'] ?>° 
+                  </span>
+                <?php } ?>
               </div>
 
-              <div class="card-body mt-3 card-content">
+              <div class="card-body card-content">
                 <!-- Luogo partita -->
                 <div class="row ">
                   <div class="col-12 text-center">
                     <div class="text-center" id="luogo_match">
-                      <span class="text-muted"><?php echo $row['sede'] .' - '  .$row['citta'] ?></span>
+                      <small class="text-muted"><?php echo $row['sede'] .' - '  .$row['citta'] ?></small>
                     </div>
                   </div>
                 </div>
@@ -499,7 +503,7 @@ require_once('config/db.php');
                       <div class="col-12">
                         <small class="text-muted">
                           <?php 
-                            if (isset($row2['data'], $row2['orario_partita'])) {
+                            if (isset($row['data'], $row['orario_partita'])) {
                               $formatted_date = date("d/m/y", strtotime($row['data']));
                               $formatted_time = date('H:i', strtotime($row['orario_partita']));
                             } else {
@@ -529,17 +533,17 @@ require_once('config/db.php');
                         <?php while ($marcatore = mysqli_fetch_assoc($marcatori_ospite_ultima_partita)) { ?>
                           <div class="row altezza_ridotta">
                             <div class="col-9">
-                              <span class="text-muted" id="marcatore">
+                              <small class="text-muted" id="marcatore">
                                 <span class="d-none d-md-block"><?php echo $marcatore['cognome'] .' '.$marcatore['nome']?></span>
                                 <span class="d-block d-md-none"><?php echo $marcatore['cognome'] .' '.mb_substr($marcatore['nome'], 0, 1) .'.' ?></span>
-                              </span>
+                              </small>
                             </div>
                             <div class="col-3">
                               <span class="text-muted text-end text-nowrap" id="gol_segnati">
                                 <?php if($marcatore['gol_fatti'] > 1) { ?>
-                                  <i class='bx bx-football align-middle'></i> x <?php echo $marcatore['gol_fatti'] ?>
+                                  <i class='bx bx-football align-middle' ></i> x <?php echo $marcatore['gol_fatti'] ?>
                                 <?php } else { ?>
-                                  <i class='bx bx-football align-middle'></i>
+                                  <i class='bx bx-football align-middle' ></i>
                                 <?php } ?>
                               </span>
                             </div>

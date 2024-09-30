@@ -54,7 +54,7 @@
         </div>
 
         <div class="col-12 col-lg-4">
-          <img src="image/chisiamo.jpg" class="w-100 rounded  p-3"/>
+          <img src="image/chisiamo.webp" class="w-100 rounded  p-3" alt="Foto di squadra"/>
         </div>
       </div>
 

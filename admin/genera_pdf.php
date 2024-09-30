@@ -101,7 +101,7 @@ $pdf->AddPage();
 $pdf->Image('../image/loghi/logo.png', 10, 10, 30);
 
 // Aggiungi logo in alto a destra
-$pdf->Image('../image/lnd_a2.png', $pdf->GetPageWidth()-40, 10, 30);
+$pdf->Image('../image/lnd_a2.webp', $pdf->GetPageWidth()-40, 10, 30);
 
 // Intestazione Società
 $pdf->SetFont('Helvetica', 'B', 16);
