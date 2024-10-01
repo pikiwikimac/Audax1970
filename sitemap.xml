@@ -8,933 +8,2503 @@
 
 
 <url>
-  <loc>https://audax1970.it/</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/index.php</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/index.php</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/squadra.php?id_squadra=1</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/squadra.php?id_squadra=1</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/calendario.php</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/calendario.php?id_squadra=1&amp;id_stagione=1</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/classifica.php</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/classifica.php?view=A2_2024_2025</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/squadra.php?id_squadra=3</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/squadra.php?id_squadra=3</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/squadra.php?id_squadra=4</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/calendario.php?id_squadra=3&amp;id_stagione=6</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/squadra.php?id_squadra=6</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/classifica.php?view=U19_2024_2025&amp;squadra=U19</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/organigramma.php</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/squadra.php?id_squadra=4</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/chisiamo.php</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/calendario.php?id_squadra=4&amp;id_stagione=7</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/sponsor.php</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/classifica.php?view=U17_2024_2025&amp;squadra=U17</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articoli.php</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/squadra.php?id_squadra=6</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/login/login.php</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/calendario.php?id_squadra=6&amp;id_stagione=8</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=45</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/classifica.php?view=U15_2024_2025&amp;squadra=U15</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=44</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/organigramma.php</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=43</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/chisiamo.php</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=42</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/sponsor.php</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=5</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/articoli.php</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/login/login.php</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/giocatore.php?id=1</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/articolo.php?id=81</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/giocatore.php?id=19</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/articolo.php?id=80</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/giocatore.php?id=13</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/articolo.php?id=79</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/giocatore.php?id=5</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/articolo.php?id=78</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/giocatore.php?id=12</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=5</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/giocatore.php?id=3</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=626</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/giocatore.php?id=7</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/giocatore.php?id=1</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/giocatore.php?id=10</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/giocatore.php?id=19</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/giocatore.php?id=20</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/giocatore.php?id=13</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/giocatore.php?id=16</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/giocatore.php?id=5</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/giocatore.php?id=6</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/giocatore.php?id=12</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/giocatore.php?id=8</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/giocatore.php?id=3</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/giocatore.php?id=9</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/giocatore.php?id=10</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/giocatore.php?id=18</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/giocatore.php?id=20</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/giocatore.php?id=11</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/giocatore.php?id=6</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/giocatore.php?id=4</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/giocatore.php?id=7</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/giocatore.php?id=17</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/giocatore.php?id=8</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/team.php?id=16</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/giocatore.php?id=9</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/team.php?id=18</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/giocatore.php?id=18</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/team.php?id=1</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/giocatore.php?id=11</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/team.php?id=9</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/giocatore.php?id=4</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/team.php?id=19</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/giocatore.php?id=17</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/team.php?id=20</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/team.php?id=16</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/team.php?id=5</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/team.php?id=18</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/team.php?id=13</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/team.php?id=1</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/team.php?id=21</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/team.php?id=9</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/team.php?id=23</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/team.php?id=20</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/team.php?id=22</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/team.php?id=5</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=6</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/team.php?id=19</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/team.php?id=13</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/team.php?id=21</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/team.php?id=23</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/team.php?id=22</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=6</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=9</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=8</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=7</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=11</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=13</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=10</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=14</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=12</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=15</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=16</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=18</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=17</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=19</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=21</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=23</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=20</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=24</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=22</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=43</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=44</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=45</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=25</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=46</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=48</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=26</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=47</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=50</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=49</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=51</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=27</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=52</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=53</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=54</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=55</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=28</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=58</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=56</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=57</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=61</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=59</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=60</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=29</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=62</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=30</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=66</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=65</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=63</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=64</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=68</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=69</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=67</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=31</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=70</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=32</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=74</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=73</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=72</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=75</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=33</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=78</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=76</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=77</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=79</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=82</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=83</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=80</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=34</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=81</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=84</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=87</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=85</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=86</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=37</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=90</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=88</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=112</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=91</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=89</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=102</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=38</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=113</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=103</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=92</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=94</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=96</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=95</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=93</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=39</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=40</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=99</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=100</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=98</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=97</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=105</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=41</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=104</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=107</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=106</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=42</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=109</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=108</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=111</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=110</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=472</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=473</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=471</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=475</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=470</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=474</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=476</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=480</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=477</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=478</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=479</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=481</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=484</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=485</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=483</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=487</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=482</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=486</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=488</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=491</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=489</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=490</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=492</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=493</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=497</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=494</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=496</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=499</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=495</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=498</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=502</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=503</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=501</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=500</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=505</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=504</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=506</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=509</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=507</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=508</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=511</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=510</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=514</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=515</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=513</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=516</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=512</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=517</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=518</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=520</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=519</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=521</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=523</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=522</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=526</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=527</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=525</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=528</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=524</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=529</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=530</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=533</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=531</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=532</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=534</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=535</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=538</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=540</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=537</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=541</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=536</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=539</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=542</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=543</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=544</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=545</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=546</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=547</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=552</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=553</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=551</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=548</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=549</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=550</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=558</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=554</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=556</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=555</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=559</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=557</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=565</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=560</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=564</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=563</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=562</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=561</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=571</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=567</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=566</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=569</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=568</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=570</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=575</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=574</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=573</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=576</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=572</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=577</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=582</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=581</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=583</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=578</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=580</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=579</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=584</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=589</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=587</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=588</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=585</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=586</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=591</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=593</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=595</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=590</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=592</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=594</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=597</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=601</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=598</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=599</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=600</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=596</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=603</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=606</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=607</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=604</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=605</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=602</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=613</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=608</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=612</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=610</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=609</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=611</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=616</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=619</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=617</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=618</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=614</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=615</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=625</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=621</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=622</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=620</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=623</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=624</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=317</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=316</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=318</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=314</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=319</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=315</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=320</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=321</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=323</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=324</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=322</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=325</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=330</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=328</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=329</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=326</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=331</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=327</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=332</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=334</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=336</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=335</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=333</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=337</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=342</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=338</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=340</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=341</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=343</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=339</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=346</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=348</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=347</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=344</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=345</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=349</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=350</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=351</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=353</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=354</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=355</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=352</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=359</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=360</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=358</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=356</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=357</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=361</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=362</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.audax1970.it/show_partita.php?id=363</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=9</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=365</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=8</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=366</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=7</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=367</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=11</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=364</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=13</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=372</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=10</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=371</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=14</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=373</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=12</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=370</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=15</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=368</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=16</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=369</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=18</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=374</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=17</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=375</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=19</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=376</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=21</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=377</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=23</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=378</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=20</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=379</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=24</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=384</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=22</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=383</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=43</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=385</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=44</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=382</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=45</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=380</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=25</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=381</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=46</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=386</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=48</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=387</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=26</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=389</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=47</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=390</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=50</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=388</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=49</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=391</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=51</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=393</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=27</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=397</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=52</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=394</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=53</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=396</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=54</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=392</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=55</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=395</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=28</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=400</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=58</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=403</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=56</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=399</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=57</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=402</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=61</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=398</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=59</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=401</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=60</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=407</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=29</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=409</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=62</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=404</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=30</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=408</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=66</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=406</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=65</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=405</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=63</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=414</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=64</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=410</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=68</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=413</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=69</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=412</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=67</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=415</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=31</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=411</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=70</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=416</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=32</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=418</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=74</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=417</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=73</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=420</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=72</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=421</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=75</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=419</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=33</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=424</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=78</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=427</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=76</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=422</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=77</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=423</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=79</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=425</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=82</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=426</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=83</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=431</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=80</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=433</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=34</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=432</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=81</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=430</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=84</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=429</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=87</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=428</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=85</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=435</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=86</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=436</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=37</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=439</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=90</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=438</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=88</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=434</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=112</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=437</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=91</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=445</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=89</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=442</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=102</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=441</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=38</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=440</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=113</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=444</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=103</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=443</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=92</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=451</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=94</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=446</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=96</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=448</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=95</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=450</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=93</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=449</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=39</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=447</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=40</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=453</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=99</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=455</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=100</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=454</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=98</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=457</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=97</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=452</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=105</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=456</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=41</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=462</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=104</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=461</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=107</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=458</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=106</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=459</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=42</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=460</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=109</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=463</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=108</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=467</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=111</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=464</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/show_partita.php?id=110</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=466</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=41</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=469</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=40</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=468</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=39</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=465</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=38</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=116</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=37</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=117</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=36</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=120</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=35</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=118</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=34</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=119</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=33</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=122</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=32</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=121</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=31</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=123</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=30</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=125</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=29</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=124</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=28</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=126</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=27</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=130</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=26</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=129</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=25</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=127</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=24</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=128</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=23</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=131</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=22</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=133</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=21</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=132</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=13</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=134</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=12</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=135</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=11</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=140</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=9</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=139</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=8</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=138</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=7</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=136</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=6</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=137</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=5</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=141</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=4</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=142</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=3</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=144</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=2</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=143</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=14</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=145</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/articolo.php?id=15</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=146</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://audax1970.it/login/forgot_password.php</loc>
-  <lastmod>2024-09-05T13:06:36+00:00</lastmod>
+  <loc>https://www.audax1970.it/show_partita.php?id=150</loc>
+  <lastmod>2024-10-01T13:47:41+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 

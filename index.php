@@ -167,7 +167,7 @@ require_once('config/db.php');
     $articoli = mysqli_query($con,$query_articoli);
 
 ?>
-
+<!doctype html>
 
 <style>
   
@@ -248,7 +248,7 @@ require_once('config/db.php');
    
 </style>
 
-<!doctype html>
+
 
 <html lang="it">
   <!-- Head -->
@@ -614,15 +614,15 @@ require_once('config/db.php');
                   <!-- Ruolo -->
                   <td class="text-center">
                     <?php if($row['ruolo']==='Portiere'){
-                        echo '<span class="badge bg-warning text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Portiere">P'.'</span>';
+                        echo '<span class="badge bg-warning text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Portiere" title="Portiere">P'.'</span>';
                       }elseif($row['ruolo']==='Centrale'){
-                        echo '<span class="badge bg-success text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Centrale">C'.'</span>';
+                        echo '<span class="badge bg-success text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Centrale" title="Centrale">C'.'</span>';
                       }elseif($row['ruolo']==='Laterale'){
-                        echo '<span class="badge bg-primary text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Laterale">L'.'</span>';
+                        echo '<span class="badge bg-primary text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Laterale" title="Laterale">L'.'</span>';
                       }elseif($row['ruolo']==='Pivot'){
-                        echo '<span class="badge bg-danger text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Pivot">P'.'</span>';
+                        echo '<span class="badge bg-danger text-light" style="width:30px" data-bs-toggle="tooltip" data-bs-title="Pivot" title="Pivot">P'.'</span>';
                       }else{
-                        echo '<span class="badge bg-info text-light" style="width:30px;"  data-bs-toggle="tooltip" data-bs-title="Universale ">U'.'</span>';
+                        echo '<span class="badge bg-info text-light" style="width:30px;"  data-bs-toggle="tooltip" data-bs-title="Universale " title="Universale ">U'.'</span>';
                       } 
                     ?>
                   </td>
@@ -707,7 +707,7 @@ require_once('config/db.php');
                   }
 
                   // Codice per mostrare un pallino colorato con tooltip
-                  $circle = '<span class="position-relative d-inline-block" data-bs-toggle="tooltip" data-bs-title="' . $tooltip . '">
+                  $circle = '<span class="position-relative d-inline-block">
                               <span class="bg-opacity-50 ' . $rowClass . ' rounded-circle d-inline-block" style="width: 15px; height: 15px;"></span>
                             </span>';
                 ?>

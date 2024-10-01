@@ -1,7 +1,19 @@
 {
+    "name": "audax1970/futsalhub",
+    "description": "Software gestionale",
+    "type": "project",
+    "license": "MIT",
     "require": {
-        "google/apiclient": "2.0",
+        "google/apiclient": "^2.0",
         "telegram-bot/api": "*",
-        "phpmailer/phpmailer": "^6.5"
+        "phpmailer/phpmailer": "6.9",
+        "guzzlehttp/guzzle": "^7.0",
+        "ralouphie/getallheaders": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "FutsalHub\\": "src/"
+        }
     }
+
 }

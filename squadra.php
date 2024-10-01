@@ -61,6 +61,7 @@
 
 
 <!doctype html>
+
 <html lang="it">
   <!-- Head -->
   <?php include 'elements/head_base.php'; ?>

@@ -4,9 +4,11 @@
 # DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES ABOVE HTID:21773479:
 
 RewriteEngine On
+
+# Reindirizza www.audax1970.it a audax1970.it e forza HTTPS
+RewriteCond %{HTTP_HOST} ^www\.audax1970\.it [NC]
+RewriteRule ^(.*)$ https://audax1970.it/$1 [L,R=301]
+
+# Forza HTTPS su tutte le richieste HTTP
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-RewriteRule ^(.*)$ https://%1/$1 [L,R=301]
-

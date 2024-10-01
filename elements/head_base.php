@@ -11,6 +11,7 @@
     <meta name="author" content="Audax Senigallia 1970" />
     <meta name="language" content="Italian" />
     <meta name="copyright" content="© 2024 Audax Senigallia 1970" />
+    <meta name="keywords" content="calcio a 5,calcio a 5 marche,futsal,risultati,futsalmarche,futsal marche,tuttocampo,tutto campo,classifica, classifiche,giovanili,giocatori,Audax,audax,Senigallia,senigallia,Sant'angelo,audax sant'angelo">
     
     <!-- Meta tags -->
     <meta property="og:title" content="Audax Senigallia 1970 - Campionato Serie A2">
@@ -26,9 +27,9 @@
     <meta name="twitter:description" content="Campioni Serie B 2023/2024" />
     <meta name="twitter:image" content="../image/loghi/logo.png" />
 
-    <!-- Indirizzo canonico -->
-    <link rel="canonical" href="<?php echo 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>">
-
+    <!-- Indirizzo canonico per la home page -->
+    <link rel="canonical" href="https://audax1970.it/index.php">
+  
     
     <!-- Bootstrap (file locale) -->
     <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">

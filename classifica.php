@@ -15,6 +15,7 @@
 
 
 <!doctype html>
+
 <html lang="it">
     <!-- Head -->
     <?php include 'elements/head_base.php'; ?>
@@ -32,12 +33,9 @@
         <!-- Descrizione iniziale -->
         <div class="container my-5 px-4">
 
-            <div class="row">
-                <div class="col-12">
-                    <h1 class="bebas">Classifica <?php echo $nome_squadra ?></h1>
-                </div>
-            </div>
-
+            
+            <h1 class="bebas">Classifica <?php echo $nome_squadra ?></h1>
+                
             <hr />
 
             <div class="row">

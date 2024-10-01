@@ -2,7 +2,7 @@
 <?php
   session_start();
   require_once('config/db.php');
-  include('check_user_logged.php');
+  
 ?>
 
 
