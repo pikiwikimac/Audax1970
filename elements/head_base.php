@@ -1,5 +1,4 @@
 <!-- Head da utilizzare nelle pagine "base" ovvero utilizzate dall'utente semplice -->
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,11 +6,12 @@
     <title>Audax Senigallia 1970</title>
 
     <meta name="robots" content="index,follow">
-    <meta name="description" content="Serie A2 Nazionale">
+    <meta name="title" content="Audax Senigallia 1970" />
+    <meta name="description" content="Serie A2 Nazionale - Calcio a 5 ">
     <meta name="author" content="Audax Senigallia 1970" />
     <meta name="language" content="Italian" />
     <meta name="copyright" content="© 2024 Audax Senigallia 1970" />
-    <meta name="keywords" content="calcio a 5,calcio a 5 marche,futsal,risultati,futsalmarche,futsal marche,tuttocampo,tutto campo,classifica, classifiche,giovanili,giocatori,Audax,audax,Senigallia,senigallia,Sant'angelo,audax sant'angelo">
+    <meta name="keywords" content="calcio a 5,calcio a 5 marche,futsal,risultati,futsalmarche,futsal marche,tuttocampo,tutto campo,classifica, classifiche,giovanili,giocatori,Audax,audax,Senigallia,senigallia,Sant'angelo,audax sant'angelo,audax calcio a 5">
     
     <!-- Meta tags -->
     <meta property="og:title" content="Audax Senigallia 1970 - Campionato Serie A2">
@@ -51,6 +51,8 @@
     
     <!-- Icona per dispositivi Android -->
     <link rel="icon" type="image/png" sizes="192x192" href="image/loghi/logo.png">
+
+    
 
 </head>
 

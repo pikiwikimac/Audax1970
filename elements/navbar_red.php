@@ -30,7 +30,7 @@
     <!-- Logo + Nome squadra -->
     <a class="navbar-brand text-light" href="../index.php" >
       <!-- Logo -->
-      <img width="40" height="40" src="../image/loghi/logo.png" class="logo rounded mb-2" alt="Audax Logo" decoding="async" loading="lazy" >
+      <img width="40" height="40" src="../image/loghi/logo.webp" class="logo rounded mb-2" alt="Audax Logo" decoding="async" loading="lazy" >
       &nbsp; &nbsp; 
       <!-- Nome squadra -->
       <span class="fs-5 ">

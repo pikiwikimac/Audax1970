@@ -1,3 +1,8 @@
+<?php
+// Assicurati di avere il percorso corretto
+include_once __DIR__ . '/../assets/optimole.php';
+?>
+
 <!-- Head per le pagine "admin" -->
 <head>
     <meta charset="utf-8">
@@ -37,4 +42,6 @@
     
     <!-- Icona per dispositivi Android -->
     <link rel="icon" type="image/png" sizes="192x192" href="/image/futsalhub.jpg">
+
+    
 </head>

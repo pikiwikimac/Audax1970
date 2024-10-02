@@ -2,7 +2,6 @@
 <?php
   session_start();
 ?>
-<?php include('check_user_logged.php'); ?>
 
 
 <!doctype html>

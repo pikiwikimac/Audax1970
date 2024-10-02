@@ -9,18 +9,14 @@
 
     $classifica = mysqli_query($con,$query);
     $posizione=1;
-
 ?>
-
-
 
 <!doctype html>
 
 <html lang="it">
     <!-- Head -->
     <?php include 'elements/head_base.php'; ?>
-
-
+    
     <body>
         <!-- Navbar -->
         <div class="mb-5" id="navbar-orange">

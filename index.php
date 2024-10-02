@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 require_once('config/db.php');
 
     # QUERY
@@ -308,9 +309,9 @@ require_once('config/db.php');
           <br/>
 
           <div class="card-title-container">
-            <h4 class="card-title text-dark mt-2">
+            <span class="card-title text-dark mt-2">
               <?php echo htmlspecialchars($articolo['titolo']); ?>
-            </h4>
+            </span>
           </div>
 
           <!-- Contenuto dell'articolo -->

@@ -4,25 +4,25 @@
     <div class="row">
         <div class="col-12 col-lg-6 text-start">
 
-            <h4 class="text-light">Contatti</h4>
+            <h2 class="text-light">Contatti</h2>
             
             <br/>
-            
-            <!-- Gmail -->
-            <a class="text-decoration-none  me-2 text-light" href="mailto:audax1970@gmail.com">
-                <i class='bx bxl-gmail  bx-tada-hover bx-sm '></i> 
-            </a>
-            
-
-            <!-- Facebook -->
-            <a class="text-decoration-none me-2 text-light" href="https://www.facebook.com/ssaudax1970">
-                <i class='bx bxl-facebook-circle  bx-tada-hover bx-sm '></i> 
-            </a>
-            
-            <!-- Instagram -->
-            <a class="text-decoration-none  me-2 text-light" href="https://www.instagram.com/ss_audax1970_official/">  
-                <i class='bx bxl-instagram-alt  bx-tada-hover bx-sm ' ></i> 
-            </a>
+            <div class="d-flex">
+                <!-- Gmail -->
+                <a class="text-decoration-none  me-2 text-light" href="mailto:audax1970@gmail.com" aria-label="Manda email">
+                    <i class='bx bxl-gmail bx-tada-hover bx-sm'></i> &nbsp;
+                </a>
+                
+                <!-- Facebook -->
+                <a class="text-decoration-none me-2 text-light" href="https://www.facebook.com/ssaudax1970" aria-label="Vai a Facebook">
+                    <i class='bx bxl-facebook-circle bx-tada-hover bx-sm'></i> &nbsp;
+                </a>
+                
+                <!-- Instagram -->
+                <a class="text-decoration-none  me-2 text-light" href="https://www.instagram.com/ss_audax1970_official/" aria-label="Vai a Instagram">  
+                    <i class='bx bxl-instagram-alt bx-tada-hover bx-sm'></i>  &nbsp;
+                </a>
+            </div>
             
 
             <!-- Telefono 

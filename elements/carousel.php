@@ -2,7 +2,7 @@
 <div id="carouselExampleFade" class="carousel slide " data-bs-ride="carousel" >
     <div class="carousel-inner " style="max-height:700px;">
         <div class="carousel-item active">
-            <img src="image/sfondi/sfondo.webp" class="d-block w-100 " alt="...">
+            <img src="image/sfondi/sfondo.webp" class="d-block w-100 " alt="Foto di squadra">
         </div>
         <!--
         <div class="carousel-item ">
