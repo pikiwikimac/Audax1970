@@ -39,7 +39,6 @@
   INNER JOIN societa soc ON soc.id = p.squadraCasa
   INNER JOIN societa soc2 ON soc2.id = p.squadraOspite
   INNER JOIN stagioni stag ON stag.id_stagione = p.id_stagione
-
   WHERE p.id= '$id'
   ";
 
@@ -70,7 +69,7 @@
       <div class="container my-5 px-4">
         <h1 id="font-diverso">
           <span class="fw-bold">Giornata <?php echo $row['giornata'] .' ° ' ?></span>
-          <span class="badge bg-primary float-end"><?php echo $row['descrizione'] ?> - <?php echo $row['girone'] ?> 
+          <span class="fw-bold float-end"><?php echo $row['descrizione'] ?> - <?php echo $row['girone'] ?> 
           </span>
         </h1>
 
@@ -122,7 +121,8 @@
                     SELECT g.*
                     FROM giocatori g
                     INNER JOIN societa s ON s.id = g.id_squadra
-                    WHERE s.id = " . $row['squadraCasa'] . "
+                    INNER JOIN affiliazioni_giocatori ag ON ag.id_giocatore = g.id 
+                    WHERE ag.id_societa = " . $row['squadraCasa'] . "
                     ORDER BY g.ruolo, g.cognome, g.nome;
                   ";
               }
@@ -237,7 +237,8 @@
                     SELECT g.*
                     FROM giocatori g
                     INNER JOIN societa s ON s.id = g.id_squadra
-                    WHERE s.id = " . $row['squadraOspite'] . "
+                    INNER JOIN affiliazioni_giocatori ag ON ag.id_giocatore = g.id 
+                    WHERE ag.id_societa = " . $row['squadraOspite'] . "
                     ORDER BY g.ruolo, g.cognome, g.nome;
                   ";
               }

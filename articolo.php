@@ -1,6 +1,7 @@
 <?php
   session_start();
   require_once('config/db.php');
+  require_once('config/variables.php');
 
   $id = $_REQUEST['id'];
 
@@ -30,7 +31,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- TITLE -->
-    <title>Audax Senigallia 1970</title>
+    <title><?php echo $title ?></title>
 
     
     <meta name="google-site-verification" content="+nxGUDJ4QpAZ5l9Bsjdi102tLVC21AIh5d1Nl23908vVuFHs34=">

@@ -1,8 +1,9 @@
 <?php
 session_start();
 
-
 require_once('config/db.php');
+require_once('config/variables.php');
+
 
     # QUERY
     $query = "
@@ -11,7 +12,7 @@ require_once('config/db.php');
       FROM convocazioni c
       INNER JOIN partite p on p.id=c.id_partita
       WHERE c.id_giocatore=g.id
-      AND p.id_stagione = 1
+      AND p.id_stagione = $stagioneAttuale
     ) as convocazioni,
     (
       SELECT COALESCE(COUNT(*),0)
@@ -19,7 +20,7 @@ require_once('config/db.php');
       JOIN partite p
       ON a.id_partita = p.id
       WHERE a.id_giocatore = g.id
-      AND p.id_stagione = 1
+      AND p.id_stagione = $stagioneAttuale
       
     ) AS numero_ammonizioni,
     (
@@ -28,7 +29,7 @@ require_once('config/db.php');
       JOIN partite p
       ON r.id_partita = p.id
       WHERE r.id_giocatore = g.id
-      AND p.id_stagione = 1
+      AND p.id_stagione = $stagioneAttuale
     ) AS numero_espulsioni,
     (
       SELECT COALESCE(COUNT(*),0)
@@ -36,17 +37,17 @@ require_once('config/db.php');
       JOIN partite p
       ON m.id_partita = p.id
       WHERE m.id_giocatore = g.id
-      AND p.id_stagione = 1
+      AND p.id_stagione = $stagioneAttuale
     ) AS numero_gol
     FROM giocatori g
     INNER JOIN affiliazioni_giocatori ag ON ag.id_giocatore = g.id  
-    WHERE ag.id_societa = 1
+    WHERE ag.id_societa = $IdSocieta
     ORDER BY ruolo, cognome, nome ASC";
     $result = mysqli_query($con,$query);
 
     # QUERY
     $query2 = "
-    SELECT * FROM vista_classifica_A2_2024_2025";
+    SELECT * FROM $vistaClassifica";
     $classifica = mysqli_query($con,$query2);
 
     # QUERY
@@ -62,12 +63,12 @@ require_once('config/db.php');
       INNER JOIN societa soc on soc.id=s.squadraCasa
       INNER JOIN societa soc2 on soc2.id=s.squadraOspite
       INNER JOIN stagioni stag on stag.id_stagione=s.id_stagione
-      where (s.squadraCasa='1' or s.squadraOspite='1')
+      where (s.squadraCasa='$IdSocieta' or s.squadraOspite='$IdSocieta')
       and s.played=1
       and s.data =  ( select max(data)
                       FROM (select * FROM `partite` st where st.played=1) x
-                      where x.squadraCasa=1
-                      or x.squadraOspite=1
+                      where x.squadraCasa=$IdSocieta
+                      or x.squadraOspite=$IdSocieta
                     )
     ";
     $ultimo_match = mysqli_query($con,$query_ultimo_match);
@@ -118,7 +119,7 @@ require_once('config/db.php');
         stag.id_stagione = s.id_stagione
     WHERE
         (
-            s.squadraCasa = '1' OR s.squadraOspite = '1'
+            s.squadraCasa = '$IdSocieta' OR s.squadraOspite = '$IdSocieta'
         ) 
     AND s.played = 0
     AND s.giornata < 500 
@@ -370,63 +371,49 @@ require_once('config/db.php');
                 </div>
 
                 <!-- Team casa vs team fuori casa prossimo match -->
-                <div class="row">
+                <div class="row align-items-center my-2">
                   <!-- Team casa prossimo match-->
-                  <div class="col-4 text-center">
-                    <div class="row gy-3">
-                      <div class="col-12" >
-                        <img src="image/loghi/<?php echo $row2['logo_casa'] ?>" alt="<?php echo $row2['logo_casa'] ?>" class="img-fluid rounded-circle" width="70" height="70"/>
-                      </div>
-                      <div class="col-12">
-                        <span class="bebas fw-bold fs-4" id=""><?php echo $row2['casa'] ?></span>
-                      </div>
+                  <div class="col-5 text-center">
+                    <img src="image/loghi/<?php echo $row2['logo_casa'] ?>" alt="<?php echo $row2['logo_casa'] ?>" class="img-fluid rounded-circle" width="60" height="60"/>
                     
-                    </div>
-                    <div class="row mt-3">
-                      <div class="col-12">
-                      </div>
-                    </div>
+                    <div class="bebas fw-bold fs-6 mt-2"><?php echo $row2['casa'] ?></div>
                   </div>
 
-                  <div class="col-4 text-center">
-                    <div class="row gy-3">
-                      <div class="col-12">
-                        <span class="fw-bold fs-1"> - </span>
-                      </div>
-                      <div class="col-12" >
-                        <small class="text-muted">
-                          <?php 
-                            if (isset($row2['data'], $row2['orario_partita'])) {
-                              $formatted_date = date("d/m/y", strtotime($row2['data']));
-                              $formatted_time = date('H:i', strtotime($row2['orario_partita']));
-                            } else {
-                              $formatted_date = '';
-                              $formatted_time = '';
-                            }
-                          ?>
-                          <?php echo $formatted_date; ?> <?php echo $formatted_time; ?>
-                        </small>
-                      </div>
-                    </div>
+                  <div class="col-2 text-center">
+                    
+                    <span class="fw-bold fs-1"> - </span>
+                    
+                    <br/>
+                    
+                    <small class="text-muted text-center text-nowrap" style="letter-spacing:-0.5px; font-size: 0.85rem;">
+                    <?php 
+                      if (isset($row2['data'], $row2['orario_partita'])) {
+                        $formatted_date = date("d/m/y", strtotime($row2['data']));
+                        $formatted_time = date('H:i', strtotime($row2['orario_partita']));
+                      } else {
+                        $formatted_date = '';
+                        $formatted_time = '';
+                      }
+                    ?>
+                    <?php echo $formatted_date; ?><br> <!-- Aggiunto un tag <br> per andare a capo -->
+                    <?php echo $formatted_time; ?>
+                  </small>
+
+                    
+                    
                   </div>
 
                   <!-- Team ospite prossimo match -->
-                  <div class="col-4 text-center">
-                    <div class="row gy-3">
-                      <div class="col-12" >
-                        <img src="image/loghi/<?php echo $row2['logo_ospite'] ?>" alt="<?php echo $row2['logo_ospite'] ?>" class="img-fluid rounded-circle" width="70" height="70"/>
-                      </div>
-                      <div class="col-12">
-                        <span class="bebas fw-bold fs-4" id=""><?php echo $row2['ospite'] ?></span>
-                      </div>
+                  <div class="col-5 text-center">
                     
-                    </div>
-
-                    <div class="row mt-3">
-                      <div class="col-12">
-                      </div>
-                    </div>
+                    <img src="image/loghi/<?php echo $row2['logo_ospite'] ?>" alt="<?php echo $row2['logo_ospite'] ?>" class="img-fluid rounded-circle" width="60" height="60"/>
+                    <div class="bebas fw-bold fs-6" id=""><?php echo $row2['ospite'] ?></div>
+                      
                   </div>
+                </div>
+
+                <div class="row mt-3">
+                  &nbsp;
                 </div>
               </div>
               
@@ -439,127 +426,98 @@ require_once('config/db.php');
           <a class="text-decoration-none" href="show_partita.php?id=<?php echo $row['id'] ?>">
             <div class="card h-100 card-wrapper bebas">
 
+              <!-- Header partita -->
               <div class="card-header bg-dark text-light">
                 <?php echo $row['descrizione'] ?>
                 <?php if ($row['giornata'] < 900){ ?> 
-                  <span class="float-end">
-                    Giornata <?php echo $row['giornata'] ?>° 
-                  </span>
+                  <span class="float-end">Giornata <?php echo $row['giornata'] ?>°</span>
                 <?php } ?>
               </div>
 
+              <!-- Corpo card -->
               <div class="card-body card-content">
+
                 <!-- Luogo partita -->
-                <div class="row ">
-                  <div class="col-12 text-center">
-                    <div class="text-center" id="luogo_match">
-                      <small class="text-muted"><?php echo $row['sede'] .' - '  .$row['citta'] ?></small>
-                    </div>
-                  </div>
-                </div>
-
                 <div class="row">
-                  <!-- Team casa -->
-                  <div class="col-4 text-center">
-                    <div class="row gy-3">
-                      <div class="col-12" >
-                        <img src="image/loghi/<?php echo $row['logo_casa'] ?>" alt="<?php echo $row['logo_casa'] ?>" class="img-fluid rounded-circle" width="70" height="70"/>
-                      </div>
-                      <div class="col-12">
-                        <span class="bebas fw-bold fs-4" id=""><?php echo $row['casa'] ?></span>
-                      </div>
-                    </div>
-                    
-                    <div class="row mt-3">
-                      <div class="col-12">
-                        <?php while ($marcatore = mysqli_fetch_assoc($marcatori_casa_ultima_partita)) { ?>
-                          <div class="row altezza_ridotta">
-                            <div class="col-9">
-                              <span class="text-muted" id="marcatore">
-                                <span class="d-none d-md-block"><?php echo $marcatore['cognome'] .' '.$marcatore['nome']?></span>
-                                <span class="d-block d-md-none"><?php echo $marcatore['cognome'] .' '.mb_substr($marcatore['nome'], 0, 1) .'.' ?></span>
-                              </span>
-                            </div>
-                            <div class="col-3">
-                              <span class="text-muted text-end text-nowrap" id="gol_segnati">
-                                <?php if($marcatore['gol_fatti'] > 1) { ?>
-                                  <i class='bx bx-football align-middle'></i> x <?php echo $marcatore['gol_fatti'] ?>
-                                <?php } else { ?>
-                                  <i class='bx bx-football align-middle'></i>
-                                <?php } ?>
-                              </span>
-                            </div>
-                          </div>
-                        <?php } ?>
-                      </div>
-                    </div>
+                  <div class="col-12 text-center">
+                    <small class="text-muted"><?php echo $row['sede'] .' - ' .$row['citta'] ?></small>
                   </div>
-                  <!-- END: Team casa -->
-
-                  <div class="col-4 text-center">
-                    <div class="row gy-3">
-                      <div class="col-12">
-                        <span class="fw-bold fs-1"><?php echo $row['golCasa'] ?> - <?php echo $row['golOspiti'] ?></span>
-                      </div>
-                      <div class="col-12">
-                        <small class="text-muted">
-                          <?php 
-                            if (isset($row['data'], $row['orario_partita'])) {
-                              $formatted_date = date("d/m/y", strtotime($row['data']));
-                              $formatted_time = date('H:i', strtotime($row['orario_partita']));
-                            } else {
-                              $formatted_date = '';
-                              $formatted_time = '';
-                            }
-                          ?>
-                          <?php echo $formatted_date; ?> <?php echo $formatted_time; ?>
-                        </small>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Team ospite -->
-                  <div class="col-4 text-center">
-                    <div class="row gy-3">
-                      <div class="col-12" >
-                        <img src="image/loghi/<?php echo $row['logo_ospite'] ?>" alt="<?php echo $row['logo_ospite'] ?>" class="img-fluid rounded-circle" width="70" height="70"/>
-                      </div>
-                      <div class="col-12">
-                        <span class="bebas fw-bold fs-4" id=""><?php echo $row['ospite'] ?></span>
-                      </div>
-                    </div>
-                  
-                    <div class="row mt-3">
-                      <div class="col-12">
-                        <?php while ($marcatore = mysqli_fetch_assoc($marcatori_ospite_ultima_partita)) { ?>
-                          <div class="row altezza_ridotta">
-                            <div class="col-9">
-                              <small class="text-muted" id="marcatore">
-                                <span class="d-none d-md-block"><?php echo $marcatore['cognome'] .' '.$marcatore['nome']?></span>
-                                <span class="d-block d-md-none"><?php echo $marcatore['cognome'] .' '.mb_substr($marcatore['nome'], 0, 1) .'.' ?></span>
-                              </small>
-                            </div>
-                            <div class="col-3">
-                              <span class="text-muted text-end text-nowrap" id="gol_segnati">
-                                <?php if($marcatore['gol_fatti'] > 1) { ?>
-                                  <i class='bx bx-football align-middle' ></i> x <?php echo $marcatore['gol_fatti'] ?>
-                                <?php } else { ?>
-                                  <i class='bx bx-football align-middle' ></i>
-                                <?php } ?>
-                              </span>
-                            </div>
-                          </div>
-                        <?php } ?>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- END: Team ospite -->
                 </div>
+
+                <!-- Sezione logo e risultato -->
+                <div class="row align-items-center my-2">
+                  <!-- Logo casa e nome squadra -->
+                  <div class="col-5 text-center">
+                    <img src="image/loghi/<?php echo $row['logo_casa'] ?>" alt="<?php echo $row['logo_casa'] ?>" class="img-fluid rounded-circle" width="60" height="60"/>
+                    <div class="bebas fw-bold fs-6 mt-2"><?php echo $row['casa'] ?></div>
+                  </div>
+
+                  <!-- Risultato -->
+                  <div class="col-2 text-center">
+                    <span class="fw-bold fs-3"><?php echo $row['golCasa'] ?> - <?php echo $row['golOspiti'] ?></span>
+                    <div>
+                      <small class="text-muted text-nowrap">
+                        <?php echo date("d/m/y", strtotime($row['data'])) ?>
+                      </small>
+                    </div>
+                  </div>
+
+                  <!-- Logo ospite e nome squadra -->
+                  <div class="col-5 text-center">
+                    <img src="image/loghi/<?php echo $row['logo_ospite'] ?>" alt="<?php echo $row['logo_ospite'] ?>" class="img-fluid rounded-circle" width="60" height="60"/>
+                    <div class="bebas fw-bold fs-6 mt-2"><?php echo $row['ospite'] ?></div>
+                  </div>
+                </div>
+
+                <!-- Marcatori -->
+                <div class="row mt-3">
+                  <!-- Marcatori casa -->
+                  <div class="col-5 text-start">
+                    <?php while ($marcatore = mysqli_fetch_assoc($marcatori_casa_ultima_partita)) { ?>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <span class="text-muted">
+                          <?php echo $marcatore['cognome'] .' ' .(mb_substr($marcatore['nome'], 0, 1)) . '.' ?>
+                        </span>
+                        <span class="text-muted">
+                          <?php if ($marcatore['gol_fatti'] > 1) { ?>
+                            <i class='bx bx-football'></i> x<?php echo $marcatore['gol_fatti'] ?>
+                          <?php } else { ?>
+                            <i class='bx bx-football'></i>
+                          <?php } ?>
+                        </span>
+                      </div>
+                    <?php } ?>
+                  </div>
+                  
+                  <div class="col-2">
+                  </div>
+
+                  <!-- Marcatori ospite -->
+                  <div class="col-5 text-start ">
+                    <?php while ($marcatore = mysqli_fetch_assoc($marcatori_ospite_ultima_partita)) { ?>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <span class="text-muted">
+                          <?php echo $marcatore['cognome'] .' ' .(mb_substr($marcatore['nome'], 0, 1)) . '.' ?>
+                        </span>
+                        <span class="text-muted">
+                          <?php if ($marcatore['gol_fatti'] > 1) { ?>
+                            <i class='bx bx-football'></i> x<?php echo $marcatore['gol_fatti'] ?>
+                          <?php } else { ?>
+                            <i class='bx bx-football'></i>
+                          <?php } ?>
+                        </span>
+                      </div>
+                    <?php } ?>
+                  </div>
+                </div>
+
               </div>
-    
             </div>
           </a>
         </div>
+
+
+
 
       </div>
     </div>

@@ -364,7 +364,7 @@ $squadre_correlate = $stmt->get_result();
                                   <td class="text-center d-print-none">
                                     <!-- Aggiungi il link per aprire il modal -->
                                     <a href="#" class="text-decoration-none text-dark" 
-                                    onclick="showEditModal('<?php echo $row["id"]; ?>', '<?php echo $row["casa"]; ?>', '<?php echo $row["ospite"]; ?>', '<?php echo $row["golCasa"]; ?>', '<?php echo $row["golOspiti"]; ?>', '<?php echo $row["data"]; ?>', '<?php echo $row["giornata"]; ?>', '<?php echo $row["id_stagione"]; ?>', '<?php echo $row["id_societa"]; ?>')" data-bs-toggle="tooltip" data-bs-title="Modifica">
+                                    onclick="showEditModal('<?php echo $row["id"]; ?>', '<?php echo $row["casa"]; ?>', '<?php echo $row["ospite"]; ?>', '<?php echo $row["golCasa"]; ?>', '<?php echo $row["golOspiti"]; ?>', '<?php echo $row["data"]; ?>', '<?php echo $row["giornata"]; ?>', '<?php echo $row["id_stagione"]; ?>', '<?php echo $row["id_societa"]; ?>', '<?php echo $row["orario_partita"]; ?>')" data-bs-toggle="tooltip" data-bs-title="Modifica">
                                       <i class="bi bi-pencil"></i>
                                     </a>
                                   </td>
@@ -448,8 +448,13 @@ $squadre_correlate = $stmt->get_result();
                   <label for="data" class="form-label">Data</label>
                   <input type="date" class="form-control" name="data" id="data">
                 </div>
+                
+                <div class="col-3">
+                  <label for="orario_modificato" class="form-label">Orario</label>
+                  <input type="time" class="form-control" name="orario_modificato" id="orario_modificato">
+                </div>
 
-                <div class="col-6">
+                <div class="col-3">
                   <label for="giornata" class="form-label">Giornata</label>
                   <input type="text" class="form-control" name="giornata" id="giornata">
                 </div>
@@ -553,7 +558,7 @@ $squadre_correlate = $stmt->get_result();
     </div>
 
     <script>
-      function showEditModal(id, squadraCasa, squadraOspite, golCasa, golOspiti, data, giornata,id_stagione,id_societa) {
+      function showEditModal(id, squadraCasa, squadraOspite, golCasa, golOspiti, data, giornata,id_stagione,id_societa,orario_modificato) {
         document.getElementById("id").value = id;
         document.getElementById("golCasa").value = golCasa;
         document.getElementById("golOspiti").value = golOspiti;
@@ -563,6 +568,8 @@ $squadre_correlate = $stmt->get_result();
         document.getElementById("squadraOspiteEdit").value = squadraOspite;
         document.getElementById("id_stagione").value = id_stagione;
         document.getElementById("id_societa").value = id_societa;
+        document.getElementById("orario_modificato").value = orario_modificato;
+        
 
 
         // Seleziona le squadre nella select

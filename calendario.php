@@ -56,6 +56,8 @@
                 $query = "SELECT 
                             soc.nome_societa as casa, 
                             soc2.nome_societa as ospite, 
+                            soc.logo as logo_casa, 
+                            soc2.logo as logo_ospite, 
                             soc.id as id_casa, 
                             soc2.id as id_ospite, 
                             golCasa, 
@@ -85,66 +87,64 @@
 
                 <div class="col-12 col-xl-6 table-responsive">
 
-                    <table class="table table-sm table-hover table-striped caption-top table-rounded" style="font-size:14px">
-                        <caption class="fs-5 bebas text-dark"><?php echo $giornata_numero ?> ° giornata </caption>
-                        <thead class="table-dark">
-
-                            <tr>
-                                <th class="text-center" width="16%"> </th>
-                                <th class="" width="38%">Casa</th>
-                                <th class="" width="38%">Ospite</th>
-                                <th class="text-center" width="4%"></th>
-                                <th class="text-center" width="4%"></th>
-                            </tr>
-
-                        </thead>
+                    <table class="table table-sm table-hover no-th table-striped table-rounded caption-top ">
+                        <caption class="fs-5 text-dark fw-bold"><?php echo $giornata_numero ?> ° GIORNATA </caption>
+                                 
 
                         <tbody class="">
                             <?php while($row = mysqli_fetch_assoc($campionato)) {  ?>
 
                             <a href="show_partita.php?id=<?php echo $row['id']?>" class="text-decoration-none" style="cursor:pointer">
-                            <tr onclick="window.location.href = 'show_partita.php?id=' + <?php echo $row['id']?>;">
-                                <!-- Data -->
+                            <tr class="<?php echo $rowClass; ?> align-middle"  onclick="window.location.href = 'show_partita.php?id=' + <?php echo $row['id']?>;">
+                                <!-- Risultato -->
                                 <td class="text-center">
-                                
-                                    <small class="">
-                                        <?php echo date('d/m/y',strtotime( $row['data'])) ?>
-                                        <?php echo date('H:i',strtotime( $row['orario_partita'])) ?>
-                                    </small>
-                                
-                                </td>
-
-                                <!-- Squadra casa -->
-                                <td class="align-middle">
-                                    <?php 
-                                        if (in_array($row['id_casa'], ['1', '3', '4', '6'])) { 
-                                            echo "<span class='fw-bold'>" .$row['casa'] . "</span>";
-                                        } else { 
-                                            echo "<span class='text-dark'>" .$row['casa'] . "</span>";
-                                        }
-                                    ?>
-                                </td>
-
-                                <!-- Squadra ospite -->
-                                <td class="align-middle">
-                                    <?php 
-                                        if (in_array($row['id_ospite'], ['1', '3', '4', '6'])) { 
-                                            echo "<span class='fw-bold'>" .$row['ospite'] . "</span>";
-                                        } else { 
-                                            echo "<span class='text-dark'>" .$row['ospite'] . "</span>";
-                                        }
-                                    ?>
-                                </td>
-
-                                <!-- Gol casa -->
-                                <td class="text-center fw-bold">
-                                    <?php echo $row['golCasa'] ?>
-                                </td>
-
-                                <!-- Gol ospite -->
-                                <td class="text-center fw-bold">
-                                    <?php echo $row['golOspiti'] ?>
-                                </td>
+                                      <!-- Gol casa -->
+                                      <?php echo isset($row['golCasa']) && $row['golCasa'] !== '' ? $row['golCasa'] : '-'; ?>
+                                      <br/>
+                                      <!-- Gol ospite -->
+                                      <?php echo isset($row['golOspiti']) && $row['golOspiti'] !== '' ? $row['golOspiti'] : '-'; ?>
+                                    </td>
+                                    
+                                    <!-- Squadre -->
+                                    <td>
+                                      <!-- Squadra casa -->
+                                      <div class="<?= $row['casa'] === 'Audax 1970' ? 'fw-bold' : 'text-dark'?>">
+                                        <?php if ($row['logo_casa']) { ?>
+                                          <img src="image/loghi/<?php echo $row['logo_casa'];?>" class="rounded-circle"  width="15" height="15"/>
+                                        <?php } else { ?>
+                                          <img src="image/default_societa.png" class="rounded-circle"  width="15" height="15"/>
+                                        <?php } ?>
+                                        &nbsp;
+                                        <?php echo $row['casa']; ?>
+                                      </div>
+                                      
+                                      <!-- Squadra ospite -->
+                                      <div class="<?= $row['ospite'] === 'Audax 1970' ? 'fw-bold' : 'text-dark'?>">
+                                        <?php if ($row['logo_ospite']) { ?>
+                                          <img src="../image/loghi/<?php echo $row['logo_ospite'];?>" class="rounded-circle"  width="15" height="15"/>
+                                        <?php } else { ?>
+                                          <img src="../image/default_societa.png" class="rounded-circle"  width="15" height="15"/>
+                                        <?php } ?>
+                                        &nbsp;
+                                        <?php echo $row['ospite']; ?>
+                                      </div>
+                                    </td>
+                                    
+                                    <!-- Data -->
+                                    <td class="text-end" >
+                                      <small class="d-block">
+                                        <?php echo date('d/m/y',strtotime( $row['data'])) ?> &nbsp;
+                                      </small>
+                                      
+                                      <small class="d-block">
+                                        <?php 
+                                          setlocale(LC_TIME, 'it_IT.utf8');
+                                          $dayOfWeek = strftime('%A', strtotime($row['data']));
+                                          $abbreviatedDay = substr($dayOfWeek, 0, 3);
+                                          echo $abbreviatedDay;
+                                        ?> &nbsp;
+                                      </small>
+                                    </td>
                             </tr>
                             </a>
 

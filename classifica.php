@@ -94,7 +94,7 @@
                                 </td>
 
                                 <!-- Nome squadra -->
-                                <td class=" text-nowrap " style="cursor:pointer;" onclick="window.location='show_societa.php?id=<?php echo $row['id']; ?>';">
+                                <td class=" text-nowrap " style="cursor:pointer;" onclick="window.location='team.php?id=<?php echo $row['id']; ?>';">
                                 <?php echo $row['societa'] ?>
                                 </td>
 
