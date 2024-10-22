@@ -13,6 +13,8 @@
 	--c--dark: #303134;
 	--c--orange: #d24e01;
 	--c--grey: #808080;
+
+	--font-size-navbar:20px;
 }
 
 body {
@@ -34,7 +36,7 @@ ul li a{
 
 .navbar {
 	font-family: 'Bebas Neue', cursive;
-	font-size: 20px;
+	font-size: var(--font-size-navbar);
 }
 
 
