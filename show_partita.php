@@ -2,6 +2,7 @@
 
   session_start();
   require_once('config/db.php');
+  require_once('utilities/q_calendario.php');
   include('check_user_logged.php');
 
 
@@ -12,39 +13,8 @@
   $id=$_REQUEST['id'];
 
   
-  
-  $query = 
-  "
-  SELECT 
-    p.*,
-    soc.nome_societa as casa,
-    soc2.nome_societa as ospite,
-    stag.descrizione,
-    stag.girone,
-    soc.sede,
-    soc.citta,
-    soc.giorno_settimana,
-    soc.ora_match,
-    soc.logo as logoCasa,
-    soc2.logo as logoOspiti,
-    CASE
-        WHEN p.orario_modificato IS NOT NULL THEN p.orario_modificato
-        ELSE soc.ora_match
-    END AS orario_partita,
-    CASE
-        WHEN p.data_modificata IS NOT NULL THEN p.data_modificata
-        ELSE p.data
-    END AS giornata_partita
-  FROM partite p
-  INNER JOIN societa soc ON soc.id = p.squadraCasa
-  INNER JOIN societa soc2 ON soc2.id = p.squadraOspite
-  INNER JOIN stagioni stag ON stag.id_stagione = p.id_stagione
-  WHERE p.id= '$id'
-  ";
-
-  $partita = mysqli_query($con,$query);
+  $partita = getPartitaById($con,$id);
   $row = mysqli_fetch_assoc($partita);
-
 
 ?>
 

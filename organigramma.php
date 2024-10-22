@@ -2,16 +2,11 @@
 <?php
   session_start();
   require_once('config/db.php');
+  require_once('utilities/q_societa.php');
 
   include('check_user_logged.php');
 
-  $queryDirigenza = "
-  SELECT nome, ruolo, ordinamento, image_path
-  FROM dirigenti
-  WHERE ordinamento > 0
-  ORDER BY CAST(ordinamento AS UNSIGNED) ASC, nome;
-  ";
-  $dirigenti = mysqli_query($con,$queryDirigenza);
+  $dirigenti = getDirigenti($con);
 ?>
 
 

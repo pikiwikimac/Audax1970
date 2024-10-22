@@ -1,7 +1,7 @@
 <?php
-
 session_start();
 require_once('config/db.php');
+require_once('utilities/q_giocatori.php'); // Includi il nuovo file
 include('check_user_logged.php');
 
 $username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
@@ -16,14 +16,7 @@ if (!is_numeric($id)) {
 }
 
 // Query per ottenere le stagioni delle squadre a cui il giocatore è affiliato
-$query_stagioni = "
-  SELECT DISTINCT stag.id_stagione, stag.descrizione as competizione, stag.girone
-  FROM societa s
-  INNER JOIN affiliazioni_giocatori ag ON ag.id_societa = s.id
-  INNER JOIN stagioni stag ON stag.id_stagione = s.id_campionato
-  WHERE ag.id_giocatore = $id";
-
-$stagioni_result = mysqli_query($con, $query_stagioni);
+$stagioni_result = getStagioniGiocatore($con, $id);
 
 // Controlla eventuali errori nella query
 if (!$stagioni_result) {
@@ -37,42 +30,7 @@ $risultati_giocatore = [];
 while ($stagione_row = mysqli_fetch_assoc($stagioni_result)) {
     $id_stagione = $stagione_row['id_stagione'];
 
-    $query = "
-      SELECT g.*, s.nome_societa,
-      (
-        SELECT COUNT(*)
-        FROM ammoniti a
-        JOIN partite p ON a.id_partita = p.id
-        WHERE a.id_giocatore = g.id
-        AND p.id_stagione = $id_stagione
-      ) AS numero_ammonizioni,
-      (
-        SELECT COUNT(*)
-        FROM rossi r
-        JOIN partite p ON r.id_partita = p.id
-        WHERE r.id_giocatore = g.id
-        AND p.id_stagione = $id_stagione
-      ) AS numero_espulsioni,
-      (
-        SELECT COUNT(*)
-        FROM marcatori m
-        JOIN partite p ON m.id_partita = p.id
-        WHERE m.id_giocatore = g.id
-        AND p.id_stagione = $id_stagione
-      ) AS numero_gol,
-      (
-        SELECT COUNT(*) as convocazioni
-        FROM convocazioni c
-        INNER JOIN partite p ON p.id = c.id_partita
-        WHERE c.id_giocatore = g.id
-        AND p.id_stagione = $id_stagione
-      ) as convocazioni
-      FROM giocatori g
-      INNER JOIN societa s ON s.id = g.id_squadra
-      WHERE g.id = $id 
-      LIMIT 1;";
-
-    $giocatore = mysqli_query($con, $query);
+    $giocatore = getStatisticheGiocatorePerStagione($con, $id, $id_stagione);
     
     if (!$giocatore) {
         die("Errore nella query del giocatore: " . mysqli_error($con));
@@ -88,12 +46,7 @@ while ($stagione_row = mysqli_fetch_assoc($stagioni_result)) {
 }
 
 // Recupera le squadre del giocatore
-$query_squadre = "
-  SELECT s.nome_societa, s.tipo, s.id
-  FROM societa s
-  INNER JOIN affiliazioni_giocatori ag ON ag.id_societa = s.id
-  WHERE ag.id_giocatore = $id";
-$squadre_giocatore = mysqli_query($con, $query_squadre);
+$squadre_giocatore = getSquadreGiocatore($con, $id);
 
 // Controlla eventuali errori nella query delle squadre
 if (!$squadre_giocatore) {
@@ -104,8 +57,8 @@ if (!$squadre_giocatore) {
 if (empty($risultati_giocatore)) {
     die("Nessun risultato trovato per il giocatore.");
 }
-
 ?>
+
 
 <!doctype html>
 <html lang="it">

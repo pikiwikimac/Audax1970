@@ -374,3 +374,9 @@ th {
 .input-group-text {
 	padding: .1rem .50rem!important;
 }
+
+
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show{
+	color:var(--bg-color-secondary)!important;
+	
+}

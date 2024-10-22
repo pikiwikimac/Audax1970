@@ -680,7 +680,7 @@ require_once('config/variables.php');
                     <?php echo $circle; ?>
                   </td>
                   <!-- Nome società -->
-                  <td class="<?php if($row['societa'] === 'Audax 1970'){ echo 'fw-semibold'; }?> ">
+                  <td class="<?php if($row['societa'] === $nomeAbbreviato){ echo 'fw-semibold'; }?> ">
                     <a href="team.php?id=<?php echo $row['id'] ?>" class="text-decoration-none text-dark d-none d-md-block">
                       <?php echo $row['societa'] ?>
                     </a>

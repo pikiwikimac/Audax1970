@@ -1,42 +1,41 @@
 <!-- Pagina che mostra tutti i giocatori -->
 <?php
   session_start();
-  require_once('config/db.php');
-
   include('check_user_logged.php');
+
+  require_once('utilities/q_giocatori.php');
+  require_once('utilities/q_societa.php');
+  require_once('utilities/q_calendario.php');
+
 
   $id=$_REQUEST['id'];
 
-  #Query che seleziona le info della squadra
-  $query = "
-  SELECT s.*
-  FROM societa s
-  WHERE s.id=$id";
+  // Controllo se l'ID è valido
+  if (!is_numeric($id)) {
+    die("ID non valido.");
+  }
 
-  $squadra = mysqli_query($con,$query);
-  $info = mysqli_fetch_assoc($squadra);
+  // Ottieni le informazioni della squadra
+  $squadra_result = getInfoSquadra($con, $id);
+
+  // Controlla eventuali errori nella query
+  if (!$squadra_result) {
+    die("Errore nella query della squadra: " . mysqli_error($con));
+  }
+
+  // Recupera i risultati per la squadra
+  $info = mysqli_fetch_assoc($squadra_result);
+
+  // Verifica se ci sono risultati per la squadra
+  if (!$info) {
+    die("Nessun risultato trovato per la squadra.");
+  }
+
   $campionato_squadra=$info['id_campionato'];
 
-  $query2 = "
-  SELECT g.*
-  FROM giocatori g
-  INNER JOIN societa s on s.id=g.id_squadra
-  INNER JOIN affiliazioni_giocatori ag on ag.id_giocatore=g.id
-  WHERE ag.id_societa='$id'
-  ORDER BY g.ruolo,g.cognome,g.nome";
+  $giocatori = getGiocatoriBySocieta($con,$id);
 
-  $giocatori = mysqli_query($con,$query2);
-
-  $query3 = "
-  SELECT soc.nome_societa as casa, soc2.nome_societa as ospite, golCasa,golOspiti,CAST(giornata AS UNSIGNED) AS giornata_,giornata,s.id,s.data,s.played
-  FROM `partite` s
-  INNER JOIN societa soc on soc.id=s.squadraCasa
-  INNER JOIN societa soc2 on soc2.id=s.squadraOspite
-  WHERE  s.id_stagione = $campionato_squadra
-  AND (squadraCasa=$id or squadraOspite=$id OR squadraCasa=$id or squadraOspite=$id)
-  ORDER BY giornata_,casa,ospite";
-
-  $calendario = mysqli_query($con,$query3);
+  $calendario = getCalendarioPartite($con,$campionato_squadra,$id);
 ?>
 
 
