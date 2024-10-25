@@ -22,7 +22,6 @@
   color: #fedc00;
   background: #BC0524;
 }
-
 </style>
 
 <nav class="navbar navbar-expand-lg fixed-top align-middle" style="background: #BC0524; border-bottom:10px solid #fedc00">

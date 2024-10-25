@@ -67,7 +67,7 @@ if (empty($risultati_giocatore)) {
 <body>
     <!-- Navbar -->
     <div class="mb-5" id="navbar-orange">
-        <?php include 'elements/navbar_red.php'; ?>
+        <?php include 'elements/navbar.php'; ?>
     </div>
 
     

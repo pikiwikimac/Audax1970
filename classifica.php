@@ -20,7 +20,7 @@
     <body>
         <!-- Navbar -->
         <div class="mb-5" id="navbar-orange">
-            <?php include 'elements/navbar_red.php'; ?>
+            <?php include 'elements/navbar.php'; ?>
         </div>
         
         <!-- Carousel di sfondo  -->
@@ -94,7 +94,7 @@
                                 </td>
 
                                 <!-- Nome squadra -->
-                                <td class=" text-nowrap " style="cursor:pointer;" onclick="window.location='team.php?id=<?php echo $row['id']; ?>';">
+                                <td class=" text-nowrap <?php if($row['societa']===$nomeAbbreviato){ echo 'fw-bold'; }?> " style="cursor:pointer;" onclick="window.location='team.php?id=<?php echo $row['id']; ?>';">
                                 <?php echo $row['societa'] ?>
                                 </td>
 

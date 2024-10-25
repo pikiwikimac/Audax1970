@@ -259,7 +259,7 @@ require_once('config/variables.php');
   <body>
     <!-- Navbar -->
     <div class="mb-5" id="navbar-orange">
-      <?php include 'elements/navbar_red.php'; ?>
+      <?php include 'elements/navbar.php'; ?>
     </div>
 
     <!-- Carousel di sfondo  -->

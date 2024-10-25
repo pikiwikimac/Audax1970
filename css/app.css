@@ -8,22 +8,10 @@
 
 
 a {
-  /* color: red; */
   text-decoration: none; }
 
 li {
   list-style: none; }
-
-.badge-titolo {
-  --badge--c--main: black;
-  --badge--c--bg: #ffffff;
-  --badge--c--border: black;
-  color: var(--badge--c--main);
-  background-color: var(--badge--c--bg);
-  line-height: 1.1;
-  font-weight: 700;
-  border-radius: 5px;
-  padding: .3rem .6rem; }
 
 
 .progress{
@@ -628,7 +616,7 @@ ul.user-menu {
   box-sizing: border-box; }
 
 :root {
-    --c--black: #212529;
+  --c--black: #212529;
   --c--black2: #282D3C;
   --c--white: white;
   --c--primary--light: #EAF3FD;
@@ -660,88 +648,3 @@ body {
 ::-moz-selection {
   background: var(--c--primary);
   color: var(--c--white); }
-
-
-/* html {
-  font-size: 67%;
- } 
-*/
-
-
- /*
-.badge {
---badge--c--main: black;
---badge--c--bg: #ffffff;
---badge--c--border: black;
-color: var(--badge--c--main);
-background-color: var(--badge--c--bg);
-*/
-/* border: 1px solid var(--badge--c--border);
-font-size: 3.2rem;
-line-height: 1.1;
-font-weight: 700;
-
-font-size: 1.5rem;
-padding: .3rem .6rem; }
-  .badge.badge-primary {
-    --badge--c--main: var(--c--primary);
-    --badge--c--bg: #D5E6FB;
-    --badge--c--border: #D5E6FB; }
-  .badge.badge--white {
-    --badge--c--main: #A5A5A5;
-    --badge--c--bg: #ffffff;
-    --badge--c--border: #E0E0E0; }
-  @media (max-width: 575.98px) {
-    .badge.badge-primary {
-      font-size: 2.8rem; } }
-*/
-
-
-/* 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: bold;
-  margin-top: 0;
-  margin-bottom: 1.6rem;
- }
-
-h1 {
-  font-size: 3.2rem; }
-  @media (max-width: 575.98px) {
-    h1 {
-      font-size: 2.8rem; } }
-
-h2, .h2 {
-  font-size: 2.4rem; }
-  @media (max-width: 575.98px) {
-    h2, .h2 {
-      font-size: 2.3rem; } }
-
-p {
-  margin-bottom: 2.2rem; } 
-
-*/
-/* .focus-ring-primary {
-  --bs-focus-ring-color: rgba(var(--bs-primary-rgb), var(--bs-focus-ring-opacity)); }
-
-.focus-ring-secondary {
-  --bs-focus-ring-color: rgba(var(--bs-secondary-rgb), var(--bs-focus-ring-opacity)); }
-
-.focus-ring-success {
-  --bs-focus-ring-color: rgba(var(--bs-success-rgb), var(--bs-focus-ring-opacity)); }
-
-.focus-ring-info {
-  --bs-focus-ring-color: rgba(var(--bs-info-rgb), var(--bs-focus-ring-opacity)); }
-
-.focus-ring-warning {
-  --bs-focus-ring-color: rgba(var(--bs-warning-rgb), var(--bs-focus-ring-opacity)); }
-
-.focus-ring-danger {
-  --bs-focus-ring-color: rgba(var(--bs-danger-rgb), var(--bs-focus-ring-opacity)); }
-
-.focus-ring-light {
-  --bs-focus-ring-color: rgba(var(--bs-light-rgb), var(--bs-focus-ring-opacity)); }
-
-.focus-ring-dark {
-  --bs-focus-ring-color: rgba(var(--bs-dark-rgb), var(--bs-focus-ring-opacity)); }
-
- */

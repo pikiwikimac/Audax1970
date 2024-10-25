@@ -1,8 +1,3 @@
-<?php
-// Assicurati di avere il percorso corretto
-include_once __DIR__ . '/../assets/optimole.php';
-?>
-
 <!-- Head per le pagine "admin" -->
 <head>
     <meta charset="utf-8">
