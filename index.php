@@ -47,7 +47,7 @@ require_once('config/variables.php');
 
     # QUERY
     $query2 = "
-    SELECT * FROM $vistaClassifica";
+    SELECT * FROM $vistaClassificaEsteso";
     $classifica = mysqli_query($con,$query2);
 
     # QUERY
