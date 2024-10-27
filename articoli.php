@@ -1,11 +1,15 @@
 <?php
   session_start();
+  require_once('config/db.php');
   include('admin/check_user_logged.php');
 
-  require_once('utilities/q_articoli.php');
-
-  // INIZIO QUERY usando la funzione
-  $articoli = getArticoli($con);
+  // INIZIO QUERY
+  $query = "
+  SELECT a.*, ai.descrizione as intestazione
+  FROM articoli a
+  LEFT JOIN articoli_intestazioni ai ON ai.id = a.id_intestazione
+  ORDER BY a.data_pubblicazione desc";
+  $articoli = mysqli_query($con, $query);
 ?>
 
 <!doctype html>
@@ -13,26 +17,27 @@
   <!-- Head -->
   <?php include 'elements/head_base.php'; ?>
 
-  <style>
-    .card-title {
-      font-size: 1.25rem; /* Regola la dimensione del font come preferisci */
-      line-height: 1.5; /* Regola l'altezza della linea per migliorare la leggibilità */
-      overflow: hidden; /* Nasconde il testo in eccesso */
-      text-overflow: ellipsis; /* Mostra i puntini di sospensione per il testo troncato */
-      white-space: nowrap; /* Impedisce il ritorno a capo */
-      display: block;
-      width: 100%; /* Assicura che l'elemento occupi tutto lo spazio disponibile */
-      font-family: 'Bebas Neue';
-    }
+<style>
 
-    .card-title-container {
-      display: -webkit-box;
-      -webkit-line-clamp: 2; /* Limita il numero di righe */
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-  </style>
+.card-title {
+    font-size: 1.25rem; /* Regola la dimensione del font come preferisci */
+    line-height: 1.5; /* Regola l'altezza della linea per migliorare la leggibilità */
+    overflow: hidden; /* Nasconde il testo in eccesso */
+    text-overflow: ellipsis; /* Mostra i puntini di sospensione per il testo troncato */
+    white-space: nowrap; /* Impedisce il ritorno a capo */
+    display: block;
+    width: 100%; /* Assicura che l'elemento occupi tutto lo spazio disponibile */
+    font-family: 'Bebas Neue';
+  }
+
+  .card-title-container {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limita il numero di righe */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+</style>
 
   <body>
     <!-- Navbar -->

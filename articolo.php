@@ -1,20 +1,19 @@
 <?php
   session_start();
-  require_once('utilities/q_articoli.php');
+  require_once('config/db.php');
   require_once('config/variables.php');
 
-  // Ottieni l'ID dell'articolo
   $id = $_REQUEST['id'];
 
-  // Richiama la funzione per ottenere l'articolo
-  $row = getArticoloById($con, $id);
+  $query_articoli = "
+  SELECT a.*, ai.descrizione as intestazione
+  FROM articoli a
+  LEFT JOIN articoli_intestazioni ai ON ai.id = a.id_intestazione
+  WHERE a.id='$id'";
+  
+  $articoli = mysqli_query($con, $query_articoli);
+  $row = mysqli_fetch_assoc($articoli);
 
-  // Controllo se l'articolo esiste
-  if (!$row) {
-    die("Articolo non trovato");
-  }
-
-  // Gestione dei tag
   $tags = explode(",", $row['tags']);
 
   // URL assoluto dell'immagine
@@ -23,7 +22,6 @@
   // URL della pagina corrente
   $current_url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 ?>
-
 
 <!doctype html>
 <html lang="it">
