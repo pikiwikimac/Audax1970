@@ -1,6 +1,7 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+/*@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");*/
 @import url("https://fonts.googleapis.com/css2?family=Reddit+Sans+Condensed:wght@200..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@200..700&display=swap');
 /* Miei stili personali */
 
 :root {
@@ -34,8 +35,12 @@ ul li a {
 }
 
 .navbar {
-  font-family: "Bebas Neue", cursive;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
   font-size: var(--font-size-navbar);
+  text-transform:uppercase;
 }
 
 .table {
@@ -116,7 +121,9 @@ ul li a {
 
 /* Titolo di pagina */
 .title {
-  font-family: "Bebas Neue", cursive;
+  /* font-family: "Bebas Neue", cursive; */
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-optical-sizing: auto;
   font-size: 2rem;
   color: var(--bg-color-primary);
   margin: 0;
@@ -136,7 +143,9 @@ ul li a {
 }
 
 .player {
-  font-family: "Bebas Neue", cursive;
+  /* font-family: "Bebas Neue", cursive; */
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-optical-sizing: auto;
   font-size: 1.2rem;
 }
 
@@ -149,13 +158,17 @@ ul li a {
 }
 
 .numero_maglia {
-  font-family: "Bebas Neue", cursive;
+  /* font-family: "Bebas Neue", cursive; */
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-optical-sizing: auto;
   font-size: 2.5rem;
   color: var(--bg-color-primary);
 }
 
 .sidebar_label {
-  font-family: "Bebas Neue", cursive;
+  /* font-family: "Bebas Neue", cursive; */
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-optical-sizing: auto;
 }
 
 .cursor-pointer {
@@ -163,11 +176,15 @@ ul li a {
 }
 
 #font_diverso {
-  font-family: "Bebas Neue", cursive;
+  /* font-family: "Bebas Neue", cursive; */
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-optical-sizing: auto;
 }
 
 .bebas {
-  font-family: "Bebas Neue", cursive;
+  /* font-family: "Bebas Neue", cursive; */
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-optical-sizing: auto;
 }
 
 /* Card che ruotano per gli sponsor */

@@ -27,7 +27,9 @@
     white-space: nowrap; /* Impedisce il ritorno a capo */
     display: block;
     width: 100%; /* Assicura che l'elemento occupi tutto lo spazio disponibile */
-    font-family: 'Bebas Neue';
+    /* font-family: "Bebas Neue", cursive; */
+    font-family: "Yanone Kaffeesatz", sans-serif;
+    font-optical-sizing: auto;
   }
 
   .card-title-container {
