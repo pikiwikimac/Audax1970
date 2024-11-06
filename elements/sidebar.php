@@ -48,7 +48,7 @@
 				<!-- Dashboard -->
 				<li>
 					<button class="" onclick="window.location.href = 'dashboard.php'">
-						<i class="bx bx-home" title="Dashboard"></i>
+						<i class="bi bi-house" title="Dashboard"></i>
 						<h6>Dashboard</h6>
 					</button>
 				</li>

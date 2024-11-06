@@ -441,7 +441,7 @@
                                                                     <?php echo $row['cognome'] . '  ' .$row['nome']   ?> 
                                                                     <?php
                                                                         if ($row['capitano'] == 'C' && $row['squadra_madre'] == $id_societa) {
-                                                                            echo '<i class="bi bi-copyright  float-end"></i>';
+                                                                            echo '<span class="float-end">C</span>';
                                                                         } elseif ($row['capitano'] == 'VC' && $row['squadra_madre'] == $id_societa) {
                                                                             echo '<span class="float-end">VC</span>';
                                                                         }
